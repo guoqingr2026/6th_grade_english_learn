@@ -2749,6 +2749,9 @@ function bindEvents() {
   elements.tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       setActiveTab(tab.dataset.tab);
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
     });
   });
 
@@ -2845,7 +2848,7 @@ function bindEvents() {
       const collapsed = elements.studentSidebar.classList.toggle("collapsed-on-mobile");
       elements.toggleStudentSidebar.setAttribute("aria-expanded", collapsed ? "false" : "true");
       elements.toggleStudentSidebar.textContent = collapsed
-        ? "▼ 学生档案 / 局域网同步 / 导入题库"
+        ? "▼ 同步 / 记录 / 导入导出"
         : "▲ 收起档案与设置";
     });
   }

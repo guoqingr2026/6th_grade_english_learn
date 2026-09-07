@@ -23,11 +23,13 @@
           <button type="button" id="mobileSyncBtn" class="primary-btn mobile-sync-pill">同步</button>
         </div>
         <p id="mobileLanSyncFeedback" class="mobile-quick-feedback" aria-live="polite"></p>
-        <div class="lan-access-box lan-access-mobile" id="lanAccessBoxMobile" aria-label="手机局域网访问">
-          <p class="lan-access-label">本机局域网地址（手机/iPad/Mac 同 WiFi 访问）</p>
-          <div id="lanAccessUrlListMobile" class="lan-access-url-list"></div>
-          <p id="lanAccessCopyFeedbackMobile" class="lan-access-copy-feedback" aria-live="polite"></p>
-        </div>
+        <details class="mobile-lan-fold">
+          <summary class="mobile-lan-fold-summary">局域网地址 · 点此展开复制</summary>
+          <div class="lan-access-box lan-access-mobile" id="lanAccessBoxMobile" aria-label="手机局域网访问">
+            <div id="lanAccessUrlListMobile" class="lan-access-url-list"></div>
+            <p id="lanAccessCopyFeedbackMobile" class="lan-access-copy-feedback" aria-live="polite"></p>
+          </div>
+        </details>
       </section>
 
       <section class="dashboard">

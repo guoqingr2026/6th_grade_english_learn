@@ -1,0 +1,964 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Static file server + LAN sync API (field-level merge + logs)."""
+
+from __future__ import annotations
+
+import base64
+import json
+import re
+import subprocess
+import sys
+import urllib.request
+from datetime import datetime, timezone
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import parse_qs, urlparse
+
+ROOT = Path(__file__).resolve().parent.parent
+SYNC_DIR = ROOT / "lan-sync"
+MAX_LOGS = 100
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
+
+sys.path.insert(0, str(ROOT / "scripts"))
+try:
+    import study_hub_library as hub_lib
+except ImportError:
+    hub_lib = None
+try:
+    import study_hub_admin as admin_lib
+except ImportError:
+    admin_lib = None
+
+
+def run_study_hub_refresh() -> None:
+    py = sys.executable
+    scripts = ROOT / "scripts"
+    subprocess.run([py, str(scripts / "import-word-study.py")], cwd=str(ROOT), check=True)
+    subprocess.run([py, str(scripts / "build-study-hub.py")], cwd=str(ROOT), check=True)
+
+
+def save_uploaded_word(unit: int, filename: str, raw: bytes) -> Path:
+    word_dir = ROOT / "word-sources"
+    word_dir.mkdir(parents=True, exist_ok=True)
+    safe_name = re.sub(r"[^\w\u4e00-\u9fff.\-]", "_", filename or f"Unit{unit}.docx")
+    if not any(low.endswith(ext) for ext in (".docx", ".doc", ".csv", ".txt")):
+        safe_name += ".csv"
+    if not re.search(r"unit\s*\d+", safe_name, re.I):
+        safe_name = f"Unit{unit}_课文词汇重点句型_双语学习资料.docx"
+    dest = word_dir / safe_name
+    dest.write_bytes(raw)
+    return dest
+
+
+def safe_sync_id(raw: str) -> str:
+    text = (raw or "").strip()
+    if not text:
+        return ""
+    cleaned = re.sub(r"[^\w\u4e00-\u9fff\-]", "_", text)
+    return cleaned[:64]
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+
+
+def parse_ts(value: str) -> float:
+    if not value:
+        return 0.0
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()
+    except ValueError:
+        return 0.0
+
+
+def data_path(sync_id: str) -> Path:
+    return SYNC_DIR / f"{sync_id}.json"
+
+
+def log_path(sync_id: str) -> Path:
+    return SYNC_DIR / f"{sync_id}-logs.json"
+
+
+def load_logs(sync_id: str) -> list:
+    path = log_path(sync_id)
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def save_logs(sync_id: str, logs: list) -> None:
+    SYNC_DIR.mkdir(parents=True, exist_ok=True)
+    trimmed = logs[-MAX_LOGS:]
+    log_path(sync_id).write_text(json.dumps(trimmed, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def append_log(sync_id: str, entry: dict) -> list:
+    logs = load_logs(sync_id)
+    logs.append(entry)
+    save_logs(sync_id, logs)
+    return logs[-20:]
+
+
+STAT_NUM_KEYS = (
+    "correct",
+    "wrong",
+    "attempts",
+    "points",
+    "highestPoints",
+    "highestAccumulated",
+    "accumulatedPoints",
+    "behaviorPointsTotal",
+    "redeemedTotal",
+)
+
+
+def _as_int(value) -> int:
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def merge_stats(a: dict | None, b: dict | None) -> dict:
+    left = dict(a or {})
+    right = dict(b or {})
+    out = {**left, **right}
+    for key in STAT_NUM_KEYS:
+        out[key] = max(_as_int(left.get(key)), _as_int(right.get(key)))
+    for key in ("lastPracticeAt", "lastCompoundDate", "lastSpendDate"):
+        left_val = str(left.get(key) or "")
+        right_val = str(right.get(key) or "")
+        out[key] = max(left_val, right_val) if left_val and right_val else (left_val or right_val)
+    return out
+
+
+def merge_unique_strings(items_a, items_b) -> list:
+    seen: set[str] = set()
+    out: list = []
+    for item in list(items_a or []) + list(items_b or []):
+        key = str(item)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+    return out
+
+
+def merge_rewarded(a: dict | None, b: dict | None) -> dict:
+    left = a or {}
+    right = b or {}
+    cats = set(left.keys()) | set(right.keys())
+    return {cat: merge_unique_strings(left.get(cat), right.get(cat)) for cat in cats}
+
+
+def merge_by_id(items_a, items_b, id_key: str = "id") -> list:
+    merged: dict[str, dict] = {}
+    for item in list(items_a or []) + list(items_b or []):
+        if not isinstance(item, dict):
+            continue
+        key = str(item.get(id_key) or item.get("time") or json.dumps(item, sort_keys=True, ensure_ascii=False))
+        merged[key] = {**merged.get(key, {}), **item}
+    return list(merged.values())
+
+
+def merge_wrong_book_items(items_a, items_b) -> list:
+    merged: dict[str, dict] = {}
+    for item in list(items_a or []) + list(items_b or []):
+        if not isinstance(item, dict):
+            continue
+        key = f"{item.get('module', '')}|{item.get('prompt', '')}"
+        merged[key] = {**merged.get(key, {}), **item}
+    return list(merged.values())
+
+
+def merge_custom_banks(a: dict | None, b: dict | None) -> dict:
+    left = a or {}
+    right = b or {}
+    return {
+        "quiz": merge_by_id(left.get("quiz"), right.get("quiz")),
+        "fillblank": merge_by_id(left.get("fillblank"), right.get("fillblank")),
+        "writing": merge_by_id(left.get("writing"), right.get("writing")),
+    }
+
+
+def merge_knowledge_pages(pages_a, pages_b) -> list:
+    merged: dict[str, dict] = {}
+    for item in list(pages_a or []) + list(pages_b or []):
+        if not isinstance(item, dict):
+            continue
+        page_id = str(item.get("id") or "")
+        if not page_id:
+            continue
+        prev = merged.get(page_id, {})
+        body_prev = str(prev.get("bodyHtml") or "")
+        body_new = str(item.get("bodyHtml") or "")
+        winner = item if len(body_new) >= len(body_prev) else prev
+        merged[page_id] = {**prev, **item, **winner}
+    return list(merged.values())
+
+
+def merge_knowledge_custom(a: dict | None, b: dict | None) -> dict | None:
+    if not a and not b:
+        return None
+    left = dict(a or {})
+    right = dict(b or {})
+    out = {**left, **right}
+    unit_map: dict[int, dict] = {}
+    for bank in (left, right):
+        for unit in bank.get("units") or []:
+            if not isinstance(unit, dict):
+                continue
+            unit_num = _as_int(unit.get("unit"))
+            entry = unit_map.setdefault(unit_num, {"unit": unit_num, "pages": []})
+            entry["pages"] = merge_knowledge_pages(entry.get("pages"), unit.get("pages"))
+    out["units"] = sorted(unit_map.values(), key=lambda item: _as_int(item.get("unit")))
+    appendix_pages: list = []
+    for bank in (left, right):
+        appendix = bank.get("appendix") or {}
+        appendix_pages = merge_knowledge_pages(appendix_pages, appendix.get("pages"))
+    if appendix_pages:
+        out["appendix"] = {**(left.get("appendix") or right.get("appendix") or {}), "pages": appendix_pages}
+    return out
+
+
+def merge_mastery_progress(a: dict | None, b: dict | None) -> dict:
+    left = dict(a or {})
+    right = dict(b or {})
+    out = {**left, **right}
+    parts: dict[str, dict] = {}
+    for bank in (left, right):
+        for part_id, record in (bank.get("parts") or {}).items():
+            if not isinstance(record, dict):
+                continue
+            prev = parts.get(part_id, {})
+            parts[part_id] = {**prev, **record}
+            if record.get("passed"):
+                parts[part_id]["passed"] = True
+            parts[part_id]["bestScore"] = max(_as_int(prev.get("bestScore")), _as_int(record.get("bestScore")))
+    out["parts"] = parts
+    return out
+
+
+def merge_logs(items_a, items_b, limit: int = 200) -> list:
+    merged = list(items_a or []) + list(items_b or [])
+    seen: set[str] = set()
+    out: list = []
+    for item in reversed(merged):
+        if not isinstance(item, dict):
+            continue
+        key = f"{item.get('time', '')}|{item.get('type', item.get('action', ''))}|{item.get('message', item.get('result', ''))}"
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+        if len(out) >= limit:
+            break
+    return list(reversed(out))
+
+
+def payload_body(payload: dict | None) -> dict:
+    body = dict(payload or {})
+    body.pop("updatedAt", None)
+    return body
+
+
+def payloads_equal(left: dict | None, right: dict | None) -> bool:
+    return json.dumps(payload_body(left), sort_keys=True, ensure_ascii=False) == json.dumps(
+        payload_body(right), sort_keys=True, ensure_ascii=False
+    )
+
+
+def merge_sync_payload(client_payload: dict, server_payload: dict | None) -> dict:
+    if not server_payload:
+        return dict(client_payload)
+    server = server_payload
+    client = client_payload
+    merged = {
+        "version": max(_as_int(client.get("version")), _as_int(server.get("version"))),
+        "updatedAt": str(server.get("updatedAt") or client.get("updatedAt") or now_iso()),
+        "stats": merge_stats(client.get("stats"), server.get("stats")),
+        "studentProfile": {**(server.get("studentProfile") or {}), **(client.get("studentProfile") or {})},
+        "wrongQuizIds": merge_unique_strings(client.get("wrongQuizIds"), server.get("wrongQuizIds")),
+        "challengeLogs": merge_logs(client.get("challengeLogs"), server.get("challengeLogs")),
+        "redeemLogs": merge_logs(client.get("redeemLogs"), server.get("redeemLogs")),
+        "journalEntries": merge_by_id(client.get("journalEntries"), server.get("journalEntries"), "time"),
+        "wrongBookItems": merge_wrong_book_items(client.get("wrongBookItems"), server.get("wrongBookItems")),
+        "leaderboard": merge_by_id(client.get("leaderboard"), server.get("leaderboard"), "name"),
+        "behaviorLogs": merge_logs(client.get("behaviorLogs"), server.get("behaviorLogs")),
+        "badges": merge_by_id(client.get("badges"), server.get("badges"), "id"),
+        "rewarded": merge_rewarded(client.get("rewarded"), server.get("rewarded")),
+        "customBanks": merge_custom_banks(client.get("customBanks"), server.get("customBanks")),
+        "studyHubNotes": {**(server.get("studyHubNotes") or {}), **(client.get("studyHubNotes") or {})},
+        "studyHubState": {**(server.get("studyHubState") or {}), **(client.get("studyHubState") or {})},
+        "studyHubKnowledgeCustom": merge_knowledge_custom(
+            client.get("studyHubKnowledgeCustom"),
+            server.get("studyHubKnowledgeCustom"),
+        ),
+        "masteryProgress": merge_mastery_progress(client.get("masteryProgress"), server.get("masteryProgress")),
+    }
+    return merged
+
+
+def make_log(action: str, device: str, message: str, winner_at: str) -> dict:
+    return {
+        "time": now_iso(),
+        "device": device or "未知设备",
+        "action": action,
+        "message": message,
+        "updatedAt": winner_at,
+    }
+
+
+def merge_payload(sync_id: str, client_payload: dict, device: str) -> dict:
+    SYNC_DIR.mkdir(parents=True, exist_ok=True)
+    client_device = device or "未知设备"
+    file_path = data_path(sync_id)
+
+    if not file_path.exists():
+        payload = dict(client_payload)
+        payload["updatedAt"] = payload.get("updatedAt") or now_iso()
+        file_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        entry = make_log(
+            "initialized",
+            client_device,
+            "首次同步，已建立班级数据副本",
+            str(payload.get("updatedAt", "")),
+        )
+        recent = append_log(sync_id, entry)
+        return {"action": "initialized", "payload": payload, "log": entry, "logs": recent}
+
+    server_payload = json.loads(file_path.read_text(encoding="utf-8"))
+    merged = merge_sync_payload(client_payload, server_payload)
+    if payloads_equal(merged, server_payload):
+        action = "same"
+        entry = make_log(
+            "same",
+            client_device,
+            "数据已是最新，无需变更",
+            str(server_payload.get("updatedAt", "")),
+        )
+        recent = append_log(sync_id, entry)
+        return {"action": action, "payload": server_payload, "log": entry, "logs": recent}
+    merged["updatedAt"] = now_iso()
+    file_path.write_text(json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
+    entry = make_log(
+        "merged",
+        client_device,
+        "已合并本机与班级数据（积分、错题、精讲等双向同步）",
+        str(merged.get("updatedAt", "")),
+    )
+    recent = append_log(sync_id, entry)
+    return {"action": "merged", "payload": merged, "log": entry, "logs": recent}
+
+
+class LanHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(ROOT), **kwargs)
+
+    def end_headers(self):
+        path = urlparse(self.path).path
+        if (
+            path.startswith("/data/study-hub/")
+            or path.endswith("/study-hub.js")
+            or path.startswith("/assets/images/textbook/pages/")
+            or path.startswith("/data/study-hub/library/media/")
+        ):
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+            self.send_header("Pragma", "no-cache")
+            self.send_header("Expires", "0")
+        super().end_headers()
+
+    def log_message(self, fmt, *args):
+        if str(args[0]).startswith("GET /api/"):
+            return
+        super().log_message(fmt, *args)
+
+    def send_json(self, code: int, payload: dict) -> None:
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def read_json_body(self) -> dict:
+        length = int(self.headers.get("Content-Length", 0))
+        raw = self.rfile.read(length) if length else b"{}"
+        text = raw.decode("utf-8-sig", errors="replace")
+        return json.loads(text)
+
+    def read_raw_body(self) -> str:
+        length = int(self.headers.get("Content-Length", 0))
+        raw = self.rfile.read(length) if length else b""
+        text = raw.decode("utf-8-sig", errors="replace")
+        return hub_lib.sanitize_text(text) if hub_lib else text
+
+    def client_ip(self) -> str:
+        return self.client_address[0] or ""
+
+    def admin_pin_from_request(self, qs: dict | None = None) -> str:
+        header_pin = (self.headers.get("X-Admin-Pin") or "").strip()
+        if header_pin:
+            return header_pin
+        if qs:
+            return str(qs.get("adminPin", [""])[0]).strip()
+        return ""
+
+    def queue_or_apply_save(
+        self,
+        kind: str,
+        content: str,
+        meta: dict,
+        admin_pin: str = "",
+        device: str = "",
+    ) -> dict:
+        if not admin_lib:
+            return self.handle_save_page(kind, content, **meta)
+        if admin_lib.should_queue_edit(self.client_ip(), admin_pin):
+            summary = f"{kind} · {meta.get('pageId') or meta.get('scope', '')} p{meta.get('png', '')}"
+            entry = admin_lib.queue_pending_edit(
+                {
+                    "kind": kind,
+                    "content": content,
+                    "meta": meta,
+                    "device": device or self.headers.get("User-Agent", "")[:80],
+                    "clientIp": self.client_ip(),
+                    "summary": summary,
+                }
+            )
+            return {
+                "ok": True,
+                "pending": True,
+                "pendingId": entry.get("id"),
+                "message": "已提交主机管理员审核，批准后将写入数据库",
+            }
+        return self.handle_save_page(kind, content, **meta)
+
+    def apply_pending_edit(self, entry: dict) -> dict:
+        if not hub_lib:
+            raise RuntimeError("library module missing")
+        kind = str(entry.get("kind") or "")
+        content = str(entry.get("content") or "")
+        meta = entry.get("meta") if isinstance(entry.get("meta"), dict) else {}
+        if kind == "reading":
+            return self.handle_save_page(
+                "reading",
+                content,
+                unit=int(meta.get("unit") or 1),
+                png=int(meta.get("png") or 0),
+                scope=str(meta.get("scope") or "unit"),
+            )
+        if kind == "knowledge":
+            return self.handle_save_page(
+                "knowledge",
+                content,
+                page_id=str(meta.get("page_id") or meta.get("pageId") or "").strip(),
+            )
+        if kind == "import-csv":
+            return hub_lib.import_csv_to_library(content, int(meta.get("unit") or 1))
+        raise ValueError("unsupported pending kind")
+
+    def handle_save_page(
+        self,
+        kind: str,
+        content: str,
+        unit: int = 1,
+        png: int = 0,
+        page_id: str = "",
+        scope: str = "unit",
+    ) -> dict:
+        if not hub_lib:
+            raise RuntimeError("library module missing")
+        if kind == "reading":
+            content = hub_lib.normalize_knowledge_content(content)
+        elif kind == "knowledge":
+            content = hub_lib.normalize_knowledge_content(content)
+        else:
+            raise ValueError("invalid kind")
+        if not content:
+            raise ValueError("empty content")
+        if kind == "reading":
+            if png <= 0:
+                raise ValueError("png required")
+            path = hub_lib.save_reading_page(unit, png, content, scope=scope)
+            csv_path = hub_lib.unit_csv_path(unit) if scope == "unit" else None
+            return {
+                "ok": True,
+                "path": str(path.relative_to(ROOT)),
+                "printedPage": hub_lib.printed_page_for_png(png),
+                "scope": scope,
+                "csvSynced": bool(csv_path and csv_path.exists()),
+                "csvPath": str(csv_path.relative_to(ROOT)) if csv_path and csv_path.exists() else "",
+            }
+        if kind == "knowledge":
+            if not page_id:
+                raise ValueError("pageId required")
+            path = hub_lib.save_knowledge_page(page_id, content)
+            return {"ok": True, "path": str(path.relative_to(ROOT))}
+        raise ValueError("invalid kind")
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Admin-Pin")
+        self.end_headers()
+
+    def do_GET(self):
+        parsed = urlparse(self.path)
+        if parsed.path == "/api/ping":
+            self.send_json(
+                200,
+                {
+                    "ok": True,
+                    "service": "lan-sync",
+                    "studyHubApi": 3,
+                    "features": [
+                        "save-page",
+                        "save-page-raw",
+                        "import-csv",
+                        "library-page",
+                        "upload-media",
+                        "admin-approval",
+                    ],
+                    "isLocalClient": admin_lib.is_local_client_ip(self.client_ip()) if admin_lib else False,
+                },
+            )
+            return
+        if parsed.path == "/api/study-hub/admin/config":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            cfg = admin_lib.load_admin_config()
+            self.send_json(
+                200,
+                {
+                    "ok": True,
+                    "requireRemoteApproval": bool(cfg.get("requireRemoteApproval")),
+                    "hasAdminPin": bool(cfg.get("adminPinHash")),
+                    "isLocalClient": admin_lib.is_local_client_ip(self.client_ip()),
+                },
+            )
+            return
+        if parsed.path == "/api/study-hub/admin/pending":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            qs = parse_qs(parsed.query)
+            pin = self.admin_pin_from_request(qs)
+            if not admin_lib.is_local_client_ip(self.client_ip()) and not admin_lib.verify_admin_pin(pin):
+                self.send_json(403, {"error": "需要主机管理员密码"})
+                return
+            self.send_json(200, {"ok": True, "items": admin_lib.list_pending_edits()})
+            return
+        if parsed.path == "/api/sync/logs":
+            sync_id = safe_sync_id(parse_qs(parsed.query).get("syncId", [""])[0])
+            if not sync_id:
+                self.send_json(400, {"error": "missing syncId"})
+                return
+            logs = load_logs(sync_id)
+            self.send_json(200, {"logs": logs[-20:]})
+            return
+        if parsed.path == "/api/sync":
+            sync_id = safe_sync_id(parse_qs(parsed.query).get("syncId", [""])[0])
+            if not sync_id:
+                self.send_json(400, {"error": "missing syncId"})
+                return
+            file_path = data_path(sync_id)
+            if not file_path.exists():
+                self.send_json(404, {"error": "not found"})
+                return
+            data = json.loads(file_path.read_text(encoding="utf-8"))
+            self.send_json(200, data)
+            return
+        if parsed.path == "/api/study-hub/refresh":
+            try:
+                run_study_hub_refresh()
+                self.send_json(200, {"ok": True, "message": "已从 word-sources CSV 刷新讲读与精讲内容"})
+            except subprocess.CalledProcessError as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/library-page":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            qs = parse_qs(parsed.query)
+            kind = str(qs.get("kind", ["reading"])[0])
+            if kind == "reading":
+                unit = int(qs.get("unit", ["1"])[0])
+                png = int(qs.get("png", ["0"])[0])
+                scope = str(qs.get("scope", ["unit"])[0])
+                body = hub_lib.read_reading_library(unit, png, scope=scope)
+                printed = hub_lib.printed_page_for_png(png)
+                self.send_json(200, {"ok": True, "exists": body is not None, "html": body or "", "printedPage": printed, "scope": scope})
+                return
+            if kind == "knowledge":
+                page_id = str(qs.get("pageId", [""])[0]).strip()
+                if not page_id:
+                    self.send_json(400, {"error": "pageId required"})
+                    return
+                path = hub_lib.knowledge_library_path(page_id)
+                body = hub_lib.read_library_html(path)
+                self.send_json(200, {"ok": True, "exists": body is not None, "html": body or ""})
+                return
+            self.send_json(400, {"error": "invalid kind"})
+            return
+        super().do_GET()
+
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        if parsed.path == "/api/sync/merge":
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            sync_id = safe_sync_id(str(body.get("syncId", "")))
+            payload = body.get("payload")
+            if not sync_id or not isinstance(payload, dict):
+                self.send_json(400, {"error": "syncId and payload required"})
+                return
+            device = str(body.get("device", "")).strip()
+            result = merge_payload(sync_id, payload, device)
+            self.send_json(200, result)
+            return
+        if parsed.path == "/api/sync":
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            sync_id = safe_sync_id(str(body.get("syncId", "")))
+            payload = body.get("payload")
+            if not sync_id or not isinstance(payload, dict):
+                self.send_json(400, {"error": "syncId and payload required"})
+                return
+            SYNC_DIR.mkdir(parents=True, exist_ok=True)
+            data_path(sync_id).write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            self.send_json(200, {"ok": True, "syncId": sync_id, "updatedAt": payload.get("updatedAt", "")})
+            return
+        if parsed.path == "/api/study-hub/refresh":
+            try:
+                run_study_hub_refresh()
+                self.send_json(200, {"ok": True, "message": "已从 word-sources CSV 刷新讲读与精讲内容"})
+            except subprocess.CalledProcessError as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/upload-word":
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            unit = int(body.get("unit") or 1)
+            filename = str(body.get("filename") or "").strip()
+            data_b64 = str(body.get("data") or "").strip()
+            if not data_b64:
+                self.send_json(400, {"error": "no file data"})
+                return
+            try:
+                raw = base64.b64decode(data_b64)
+            except Exception:
+                self.send_json(400, {"error": "invalid base64"})
+                return
+            try:
+                dest = save_uploaded_word(unit, filename, raw)
+                run_study_hub_refresh()
+                self.send_json(200, {"ok": True, "message": f"已导入 {dest.name} 并刷新", "path": str(dest)})
+            except subprocess.CalledProcessError as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/fetch-url":
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            url = str(body.get("url", "")).strip()
+            if not url.startswith(("http://", "https://")):
+                self.send_json(400, {"error": "invalid url"})
+                return
+            req = urllib.request.Request(url, headers={"User-Agent": "StudyHub/1.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                html = resp.read().decode("utf-8", errors="ignore")
+            text = re.sub(r"<script[\s\S]*?</script>", "", html, flags=re.I)
+            text = re.sub(r"<style[\s\S]*?</style>", "", text, flags=re.I)
+            text = re.sub(r"<[^>]+>", "\n", text)
+            text = re.sub(r"\n{3,}", "\n\n", text).strip()
+            paras = [f"<p>{line.strip()}</p>" for line in text.split("\n") if line.strip()][:80]
+            self.send_json(200, {"ok": True, "bodyHtml": "\n".join(paras)})
+            return
+        if parsed.path == "/api/study-hub/save-page":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "请求 JSON 无法解析，请用 启动.bat 重启服务后重试"})
+                return
+            try:
+                kind = str(body.get("kind", "reading"))
+                content = str(body.get("html") or body.get("text") or "")
+                admin_pin = str(body.get("adminPin") or self.headers.get("X-Admin-Pin") or "").strip()
+                device = str(body.get("device") or "").strip()
+                if kind == "reading":
+                    result = self.queue_or_apply_save(
+                        "reading",
+                        content,
+                        {
+                            "unit": int(body.get("unit") or 1),
+                            "png": int(body.get("png") or 0),
+                            "scope": str(body.get("scope") or "unit"),
+                        },
+                        admin_pin=admin_pin,
+                        device=device,
+                    )
+                elif kind == "knowledge":
+                    result = self.queue_or_apply_save(
+                        "knowledge",
+                        content,
+                        {"page_id": str(body.get("pageId") or "").strip()},
+                        admin_pin=admin_pin,
+                        device=device,
+                    )
+                else:
+                    self.send_json(400, {"error": "invalid kind"})
+                    return
+                self.send_json(200, result)
+            except ValueError as e:
+                self.send_json(400, {"ok": False, "error": str(e)})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/save-page-raw":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            qs = parse_qs(parsed.query)
+            kind = str(qs.get("kind", ["reading"])[0])
+            admin_pin = self.admin_pin_from_request(qs)
+            device = str(qs.get("device", [""])[0]).strip()
+            try:
+                content = self.read_raw_body()
+                if kind == "reading":
+                    result = self.queue_or_apply_save(
+                        "reading",
+                        content,
+                        {
+                            "unit": int(qs.get("unit", ["1"])[0]),
+                            "png": int(qs.get("png", ["0"])[0]),
+                            "scope": str(qs.get("scope", ["unit"])[0]),
+                        },
+                        admin_pin=admin_pin,
+                        device=device,
+                    )
+                elif kind == "knowledge":
+                    result = self.queue_or_apply_save(
+                        "knowledge",
+                        content,
+                        {"page_id": str(qs.get("pageId", [""])[0]).strip()},
+                        admin_pin=admin_pin,
+                        device=device,
+                    )
+                else:
+                    self.send_json(400, {"error": "invalid kind"})
+                    return
+                self.send_json(200, result)
+            except ValueError as e:
+                self.send_json(400, {"ok": False, "error": str(e)})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/import-csv":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            unit = int(body.get("unit") or 1)
+            csv_text = str(body.get("csv") or body.get("text") or "").strip()
+            admin_pin = str(body.get("adminPin") or self.headers.get("X-Admin-Pin") or "").strip()
+            if not csv_text:
+                self.send_json(400, {"error": "no csv data"})
+                return
+            try:
+                if admin_lib and admin_lib.should_queue_edit(self.client_ip(), admin_pin):
+                    entry = admin_lib.queue_pending_edit(
+                        {
+                            "kind": "import-csv",
+                            "content": csv_text,
+                            "meta": {"unit": unit},
+                            "device": str(body.get("device") or ""),
+                            "clientIp": self.client_ip(),
+                            "summary": f"CSV 导入 Unit {unit}",
+                        }
+                    )
+                    self.send_json(
+                        200,
+                        {
+                            "ok": True,
+                            "pending": True,
+                            "pendingId": entry.get("id"),
+                            "message": "CSV 已提交审核，批准后写入数据库",
+                        },
+                    )
+                    return
+                result = hub_lib.import_csv_to_library(csv_text, unit)
+                self.send_json(200, result)
+            except ValueError as e:
+                self.send_json(400, {"ok": False, "error": str(e)})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/upload-media":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            name = str(body.get("filename") or "upload.bin")
+            b64 = str(body.get("data") or "")
+            if not b64:
+                self.send_json(400, {"error": "no data"})
+                return
+            try:
+                raw = base64.b64decode(b64)
+            except Exception:
+                self.send_json(400, {"error": "invalid base64"})
+                return
+            if len(raw) > 12 * 1024 * 1024:
+                self.send_json(400, {"error": "file too large (max 12MB)"})
+                return
+            try:
+                path = hub_lib.save_media_file(name, raw)
+                rel = str(path.relative_to(ROOT)).replace("\\", "/")
+                self.send_json(200, {"ok": True, "url": f"/{rel}", "path": rel})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/save-student-audio":
+            if not hub_lib:
+                self.send_json(500, {"error": "library module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            name = str(body.get("filename") or "recording.mp3")
+            b64 = str(body.get("data") or "")
+            if not b64:
+                self.send_json(400, {"error": "no data"})
+                return
+            try:
+                raw = base64.b64decode(b64)
+            except Exception:
+                self.send_json(400, {"error": "invalid base64"})
+                return
+            if len(raw) > 24 * 1024 * 1024:
+                self.send_json(400, {"error": "file too large (max 24MB)"})
+                return
+            try:
+                path = hub_lib.save_student_audio(name, raw)
+                rel = str(path.relative_to(ROOT)).replace("\\", "/")
+                self.send_json(200, {"ok": True, "url": f"/{rel}", "path": rel})
+            except Exception as e:
+                self.send_json(500, {"ok": False, "error": str(e)})
+            return
+        if parsed.path == "/api/study-hub/admin/setup":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            pin = str(body.get("adminPin") or "").strip()
+            if len(pin) < 4:
+                self.send_json(400, {"error": "管理员密码至少 4 位"})
+                return
+            cfg = admin_lib.load_admin_config()
+            if cfg.get("adminPinHash") and not admin_lib.is_local_client_ip(self.client_ip()):
+                old = str(body.get("currentAdminPin") or "").strip()
+                if not admin_lib.verify_admin_pin(old):
+                    self.send_json(403, {"error": "当前管理员密码错误"})
+                    return
+            saved = admin_lib.setup_admin_pin(pin, bool(body.get("requireRemoteApproval", True)))
+            self.send_json(200, {"ok": True, "requireRemoteApproval": saved.get("requireRemoteApproval")})
+            return
+        if parsed.path == "/api/study-hub/admin/approve":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            pin = str(body.get("adminPin") or self.headers.get("X-Admin-Pin") or "").strip()
+            if not admin_lib.verify_admin_pin(pin):
+                self.send_json(403, {"error": "管理员密码错误"})
+                return
+            edit_id = str(body.get("id") or "").strip()
+            entry = admin_lib.get_pending_edit(edit_id)
+            if not entry or entry.get("status") != "pending":
+                self.send_json(404, {"error": "待审核项不存在"})
+                return
+            result = self.apply_pending_edit(entry)
+            admin_lib.mark_pending_edit(edit_id, "approved")
+            self.send_json(200, {"ok": True, "result": result})
+            return
+        if parsed.path == "/api/study-hub/admin/reject":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            pin = str(body.get("adminPin") or self.headers.get("X-Admin-Pin") or "").strip()
+            if not admin_lib.verify_admin_pin(pin):
+                self.send_json(403, {"error": "管理员密码错误"})
+                return
+            edit_id = str(body.get("id") or "").strip()
+            if not admin_lib.mark_pending_edit(edit_id, "rejected"):
+                self.send_json(404, {"error": "待审核项不存在"})
+                return
+            self.send_json(200, {"ok": True})
+            return
+        self.send_error(404)
+
+
+def main() -> None:
+    SYNC_DIR.mkdir(parents=True, exist_ok=True)
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), LanHandler)
+    print(f"[LAN] Static + sync server: http://0.0.0.0:{PORT}")
+    print(f"[LAN] Study Hub API v3 (save-page / import-csv / library / upload-media)")
+    print(f"[LAN] Sync folder: {SYNC_DIR}")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n[LAN] Server stopped.")
+
+
+if __name__ == "__main__":
+    main()

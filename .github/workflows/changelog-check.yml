@@ -1,0 +1,49 @@
+# Require CHANGELOG update when application code or data changes.
+name: Changelog check
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect relevant file changes
+        id: changes
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          CHANGED=$(git diff --name-only "$BASE" "$HEAD" || true)
+          echo "$CHANGED" > /tmp/changed.txt
+          NEED=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            case "$f" in
+              CHANGELOG.md|CONTRIBUTING.md|README*.md|FINAL_PRODUCT_MANUAL.md|PARENT_GUIDE.md|DEPLOY.md|release/*|.github/pull_request_template.md)
+                ;;
+              *.md)
+                ;;
+              *)
+                NEED=1
+                break
+                ;;
+            esac
+          done < /tmp/changed.txt
+          echo "need_changelog=$NEED" >> "$GITHUB_OUTPUT"
+
+      - name: Verify CHANGELOG.md was updated
+        if: steps.changes.outputs.need_changelog == '1'
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          if git diff --name-only "$BASE" "$HEAD" | grep -qx 'CHANGELOG.md'; then
+            echo "CHANGELOG.md updated — OK"
+            exit 0
+          fi
+          echo "::error::Code/data changed but CHANGELOG.md [Unreleased] was not updated. See CONTRIBUTING.md"
+          exit 1

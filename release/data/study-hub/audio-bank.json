@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "description": "官方课文/听力 MP3，与 reading-bank 页面 id 对应",
+  "tracks": [
+    {
+      "id": "u1-part-a-lets-talk",
+      "pageId": "u1-part-a",
+      "unit": 1,
+      "part": "part-a",
+      "label": "Unit 1A — Let's talk",
+      "title": "课文听力 · Let's talk",
+      "src": "assets/audios/Unit 1A - Let's talk.mp3"
+    }
+  ]
+}

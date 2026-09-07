@@ -1,0 +1,4659 @@
+{
+  "version": 3,
+  "title": "课文中英文讲读",
+  "description": "内容来自 word-sources Word 资料 · 页码与课本图一一对应",
+  "intro": {
+    "title": "开篇与目录",
+    "pages": [
+      {
+        "id": "intro-cover",
+        "label": "封面",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-001.png",
+        "pdfPages": [
+          1
+        ],
+        "pageContents": [
+          {
+            "page": 1,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "English",
+                "zh": "英语",
+                "type": "title"
+              },
+              {
+                "en": "Grade 6",
+                "zh": "六年级",
+                "type": "line"
+              },
+              {
+                "en": "Book 1",
+                "zh": "上册",
+                "type": "line"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "English",
+            "zh": "英语",
+            "type": "title"
+          },
+          {
+            "en": "Grade 6",
+            "zh": "六年级",
+            "type": "line"
+          },
+          {
+            "en": "Book 1",
+            "zh": "上册",
+            "type": "line"
+          }
+        ]
+      },
+      {
+        "id": "intro-inner-cover",
+        "label": "内封",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-002.png",
+        "pdfPages": [
+          2
+        ],
+        "pageContents": [
+          {
+            "page": 2,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "inner-cover",
+                "zh": "见左侧课本图",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "inner-cover",
+            "zh": "见左侧课本图",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "intro-copyright",
+        "label": "版权页",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-003.png",
+        "pdfPages": [
+          3
+        ],
+        "pageContents": [
+          {
+            "page": 3,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "copyright",
+                "zh": "见左侧课本图",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "copyright",
+            "zh": "见左侧课本图",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "intro-foreword",
+        "label": "致同学",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-004.png",
+        "pdfPages": [
+          4
+        ],
+        "pageContents": [
+          {
+            "page": 4,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "致同学",
+                "zh": "随着新学期的开始，你们将进入小学阶段的最后一年。在这本书里，你们将和老朋友们一起了解丰富多彩的中外文化，学习独立思考和多角度地看待事物。想学好英语，一定要多听、多说、多读、多看、多写。愿你们和书里的小主人公一起享受小学生活的美好时光。",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "致同学",
+            "zh": "随着新学期的开始，你们将进入小学阶段的最后一年。在这本书里，你们将和老朋友们一起了解丰富多彩的中外文化，学习独立思考和多角度地看待事物。想学好英语，一定要多听、多说、多读、多看、多写。愿你们和书里的小主人公一起享受小学生活的美好时光。",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "intro-contents-1",
+        "label": "目录（一）",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-005.png",
+        "pdfPages": [
+          5,
+          6
+        ],
+        "pageContents": [
+          {
+            "page": 5,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Contents",
+                "zh": "目录",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Contents",
+            "zh": "目录",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "intro-contents-2",
+        "label": "目录（二）",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-007.png",
+        "pdfPages": [
+          7
+        ],
+        "pageContents": [
+          {
+            "page": 7,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Contents",
+                "zh": "目录",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Contents",
+            "zh": "目录",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "intro-overview",
+        "label": "语法与拓展总览",
+        "part": "intro",
+        "image": "assets/images/textbook/pages/page-008.png",
+        "pdfPages": [
+          8
+        ],
+        "pageContents": [
+          {
+            "page": 8,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Grammar and Extended Reading Overview",
+                "zh": "语法与拓展阅读总览",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Grammar and Extended Reading Overview",
+            "zh": "语法与拓展阅读总览",
+            "type": "title"
+          }
+        ]
+      }
+    ]
+  },
+  "units": [
+    {
+      "unit": 1,
+      "title": "Unit 1 Amazing places",
+      "titleZh": "奇妙之地",
+      "bookPageStart": 2,
+      "pngSequence": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "bookPageMap": {
+        "9": 2,
+        "10": 3,
+        "11": 4,
+        "12": 5,
+        "13": 6,
+        "14": 7,
+        "15": 8,
+        "16": 9,
+        "17": 10,
+        "18": 11,
+        "19": 12,
+        "20": 13
+      },
+      "pages": [
+        {
+          "id": "u1-unit-start",
+          "label": "Unit 1 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-009.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            9
+          ],
+          "pageContents": [
+            {
+              "page": 9,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 1 Amazing landmarks",
+                  "zh": "第一单元 壮美的地标",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 1 Amazing landmarks",
+              "zh": "第一单元 壮美的地标",
+              "page": 9,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u1-unit-next",
+          "label": "Unit 1 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-010.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            10
+          ],
+          "pageContents": [
+            {
+              "page": 10,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u1-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-011.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            11,
+            12
+          ],
+          "pageContents": [
+            {
+              "page": 11,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "What famous landmarks do you know?",
+                  "zh": "你知道哪些著名的地标？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "Zhang Peng: Hi Peter! How was your weekend?",
+                  "zh": "张鹏：嗨，彼得！你周末过得怎么样？",
+                  "bookPage": 4
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "What famous landmarks do you know?",
+              "zh": "你知道哪些著名的地标？",
+              "page": 11,
+              "bookPage": 4
+            },
+            {
+              "en": "Zhang Peng: Hi Peter! How was your weekend?",
+              "zh": "张鹏：嗨，彼得！你周末过得怎么样？",
+              "page": 11,
+              "bookPage": 4
+            }
+          ]
+        },
+        {
+          "id": "u1-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-013.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "pageContents": [
+            {
+              "page": 13,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Where did you go over the summer holidays?",
+                  "zh": "你暑假去哪儿了？",
+                  "tts": "Where did you go over the summer holidays?"
+                },
+                {
+                  "en": "I went to Xi'an with my family.",
+                  "zh": "我和家人去了西安。",
+                  "tts": "I went to Xi'an with my family."
+                },
+                {
+                  "en": "What did you do there?",
+                  "zh": "你们在那儿做了什么？",
+                  "tts": "What did you do there?"
+                }
+              ]
+            },
+            {
+              "page": 14,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "We went to see the Terracotta Warriors.",
+                  "zh": "我们去看了兵马俑。",
+                  "tts": "We went to see the Terracotta Warriors."
+                },
+                {
+                  "en": "Did you climb the Great Wall?",
+                  "zh": "你爬长城了吗？",
+                  "tts": "Did you climb the Great Wall?"
+                },
+                {
+                  "en": "Yes, I did.",
+                  "zh": "是的，我爬了。",
+                  "tts": "Yes, I did."
+                }
+              ]
+            },
+            {
+              "page": 15,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "No, I didn't.",
+                  "zh": "不，我没有。",
+                  "tts": "No, I didn't."
+                },
+                {
+                  "en": "The Great Wall is 21,000 kilometres in all.",
+                  "zh": "长城全长 21000 公里。",
+                  "tts": "The Great Wall is 21,000 kilometres in all."
+                },
+                {
+                  "en": "There are over seven thousand clay warriors and one hundred horses.",
+                  "zh": "那里有七千多个陶俑和一百匹马。",
+                  "tts": "There are over seven thousand clay warriors and one hundred horses."
+                }
+              ]
+            },
+            {
+              "page": 16,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "The stories were really inspiring.",
+                  "zh": "那些故事非常鼓舞人心。",
+                  "tts": "The stories were really inspiring."
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Where did you go over the summer holidays?",
+              "zh": "你暑假去哪儿了？",
+              "tts": "Where did you go over the summer holidays?"
+            },
+            {
+              "en": "I went to Xi'an with my family.",
+              "zh": "我和家人去了西安。",
+              "tts": "I went to Xi'an with my family."
+            },
+            {
+              "en": "What did you do there?",
+              "zh": "你们在那儿做了什么？",
+              "tts": "What did you do there?"
+            },
+            {
+              "en": "We went to see the Terracotta Warriors.",
+              "zh": "我们去看了兵马俑。",
+              "tts": "We went to see the Terracotta Warriors."
+            },
+            {
+              "en": "Did you climb the Great Wall?",
+              "zh": "你爬长城了吗？",
+              "tts": "Did you climb the Great Wall?"
+            },
+            {
+              "en": "Yes, I did.",
+              "zh": "是的，我爬了。",
+              "tts": "Yes, I did."
+            },
+            {
+              "en": "No, I didn't.",
+              "zh": "不，我没有。",
+              "tts": "No, I didn't."
+            },
+            {
+              "en": "The Great Wall is 21,000 kilometres in all.",
+              "zh": "长城全长 21000 公里。",
+              "tts": "The Great Wall is 21,000 kilometres in all."
+            },
+            {
+              "en": "There are over seven thousand clay warriors and one hundred horses.",
+              "zh": "那里有七千多个陶俑和一百匹马。",
+              "tts": "There are over seven thousand clay warriors and one hundred horses."
+            },
+            {
+              "en": "The stories were really inspiring.",
+              "zh": "那些故事非常鼓舞人心。",
+              "tts": "The stories were really inspiring."
+            }
+          ]
+        },
+        {
+          "id": "u1-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-017.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            17,
+            18
+          ],
+          "pageContents": [
+            {
+              "page": 17,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "I climbed the Great Wall last weekend.",
+                  "zh": "我上周末爬了长城。",
+                  "tts": "I climbed the Great Wall last weekend."
+                },
+                {
+                  "en": "I didn't go to Beijing.",
+                  "zh": "我没去北京。",
+                  "tts": "I didn't go to Beijing."
+                },
+                {
+                  "en": "Did you climb the Great Wall? — Yes, I did.",
+                  "zh": "你爬长城了吗？— 是的。",
+                  "tts": "Did you climb the Great Wall? — Yes, I did."
+                },
+                {
+                  "en": "What did you do? — I went to Xi'an.",
+                  "zh": "你做了什么？— 我去了西安。",
+                  "tts": "What did you do? — I went to Xi'an."
+                },
+                {
+                  "en": "动词变成过去式：climb→climbed, visit→visited",
+                  "zh": "语法提示",
+                  "type": "hint",
+                  "tts": "动词变成过去式：climb→climbed, visit→visited"
+                },
+                {
+                  "en": "否定用 didn't + 动词原形",
+                  "zh": "语法提示",
+                  "type": "hint",
+                  "tts": "否定用 didn't + 动词原形"
+                },
+                {
+                  "en": "疑问用 Did + 主语 + 动词原形?",
+                  "zh": "语法提示",
+                  "type": "hint",
+                  "tts": "疑问用 Did + 主语 + 动词原形?"
+                }
+              ]
+            },
+            {
+              "page": 18,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "不规则动词：go→went, see→saw, eat→ate, take→took",
+                  "zh": "语法提示",
+                  "type": "hint",
+                  "tts": "不规则动词：go→went, see→saw, eat→ate, take→took"
+                },
+                {
+                  "en": "用过去时写一句：你上周末做了什么？",
+                  "zh": "挑战练习（请口头或书面完成）",
+                  "type": "challenge",
+                  "tts": "用过去时写一句：你上周末做了什么？"
+                },
+                {
+                  "en": "写出 3 个不规则动词过去式：go→___  see→___  eat→___",
+                  "zh": "挑战练习（请口头或书面完成）",
+                  "type": "challenge",
+                  "tts": "写出 3 个不规则动词过去式：go→___ see→___ eat→___"
+                },
+                {
+                  "en": "填空：I ___ (visit) the Great Wall last year.",
+                  "zh": "挑战练习（请口头或书面完成）",
+                  "type": "challenge",
+                  "tts": "填空：I ___ (visit) the Great Wall last year."
+                },
+                {
+                  "en": "翻译：你暑假去哪儿了？",
+                  "zh": "挑战练习（请口头或书面完成）",
+                  "type": "challenge",
+                  "tts": "翻译：你暑假去哪儿了？"
+                },
+                {
+                  "en": "用 by + 交通工具造句：",
+                  "zh": "挑战练习（请口头或书面完成）",
+                  "type": "challenge",
+                  "tts": "用 by + 交通工具造句："
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "I climbed the Great Wall last weekend.",
+              "zh": "我上周末爬了长城。",
+              "tts": "I climbed the Great Wall last weekend."
+            },
+            {
+              "en": "I didn't go to Beijing.",
+              "zh": "我没去北京。",
+              "tts": "I didn't go to Beijing."
+            },
+            {
+              "en": "Did you climb the Great Wall? — Yes, I did.",
+              "zh": "你爬长城了吗？— 是的。",
+              "tts": "Did you climb the Great Wall? — Yes, I did."
+            },
+            {
+              "en": "What did you do? — I went to Xi'an.",
+              "zh": "你做了什么？— 我去了西安。",
+              "tts": "What did you do? — I went to Xi'an."
+            },
+            {
+              "en": "动词变成过去式：climb→climbed, visit→visited",
+              "zh": "语法提示",
+              "type": "hint",
+              "tts": "动词变成过去式：climb→climbed, visit→visited"
+            },
+            {
+              "en": "否定用 didn't + 动词原形",
+              "zh": "语法提示",
+              "type": "hint",
+              "tts": "否定用 didn't + 动词原形"
+            },
+            {
+              "en": "疑问用 Did + 主语 + 动词原形?",
+              "zh": "语法提示",
+              "type": "hint",
+              "tts": "疑问用 Did + 主语 + 动词原形?"
+            },
+            {
+              "en": "不规则动词：go→went, see→saw, eat→ate, take→took",
+              "zh": "语法提示",
+              "type": "hint",
+              "tts": "不规则动词：go→went, see→saw, eat→ate, take→took"
+            },
+            {
+              "en": "用过去时写一句：你上周末做了什么？",
+              "zh": "挑战练习（请口头或书面完成）",
+              "type": "challenge",
+              "tts": "用过去时写一句：你上周末做了什么？"
+            },
+            {
+              "en": "写出 3 个不规则动词过去式：go→___  see→___  eat→___",
+              "zh": "挑战练习（请口头或书面完成）",
+              "type": "challenge",
+              "tts": "写出 3 个不规则动词过去式：go→___ see→___ eat→___"
+            },
+            {
+              "en": "填空：I ___ (visit) the Great Wall last year.",
+              "zh": "挑战练习（请口头或书面完成）",
+              "type": "challenge",
+              "tts": "填空：I ___ (visit) the Great Wall last year."
+            },
+            {
+              "en": "翻译：你暑假去哪儿了？",
+              "zh": "挑战练习（请口头或书面完成）",
+              "type": "challenge",
+              "tts": "翻译：你暑假去哪儿了？"
+            },
+            {
+              "en": "用 by + 交通工具造句：",
+              "zh": "挑战练习（请口头或书面完成）",
+              "type": "challenge",
+              "tts": "用 by + 交通工具造句："
+            }
+          ]
+        },
+        {
+          "id": "u1-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-019.png",
+          "fallbackImage": "assets/images/unit1-travel.svg",
+          "pdfPages": [
+            19,
+            20
+          ],
+          "pageContents": [
+            {
+              "page": 19,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "My Trip to Xi'an",
+                  "zh": "阅读篇目",
+                  "type": "title",
+                  "tts": "My Trip to Xi'an"
+                },
+                {
+                  "en": "Last summer, Chen Jie went to Xi'an with her family.",
+                  "zh": "去年夏天，陈洁和家人去了西安",
+                  "tts": "Last summer, Chen Jie went to Xi'an with her family."
+                },
+                {
+                  "en": "They ate famous Xi'an noodles and visited the Terracotta Warriors.",
+                  "zh": "他们吃了著名的西安面条，参观了兵马俑",
+                  "tts": "They ate famous Xi'an noodles and visited the Terracotta Warriors."
+                }
+              ]
+            },
+            {
+              "page": 20,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "There were over seven thousand clay warriors.",
+                  "zh": "那里有超过七千个陶俑",
+                  "tts": "There were over seven thousand clay warriors."
+                },
+                {
+                  "en": "Sarah went to the Jinggangshan Revolution Museum.",
+                  "zh": "萨拉去了井冈山革命博物馆",
+                  "tts": "Sarah went to the Jinggangshan Revolution Museum."
+                },
+                {
+                  "en": "The stories were really inspiring.",
+                  "zh": "那些故事非常鼓舞人心",
+                  "tts": "The stories were really inspiring."
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "My Trip to Xi'an",
+              "zh": "阅读篇目",
+              "type": "title",
+              "tts": "My Trip to Xi'an"
+            },
+            {
+              "en": "Last summer, Chen Jie went to Xi'an with her family.",
+              "zh": "去年夏天，陈洁和家人去了西安",
+              "tts": "Last summer, Chen Jie went to Xi'an with her family."
+            },
+            {
+              "en": "They ate famous Xi'an noodles and visited the Terracotta Warriors.",
+              "zh": "他们吃了著名的西安面条，参观了兵马俑",
+              "tts": "They ate famous Xi'an noodles and visited the Terracotta Warriors."
+            },
+            {
+              "en": "There were over seven thousand clay warriors.",
+              "zh": "那里有超过七千个陶俑",
+              "tts": "There were over seven thousand clay warriors."
+            },
+            {
+              "en": "Sarah went to the Jinggangshan Revolution Museum.",
+              "zh": "萨拉去了井冈山革命博物馆",
+              "tts": "Sarah went to the Jinggangshan Revolution Museum."
+            },
+            {
+              "en": "The stories were really inspiring.",
+              "zh": "那些故事非常鼓舞人心",
+              "tts": "The stories were really inspiring."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Unit 2 Getting together",
+      "titleZh": "欢聚一堂",
+      "bookPageStart": 2,
+      "pngSequence": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "bookPageMap": {
+        "21": 2,
+        "22": 3,
+        "23": 4,
+        "24": 5,
+        "25": 6,
+        "26": 7,
+        "27": 8,
+        "28": 9,
+        "29": 10,
+        "30": 11,
+        "31": 12,
+        "32": 13
+      },
+      "pages": [
+        {
+          "id": "u2-unit-start",
+          "label": "Unit 2 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-021.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            21
+          ],
+          "pageContents": [
+            {
+              "page": 21,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 2 Getting together",
+                  "zh": "欢聚一堂",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 2 Getting together",
+              "zh": "欢聚一堂",
+              "page": 21,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u2-unit-next",
+          "label": "Unit 2 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-022.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            22
+          ],
+          "pageContents": [
+            {
+              "page": 22,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u2-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-023.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            23,
+            24
+          ],
+          "pageContents": [
+            {
+              "page": 23,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "— How was your Mid-Autumn Festival holiday, Binbin?",
+                  "zh": "— 你中秋假期过得怎么样？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— Did you eat mooncakes?",
+                  "zh": "— 你们吃月饼了吗？",
+                  "bookPage": 4
+                }
+              ]
+            },
+            {
+              "page": 24,
+              "bookPage": 5,
+              "sentences": [
+                {
+                  "en": "— Yes, we did. / No, we didn't.",
+                  "zh": "— 是的。/ 不，没有。",
+                  "bookPage": 5
+                },
+                {
+                  "en": "— What did you do for the Spring Festival?",
+                  "zh": "— 你春节做了什么？",
+                  "bookPage": 5
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How was your Mid-Autumn Festival holiday, Binbin?",
+              "zh": "— 你中秋假期过得怎么样？",
+              "page": 23,
+              "bookPage": 4
+            },
+            {
+              "en": "— Did you eat mooncakes?",
+              "zh": "— 你们吃月饼了吗？",
+              "page": 23,
+              "bookPage": 4
+            },
+            {
+              "en": "— Yes, we did. / No, we didn't.",
+              "zh": "— 是的。/ 不，没有。",
+              "page": 24,
+              "bookPage": 5
+            },
+            {
+              "en": "— What did you do for the Spring Festival?",
+              "zh": "— 你春节做了什么？",
+              "page": 24,
+              "bookPage": 5
+            }
+          ]
+        },
+        {
+          "id": "u2-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-025.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            25,
+            26,
+            27,
+            28
+          ],
+          "pageContents": [
+            {
+              "page": 25,
+              "bookPage": 6,
+              "sentences": [
+                {
+                  "en": "— Did you take a trip?",
+                  "zh": "— 你们去旅行了吗？",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— What did you like about it?",
+                  "zh": "— 你喜欢哪一点？",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— I liked watching the runners.",
+                  "zh": "— 我喜欢看跑步的人。",
+                  "bookPage": 6
+                }
+              ]
+            },
+            {
+              "page": 26,
+              "bookPage": 7,
+              "sentences": [
+                {
+                  "en": "My dad and I cleaned the house.",
+                  "zh": "我爸爸和我打扫了房子。",
+                  "bookPage": 7
+                },
+                {
+                  "en": "We dressed in red and counted down to the new year.",
+                  "zh": "我们穿红衣，倒计时迎接新年。",
+                  "bookPage": 7
+                },
+                {
+                  "en": "We enjoyed some mooncakes and fruit.",
+                  "zh": "我们吃了美味的月饼和水果。",
+                  "bookPage": 7
+                }
+              ]
+            },
+            {
+              "page": 27,
+              "bookPage": 8,
+              "sentences": [
+                {
+                  "en": "We can paste fu and eat jiaozi together.",
+                  "zh": "我们可以一起贴福字、吃饺子。",
+                  "bookPage": 8
+                },
+                {
+                  "en": "Finally, his team won the race!",
+                  "zh": "最后，他的队伍赢得了比赛！",
+                  "bookPage": 8
+                },
+                {
+                  "en": "It was the best Dragon Boat Festival ever!",
+                  "zh": "这是有史以来最好的端午节！",
+                  "bookPage": 8
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— Did you take a trip?",
+              "zh": "— 你们去旅行了吗？",
+              "page": 25,
+              "bookPage": 6
+            },
+            {
+              "en": "— What did you like about it?",
+              "zh": "— 你喜欢哪一点？",
+              "page": 25,
+              "bookPage": 6
+            },
+            {
+              "en": "— I liked watching the runners.",
+              "zh": "— 我喜欢看跑步的人。",
+              "page": 25,
+              "bookPage": 6
+            },
+            {
+              "en": "My dad and I cleaned the house.",
+              "zh": "我爸爸和我打扫了房子。",
+              "page": 26,
+              "bookPage": 7
+            },
+            {
+              "en": "We dressed in red and counted down to the new year.",
+              "zh": "我们穿红衣，倒计时迎接新年。",
+              "page": 26,
+              "bookPage": 7
+            },
+            {
+              "en": "We enjoyed some mooncakes and fruit.",
+              "zh": "我们吃了美味的月饼和水果。",
+              "page": 26,
+              "bookPage": 7
+            },
+            {
+              "en": "We can paste fu and eat jiaozi together.",
+              "zh": "我们可以一起贴福字、吃饺子。",
+              "page": 27,
+              "bookPage": 8
+            },
+            {
+              "en": "Finally, his team won the race!",
+              "zh": "最后，他的队伍赢得了比赛！",
+              "page": 27,
+              "bookPage": 8
+            },
+            {
+              "en": "It was the best Dragon Boat Festival ever!",
+              "zh": "这是有史以来最好的端午节！",
+              "page": 27,
+              "bookPage": 8
+            }
+          ]
+        },
+        {
+          "id": "u2-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-029.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            29,
+            30
+          ],
+          "pageContents": [
+            {
+              "page": 29,
+              "bookPage": 10,
+              "sentences": [
+                {
+                  "en": "Did you eat mooncakes? — Yes, we did.",
+                  "zh": "你们吃月饼了吗？— 是的。",
+                  "bookPage": 10
+                },
+                {
+                  "en": "Did you take a trip? — No, we didn't.",
+                  "zh": "你们去旅行了吗？— 没有。",
+                  "bookPage": 10
+                }
+              ]
+            },
+            {
+              "page": 30,
+              "bookPage": 11,
+              "sentences": [
+                {
+                  "en": "clean → cleaned    paste → pasted",
+                  "zh": "规则动词加 -ed",
+                  "bookPage": 11
+                },
+                {
+                  "en": "run → ran    eat → ate",
+                  "zh": "不规则动词要牢记",
+                  "bookPage": 11
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Did you eat mooncakes? — Yes, we did.",
+              "zh": "你们吃月饼了吗？— 是的。",
+              "page": 29,
+              "bookPage": 10
+            },
+            {
+              "en": "Did you take a trip? — No, we didn't.",
+              "zh": "你们去旅行了吗？— 没有。",
+              "page": 29,
+              "bookPage": 10
+            },
+            {
+              "en": "clean → cleaned    paste → pasted",
+              "zh": "规则动词加 -ed",
+              "page": 30,
+              "bookPage": 11
+            },
+            {
+              "en": "run → ran    eat → ate",
+              "zh": "不规则动词要牢记",
+              "page": 30,
+              "bookPage": 11
+            }
+          ]
+        },
+        {
+          "id": "u2-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-031.png",
+          "fallbackImage": "assets/images/unit2-festival.svg",
+          "pdfPages": [
+            31,
+            32
+          ],
+          "pageContents": [
+            {
+              "page": 31,
+              "bookPage": 12,
+              "sentences": [
+                {
+                  "en": "The Spring Festival was great fun! My family cleaned the house and pasted fu on the door.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "We dressed in red and waited for the Spring Festival Gala.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "We counted down to the new year.",
+                  "zh": "",
+                  "bookPage": 12
+                }
+              ]
+            },
+            {
+              "page": 32,
+              "bookPage": 13,
+              "sentences": [
+                {
+                  "en": "We enjoyed mooncakes and fruit.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "It was the best festival ever!",
+                  "zh": "",
+                  "bookPage": 13
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "The Spring Festival was great fun! My family cleaned the house and pasted fu on the door.",
+              "zh": "",
+              "page": 31,
+              "bookPage": 12
+            },
+            {
+              "en": "We dressed in red and waited for the Spring Festival Gala.",
+              "zh": "",
+              "page": 31,
+              "bookPage": 12
+            },
+            {
+              "en": "We counted down to the new year.",
+              "zh": "",
+              "page": 31,
+              "bookPage": 12
+            },
+            {
+              "en": "We enjoyed mooncakes and fruit.",
+              "zh": "",
+              "page": 32,
+              "bookPage": 13
+            },
+            {
+              "en": "It was the best festival ever!",
+              "zh": "",
+              "page": 32,
+              "bookPage": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Unit 3 Healthy life",
+      "titleZh": "健康生活",
+      "bookPageStart": 2,
+      "pngSequence": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "bookPageMap": {
+        "33": 2,
+        "34": 3,
+        "35": 4,
+        "36": 5,
+        "37": 6,
+        "38": 7,
+        "39": 8,
+        "40": 9,
+        "41": 10,
+        "42": 11,
+        "43": 12,
+        "44": 13
+      },
+      "pages": [
+        {
+          "id": "u3-unit-start",
+          "label": "Unit 3 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-033.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            33
+          ],
+          "pageContents": [
+            {
+              "page": 33,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 3 Healthy life",
+                  "zh": "健康生活",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 3 Healthy life",
+              "zh": "健康生活",
+              "page": 33,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u3-unit-next",
+          "label": "Unit 3 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-034.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            34
+          ],
+          "pageContents": [
+            {
+              "page": 34,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u3-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-035.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            35,
+            36
+          ],
+          "pageContents": [
+            {
+              "page": 35,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "— How do you feel?",
+                  "zh": "— 你感觉怎么样？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— I feel ill. My head hurts and I have a runny nose.",
+                  "zh": "— 我感觉不舒服。我头痛还流鼻涕。",
+                  "bookPage": 4
+                }
+              ]
+            },
+            {
+              "page": 36,
+              "bookPage": 5,
+              "sentences": [
+                {
+                  "en": "— Maybe you should see a doctor.",
+                  "zh": "— 也许你应该去看医生。",
+                  "bookPage": 5
+                },
+                {
+                  "en": "— You shouldn't stay up late.",
+                  "zh": "— 你不应该熬夜。",
+                  "bookPage": 5
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How do you feel?",
+              "zh": "— 你感觉怎么样？",
+              "page": 35,
+              "bookPage": 4
+            },
+            {
+              "en": "— I feel ill. My head hurts and I have a runny nose.",
+              "zh": "— 我感觉不舒服。我头痛还流鼻涕。",
+              "page": 35,
+              "bookPage": 4
+            },
+            {
+              "en": "— Maybe you should see a doctor.",
+              "zh": "— 也许你应该去看医生。",
+              "page": 36,
+              "bookPage": 5
+            },
+            {
+              "en": "— You shouldn't stay up late.",
+              "zh": "— 你不应该熬夜。",
+              "page": 36,
+              "bookPage": 5
+            }
+          ]
+        },
+        {
+          "id": "u3-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-037.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            37,
+            38,
+            39,
+            40
+          ],
+          "pageContents": [
+            {
+              "page": 37,
+              "bookPage": 6,
+              "sentences": [
+                {
+                  "en": "— How can we live a healthy life?",
+                  "zh": "— 我们怎样过健康生活？",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— We need to eat healthy food. We should exercise too.",
+                  "zh": "— 我们需要吃健康食物，还应该运动。",
+                  "bookPage": 6
+                }
+              ]
+            },
+            {
+              "page": 38,
+              "bookPage": 7,
+              "sentences": [
+                {
+                  "en": "— What are you going to do?",
+                  "zh": "— 你打算做什么？",
+                  "bookPage": 7
+                },
+                {
+                  "en": "— I'm going to see a doctor.",
+                  "zh": "— 我打算去看医生。",
+                  "bookPage": 7
+                }
+              ]
+            },
+            {
+              "page": 39,
+              "bookPage": 8,
+              "sentences": [
+                {
+                  "en": "My mum is going to take me to hospital this afternoon.",
+                  "zh": "我妈妈今天下午要带我去医院。",
+                  "bookPage": 8
+                },
+                {
+                  "en": "Health is having a good body and feeling happy.",
+                  "zh": "健康是拥有健康的身体和快乐的心情。",
+                  "bookPage": 8
+                }
+              ]
+            },
+            {
+              "page": 40,
+              "bookPage": 9,
+              "sentences": [
+                {
+                  "en": "Exercise may cheer you up!",
+                  "zh": "运动可能会让你振作起来！",
+                  "bookPage": 9
+                },
+                {
+                  "en": "I also joined a ping-pong club and made some new friends.",
+                  "zh": "我还加入了乒乓球俱乐部，交了一些新朋友。",
+                  "bookPage": 9
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How can we live a healthy life?",
+              "zh": "— 我们怎样过健康生活？",
+              "page": 37,
+              "bookPage": 6
+            },
+            {
+              "en": "— We need to eat healthy food. We should exercise too.",
+              "zh": "— 我们需要吃健康食物，还应该运动。",
+              "page": 37,
+              "bookPage": 6
+            },
+            {
+              "en": "— What are you going to do?",
+              "zh": "— 你打算做什么？",
+              "page": 38,
+              "bookPage": 7
+            },
+            {
+              "en": "— I'm going to see a doctor.",
+              "zh": "— 我打算去看医生。",
+              "page": 38,
+              "bookPage": 7
+            },
+            {
+              "en": "My mum is going to take me to hospital this afternoon.",
+              "zh": "我妈妈今天下午要带我去医院。",
+              "page": 39,
+              "bookPage": 8
+            },
+            {
+              "en": "Health is having a good body and feeling happy.",
+              "zh": "健康是拥有健康的身体和快乐的心情。",
+              "page": 39,
+              "bookPage": 8
+            },
+            {
+              "en": "Exercise may cheer you up!",
+              "zh": "运动可能会让你振作起来！",
+              "page": 40,
+              "bookPage": 9
+            },
+            {
+              "en": "I also joined a ping-pong club and made some new friends.",
+              "zh": "我还加入了乒乓球俱乐部，交了一些新朋友。",
+              "page": 40,
+              "bookPage": 9
+            }
+          ]
+        },
+        {
+          "id": "u3-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-041.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            41,
+            42
+          ],
+          "pageContents": [
+            {
+              "page": 41,
+              "bookPage": 10,
+              "sentences": [
+                {
+                  "en": "You should exercise.",
+                  "zh": "你应该锻炼。",
+                  "bookPage": 10
+                },
+                {
+                  "en": "You shouldn't stay up late.",
+                  "zh": "你不应该熬夜。",
+                  "bookPage": 10
+                }
+              ]
+            },
+            {
+              "page": 42,
+              "bookPage": 11,
+              "sentences": [
+                {
+                  "en": "I am going to see a doctor.",
+                  "zh": "我打算去看医生。",
+                  "bookPage": 11
+                },
+                {
+                  "en": "My head hurts.",
+                  "zh": "我头痛。（一般现在时）",
+                  "bookPage": 11
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "You should exercise.",
+              "zh": "你应该锻炼。",
+              "page": 41,
+              "bookPage": 10
+            },
+            {
+              "en": "You shouldn't stay up late.",
+              "zh": "你不应该熬夜。",
+              "page": 41,
+              "bookPage": 10
+            },
+            {
+              "en": "I am going to see a doctor.",
+              "zh": "我打算去看医生。",
+              "page": 42,
+              "bookPage": 11
+            },
+            {
+              "en": "My head hurts.",
+              "zh": "我头痛。（一般现在时）",
+              "page": 42,
+              "bookPage": 11
+            }
+          ]
+        },
+        {
+          "id": "u3-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-043.png",
+          "fallbackImage": "assets/images/unit3-health.svg",
+          "pdfPages": [
+            43,
+            44
+          ],
+          "pageContents": [
+            {
+              "page": 43,
+              "bookPage": 12,
+              "sentences": [
+                {
+                  "en": "Health is very important.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "You should eat healthy food and exercise often.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "You shouldn't stay up late.",
+                  "zh": "",
+                  "bookPage": 12
+                }
+              ]
+            },
+            {
+              "page": 44,
+              "bookPage": 13,
+              "sentences": [
+                {
+                  "en": "If you feel ill, you should see a doctor.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "Think about happy things and join clubs.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "Let's live a healthy life together!",
+                  "zh": "",
+                  "bookPage": 13
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Health is very important.",
+              "zh": "",
+              "page": 43,
+              "bookPage": 12
+            },
+            {
+              "en": "You should eat healthy food and exercise often.",
+              "zh": "",
+              "page": 43,
+              "bookPage": 12
+            },
+            {
+              "en": "You shouldn't stay up late.",
+              "zh": "",
+              "page": 43,
+              "bookPage": 12
+            },
+            {
+              "en": "If you feel ill, you should see a doctor.",
+              "zh": "",
+              "page": 44,
+              "bookPage": 13
+            },
+            {
+              "en": "Think about happy things and join clubs.",
+              "zh": "",
+              "page": 44,
+              "bookPage": 13
+            },
+            {
+              "en": "Let's live a healthy life together!",
+              "zh": "",
+              "page": 44,
+              "bookPage": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Unit 4 Managing money well",
+      "titleZh": "善于理财",
+      "bookPageStart": 2,
+      "pngSequence": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "bookPageMap": {
+        "45": 2,
+        "46": 3,
+        "47": 4,
+        "48": 5,
+        "49": 6,
+        "50": 7,
+        "51": 8,
+        "52": 9,
+        "53": 10,
+        "54": 11,
+        "55": 12,
+        "56": 13
+      },
+      "pages": [
+        {
+          "id": "u4-unit-start",
+          "label": "Unit 4 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-045.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            45
+          ],
+          "pageContents": [
+            {
+              "page": 45,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 4 Managing money well",
+                  "zh": "善于理财",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 4 Managing money well",
+              "zh": "善于理财",
+              "page": 45,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u4-unit-next",
+          "label": "Unit 4 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-046.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            46
+          ],
+          "pageContents": [
+            {
+              "page": 46,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u4-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-047.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            47,
+            48
+          ],
+          "pageContents": [
+            {
+              "page": 47,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "— How are you going to spend your pocket money?",
+                  "zh": "— 你打算怎么花零花钱？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— I am going to buy a schoolbag.",
+                  "zh": "— 我打算买一个书包。",
+                  "bookPage": 4
+                }
+              ]
+            },
+            {
+              "page": 48,
+              "bookPage": 5,
+              "sentences": [
+                {
+                  "en": "— We use money to buy goods.",
+                  "zh": "— 我们用钱买商品。",
+                  "bookPage": 5
+                },
+                {
+                  "en": "— We use money to pay for services.",
+                  "zh": "— 我们用钱支付服务。",
+                  "bookPage": 5
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How are you going to spend your pocket money?",
+              "zh": "— 你打算怎么花零花钱？",
+              "page": 47,
+              "bookPage": 4
+            },
+            {
+              "en": "— I am going to buy a schoolbag.",
+              "zh": "— 我打算买一个书包。",
+              "page": 47,
+              "bookPage": 4
+            },
+            {
+              "en": "— We use money to buy goods.",
+              "zh": "— 我们用钱买商品。",
+              "page": 48,
+              "bookPage": 5
+            },
+            {
+              "en": "— We use money to pay for services.",
+              "zh": "— 我们用钱支付服务。",
+              "page": 48,
+              "bookPage": 5
+            }
+          ]
+        },
+        {
+          "id": "u4-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-049.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            49,
+            50,
+            51,
+            52
+          ],
+          "pageContents": [
+            {
+              "page": 49,
+              "bookPage": 6,
+              "sentences": [
+                {
+                  "en": "— I also want to buy some books.",
+                  "zh": "— 我还想买一些书。",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— I need to save more.",
+                  "zh": "— 我需要多存钱。",
+                  "bookPage": 6
+                }
+              ]
+            },
+            {
+              "page": 50,
+              "bookPage": 7,
+              "sentences": [
+                {
+                  "en": "— Should I also buy some ice cream?",
+                  "zh": "— 我也应该买冰淇淋吗？",
+                  "bookPage": 7
+                },
+                {
+                  "en": "— Sure, but don't eat too much.",
+                  "zh": "— 当然，但不要吃太多。",
+                  "bookPage": 7
+                }
+              ]
+            },
+            {
+              "page": 51,
+              "bookPage": 8,
+              "sentences": [
+                {
+                  "en": "— I have 50 yuan. What should I do?",
+                  "zh": "— 我有 50 元。我应该怎么办？",
+                  "bookPage": 8
+                },
+                {
+                  "en": "— Maybe you can wait for a sale.",
+                  "zh": "— 也许你可以等打折。",
+                  "bookPage": 8
+                }
+              ]
+            },
+            {
+              "page": 52,
+              "bookPage": 9,
+              "sentences": [
+                {
+                  "en": "Mike is going to save up for a computer.",
+                  "zh": "迈克打算攒钱买电脑。",
+                  "bookPage": 9
+                },
+                {
+                  "en": "Liu Jia is going to wait for a sale.",
+                  "zh": "刘佳打算等打折再买。",
+                  "bookPage": 9
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— I also want to buy some books.",
+              "zh": "— 我还想买一些书。",
+              "page": 49,
+              "bookPage": 6
+            },
+            {
+              "en": "— I need to save more.",
+              "zh": "— 我需要多存钱。",
+              "page": 49,
+              "bookPage": 6
+            },
+            {
+              "en": "— Should I also buy some ice cream?",
+              "zh": "— 我也应该买冰淇淋吗？",
+              "page": 50,
+              "bookPage": 7
+            },
+            {
+              "en": "— Sure, but don't eat too much.",
+              "zh": "— 当然，但不要吃太多。",
+              "page": 50,
+              "bookPage": 7
+            },
+            {
+              "en": "— I have 50 yuan. What should I do?",
+              "zh": "— 我有 50 元。我应该怎么办？",
+              "page": 51,
+              "bookPage": 8
+            },
+            {
+              "en": "— Maybe you can wait for a sale.",
+              "zh": "— 也许你可以等打折。",
+              "page": 51,
+              "bookPage": 8
+            },
+            {
+              "en": "Mike is going to save up for a computer.",
+              "zh": "迈克打算攒钱买电脑。",
+              "page": 52,
+              "bookPage": 9
+            },
+            {
+              "en": "Liu Jia is going to wait for a sale.",
+              "zh": "刘佳打算等打折再买。",
+              "page": 52,
+              "bookPage": 9
+            }
+          ]
+        },
+        {
+          "id": "u4-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-053.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            53,
+            54
+          ],
+          "pageContents": [
+            {
+              "page": 53,
+              "bookPage": 10,
+              "sentences": [
+                {
+                  "en": "How are you going to spend it?",
+                  "zh": "你打算怎么花？",
+                  "bookPage": 10
+                },
+                {
+                  "en": "I am going to buy a schoolbag.",
+                  "zh": "我打算买书包。",
+                  "bookPage": 10
+                }
+              ]
+            },
+            {
+              "page": 54,
+              "bookPage": 11,
+              "sentences": [
+                {
+                  "en": "I want to buy some books.",
+                  "zh": "我想买书。",
+                  "bookPage": 11
+                },
+                {
+                  "en": "I need to save more.",
+                  "zh": "我需要多存钱。",
+                  "bookPage": 11
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "How are you going to spend it?",
+              "zh": "你打算怎么花？",
+              "page": 53,
+              "bookPage": 10
+            },
+            {
+              "en": "I am going to buy a schoolbag.",
+              "zh": "我打算买书包。",
+              "page": 53,
+              "bookPage": 10
+            },
+            {
+              "en": "I want to buy some books.",
+              "zh": "我想买书。",
+              "page": 54,
+              "bookPage": 11
+            },
+            {
+              "en": "I need to save more.",
+              "zh": "我需要多存钱。",
+              "page": 54,
+              "bookPage": 11
+            }
+          ]
+        },
+        {
+          "id": "u4-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-055.png",
+          "fallbackImage": "assets/images/unit4-money.svg",
+          "pdfPages": [
+            55,
+            56
+          ],
+          "pageContents": [
+            {
+              "page": 55,
+              "bookPage": 12,
+              "sentences": [
+                {
+                  "en": "I get some pocket money every month.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "I am going to save half of it in my piggy bank.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "I want to save up for a new basketball.",
+                  "zh": "",
+                  "bookPage": 12
+                }
+              ]
+            },
+            {
+              "page": 56,
+              "bookPage": 13,
+              "sentences": [
+                {
+                  "en": "I also want to buy some books on sale.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "I shouldn't waste money on things I don't need.",
+                  "zh": "",
+                  "bookPage": 13
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "I get some pocket money every month.",
+              "zh": "",
+              "page": 55,
+              "bookPage": 12
+            },
+            {
+              "en": "I am going to save half of it in my piggy bank.",
+              "zh": "",
+              "page": 55,
+              "bookPage": 12
+            },
+            {
+              "en": "I want to save up for a new basketball.",
+              "zh": "",
+              "page": 55,
+              "bookPage": 12
+            },
+            {
+              "en": "I also want to buy some books on sale.",
+              "zh": "",
+              "page": 56,
+              "bookPage": 13
+            },
+            {
+              "en": "I shouldn't waste money on things I don't need.",
+              "zh": "",
+              "page": 56,
+              "bookPage": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "Unit 5 Exploring space",
+      "titleZh": "探索太空",
+      "bookPageStart": 2,
+      "pngSequence": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "bookPageMap": {
+        "57": 2,
+        "58": 3,
+        "59": 4,
+        "60": 5,
+        "61": 6,
+        "62": 7,
+        "63": 8,
+        "64": 9,
+        "65": 10,
+        "66": 11,
+        "67": 12,
+        "68": 13
+      },
+      "pages": [
+        {
+          "id": "u5-unit-start",
+          "label": "Unit 5 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-057.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            57
+          ],
+          "pageContents": [
+            {
+              "page": 57,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 5 Exploring space",
+                  "zh": "探索太空",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 5 Exploring space",
+              "zh": "探索太空",
+              "page": 57,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u5-unit-next",
+          "label": "Unit 5 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-058.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            58
+          ],
+          "pageContents": [
+            {
+              "page": 58,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u5-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-059.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            59,
+            60
+          ],
+          "pageContents": [
+            {
+              "page": 59,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "— How can we explore space?",
+                  "zh": "— 我们怎样探索太空？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— We can use telescopes.",
+                  "zh": "— 我们可以使用望远镜。",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— What can we see in space?",
+                  "zh": "— 我们在太空中能看到什么？",
+                  "bookPage": 4
+                }
+              ]
+            },
+            {
+              "page": 60,
+              "bookPage": 5,
+              "sentences": [
+                {
+                  "en": "— We can see stars, planets and the moon.",
+                  "zh": "— 我们能看到星星、行星和月亮。",
+                  "bookPage": 5
+                },
+                {
+                  "en": "— There is a big rocket in the museum.",
+                  "zh": "— 博物馆里有一个大火箭。",
+                  "bookPage": 5
+                },
+                {
+                  "en": "There are eight planets in our solar system.",
+                  "zh": "我们的太阳系有八颗行星。",
+                  "bookPage": 5
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How can we explore space?",
+              "zh": "— 我们怎样探索太空？",
+              "page": 59,
+              "bookPage": 4
+            },
+            {
+              "en": "— We can use telescopes.",
+              "zh": "— 我们可以使用望远镜。",
+              "page": 59,
+              "bookPage": 4
+            },
+            {
+              "en": "— What can we see in space?",
+              "zh": "— 我们在太空中能看到什么？",
+              "page": 59,
+              "bookPage": 4
+            },
+            {
+              "en": "— We can see stars, planets and the moon.",
+              "zh": "— 我们能看到星星、行星和月亮。",
+              "page": 60,
+              "bookPage": 5
+            },
+            {
+              "en": "— There is a big rocket in the museum.",
+              "zh": "— 博物馆里有一个大火箭。",
+              "page": 60,
+              "bookPage": 5
+            },
+            {
+              "en": "There are eight planets in our solar system.",
+              "zh": "我们的太阳系有八颗行星。",
+              "page": 60,
+              "bookPage": 5
+            }
+          ]
+        },
+        {
+          "id": "u5-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-061.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            61,
+            62,
+            63,
+            64
+          ],
+          "pageContents": [
+            {
+              "page": 61,
+              "bookPage": 6,
+              "sentences": [
+                {
+                  "en": "— Can we live on Mars?",
+                  "zh": "— 我们能住在火星上吗？",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— No, we can't. / Not yet.",
+                  "zh": "— 不，不能。/ 还不行。",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— Where do astronauts live in space?",
+                  "zh": "— 宇航员住在哪？",
+                  "bookPage": 6
+                }
+              ]
+            },
+            {
+              "page": 62,
+              "bookPage": 7,
+              "sentences": [
+                {
+                  "en": "— On a space station.",
+                  "zh": "— 在空间站。",
+                  "bookPage": 7
+                },
+                {
+                  "en": "— What is Mars called?",
+                  "zh": "— 火星被称为什么？",
+                  "bookPage": 7
+                },
+                {
+                  "en": "— It is called the \"red planet\".",
+                  "zh": "— 它被称为「红色星球」。",
+                  "bookPage": 7
+                }
+              ]
+            },
+            {
+              "page": 63,
+              "bookPage": 8,
+              "sentences": [
+                {
+                  "en": "— What did you learn about Mars?",
+                  "zh": "— 关于火星你了解了什么？",
+                  "bookPage": 8
+                },
+                {
+                  "en": "— I know it has soil and water.",
+                  "zh": "— 我知道它有土壤和水。",
+                  "bookPage": 8
+                },
+                {
+                  "en": "— Did you see the pictures of Mars?",
+                  "zh": "— 你看到火星的照片了吗？",
+                  "bookPage": 8
+                }
+              ]
+            },
+            {
+              "page": 64,
+              "bookPage": 9,
+              "sentences": [
+                {
+                  "en": "— Yes, I did.",
+                  "zh": "— 是的，我看到了。",
+                  "bookPage": 9
+                },
+                {
+                  "en": "China sent a rover to Mars last year.",
+                  "zh": "中国去年向火星发送了探测器。",
+                  "bookPage": 9
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— Can we live on Mars?",
+              "zh": "— 我们能住在火星上吗？",
+              "page": 61,
+              "bookPage": 6
+            },
+            {
+              "en": "— No, we can't. / Not yet.",
+              "zh": "— 不，不能。/ 还不行。",
+              "page": 61,
+              "bookPage": 6
+            },
+            {
+              "en": "— Where do astronauts live in space?",
+              "zh": "— 宇航员住在哪？",
+              "page": 61,
+              "bookPage": 6
+            },
+            {
+              "en": "— On a space station.",
+              "zh": "— 在空间站。",
+              "page": 62,
+              "bookPage": 7
+            },
+            {
+              "en": "— What is Mars called?",
+              "zh": "— 火星被称为什么？",
+              "page": 62,
+              "bookPage": 7
+            },
+            {
+              "en": "— It is called the \"red planet\".",
+              "zh": "— 它被称为「红色星球」。",
+              "page": 62,
+              "bookPage": 7
+            },
+            {
+              "en": "— What did you learn about Mars?",
+              "zh": "— 关于火星你了解了什么？",
+              "page": 63,
+              "bookPage": 8
+            },
+            {
+              "en": "— I know it has soil and water.",
+              "zh": "— 我知道它有土壤和水。",
+              "page": 63,
+              "bookPage": 8
+            },
+            {
+              "en": "— Did you see the pictures of Mars?",
+              "zh": "— 你看到火星的照片了吗？",
+              "page": 63,
+              "bookPage": 8
+            },
+            {
+              "en": "— Yes, I did.",
+              "zh": "— 是的，我看到了。",
+              "page": 64,
+              "bookPage": 9
+            },
+            {
+              "en": "China sent a rover to Mars last year.",
+              "zh": "中国去年向火星发送了探测器。",
+              "page": 64,
+              "bookPage": 9
+            }
+          ]
+        },
+        {
+          "id": "u5-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-065.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            65,
+            66
+          ],
+          "pageContents": [
+            {
+              "page": 65,
+              "bookPage": 10,
+              "sentences": [
+                {
+                  "en": "There is a big rocket.",
+                  "zh": "有一个大火箭。",
+                  "bookPage": 10
+                },
+                {
+                  "en": "There are many stars.",
+                  "zh": "有许多星星。",
+                  "bookPage": 10
+                }
+              ]
+            },
+            {
+              "page": 66,
+              "bookPage": 11,
+              "sentences": [
+                {
+                  "en": "We can use telescopes.",
+                  "zh": "我们能用望远镜。",
+                  "bookPage": 11
+                },
+                {
+                  "en": "China sent a rover to Mars.",
+                  "zh": "中国发送了火星探测器。",
+                  "bookPage": 11
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "There is a big rocket.",
+              "zh": "有一个大火箭。",
+              "page": 65,
+              "bookPage": 10
+            },
+            {
+              "en": "There are many stars.",
+              "zh": "有许多星星。",
+              "page": 65,
+              "bookPage": 10
+            },
+            {
+              "en": "We can use telescopes.",
+              "zh": "我们能用望远镜。",
+              "page": 66,
+              "bookPage": 11
+            },
+            {
+              "en": "China sent a rover to Mars.",
+              "zh": "中国发送了火星探测器。",
+              "page": 66,
+              "bookPage": 11
+            }
+          ]
+        },
+        {
+          "id": "u5-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-067.png",
+          "fallbackImage": "assets/images/unit5-space.svg",
+          "pdfPages": [
+            67,
+            68
+          ],
+          "pageContents": [
+            {
+              "page": 67,
+              "bookPage": 12,
+              "sentences": [
+                {
+                  "en": "Space is amazing! There are many stars and planets in the solar system.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "We can use telescopes to look into space.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "Astronauts live on a space station.",
+                  "zh": "",
+                  "bookPage": 12
+                }
+              ]
+            },
+            {
+              "page": 68,
+              "bookPage": 13,
+              "sentences": [
+                {
+                  "en": "Mars is called the red planet.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "China sent a rover to Mars.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "It makes us proud!",
+                  "zh": "",
+                  "bookPage": 13
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Space is amazing! There are many stars and planets in the solar system.",
+              "zh": "",
+              "page": 67,
+              "bookPage": 12
+            },
+            {
+              "en": "We can use telescopes to look into space.",
+              "zh": "",
+              "page": 67,
+              "bookPage": 12
+            },
+            {
+              "en": "Astronauts live on a space station.",
+              "zh": "",
+              "page": 67,
+              "bookPage": 12
+            },
+            {
+              "en": "Mars is called the red planet.",
+              "zh": "",
+              "page": 68,
+              "bookPage": 13
+            },
+            {
+              "en": "China sent a rover to Mars.",
+              "zh": "",
+              "page": 68,
+              "bookPage": 13
+            },
+            {
+              "en": "It makes us proud!",
+              "zh": "",
+              "page": 68,
+              "bookPage": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Unit 6 Energy, nature and us",
+      "titleZh": "能源、自然与我们",
+      "bookPageStart": 2,
+      "pngSequence": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "bookPageMap": {
+        "69": 2,
+        "70": 3,
+        "71": 4,
+        "72": 5,
+        "73": 6,
+        "74": 7,
+        "75": 8,
+        "76": 9,
+        "77": 10,
+        "78": 11,
+        "79": 12,
+        "80": 13
+      },
+      "pages": [
+        {
+          "id": "u6-unit-start",
+          "label": "Unit 6 起始页",
+          "part": "unit-start",
+          "image": "assets/images/textbook/pages/page-069.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            69
+          ],
+          "pageContents": [
+            {
+              "page": 69,
+              "bookPage": 2,
+              "sentences": [
+                {
+                  "en": "Unit 6 Energy, nature and us",
+                  "zh": "能源、自然与我们",
+                  "bookPage": 2
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Unit 6 Energy, nature and us",
+              "zh": "能源、自然与我们",
+              "page": 69,
+              "bookPage": 2
+            }
+          ]
+        },
+        {
+          "id": "u6-unit-next",
+          "label": "Unit 6 导入活动",
+          "part": "unit-next",
+          "image": "assets/images/textbook/pages/page-070.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            70
+          ],
+          "pageContents": [
+            {
+              "page": 70,
+              "bookPage": null,
+              "sentences": [
+                {
+                  "en": "Share and explain",
+                  "zh": "分享并说明",
+                  "type": "section"
+                },
+                {
+                  "en": "Name a famous place.",
+                  "zh": "说出一个著名的地方。",
+                  "tts": "Name a famous place."
+                },
+                {
+                  "en": "Explain what is special about it.",
+                  "zh": "解释它特别在哪里。",
+                  "tts": "Explain what is special about it."
+                },
+                {
+                  "en": "Look and think",
+                  "zh": "看一看，想一想",
+                  "type": "section"
+                },
+                {
+                  "en": "Listen and sing",
+                  "zh": "听一听，唱一唱",
+                  "type": "section"
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Share and explain",
+              "zh": "分享并说明",
+              "type": "section"
+            },
+            {
+              "en": "Name a famous place.",
+              "zh": "说出一个著名的地方。",
+              "tts": "Name a famous place."
+            },
+            {
+              "en": "Explain what is special about it.",
+              "zh": "解释它特别在哪里。",
+              "tts": "Explain what is special about it."
+            },
+            {
+              "en": "Look and think",
+              "zh": "看一看，想一想",
+              "type": "section"
+            },
+            {
+              "en": "Listen and sing",
+              "zh": "听一听，唱一唱",
+              "type": "section"
+            }
+          ]
+        },
+        {
+          "id": "u6-part-a",
+          "label": "Part A",
+          "part": "part-a",
+          "image": "assets/images/textbook/pages/page-071.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            71,
+            72
+          ],
+          "pageContents": [
+            {
+              "page": 71,
+              "bookPage": 4,
+              "sentences": [
+                {
+                  "en": "— Where does water come from?",
+                  "zh": "— 水来自哪里？",
+                  "bookPage": 4
+                },
+                {
+                  "en": "— It comes from rivers and lakes.",
+                  "zh": "— 它来自江河湖泊。",
+                  "bookPage": 4
+                }
+              ]
+            },
+            {
+              "page": 72,
+              "bookPage": 5,
+              "sentences": [
+                {
+                  "en": "— Where does electricity come from?",
+                  "zh": "— 电来自哪里？",
+                  "bookPage": 5
+                },
+                {
+                  "en": "— It comes from power stations.",
+                  "zh": "— 它来自发电站。",
+                  "bookPage": 5
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— Where does water come from?",
+              "zh": "— 水来自哪里？",
+              "page": 71,
+              "bookPage": 4
+            },
+            {
+              "en": "— It comes from rivers and lakes.",
+              "zh": "— 它来自江河湖泊。",
+              "page": 71,
+              "bookPage": 4
+            },
+            {
+              "en": "— Where does electricity come from?",
+              "zh": "— 电来自哪里？",
+              "page": 72,
+              "bookPage": 5
+            },
+            {
+              "en": "— It comes from power stations.",
+              "zh": "— 它来自发电站。",
+              "page": 72,
+              "bookPage": 5
+            }
+          ]
+        },
+        {
+          "id": "u6-part-b",
+          "label": "Part B",
+          "part": "part-b",
+          "image": "assets/images/textbook/pages/page-073.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            73,
+            74,
+            75,
+            76
+          ],
+          "pageContents": [
+            {
+              "page": 73,
+              "bookPage": 6,
+              "sentences": [
+                {
+                  "en": "— How do we make power from water?",
+                  "zh": "— 我们怎样用水发电？",
+                  "bookPage": 6
+                },
+                {
+                  "en": "— Water turns the wheel.",
+                  "zh": "— 水推动水轮。",
+                  "bookPage": 6
+                }
+              ]
+            },
+            {
+              "page": 74,
+              "bookPage": 7,
+              "sentences": [
+                {
+                  "en": "We should save energy and use green energy.",
+                  "zh": "我们应该节约能源并使用绿色能源。",
+                  "bookPage": 7
+                },
+                {
+                  "en": "We should always unplug our computers and TVs.",
+                  "zh": "我们应该不用时拔掉电脑和电视插头。",
+                  "bookPage": 7
+                }
+              ]
+            },
+            {
+              "page": 75,
+              "bookPage": 8,
+              "sentences": [
+                {
+                  "en": "We should save energy every day.",
+                  "zh": "我们应该每天节约能源。",
+                  "bookPage": 8
+                },
+                {
+                  "en": "To protect the Earth, we should reduce, reuse and recycle.",
+                  "zh": "为保护地球，我们应减少、重复使用并回收。",
+                  "bookPage": 8
+                }
+              ]
+            },
+            {
+              "page": 76,
+              "bookPage": 9,
+              "sentences": [
+                {
+                  "en": "We should turn off lights when we leave.",
+                  "zh": "离开时应关灯。",
+                  "bookPage": 9
+                },
+                {
+                  "en": "Take quick showers to save water.",
+                  "zh": "快速淋浴以节约用水。",
+                  "bookPage": 9
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "— How do we make power from water?",
+              "zh": "— 我们怎样用水发电？",
+              "page": 73,
+              "bookPage": 6
+            },
+            {
+              "en": "— Water turns the wheel.",
+              "zh": "— 水推动水轮。",
+              "page": 73,
+              "bookPage": 6
+            },
+            {
+              "en": "We should save energy and use green energy.",
+              "zh": "我们应该节约能源并使用绿色能源。",
+              "page": 74,
+              "bookPage": 7
+            },
+            {
+              "en": "We should always unplug our computers and TVs.",
+              "zh": "我们应该不用时拔掉电脑和电视插头。",
+              "page": 74,
+              "bookPage": 7
+            },
+            {
+              "en": "We should save energy every day.",
+              "zh": "我们应该每天节约能源。",
+              "page": 75,
+              "bookPage": 8
+            },
+            {
+              "en": "To protect the Earth, we should reduce, reuse and recycle.",
+              "zh": "为保护地球，我们应减少、重复使用并回收。",
+              "page": 75,
+              "bookPage": 8
+            },
+            {
+              "en": "We should turn off lights when we leave.",
+              "zh": "离开时应关灯。",
+              "page": 76,
+              "bookPage": 9
+            },
+            {
+              "en": "Take quick showers to save water.",
+              "zh": "快速淋浴以节约用水。",
+              "page": 76,
+              "bookPage": 9
+            }
+          ]
+        },
+        {
+          "id": "u6-part-c",
+          "label": "Part C",
+          "part": "part-c",
+          "image": "assets/images/textbook/pages/page-077.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            77,
+            78
+          ],
+          "pageContents": [
+            {
+              "page": 77,
+              "bookPage": 10,
+              "sentences": [
+                {
+                  "en": "Where does water come from?",
+                  "zh": "水来自哪里？",
+                  "bookPage": 10
+                },
+                {
+                  "en": "It comes from rivers.",
+                  "zh": "它来自江河。",
+                  "bookPage": 10
+                }
+              ]
+            },
+            {
+              "page": 78,
+              "bookPage": 11,
+              "sentences": [
+                {
+                  "en": "We should save energy.",
+                  "zh": "我们应该节约能源。",
+                  "bookPage": 11
+                },
+                {
+                  "en": "We should reduce, reuse and recycle.",
+                  "zh": "我们应 3R。",
+                  "bookPage": 11
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Where does water come from?",
+              "zh": "水来自哪里？",
+              "page": 77,
+              "bookPage": 10
+            },
+            {
+              "en": "It comes from rivers.",
+              "zh": "它来自江河。",
+              "page": 77,
+              "bookPage": 10
+            },
+            {
+              "en": "We should save energy.",
+              "zh": "我们应该节约能源。",
+              "page": 78,
+              "bookPage": 11
+            },
+            {
+              "en": "We should reduce, reuse and recycle.",
+              "zh": "我们应 3R。",
+              "page": 78,
+              "bookPage": 11
+            }
+          ]
+        },
+        {
+          "id": "u6-reading",
+          "label": "Reading 阅读",
+          "part": "reading",
+          "image": "assets/images/textbook/pages/page-079.png",
+          "fallbackImage": "assets/images/unit6-energy.svg",
+          "pdfPages": [
+            79,
+            80
+          ],
+          "pageContents": [
+            {
+              "page": 79,
+              "bookPage": 12,
+              "sentences": [
+                {
+                  "en": "Energy is important for our life.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "Water, wind and the sun can make electricity.",
+                  "zh": "",
+                  "bookPage": 12
+                },
+                {
+                  "en": "They are green energy.",
+                  "zh": "",
+                  "bookPage": 12
+                }
+              ]
+            },
+            {
+              "page": 80,
+              "bookPage": 13,
+              "sentences": [
+                {
+                  "en": "We should save energy every day.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "We can take quick showers and turn off lights.",
+                  "zh": "",
+                  "bookPage": 13
+                },
+                {
+                  "en": "To follow the 3R rules, we should reduce, reuse and recycle.",
+                  "zh": "",
+                  "bookPage": 13
+                }
+              ]
+            }
+          ],
+          "sentences": [
+            {
+              "en": "Energy is important for our life.",
+              "zh": "",
+              "page": 79,
+              "bookPage": 12
+            },
+            {
+              "en": "Water, wind and the sun can make electricity.",
+              "zh": "",
+              "page": 79,
+              "bookPage": 12
+            },
+            {
+              "en": "They are green energy.",
+              "zh": "",
+              "page": 79,
+              "bookPage": 12
+            },
+            {
+              "en": "We should save energy every day.",
+              "zh": "",
+              "page": 80,
+              "bookPage": 13
+            },
+            {
+              "en": "We can take quick showers and turn off lights.",
+              "zh": "",
+              "page": 80,
+              "bookPage": 13
+            },
+            {
+              "en": "To follow the 3R rules, we should reduce, reuse and recycle.",
+              "zh": "",
+              "page": 80,
+              "bookPage": 13
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "appendix": {
+    "title": "附录",
+    "pages": [
+      {
+        "id": "appendix-revision",
+        "label": "Revision 复习",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-081.png",
+        "pdfPages": [
+          81,
+          82
+        ],
+        "pageContents": [
+          {
+            "page": 81,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Revision 复习",
+                "zh": "Revision 复习",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Revision 复习",
+            "zh": "Revision 复习",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "appendix-songs",
+        "label": "Appendix 1 歌曲",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-083.png",
+        "pdfPages": [
+          83,
+          84
+        ],
+        "pageContents": [
+          {
+            "page": 83,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Appendix 1 歌曲",
+                "zh": "Appendix 1 歌曲",
+                "type": "title"
+              },
+              {
+                "en": "Travelling around",
+                "zh": "四处旅行（歌曲）",
+                "type": "song"
+              }
+            ]
+          },
+          {
+            "page": 84,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Getting together",
+                "zh": "欢聚一堂（歌曲）",
+                "type": "song"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Appendix 1 歌曲",
+            "zh": "Appendix 1 歌曲",
+            "type": "title"
+          },
+          {
+            "en": "Travelling around",
+            "zh": "四处旅行（歌曲）",
+            "type": "song"
+          },
+          {
+            "en": "Getting together",
+            "zh": "欢聚一堂（歌曲）",
+            "type": "song"
+          }
+        ]
+      },
+      {
+        "id": "appendix-words-by-unit",
+        "label": "Appendix 2 各单元词汇",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-085.png",
+        "pdfPages": [
+          85,
+          86,
+          87,
+          88
+        ],
+        "pageContents": [
+          {
+            "page": 85,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Appendix 2 各单元词汇",
+                "zh": "Appendix 2 各单元词汇",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Appendix 2 各单元词汇",
+            "zh": "Appendix 2 各单元词汇",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "appendix-vocabulary",
+        "label": "Appendix 3 词汇表",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-089.png",
+        "pdfPages": [
+          89,
+          90,
+          91
+        ],
+        "pageContents": [
+          {
+            "page": 89,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Appendix 3 词汇表",
+                "zh": "Appendix 3 词汇表",
+                "type": "title"
+              },
+              {
+                "en": "was",
+                "zh": "/wɒz/ 是（am/is 的过去式）",
+                "type": "vocab"
+              },
+              {
+                "en": "climb",
+                "zh": "/klaɪm/ 攀登；爬",
+                "type": "vocab"
+              },
+              {
+                "en": "go",
+                "zh": "/ɡəʊ/ 去",
+                "type": "vocab"
+              },
+              {
+                "en": "see",
+                "zh": "/siː/ 看见",
+                "type": "vocab"
+              },
+              {
+                "en": "eat",
+                "zh": "/iːt/ 吃",
+                "type": "vocab"
+              },
+              {
+                "en": "take",
+                "zh": "/teɪk/ 拍摄；拿",
+                "type": "vocab"
+              },
+              {
+                "en": "village",
+                "zh": "/ˈvɪlɪdʒ/ 村庄",
+                "type": "vocab"
+              },
+              {
+                "en": "dry",
+                "zh": "/draɪ/ 干的",
+                "type": "vocab"
+              },
+              {
+                "en": "clay",
+                "zh": "/kleɪ/ 黏土；陶土",
+                "type": "vocab"
+              },
+              {
+                "en": "inspiring",
+                "zh": "/ɪnˈspaɪərɪŋ/ 鼓舞人心的",
+                "type": "vocab"
+              },
+              {
+                "en": "dress",
+                "zh": "/dres/ 穿衣服",
+                "type": "vocab"
+              },
+              {
+                "en": "paste",
+                "zh": "/peɪst/ 粘贴",
+                "type": "vocab"
+              },
+              {
+                "en": "gala",
+                "zh": "/ˈɡɑːlə/ 演出；庆典",
+                "type": "vocab"
+              },
+              {
+                "en": "count down",
+                "zh": "/kaʊnt daʊn/ 倒计时",
+                "type": "vocab"
+              },
+              {
+                "en": "marathon",
+                "zh": "/ˈmærəθən/ 马拉松",
+                "type": "vocab"
+              },
+              {
+                "en": "cheer",
+                "zh": "/tʃɪə(r)/ 欢呼；加油",
+                "type": "vocab"
+              },
+              {
+                "en": "race",
+                "zh": "/reɪs/ 赛跑",
+                "type": "vocab"
+              },
+              {
+                "en": "run",
+                "zh": "/rʌn/ 跑",
+                "type": "vocab"
+              },
+              {
+                "en": "winner",
+                "zh": "/ˈwɪnə(r)/ 获胜者",
+                "type": "vocab"
+              },
+              {
+                "en": "wake",
+                "zh": "/weɪk/ 醒；醒来",
+                "type": "vocab"
+              }
+            ]
+          },
+          {
+            "page": 90,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "cold",
+                "zh": "/kəʊld/ 感冒",
+                "type": "vocab"
+              },
+              {
+                "en": "ill",
+                "zh": "/ɪl/ 不舒服；有病",
+                "type": "vocab"
+              },
+              {
+                "en": "head",
+                "zh": "/hed/ 头",
+                "type": "vocab"
+              },
+              {
+                "en": "runny nose",
+                "zh": "/ˈrʌni nəʊz/ 流鼻涕",
+                "type": "vocab"
+              },
+              {
+                "en": "fever",
+                "zh": "/ˈfiːvə(r)/ 发烧",
+                "type": "vocab"
+              },
+              {
+                "en": "cough",
+                "zh": "/kɒf/ 咳嗽",
+                "type": "vocab"
+              },
+              {
+                "en": "diet",
+                "zh": "/ˈdaɪət/ 日常饮食",
+                "type": "vocab"
+              },
+              {
+                "en": "stay up",
+                "zh": "/steɪ ʌp/ 熬夜",
+                "type": "vocab"
+              },
+              {
+                "en": "unhappy",
+                "zh": "/ʌnˈhæpi/ 不快乐的",
+                "type": "vocab"
+              },
+              {
+                "en": "video",
+                "zh": "/ˈvɪdiəʊ/ 视频",
+                "type": "vocab"
+              },
+              {
+                "en": "money",
+                "zh": "/ˈmʌni/ 钱",
+                "type": "vocab"
+              },
+              {
+                "en": "pocket money",
+                "zh": "/ˈpɒkɪt ˈmʌni/ 零花钱",
+                "type": "vocab"
+              },
+              {
+                "en": "schoolbag",
+                "zh": "/ˈskuːlbæɡ/ 书包",
+                "type": "vocab"
+              },
+              {
+                "en": "goods",
+                "zh": "/ɡʊdz/ 商品",
+                "type": "vocab"
+              },
+              {
+                "en": "service",
+                "zh": "/ˈsɜːvɪs/ 服务",
+                "type": "vocab"
+              },
+              {
+                "en": "drink",
+                "zh": "/drɪŋk/ 饮料",
+                "type": "vocab"
+              },
+              {
+                "en": "save",
+                "zh": "/seɪv/ 储蓄",
+                "type": "vocab"
+              },
+              {
+                "en": "save up",
+                "zh": "/seɪv ʌp/ 攒钱",
+                "type": "vocab"
+              },
+              {
+                "en": "sale",
+                "zh": "/seɪl/ 打折出售",
+                "type": "vocab"
+              },
+              {
+                "en": "ticket",
+                "zh": "/ˈtɪkɪt/ 票",
+                "type": "vocab"
+              },
+              {
+                "en": "space",
+                "zh": "/speɪs/ 太空",
+                "type": "vocab"
+              }
+            ]
+          },
+          {
+            "page": 91,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "planet",
+                "zh": "/ˈplænɪt/ 行星",
+                "type": "vocab"
+              },
+              {
+                "en": "star",
+                "zh": "/stɑː(r)/ 星星",
+                "type": "vocab"
+              },
+              {
+                "en": "moon",
+                "zh": "/muːn/ 月亮",
+                "type": "vocab"
+              },
+              {
+                "en": "Earth",
+                "zh": "/ɜːθ/ 地球",
+                "type": "vocab"
+              },
+              {
+                "en": "sky",
+                "zh": "/skaɪ/ 天空",
+                "type": "vocab"
+              },
+              {
+                "en": "Mars",
+                "zh": "/mɑːz/ 火星",
+                "type": "vocab"
+              },
+              {
+                "en": "astronaut",
+                "zh": "/ˈæstrənɔːt/ 宇航员",
+                "type": "vocab"
+              },
+              {
+                "en": "space station",
+                "zh": "/speɪs ˈsteɪʃn/ 空间站",
+                "type": "vocab"
+              },
+              {
+                "en": "outer space",
+                "zh": "/ˈaʊtə speɪs/ 外太空",
+                "type": "vocab"
+              },
+              {
+                "en": "energy",
+                "zh": "/ˈenədʒi/ 能源",
+                "type": "vocab"
+              },
+              {
+                "en": "electricity",
+                "zh": "/ɪˌlekˈtrɪsəti/ 电",
+                "type": "vocab"
+              },
+              {
+                "en": "solar power",
+                "zh": "/ˈsəʊlə ˈpaʊə(r)/ 太阳能",
+                "type": "vocab"
+              },
+              {
+                "en": "wind power",
+                "zh": "/wɪnd ˈpaʊə(r)/ 风能",
+                "type": "vocab"
+              },
+              {
+                "en": "water power",
+                "zh": "/ˈwɔːtə ˈpaʊə(r)/ 水能",
+                "type": "vocab"
+              },
+              {
+                "en": "green energy",
+                "zh": "/ɡriːn ˈenədʒi/ 绿色能源",
+                "type": "vocab"
+              },
+              {
+                "en": "reduce",
+                "zh": "/rɪˈdjuːs/ 减少",
+                "type": "vocab"
+              },
+              {
+                "en": "reuse",
+                "zh": "/ˌriːˈjuːz/ 重复使用",
+                "type": "vocab"
+              },
+              {
+                "en": "recycle",
+                "zh": "/ˌriːˈsaɪkl/ 回收利用",
+                "type": "vocab"
+              },
+              {
+                "en": "unplug",
+                "zh": "/ʌnˈplʌɡ/ 拔掉插头",
+                "type": "vocab"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Appendix 3 词汇表",
+            "zh": "Appendix 3 词汇表",
+            "type": "title"
+          },
+          {
+            "en": "was",
+            "zh": "/wɒz/ 是（am/is 的过去式）",
+            "type": "vocab"
+          },
+          {
+            "en": "climb",
+            "zh": "/klaɪm/ 攀登；爬",
+            "type": "vocab"
+          },
+          {
+            "en": "go",
+            "zh": "/ɡəʊ/ 去",
+            "type": "vocab"
+          },
+          {
+            "en": "see",
+            "zh": "/siː/ 看见",
+            "type": "vocab"
+          },
+          {
+            "en": "eat",
+            "zh": "/iːt/ 吃",
+            "type": "vocab"
+          },
+          {
+            "en": "take",
+            "zh": "/teɪk/ 拍摄；拿",
+            "type": "vocab"
+          },
+          {
+            "en": "village",
+            "zh": "/ˈvɪlɪdʒ/ 村庄",
+            "type": "vocab"
+          },
+          {
+            "en": "dry",
+            "zh": "/draɪ/ 干的",
+            "type": "vocab"
+          },
+          {
+            "en": "clay",
+            "zh": "/kleɪ/ 黏土；陶土",
+            "type": "vocab"
+          },
+          {
+            "en": "inspiring",
+            "zh": "/ɪnˈspaɪərɪŋ/ 鼓舞人心的",
+            "type": "vocab"
+          },
+          {
+            "en": "dress",
+            "zh": "/dres/ 穿衣服",
+            "type": "vocab"
+          },
+          {
+            "en": "paste",
+            "zh": "/peɪst/ 粘贴",
+            "type": "vocab"
+          },
+          {
+            "en": "gala",
+            "zh": "/ˈɡɑːlə/ 演出；庆典",
+            "type": "vocab"
+          },
+          {
+            "en": "count down",
+            "zh": "/kaʊnt daʊn/ 倒计时",
+            "type": "vocab"
+          },
+          {
+            "en": "marathon",
+            "zh": "/ˈmærəθən/ 马拉松",
+            "type": "vocab"
+          },
+          {
+            "en": "cheer",
+            "zh": "/tʃɪə(r)/ 欢呼；加油",
+            "type": "vocab"
+          },
+          {
+            "en": "race",
+            "zh": "/reɪs/ 赛跑",
+            "type": "vocab"
+          },
+          {
+            "en": "run",
+            "zh": "/rʌn/ 跑",
+            "type": "vocab"
+          },
+          {
+            "en": "winner",
+            "zh": "/ˈwɪnə(r)/ 获胜者",
+            "type": "vocab"
+          },
+          {
+            "en": "wake",
+            "zh": "/weɪk/ 醒；醒来",
+            "type": "vocab"
+          },
+          {
+            "en": "cold",
+            "zh": "/kəʊld/ 感冒",
+            "type": "vocab"
+          },
+          {
+            "en": "ill",
+            "zh": "/ɪl/ 不舒服；有病",
+            "type": "vocab"
+          },
+          {
+            "en": "head",
+            "zh": "/hed/ 头",
+            "type": "vocab"
+          },
+          {
+            "en": "runny nose",
+            "zh": "/ˈrʌni nəʊz/ 流鼻涕",
+            "type": "vocab"
+          },
+          {
+            "en": "fever",
+            "zh": "/ˈfiːvə(r)/ 发烧",
+            "type": "vocab"
+          },
+          {
+            "en": "cough",
+            "zh": "/kɒf/ 咳嗽",
+            "type": "vocab"
+          },
+          {
+            "en": "diet",
+            "zh": "/ˈdaɪət/ 日常饮食",
+            "type": "vocab"
+          },
+          {
+            "en": "stay up",
+            "zh": "/steɪ ʌp/ 熬夜",
+            "type": "vocab"
+          },
+          {
+            "en": "unhappy",
+            "zh": "/ʌnˈhæpi/ 不快乐的",
+            "type": "vocab"
+          },
+          {
+            "en": "video",
+            "zh": "/ˈvɪdiəʊ/ 视频",
+            "type": "vocab"
+          },
+          {
+            "en": "money",
+            "zh": "/ˈmʌni/ 钱",
+            "type": "vocab"
+          },
+          {
+            "en": "pocket money",
+            "zh": "/ˈpɒkɪt ˈmʌni/ 零花钱",
+            "type": "vocab"
+          },
+          {
+            "en": "schoolbag",
+            "zh": "/ˈskuːlbæɡ/ 书包",
+            "type": "vocab"
+          },
+          {
+            "en": "goods",
+            "zh": "/ɡʊdz/ 商品",
+            "type": "vocab"
+          },
+          {
+            "en": "service",
+            "zh": "/ˈsɜːvɪs/ 服务",
+            "type": "vocab"
+          },
+          {
+            "en": "drink",
+            "zh": "/drɪŋk/ 饮料",
+            "type": "vocab"
+          },
+          {
+            "en": "save",
+            "zh": "/seɪv/ 储蓄",
+            "type": "vocab"
+          },
+          {
+            "en": "save up",
+            "zh": "/seɪv ʌp/ 攒钱",
+            "type": "vocab"
+          },
+          {
+            "en": "sale",
+            "zh": "/seɪl/ 打折出售",
+            "type": "vocab"
+          },
+          {
+            "en": "ticket",
+            "zh": "/ˈtɪkɪt/ 票",
+            "type": "vocab"
+          },
+          {
+            "en": "space",
+            "zh": "/speɪs/ 太空",
+            "type": "vocab"
+          },
+          {
+            "en": "planet",
+            "zh": "/ˈplænɪt/ 行星",
+            "type": "vocab"
+          },
+          {
+            "en": "star",
+            "zh": "/stɑː(r)/ 星星",
+            "type": "vocab"
+          },
+          {
+            "en": "moon",
+            "zh": "/muːn/ 月亮",
+            "type": "vocab"
+          },
+          {
+            "en": "Earth",
+            "zh": "/ɜːθ/ 地球",
+            "type": "vocab"
+          },
+          {
+            "en": "sky",
+            "zh": "/skaɪ/ 天空",
+            "type": "vocab"
+          },
+          {
+            "en": "Mars",
+            "zh": "/mɑːz/ 火星",
+            "type": "vocab"
+          },
+          {
+            "en": "astronaut",
+            "zh": "/ˈæstrənɔːt/ 宇航员",
+            "type": "vocab"
+          },
+          {
+            "en": "space station",
+            "zh": "/speɪs ˈsteɪʃn/ 空间站",
+            "type": "vocab"
+          },
+          {
+            "en": "outer space",
+            "zh": "/ˈaʊtə speɪs/ 外太空",
+            "type": "vocab"
+          },
+          {
+            "en": "energy",
+            "zh": "/ˈenədʒi/ 能源",
+            "type": "vocab"
+          },
+          {
+            "en": "electricity",
+            "zh": "/ɪˌlekˈtrɪsəti/ 电",
+            "type": "vocab"
+          },
+          {
+            "en": "solar power",
+            "zh": "/ˈsəʊlə ˈpaʊə(r)/ 太阳能",
+            "type": "vocab"
+          },
+          {
+            "en": "wind power",
+            "zh": "/wɪnd ˈpaʊə(r)/ 风能",
+            "type": "vocab"
+          },
+          {
+            "en": "water power",
+            "zh": "/ˈwɔːtə ˈpaʊə(r)/ 水能",
+            "type": "vocab"
+          },
+          {
+            "en": "green energy",
+            "zh": "/ɡriːn ˈenədʒi/ 绿色能源",
+            "type": "vocab"
+          },
+          {
+            "en": "reduce",
+            "zh": "/rɪˈdjuːs/ 减少",
+            "type": "vocab"
+          },
+          {
+            "en": "reuse",
+            "zh": "/ˌriːˈjuːz/ 重复使用",
+            "type": "vocab"
+          },
+          {
+            "en": "recycle",
+            "zh": "/ˌriːˈsaɪkl/ 回收利用",
+            "type": "vocab"
+          },
+          {
+            "en": "unplug",
+            "zh": "/ʌnˈplʌɡ/ 拔掉插头",
+            "type": "vocab"
+          }
+        ]
+      },
+      {
+        "id": "appendix-expressions",
+        "label": "Appendix 4 常用表达",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-092.png",
+        "pdfPages": [
+          92,
+          93
+        ],
+        "pageContents": [
+          {
+            "page": 92,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Appendix 4 常用表达",
+                "zh": "Appendix 4 常用表达",
+                "type": "title"
+              },
+              {
+                "en": "climb the Great Wall",
+                "zh": "爬长城",
+                "type": "phrase",
+                "tts": "climb the Great Wall"
+              },
+              {
+                "en": "last weekend",
+                "zh": "上周末",
+                "type": "phrase",
+                "tts": "last weekend"
+              },
+              {
+                "en": "over the summer holidays",
+                "zh": "暑假期间",
+                "type": "phrase",
+                "tts": "over the summer holidays"
+              },
+              {
+                "en": "go to Xi'an",
+                "zh": "去西安",
+                "type": "phrase",
+                "tts": "go to Xi'an"
+              },
+              {
+                "en": "eat Xi'an noodles",
+                "zh": "吃西安面条",
+                "type": "phrase",
+                "tts": "eat Xi'an noodles"
+              },
+              {
+                "en": "see the Terracotta Warriors",
+                "zh": "看兵马俑",
+                "type": "phrase",
+                "tts": "see the Terracotta Warriors"
+              },
+              {
+                "en": "paste fu on the door",
+                "zh": "在门上贴福字",
+                "type": "phrase",
+                "tts": "paste fu on the door"
+              },
+              {
+                "en": "dress in red",
+                "zh": "穿红色衣服",
+                "type": "phrase",
+                "tts": "dress in red"
+              },
+              {
+                "en": "wait for the Spring Festival Gala",
+                "zh": "等待春节联欢晚会",
+                "type": "phrase",
+                "tts": "wait for the Spring Festival Gala"
+              },
+              {
+                "en": "go to a marathon",
+                "zh": "参加马拉松",
+                "type": "phrase",
+                "tts": "go to a marathon"
+              },
+              {
+                "en": "work as a volunteer",
+                "zh": "作为志愿者工作",
+                "type": "phrase",
+                "tts": "work as a volunteer"
+              },
+              {
+                "en": "cheer for the runners",
+                "zh": "为跑步者加油",
+                "type": "phrase",
+                "tts": "cheer for the runners"
+              },
+              {
+                "en": "have a bad cold",
+                "zh": "得了重感冒",
+                "type": "phrase",
+                "tts": "have a bad cold"
+              },
+              {
+                "en": "have a fever",
+                "zh": "发烧",
+                "type": "phrase",
+                "tts": "have a fever"
+              },
+              {
+                "en": "have a cough",
+                "zh": "咳嗽",
+                "type": "phrase",
+                "tts": "have a cough"
+              },
+              {
+                "en": "have a healthy diet",
+                "zh": "保持健康饮食",
+                "type": "phrase",
+                "tts": "have a healthy diet"
+              },
+              {
+                "en": "exercise often",
+                "zh": "经常锻炼",
+                "type": "phrase",
+                "tts": "exercise often"
+              },
+              {
+                "en": "think about happy things",
+                "zh": "想开心的事情",
+                "type": "phrase",
+                "tts": "think about happy things"
+              }
+            ]
+          },
+          {
+            "page": 93,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "pocket money",
+                "zh": "零花钱",
+                "type": "phrase",
+                "tts": "pocket money"
+              },
+              {
+                "en": "buy goods",
+                "zh": "购买商品",
+                "type": "phrase",
+                "tts": "buy goods"
+              },
+              {
+                "en": "pay for services",
+                "zh": "支付服务费用",
+                "type": "phrase",
+                "tts": "pay for services"
+              },
+              {
+                "en": "save up for a computer",
+                "zh": "攒钱买电脑",
+                "type": "phrase",
+                "tts": "save up for a computer"
+              },
+              {
+                "en": "write a spending plan",
+                "zh": "写花钱计划",
+                "type": "phrase",
+                "tts": "write a spending plan"
+              },
+              {
+                "en": "wait for a sale",
+                "zh": "等打折",
+                "type": "phrase",
+                "tts": "wait for a sale"
+              },
+              {
+                "en": "look into space",
+                "zh": "观察太空",
+                "type": "phrase",
+                "tts": "look into space"
+              },
+              {
+                "en": "in the solar system",
+                "zh": "在太阳系中",
+                "type": "phrase",
+                "tts": "in the solar system"
+              },
+              {
+                "en": "use a telescope",
+                "zh": "使用望远镜",
+                "type": "phrase",
+                "tts": "use a telescope"
+              },
+              {
+                "en": "explore space",
+                "zh": "探索太空",
+                "type": "phrase",
+                "tts": "explore space"
+              },
+              {
+                "en": "live on a space station",
+                "zh": "住在空间站",
+                "type": "phrase",
+                "tts": "live on a space station"
+              },
+              {
+                "en": "the red planet",
+                "zh": "红色星球",
+                "type": "phrase",
+                "tts": "the red planet"
+              },
+              {
+                "en": "come from rivers and lakes",
+                "zh": "来自江河湖泊",
+                "type": "phrase",
+                "tts": "come from rivers and lakes"
+              },
+              {
+                "en": "make electricity",
+                "zh": "发电",
+                "type": "phrase",
+                "tts": "make electricity"
+              },
+              {
+                "en": "green energy",
+                "zh": "绿色能源",
+                "type": "phrase",
+                "tts": "green energy"
+              },
+              {
+                "en": "take quick showers",
+                "zh": "快速淋浴",
+                "type": "phrase",
+                "tts": "take quick showers"
+              },
+              {
+                "en": "the 3R rules",
+                "zh": "3R 原则",
+                "type": "phrase",
+                "tts": "the 3R rules"
+              },
+              {
+                "en": "protect the Earth",
+                "zh": "保护地球",
+                "type": "phrase",
+                "tts": "protect the Earth"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Appendix 4 常用表达",
+            "zh": "Appendix 4 常用表达",
+            "type": "title"
+          },
+          {
+            "en": "climb the Great Wall",
+            "zh": "爬长城",
+            "type": "phrase",
+            "tts": "climb the Great Wall"
+          },
+          {
+            "en": "last weekend",
+            "zh": "上周末",
+            "type": "phrase",
+            "tts": "last weekend"
+          },
+          {
+            "en": "over the summer holidays",
+            "zh": "暑假期间",
+            "type": "phrase",
+            "tts": "over the summer holidays"
+          },
+          {
+            "en": "go to Xi'an",
+            "zh": "去西安",
+            "type": "phrase",
+            "tts": "go to Xi'an"
+          },
+          {
+            "en": "eat Xi'an noodles",
+            "zh": "吃西安面条",
+            "type": "phrase",
+            "tts": "eat Xi'an noodles"
+          },
+          {
+            "en": "see the Terracotta Warriors",
+            "zh": "看兵马俑",
+            "type": "phrase",
+            "tts": "see the Terracotta Warriors"
+          },
+          {
+            "en": "paste fu on the door",
+            "zh": "在门上贴福字",
+            "type": "phrase",
+            "tts": "paste fu on the door"
+          },
+          {
+            "en": "dress in red",
+            "zh": "穿红色衣服",
+            "type": "phrase",
+            "tts": "dress in red"
+          },
+          {
+            "en": "wait for the Spring Festival Gala",
+            "zh": "等待春节联欢晚会",
+            "type": "phrase",
+            "tts": "wait for the Spring Festival Gala"
+          },
+          {
+            "en": "go to a marathon",
+            "zh": "参加马拉松",
+            "type": "phrase",
+            "tts": "go to a marathon"
+          },
+          {
+            "en": "work as a volunteer",
+            "zh": "作为志愿者工作",
+            "type": "phrase",
+            "tts": "work as a volunteer"
+          },
+          {
+            "en": "cheer for the runners",
+            "zh": "为跑步者加油",
+            "type": "phrase",
+            "tts": "cheer for the runners"
+          },
+          {
+            "en": "have a bad cold",
+            "zh": "得了重感冒",
+            "type": "phrase",
+            "tts": "have a bad cold"
+          },
+          {
+            "en": "have a fever",
+            "zh": "发烧",
+            "type": "phrase",
+            "tts": "have a fever"
+          },
+          {
+            "en": "have a cough",
+            "zh": "咳嗽",
+            "type": "phrase",
+            "tts": "have a cough"
+          },
+          {
+            "en": "have a healthy diet",
+            "zh": "保持健康饮食",
+            "type": "phrase",
+            "tts": "have a healthy diet"
+          },
+          {
+            "en": "exercise often",
+            "zh": "经常锻炼",
+            "type": "phrase",
+            "tts": "exercise often"
+          },
+          {
+            "en": "think about happy things",
+            "zh": "想开心的事情",
+            "type": "phrase",
+            "tts": "think about happy things"
+          },
+          {
+            "en": "pocket money",
+            "zh": "零花钱",
+            "type": "phrase",
+            "tts": "pocket money"
+          },
+          {
+            "en": "buy goods",
+            "zh": "购买商品",
+            "type": "phrase",
+            "tts": "buy goods"
+          },
+          {
+            "en": "pay for services",
+            "zh": "支付服务费用",
+            "type": "phrase",
+            "tts": "pay for services"
+          },
+          {
+            "en": "save up for a computer",
+            "zh": "攒钱买电脑",
+            "type": "phrase",
+            "tts": "save up for a computer"
+          },
+          {
+            "en": "write a spending plan",
+            "zh": "写花钱计划",
+            "type": "phrase",
+            "tts": "write a spending plan"
+          },
+          {
+            "en": "wait for a sale",
+            "zh": "等打折",
+            "type": "phrase",
+            "tts": "wait for a sale"
+          },
+          {
+            "en": "look into space",
+            "zh": "观察太空",
+            "type": "phrase",
+            "tts": "look into space"
+          },
+          {
+            "en": "in the solar system",
+            "zh": "在太阳系中",
+            "type": "phrase",
+            "tts": "in the solar system"
+          },
+          {
+            "en": "use a telescope",
+            "zh": "使用望远镜",
+            "type": "phrase",
+            "tts": "use a telescope"
+          },
+          {
+            "en": "explore space",
+            "zh": "探索太空",
+            "type": "phrase",
+            "tts": "explore space"
+          },
+          {
+            "en": "live on a space station",
+            "zh": "住在空间站",
+            "type": "phrase",
+            "tts": "live on a space station"
+          },
+          {
+            "en": "the red planet",
+            "zh": "红色星球",
+            "type": "phrase",
+            "tts": "the red planet"
+          },
+          {
+            "en": "come from rivers and lakes",
+            "zh": "来自江河湖泊",
+            "type": "phrase",
+            "tts": "come from rivers and lakes"
+          },
+          {
+            "en": "make electricity",
+            "zh": "发电",
+            "type": "phrase",
+            "tts": "make electricity"
+          },
+          {
+            "en": "green energy",
+            "zh": "绿色能源",
+            "type": "phrase",
+            "tts": "green energy"
+          },
+          {
+            "en": "take quick showers",
+            "zh": "快速淋浴",
+            "type": "phrase",
+            "tts": "take quick showers"
+          },
+          {
+            "en": "the 3R rules",
+            "zh": "3R 原则",
+            "type": "phrase",
+            "tts": "the 3R rules"
+          },
+          {
+            "en": "protect the Earth",
+            "zh": "保护地球",
+            "type": "phrase",
+            "tts": "protect the Earth"
+          }
+        ]
+      },
+      {
+        "id": "appendix-irregular-verbs",
+        "label": "Appendix 5 不规则动词",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-094.png",
+        "pdfPages": [
+          94,
+          95
+        ],
+        "pageContents": [
+          {
+            "page": 94,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "Appendix 5 不规则动词",
+                "zh": "Appendix 5 不规则动词",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "Appendix 5 不规则动词",
+            "zh": "Appendix 5 不规则动词",
+            "type": "title"
+          }
+        ]
+      },
+      {
+        "id": "appendix-afterword",
+        "label": "后记",
+        "part": "appendix",
+        "image": "assets/images/textbook/pages/page-096.png",
+        "pdfPages": [
+          96,
+          97,
+          98
+        ],
+        "pageContents": [
+          {
+            "page": 96,
+            "bookPage": null,
+            "sentences": [
+              {
+                "en": "后记",
+                "zh": "后记",
+                "type": "title"
+              }
+            ]
+          }
+        ],
+        "sentences": [
+          {
+            "en": "后记",
+            "zh": "后记",
+            "type": "title"
+          }
+        ]
+      }
+    ]
+  }
+}

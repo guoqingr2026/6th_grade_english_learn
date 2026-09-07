@@ -1,0 +1,203 @@
+{
+  "version": "1.1.0",
+  "generatedAt": "2026-09-07T11:15:17+08:00",
+  "fileCount": 49,
+  "files": {
+    ".github/CODEOWNERS": {
+      "sha256": "d019118de091ca1e210e168f1c62ccd2b4ad294f0723ae96342e96cdc962fe1f",
+      "size": 223
+    },
+    ".github/pull_request_template.md": {
+      "sha256": "74c412bdfedc9d34f709b96348a5ca6df65bdd7c539598f2cae057d79b52497f",
+      "size": 1030
+    },
+    ".github/workflows/changelog-check.yml": {
+      "sha256": "1d6d7796292f0c9925f9b193a1e073935200e05ab352f326c7d14a2a1a286256",
+      "size": 1660
+    },
+    ".github/workflows/deploy-gh-pages.yml": {
+      "sha256": "daff28c6be7e2cb4f78158fc0dbfa44889efb612a1256ea7bf87489e5b845c43",
+      "size": 1191
+    },
+    "app.js": {
+      "sha256": "bf5f4c52bc7664845f682541065e5af3ef0cc5c66d4d449f3d84578c1e50c350",
+      "size": 149093
+    },
+    "CHANGELOG.md": {
+      "sha256": "eca59d25b7977e8a6fd335603d39932380dbb77fcbe99cf009553b78f8dd28ca",
+      "size": 6650
+    },
+    "data/study-hub/admin-config.json": {
+      "sha256": "365442667df130155a2d33abb374cb03b266119237299d11bbe922469acf7940",
+      "size": 115
+    },
+    "data/study-hub/appendix-words.json": {
+      "sha256": "7f218fb620459cbe69cee9522afe379647d7a6dfce43b772d0697f46da789ce2",
+      "size": 22522
+    },
+    "data/study-hub/audio-bank.json": {
+      "sha256": "19ff2788e59abf9232d9f9ea0d4f2b1925cf1eb3e7377f98b2bce793c4d4eaf6",
+      "size": 390
+    },
+    "data/study-hub/glossary.json": {
+      "sha256": "08172fbb0e59a36c0441db6dded0492bcd068954b7a2a4796276f517b44927f7",
+      "size": 3893
+    },
+    "data/study-hub/knowledge-bank.json": {
+      "sha256": "cb11a4732c271433bb2eb93fa626c0dd032633ff5d0668bc7cf490a89b60510b",
+      "size": 112385
+    },
+    "data/study-hub/pdf-page-map.json": {
+      "sha256": "abdbfcd1828e2b9458413a5925700ee480a9a5765ef9966e794874cf036ce602",
+      "size": 4832
+    },
+    "data/study-hub/reading-bank.json": {
+      "sha256": "3aea9ca89a82db953894bfb85233fde779efd834d07e4e876d172ef3305c77c6",
+      "size": 805124
+    },
+    "data/study-hub/word-import.json": {
+      "sha256": "ab0a60df405f00b7e4760511010033f4aa00aafe45125b97428bc501795cd72b",
+      "size": 668833
+    },
+    "index.html": {
+      "sha256": "d8a9a48c1a2dc683204d7a682ace9c008ca8cd3ad0cb44dc925b2ee34fcb079f",
+      "size": 40540
+    },
+    "mastery.js": {
+      "sha256": "c19512c547bab6068d49159ef711c5d0f42b99a045fa37e8e2e377c099b1ea36",
+      "size": 8443
+    },
+    "scripts/appendix_parser.py": {
+      "sha256": "bfe086813547d71f1700c0d4f807ae056ceee866fcf51a7513ca51fe1f149cb0",
+      "size": 9674
+    },
+    "scripts/build-study-hub.py": {
+      "sha256": "c7e19bae6694d99fdd6ba5bbdba7094fbc7e987b0cb9e21d9a0b3220f6ca6003",
+      "size": 30710
+    },
+    "scripts/build_practice_supplement.py": {
+      "sha256": "8336413bab2b9a61c92e2187e5b86e900a1c7cdaabfeb3bd7a0f4faee762ee62",
+      "size": 11237
+    },
+    "scripts/convert_u1_page_images.py": {
+      "sha256": "ee5c4226473de2c8e1512d5416506124815fb17676257d8b10211fb130ef4022",
+      "size": 2894
+    },
+    "scripts/extract-textbook-pdf.py": {
+      "sha256": "744377b2148e67422a92db7e5f8e87abb5e33c970b840d509df32fcf1c43f9cb",
+      "size": 3521
+    },
+    "scripts/fetch_u1_images.py": {
+      "sha256": "7aaebd80ff664f49e48b55b766e6277fb9219afcfb8c386bc6c578b9913ed24b",
+      "size": 2104
+    },
+    "scripts/gen-writing-md.py": {
+      "sha256": "5ff482d6630109c6217e075ab3652bd30f0ed13d7079463f91b1cea766b87432",
+      "size": 1160
+    },
+    "scripts/generate-word-templates.py": {
+      "sha256": "1d45d4ce97da8c28dcbd700ff70bcd313b589e6e3722fb81f0e27728691dfe01",
+      "size": 3027
+    },
+    "scripts/generate_student_handbook.py": {
+      "sha256": "8a0f127d0a4d3094059c9be22c6fe13e30a872ad3253a35a30cf2f0fb983d372",
+      "size": 32741
+    },
+    "scripts/generate_u12_knowledge.py": {
+      "sha256": "4b77e51a6702eff6f716660b8bc37b9e985482048cc11278e044f4436e81b3e3",
+      "size": 88503
+    },
+    "scripts/import-csv-to-library.py": {
+      "sha256": "c0557a37812e742d647c391c0ba60b20a3afd1f6589cdf6ecc832cffd393458f",
+      "size": 1178
+    },
+    "scripts/import-question-cards.py": {
+      "sha256": "73a7d7f5f67eb87007b84c03c1418f2210b01cead371cf1b3dc6fe637009ec68",
+      "size": 4484
+    },
+    "scripts/import-word-study.py": {
+      "sha256": "665d330ec0f9affcd516612e8b1bb196aff90db694ebc1719278a6bb5a796159",
+      "size": 19905
+    },
+    "scripts/knowledge_u12_sections.py": {
+      "sha256": "89422e1a26950c27f2c1b020b9de6ad6a47dbce9ff9f1215519d3635cebdddc3",
+      "size": 9001
+    },
+    "scripts/knowledge_u36_sections.py": {
+      "sha256": "405262e32749b043e5964f851a17484b5f4fc81843831c04353e2b1998a3fc9e",
+      "size": 12655
+    },
+    "scripts/lan_server.py": {
+      "sha256": "ebcb453e2e393dad6548f93dcfa592af2446dae09ca243f60853d4aba005ed4f",
+      "size": 42829
+    },
+    "scripts/ocr-textbook-pages.py": {
+      "sha256": "744113af24cc78cfba8a00e33a13ab7f43027388c65f82dfe3a983b87c5fd662",
+      "size": 3318
+    },
+    "scripts/release_pack.py": {
+      "sha256": "5efcd03c1eaf1ae47c2ea82581a15edb629caa4260b1a54c546cde8432430b05",
+      "size": 6962
+    },
+    "scripts/study_hub_admin.py": {
+      "sha256": "51ae5895a9665ee1a46ed861eb79655d0badc8396602ea7bf19a1e660d9218d7",
+      "size": 4522
+    },
+    "scripts/study_hub_library.py": {
+      "sha256": "930fbab47dfd55e12d8f3acae9937fb608e483aeb987db3e6aed1069abacc9dd",
+      "size": 21112
+    },
+    "scripts/sync-knowledge-from-reading.py": {
+      "sha256": "27e1af207b5109f5c5d2c478e33b9afdcd0a49c69f3feefc4451674fddc33780",
+      "size": 1355
+    },
+    "scripts/sync-question-banks.py": {
+      "sha256": "09d1ead43f9289d22f827af37f52ff07308b42f5b836872aa1b93d15f9077732",
+      "size": 3606
+    },
+    "scripts/sync_all_units_official.py": {
+      "sha256": "1e4e0bdfa5b54f5fcaddc0b6f290cd2aec047f046c57fd75f637687a2e857862",
+      "size": 5419
+    },
+    "scripts/sync_u12_practice_from_reading.py": {
+      "sha256": "1abda886265fe2e2e3aaf939d709c61b56fa893c4865e9f8be93d7789d845a8f",
+      "size": 6680
+    },
+    "scripts/sync_u1_amazing_places.py": {
+      "sha256": "647db7680ac099ac36e76f75f48f9f5814e370390739c385903a16a1693c668d",
+      "size": 8461
+    },
+    "scripts/validate_appendix_coverage.py": {
+      "sha256": "bc80e3f8e8e0d58837644f7c462f8214af580fa9e655ae84b800170da9284fb5",
+      "size": 3118
+    },
+    "scripts/verify-textbook-images.py": {
+      "sha256": "45c84d642e13e5a8fa52c84249d45a25600df9c0a48c600175bef10dc1ce1778",
+      "size": 2054
+    },
+    "study-hub.js": {
+      "sha256": "b9fe2873b9db18889b2066d885d1cc78149f57bd42b894b3a4539429e2aee878",
+      "size": 118457
+    },
+    "styles.css": {
+      "sha256": "08f86e5f3baee0e271a58f0754205a6a9578bba21e95a97d8cba8d81c575d5c3",
+      "size": 58721
+    },
+    "sync-release.bat": {
+      "sha256": "8d285c01d88ca1183a4676c71b7fd1cacd49cd1d84312ed0909bd9e29f76e129",
+      "size": 1328
+    },
+    "VERSION": {
+      "sha256": "6ca2e3356014241331fb2b399428fca23c558e3f3d428edcf4f56eb0fe907069",
+      "size": 7
+    },
+    "发布打包.bat": {
+      "sha256": "967c01208ad0369bb18e53840d0c72def0671f3e6cb09f4fbeb86b0b9a7c7184",
+      "size": 907
+    },
+    "启动.bat": {
+      "sha256": "eb7634bf3c3b58c53893459e95c8b11108e70ac2129c0271c4228dc3ed396f80",
+      "size": 2184
+    }
+  }
+}

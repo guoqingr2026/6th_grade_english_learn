@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe08a"/>
+      <stop offset="100%" stop-color="#ff9f2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg4)"/>
+  <ellipse cx="560" cy="360" rx="130" ry="90" fill="#3fbf78"/>
+  <circle cx="560" cy="325" r="32" fill="#7cffb0"/>
+  <circle cx="620" cy="350" r="25" fill="#79f7a9"/>
+  <circle cx="515" cy="360" r="22" fill="#79f7a9"/>
+  <text x="56" y="88" font-size="48" font-family="Arial" fill="#8a4e00" font-weight="700">Unit 4 Money</text>
+  <text x="56" y="144" font-size="30" font-family="Arial" fill="#8a4e00">Pocket money and planning</text>
+</svg>

@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages (gh-pages)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build release folder
+        run: |
+          mkdir -p release/assets/images release/data/question-banks/import-cards/_templates release/scripts
+          cp index.html app.js styles.css study-hub.js FINAL_PRODUCT_MANUAL.md PARENT_GUIDE.md DEPLOY.md release/
+          cp 启动.bat sync-release.bat release/ 2>/dev/null || true
+          cp -r assets/* release/assets/
+          cp -r data/* release/data/
+          cp -r scripts/* release/scripts/
+          touch release/.nojekyll
+          if [ -f release/使用说明.txt ]; then :; else echo "See FINAL_PRODUCT_MANUAL.md" > release/使用说明.txt; fi
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./release
+          force_orphan: true

@@ -1,0 +1,17 @@
+{
+  "cardType": "fillblank",
+  "action": "append",
+  "source": "示例：课堂填空 Unit 4",
+  "items": [
+    {
+      "id": "fb-u4-class-01",
+      "unit": 4,
+      "part": "A",
+      "type": "verb",
+      "prompt": "I am going to ___ a new dictionary.",
+      "clue": "中文：我打算买一本新词典。",
+      "answer": "buy",
+      "analysis": "be going to 后接动词原形 buy。"
+    }
+  ]
+}

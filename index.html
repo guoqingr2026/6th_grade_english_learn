@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>2026新人教版PEP六年级英语上册综合知识记忆训练营</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <h1>2026新人教版PEP六年级英语上册综合知识记忆训练营</h1>
+        <p class="hero-subtitle">旭日长空光照人生 （Sunshine Life Team) 出品</p>
+        <p>覆盖语法、句型、单词、常用语和动词过去式专项练习。</p>
+      </header>
+
+      <section class="mobile-quick-bar" id="mobileQuickBar" aria-label="手机快捷同步">
+        <div class="mobile-quick-row">
+          <label class="mobile-quick-label" for="mobileNicknameInput">昵称</label>
+          <input id="mobileNicknameInput" type="text" placeholder="与电脑相同" autocomplete="nickname" />
+          <button type="button" id="mobileSaveNickname" class="primary-btn mobile-quick-save">保存</button>
+          <button type="button" id="mobileSyncBtn" class="primary-btn mobile-sync-pill">同步</button>
+        </div>
+        <p id="mobileLanSyncFeedback" class="mobile-quick-feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="dashboard">
+        <div class="stat-card">
+          <h2>答对题数</h2>
+          <p id="correctCount">0</p>
+        </div>
+        <div class="stat-card">
+          <h2>答错题数</h2>
+          <p id="wrongCount">0</p>
+        </div>
+        <div class="stat-card">
+          <h2>总作答数</h2>
+          <p id="attemptCount">0</p>
+        </div>
+        <div class="stat-card">
+          <h2>正确率</h2>
+          <p id="accuracy">0%</p>
+        </div>
+        <div class="stat-card">
+          <h2>做题积分</h2>
+          <p id="pointCount">0</p>
+        </div>
+        <div class="stat-card cumulative-card">
+          <h2 id="cumulativePointTitle">累积积分</h2>
+          <p id="cumulativePointCount">0</p>
+        </div>
+        <div class="stat-card">
+          <h2>错题本数目</h2>
+          <p id="wrongBookCount">0</p>
+        </div>
+      </section>
+
+      <p id="pointsBreakdown" class="model points-breakdown">累积 = 做题 0 + 行为 0 - 兑换 0</p>
+
+      <section class="dashboard-actions parent-gated-section">
+        <p class="model">以下操作需家长密码：手动判题、行为记分、积分兑换。系统自动答题计分无需密码。</p>
+        <p id="parentModeStatus" class="model parent-mode-status">家长模式：未解锁（敏感操作每次需输入密码）</p>
+        <button id="exitParentMode" class="secondary-btn hidden">退出家长模式</button>
+        <div class="hub-feature-grid">
+          <button id="openTextbookReading" type="button" class="primary-btn textbook-reading-btn hub-feature-btn">课文中英文讲读</button>
+          <button id="openKnowledgeLecture" type="button" class="primary-btn knowledge-lecture-btn hub-feature-btn">知识点精讲</button>
+        </div>
+        <div class="mastery-action-grid">
+          <button id="masteryDailyBtn" type="button" class="primary-btn mastery-btn">每日复习清单</button>
+          <button id="masteryPartQuizBtn" type="button" class="secondary-btn mastery-btn">Part 通关测验</button>
+          <button id="masteryMockExamBtn" type="button" class="secondary-btn mastery-btn">考前模拟卷</button>
+        </div>
+        <div class="manual-judge-grid">
+          <button id="markAnswerCorrect" class="primary-btn success-action-btn">回答正确</button>
+          <button id="markAnswerWrong" class="secondary-btn wrong-action-btn">回答错误</button>
+        </div>
+      </section>
+
+      <button type="button" id="toggleStudentSidebar" class="mobile-sidebar-toggle" aria-expanded="false">▼ 学生档案 / 局域网同步 / 导入题库</button>
+
+      <section class="knowledge-box student-box collapsed-on-mobile" id="studentSidebar">
+        <div class="student-header-row">
+          <p class="topic-title student-title-inline">学生档案与挑战记录</p>
+          <div class="nickname-inline">
+            <input id="nicknameInput" type="text" placeholder="学生昵称" />
+            <button id="saveNickname" class="primary-btn nickname-save-btn">保存昵称</button>
+          </div>
+        </div>
+        <div class="lan-sync-box sync-bar-sidebar" aria-label="数据同步">
+          <button id="syncDataBtn" type="button" class="primary-btn sync-data-btn">同步数据（多端刷新）</button>
+          <p class="model sync-bar-hint">电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。</p>
+          <p id="lanSyncFeedback" class="model sync-feedback"></p>
+          <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
+        </div>
+        <div class="host-admin-box" id="hostAdminBox" aria-label="主机管理员审核">
+          <p class="topic-title small-title">主机管理员（课文改写审核）</p>
+          <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
+          <div class="actions host-admin-actions">
+            <input id="adminPinInput" type="password" placeholder="管理员密码" autocomplete="off" />
+            <button id="saveAdminPin" type="button" class="primary-btn">保存管理员密码</button>
+            <label class="host-admin-toggle"><input id="requireRemoteApproval" type="checkbox" checked /> 远程改写需审核</label>
+          </div>
+          <div id="pendingEditsList" class="pending-edits-list" aria-live="polite"></div>
+        </div>
+        <div class="actions profile-main-actions">
+          <button id="resetAllStats" class="secondary-btn danger-btn">一键重置练习统计（需家长密码）</button>
+          <button id="resetParentPin" class="secondary-btn">重置家长密码</button>
+          <button id="exportReport" class="primary-btn">导出学习报告TXT</button>
+          <button id="exportReportHtml" class="primary-btn">导出HTML总报告</button>
+          <button id="exportPointsHtml" class="primary-btn">导出积分台账HTML</button>
+        </div>
+        <div class="import-bank-box">
+          <p class="topic-title small-title">题库导入（CSV / TXT）</p>
+          <p class="model">首次自动加载默认题库；用 Excel 填好模板后一键导入加题，无需改代码。</p>
+          <div class="actions">
+            <button id="downloadImportTemplate" type="button" class="secondary-btn">1. 下载模板 CSV</button>
+            <input id="importBankFile" type="file" accept=".csv,.txt" class="import-file-input" />
+            <button id="importBankBtn" type="button" class="primary-btn">2. 选择文件并导入</button>
+            <button id="clearCustomBanks" type="button" class="secondary-btn">清除导入加题</button>
+          </div>
+          <p id="importBankFeedback" class="model"></p>
+        </div>
+        <p id="nicknameDisplay" class="model"></p>
+        <p id="lastPracticeTime" class="model"></p>
+        <div class="actions">
+          <input id="redeemName" type="text" placeholder="兑换项目，如：文具礼物" />
+          <input id="redeemCost" type="number" min="1" placeholder="兑换积分" />
+          <button id="redeemPoints" class="primary-btn">积分兑换</button>
+        </div>
+        <div>
+          <p class="topic-title small-title">兑换记录</p>
+          <div id="redeemList" class="record-list"></div>
+        </div>
+        <div>
+          <p class="topic-title small-title">排行榜模式（Top 3）</p>
+          <div class="actions">
+            <label for="leaderboardSort" class="filter-label">排序维度：</label>
+            <select id="leaderboardSort" class="unit-select">
+              <option value="points">最高积分</option>
+              <option value="accuracy">最高正确率</option>
+              <option value="streak">连续打卡天数</option>
+            </select>
+          </div>
+          <div id="leaderboardList" class="record-list"></div>
+        </div>
+        <div>
+          <p class="topic-title small-title">行为积分引擎（20+项）</p>
+          <p class="model">行为积分计入累积积分，不影响答对/答错统计；需家长密码操作。</p>
+          <div class="actions">
+            <select id="behaviorActionSelect" class="unit-select"></select>
+            <button id="applyBehaviorAction" class="primary-btn">记录行为并计分</button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Practice sections">
+        <button class="tab active" data-tab="flashcards">单词卡片<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="grammar">语法句型<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="phrases">常用语<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="quiz">选择题<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="fillblank">综合填空<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="verbs">动词专项<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="writing">优秀作文<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="appendix">附录校验<span class="tab-count">0</span></button>
+        <button class="tab" data-tab="journal">学习日志<span class="tab-count">0</span></button>
+        <button class="tab tab-wrongbook" data-tab="wrongbook">错题本<span class="tab-count tab-count-wrong">0</span></button>
+      </nav>
+
+      <section id="flashcards" class="panel active">
+        <h2>单词卡片 (Vocabulary)</h2>
+        <p>数据基于 2024 新版六年级上册 Unit 1-6 词汇，点击卡片翻面学习。</p>
+        <label for="unitFilter" class="filter-label">选择单元：</label>
+        <select id="unitFilter" class="unit-select">
+          <option value="all">全部单元</option>
+          <option value="1">Unit 1 Amazing places</option>
+          <option value="2">Unit 2 Getting together</option>
+          <option value="3">Unit 3 Healthy life</option>
+          <option value="4">Unit 4 Managing money well</option>
+          <option value="5">Unit 5 Exploring space</option>
+          <option value="6">Unit 6 Energy, nature and us</option>
+        </select>
+        <div class="card-wrap">
+          <button id="prevCard" class="secondary-btn">上一张</button>
+          <article class="flashcard" id="flashcard" role="button" tabindex="0">
+            <p class="card-label" id="cardCategory"></p>
+            <p class="card-front" id="cardFront"></p>
+            <div class="card-back hidden" id="cardBack">
+              <p id="cardPhonetic" class="card-phonetic"></p>
+              <p id="cardZh" class="card-zh"></p>
+              <p id="cardExample" class="card-example"></p>
+              <p id="cardExampleZh" class="card-example-zh"></p>
+              <img id="cardImage" class="card-image hidden" alt="vocabulary illustration" />
+            </div>
+            <p class="hint">点击卡片翻面</p>
+          </article>
+          <button id="nextCard" class="secondary-btn">下一张</button>
+        </div>
+      </section>
+
+      <section id="grammar" class="panel">
+        <h2>语法与句型</h2>
+        <p>六年级重点语法强化版：每个语法点提供规则 + 多个标准例句。</p>
+        <label for="grammarUnitFilter" class="filter-label">单元筛选：</label>
+        <select id="grammarUnitFilter" class="unit-select">
+          <option value="all">全部 Unit</option>
+          <option value="0">附录/补充</option>
+          <option value="1">Unit 1</option>
+          <option value="2">Unit 2</option>
+          <option value="3">Unit 3</option>
+          <option value="4">Unit 4</option>
+          <option value="5">Unit 5</option>
+          <option value="6">Unit 6</option>
+        </select>
+        <article class="knowledge-box">
+          <p id="grammarTitle" class="topic-title"></p>
+          <p id="grammarRule"></p>
+          <div id="grammarExample" class="model"></div>
+          <button id="nextGrammar" class="primary-btn">下一个语法点</button>
+        </article>
+        <article class="knowledge-box grammar-game">
+          <p class="topic-title">语法连连看：主语-谓语-宾语</p>
+          <p class="model">先点一个槽位，再点下方词块进行匹配。</p>
+          <p id="svoSentenceHint" class="model"></p>
+          <div class="svo-slots">
+            <button id="slotSubject" class="svo-slot subject-slot">主语 (S)</button>
+            <button id="slotVerb" class="svo-slot verb-slot">谓语 (V)</button>
+            <button id="slotObject" class="svo-slot object-slot">宾语/补语 (O)</button>
+          </div>
+          <div id="svoTokens" class="svo-tokens"></div>
+          <div class="actions">
+            <button id="checkSvo" class="primary-btn">检查连线</button>
+            <button id="nextSvo" class="secondary-btn">下一题</button>
+          </div>
+          <p id="svoFeedback" class="feedback"></p>
+        </article>
+      </section>
+
+      <section id="phrases" class="panel">
+        <h2>常用语句</h2>
+        <p>关键词遮盖闪卡：先猜空白部分，再点击翻卡看完整表达。</p>
+        <label for="phraseUnitFilter" class="filter-label">单元筛选：</label>
+        <select id="phraseUnitFilter" class="unit-select">
+          <option value="all">全部 Unit</option>
+          <option value="1">Unit 1</option>
+          <option value="2">Unit 2</option>
+          <option value="3">Unit 3</option>
+          <option value="4">Unit 4</option>
+          <option value="5">Unit 5</option>
+          <option value="6">Unit 6</option>
+        </select>
+        <article class="knowledge-box">
+          <p id="phraseScene" class="topic-title"></p>
+          <article class="flashcard phrase-flashcard" id="phraseCard" role="button" tabindex="0">
+            <p id="phraseMasked"></p>
+            <p id="phraseEn" class="hidden"></p>
+            <p class="hint" id="phraseHint">点击闪卡显示答案</p>
+          </article>
+          <p id="phraseZh" class="model"></p>
+          <button id="nextPhrase" class="primary-btn">换一句</button>
+        </article>
+      </section>
+
+      <section id="quiz" class="panel">
+        <h2>语法词汇选择题</h2>
+        <p>加入课堂闯关风格与答案解析，选错后会给出错误原因和正确思路。</p>
+        <div class="quiz-toolbar">
+          <label for="quizUnitFilter" class="filter-label">题库单元：</label>
+          <select id="quizUnitFilter" class="unit-select">
+            <option value="all">全部 Unit</option>
+            <option value="1">Unit 1</option>
+            <option value="2">Unit 2</option>
+            <option value="3">Unit 3</option>
+            <option value="4">Unit 4</option>
+            <option value="5">Unit 5</option>
+            <option value="6">Unit 6</option>
+          </select>
+
+          <label for="quizPartFilter" class="filter-label">题库部分：</label>
+          <select id="quizPartFilter" class="unit-select">
+            <option value="all">全部 Part</option>
+            <option value="A">Part A</option>
+            <option value="B">Part B</option>
+          </select>
+          <button id="startWrongBook" class="secondary-btn">错题本复习</button>
+        </div>
+        <article class="quiz-box">
+          <p id="quizBadge" class="quiz-badge"></p>
+          <p id="quizPrompt"></p>
+          <div id="quizOptions" class="options"></div>
+          <p id="quizFeedback" class="feedback"></p>
+          <p id="quizAnalysis" class="analysis-text"></p>
+          <div class="actions">
+            <button id="nextQuestion" class="primary-btn">下一题</button>
+            <button id="clearWrongBook" class="secondary-btn">清空错题本</button>
+          </div>
+          <p id="wrongBookStatus" class="model"></p>
+        </article>
+      </section>
+
+      <section id="wrongbook" class="panel">
+        <h2>错题本（全模块汇总）</h2>
+        <p>自动收录各模块答错题目（含单词卡片手动判错），支持筛选与定向复习。</p>
+        <div class="actions wrong-book-toolbar">
+          <label for="wrongBookModuleFilter" class="filter-label">模块筛选：</label>
+          <select id="wrongBookModuleFilter" class="unit-select">
+            <option value="all">全部模块</option>
+          </select>
+          <label for="wrongBookUnitFilter" class="filter-label">单元筛选：</label>
+          <select id="wrongBookUnitFilter" class="unit-select">
+            <option value="all">全部 Unit</option>
+            <option value="0">未标注/附录</option>
+            <option value="1">Unit 1</option>
+            <option value="2">Unit 2</option>
+            <option value="3">Unit 3</option>
+            <option value="4">Unit 4</option>
+            <option value="5">Unit 5</option>
+            <option value="6">Unit 6</option>
+          </select>
+          <button id="reviewWrongVocab" class="primary-btn">复习单词错题</button>
+          <button id="reviewWrongQuiz" class="primary-btn">复习选择题错题</button>
+          <button id="clearWrongBookPanel" class="secondary-btn">清空错题本（需家长密码）</button>
+        </div>
+        <p id="wrongBookPanelSummary" class="model">共 0 条错题</p>
+        <div id="wrongBookPanelList" class="record-list wrong-book-panel-list">暂无错题</div>
+      </section>
+
+      <section id="verbs" class="panel">
+        <h2>不规则动词专项（附录5 · 47 个）</h2>
+        <p>按教材附录5完整词表练习三态；不自动朗读、不自动跳题，请手动点「下一组」。</p>
+        <article class="sentence-box">
+          <p id="verbBase" class="topic-title"></p>
+          <div class="verb-grid">
+            <p><strong>原形:</strong> <span id="verbInfinitive"></span></p>
+            <p><strong>过去式:</strong> <span id="verbPast"></span></p>
+            <p><strong>过去分词:</strong> <span id="verbParticiple"></span></p>
+          </div>
+          <p id="verbUsage" class="model"></p>
+          <p id="verbSentence" class="model"></p>
+          <p id="verbFillPrompt"></p>
+          <div class="actions">
+            <input
+              id="verbFillInput"
+              type="text"
+              placeholder="填入过去式或过去分词"
+            />
+            <button id="checkVerb" class="primary-btn">检查</button>
+            <button id="nextVerb" class="secondary-btn">下一组</button>
+          </div>
+          <p id="verbFeedback" class="feedback"></p>
+        </article>
+      </section>
+
+      <section id="fillblank" class="panel">
+        <h2>综合填空练习（5题）</h2>
+        <p>从审核题库抽取最多 5 题（prompt / 中文提示 / 答案一一对应）。支持按单元筛选并换下一组。请填写英文单词。</p>
+        <label for="fillUnitFilter" class="filter-label">选择单元：</label>
+        <select id="fillUnitFilter" class="unit-select">
+          <option value="all">全部 Unit</option>
+          <option value="1">Unit 1</option>
+          <option value="2">Unit 2</option>
+          <option value="3">Unit 3</option>
+          <option value="4">Unit 4</option>
+          <option value="5">Unit 5</option>
+          <option value="6">Unit 6</option>
+        </select>
+        <article class="knowledge-box">
+          <div id="fillQuestions"></div>
+          <div class="actions">
+            <button id="submitFillSet" class="primary-btn">提交本组</button>
+            <button id="nextFillSet" class="secondary-btn">下一组5题</button>
+          </div>
+          <p class="model">作答规范：仅填写英文（如 `went`、`electricity`）。</p>
+          <p id="fillSetFeedback" class="feedback"></p>
+        </article>
+      </section>
+
+      <section id="writing" class="panel">
+        <h2>优秀作文范例</h2>
+        <p>每个单元 3 篇高分范文 + 关键句填空仿写，帮助快速内化表达。</p>
+        <label for="writingUnitFilter" class="filter-label">选择单元：</label>
+        <select id="writingUnitFilter" class="unit-select">
+          <option value="1">Unit 1</option>
+          <option value="2">Unit 2</option>
+          <option value="3">Unit 3</option>
+          <option value="4">Unit 4</option>
+          <option value="5">Unit 5</option>
+          <option value="6">Unit 6</option>
+        </select>
+        <article class="knowledge-box">
+          <p id="writingTitle" class="topic-title"></p>
+          <p id="writingEn" class="writing-text"></p>
+          <p id="writingZh" class="model"></p>
+          <p id="writingFillPrompt" class="model"></p>
+          <div class="actions">
+            <input id="writingFillInput" type="text" placeholder="填入关键短语或单词" />
+            <button id="checkWritingFill" class="primary-btn">检查填空</button>
+          </div>
+          <p id="writingFillFeedback" class="feedback"></p>
+          <textarea id="writingStudentInput" rows="6" placeholder="在这里写你的仿写作文（建议 60~120 词）"></textarea>
+          <div class="actions">
+            <button id="scoreWriting" class="primary-btn">作文仿写评分</button>
+          </div>
+          <p id="writingScore" class="feedback"></p>
+          <p id="writingAdvice" class="model"></p>
+          <button id="nextWriting" class="primary-btn">下一篇范文</button>
+        </article>
+      </section>
+
+      <section id="appendix" class="panel">
+        <h2>附录完整性校验面板</h2>
+        <p>自动统计 Unit 1-6 词汇、短语、句型与动词覆盖情况，缺失项会高亮提示。</p>
+        <article class="knowledge-box">
+          <p id="appendixSummary" class="topic-title"></p>
+          <div id="appendixTable" class="appendix-table"></div>
+          <button id="refreshAppendix" class="primary-btn">刷新校验</button>
+        </article>
+      </section>
+
+      <section id="journal" class="panel">
+        <h2>学习日志</h2>
+        <p>每天最多 100 词，记录练习感想与收获（本地保存）。</p>
+        <article class="knowledge-box">
+          <p id="journalToday" class="topic-title"></p>
+          <label for="journalUnitFilter" class="filter-label">日志单元：</label>
+          <select id="journalUnitFilter" class="unit-select">
+            <option value="0">综合/未分单元</option>
+            <option value="1">Unit 1</option>
+            <option value="2">Unit 2</option>
+            <option value="3">Unit 3</option>
+            <option value="4">Unit 4</option>
+            <option value="5">Unit 5</option>
+            <option value="6">Unit 6</option>
+          </select>
+          <label for="journalListUnitFilter" class="filter-label">历史筛选：</label>
+          <select id="journalListUnitFilter" class="unit-select">
+            <option value="all">全部 Unit</option>
+            <option value="0">综合/未分单元</option>
+            <option value="1">Unit 1</option>
+            <option value="2">Unit 2</option>
+            <option value="3">Unit 3</option>
+            <option value="4">Unit 4</option>
+            <option value="5">Unit 5</option>
+            <option value="6">Unit 6</option>
+          </select>
+          <textarea id="journalInput" rows="5" placeholder="写下你今天的学习感想（最多100词）"></textarea>
+          <div class="actions">
+            <button id="saveJournal" class="primary-btn">保存今日日志</button>
+          </div>
+          <p id="journalFeedback" class="feedback"></p>
+          <div>
+            <p class="topic-title small-title">历史日志</p>
+            <div id="journalList" class="record-list"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="knowledge-box records-board">
+        <details class="record-card fold-card" open>
+          <summary class="topic-title small-title">荣誉勋章</summary>
+          <div id="badgeList" class="badge-list"></div>
+        </details>
+        <details class="record-card fold-card" open>
+          <summary class="topic-title small-title">错题本快览（完整复习请打开「错题本」标签）</summary>
+          <div id="wrongItemList" class="record-list"></div>
+        </details>
+        <details class="record-card fold-card" open>
+          <summary class="topic-title small-title">学习报告导出反馈</summary>
+          <p id="exportFeedback" class="model"></p>
+          <p class="model">可通过右侧按钮导出 TXT / HTML 报告。</p>
+        </details>
+        <details class="record-card fold-card" open>
+          <summary class="topic-title small-title">挑战记录（时间/日期）</summary>
+          <div id="challengeList" class="record-list"></div>
+        </details>
+      </section>
+    </main>
+    <div id="studyHubModal" class="study-hub-modal hidden" role="dialog" aria-modal="true" aria-labelledby="studyHubTitle">
+      <div id="studyHubStage" class="study-hub-stage">
+        <div id="studyHubToast" class="study-hub-toast hidden" role="status" aria-live="polite"></div>
+        <header class="study-hub-header">
+          <div class="study-hub-header-text">
+            <h2 id="studyHubTitle">课文中英文讲读</h2>
+            <p class="study-hub-subtitle">PPT 全屏 · Part A / B / C / Reading · 附录词组高亮</p>
+            <div class="study-hub-mode-switch">
+              <button type="button" id="studyHubSwitchKnowledge" class="study-hub-mode-btn hidden" title="保持当前单元/Part，切换到知识点精讲">→ 知识点精讲</button>
+              <button type="button" id="studyHubSwitchReading" class="study-hub-mode-btn hidden" title="保持当前单元/Part，切换到课文中英文讲读">→ 课文中英文讲读</button>
+            </div>
+          </div>
+          <div class="study-hub-toolbar">
+            <div class="study-hub-toolbar-rows">
+              <div class="study-hub-toolbar-row study-hub-toolbar-row-tools">
+                <div id="studyHubRichToolbar" class="study-hub-rich-toolbar hidden">
+                  <button type="button" id="studyHubInsertImage" class="study-hub-tool-btn secondary" title="插入图片">图片</button>
+                  <button type="button" id="studyHubInsertTable" class="study-hub-tool-btn secondary" title="插入表格">表格</button>
+                  <button type="button" id="studyHubInsertLink" class="study-hub-tool-btn secondary" title="插入链接">链接</button>
+                  <button type="button" id="studyHubInsertAudio" class="study-hub-tool-btn secondary" title="插入音频">音频</button>
+                  <button type="button" id="studyHubInsertVideo" class="study-hub-tool-btn secondary" title="插入视频/嵌入">视频</button>
+                  <input id="studyHubInsertImageFile" type="file" accept="image/*" class="import-file-input" />
+                  <input id="studyHubInsertAudioFile" type="file" accept="audio/*" class="import-file-input" />
+                </div>
+                <button type="button" id="studyHubSaveKnowledge" class="study-hub-tool-btn hidden">保存精讲</button>
+                <button type="button" id="studyHubSnipTask" class="study-hub-tool-btn secondary hidden" title="Win+Shift+S 截图后粘贴，保存老师分配的学习任务">截图·任务</button>
+                <button type="button" id="studyHubSnipHomework" class="study-hub-tool-btn secondary hidden" title="Win+Shift+S 截图后粘贴，保存学生作业记录">截图·作业</button>
+                <button type="button" id="studyHubZoomIn" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="放大课本图片">放大</button>
+                <button type="button" id="studyHubZoomOut" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="缩小课本图片">缩小</button>
+                <button type="button" id="studyHubZoomReset" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="重置图片大小与位置">重置</button>
+                <button type="button" id="studyHubImportCsv" class="study-hub-tool-btn secondary hidden" title="CSV 转为 HTML 文档库">导入 CSV</button>
+                <input id="studyHubImportCsvFile" type="file" accept=".csv,text/csv" class="import-file-input" />
+                <button type="button" id="studyHubSavePageText" class="study-hub-tool-btn secondary hidden" title="保存富文本到 HTML 文档库">保存本页</button>
+                <button type="button" id="studyHubReadMode" class="study-hub-tool-btn secondary hidden" title="中英文朗读（浏览器语音）">朗读</button>
+                <button type="button" id="studyHubStudentRecord" class="study-hub-tool-btn secondary hidden" title="录制本课课文朗读，停止后自动保存">课文录音</button>
+                <button type="button" id="studyHubReadingLang" class="study-hub-tool-btn secondary hidden" title="切换中英文对照 / 仅英文显示">仅英文</button>
+              </div>
+              <div class="study-hub-toolbar-row study-hub-toolbar-row-display">
+                <label id="studyHubBgPickerWrap" class="study-hub-color-wrap hidden" title="文本区背景色">
+                  <span class="study-hub-color-label">背景</span>
+                  <input type="color" id="studyHubBgColor" value="#ffffff" />
+                </label>
+                <label id="studyHubEnFontFamilyWrap" class="study-hub-font-wrap hidden" title="英文字体">
+                  <span class="study-hub-color-label">英文字体</span>
+                  <select id="studyHubEnFontFamily" class="study-hub-font-select">
+                    <option value="Georgia, 'Times New Roman', serif">Times/Georgia</option>
+                    <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
+                    <option value="system-ui, sans-serif">系统默认</option>
+                    <option value="'Comic Sans MS', cursive">Comic Sans</option>
+                  </select>
+                </label>
+                <button type="button" id="studyHubEnFontDown" class="study-hub-tool-btn hidden" title="缩小英文字号">英A−</button>
+                <button type="button" id="studyHubEnFontUp" class="study-hub-tool-btn hidden" title="放大英文字号">英A+</button>
+                <button type="button" id="studyHubEnBold" class="study-hub-tool-btn secondary hidden" title="英文粗体开关">英文粗体</button>
+                <label id="studyHubEnColorWrap" class="study-hub-color-wrap hidden" title="英文文字颜色">
+                  <span class="study-hub-color-label">英文色</span>
+                  <input type="color" id="studyHubEnColor" value="#1e293b" />
+                </label>
+                <label id="studyHubZhFontFamilyWrap" class="study-hub-font-wrap hidden" title="中文字体">
+                  <span class="study-hub-color-label">中文字体</span>
+                  <select id="studyHubZhFontFamily" class="study-hub-font-select">
+                    <option value="'Microsoft YaHei', 'PingFang SC', sans-serif">微软雅黑</option>
+                    <option value="system-ui, sans-serif">系统默认</option>
+                    <option value="'SimSun', 'Songti SC', serif">宋体</option>
+                    <option value="'KaiTi', 'STKaiti', serif">楷体</option>
+                  </select>
+                </label>
+                <button type="button" id="studyHubZhFontDown" class="study-hub-tool-btn hidden" title="缩小中文字号">中A−</button>
+                <button type="button" id="studyHubZhFontUp" class="study-hub-tool-btn hidden" title="放大中文字号">中A+</button>
+                <button type="button" id="studyHubZhBold" class="study-hub-tool-btn secondary hidden active" title="中文粗体开关">中文粗体</button>
+                <label id="studyHubZhColorWrap" class="study-hub-color-wrap hidden" title="中文文字颜色">
+                  <span class="study-hub-color-label">中文色</span>
+                  <input type="color" id="studyHubZhColor" value="#1d4ed8" />
+                </label>
+                <label id="studyHubTtsRateWrap" class="study-hub-font-wrap hidden" title="朗读语速">
+                  <span class="study-hub-color-label">语速</span>
+                  <input type="range" id="studyHubTtsRate" min="0.65" max="2.5" step="0.05" value="0.88" />
+                  <span id="studyHubTtsRateVal" class="study-hub-rate-val">0.88</span>
+                </label>
+                <label id="studyHubTtsVoiceZhWrap" class="study-hub-font-wrap hidden" title="中文朗读声色">
+                  <span class="study-hub-color-label">中文声</span>
+                  <select id="studyHubTtsVoiceZh" class="study-hub-font-select study-hub-voice-select"></select>
+                </label>
+                <label id="studyHubTtsVoiceEnWrap" class="study-hub-font-wrap hidden" title="英文朗读声色">
+                  <span class="study-hub-color-label">英文声</span>
+                  <select id="studyHubTtsVoiceEn" class="study-hub-font-select study-hub-voice-select"></select>
+                </label>
+                <button type="button" id="studyHubTheme" class="study-hub-tool-btn secondary" title="深色护眼背景">护眼</button>
+                <button type="button" id="studyHubFullscreen" class="study-hub-tool-btn secondary">全屏</button>
+                <button type="button" id="studyHubClose" class="study-hub-tool-btn close-btn">关闭</button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <nav id="studyHubUnits" class="study-hub-units" aria-label="单元选择"></nav>
+        <nav id="studyHubParts" class="study-hub-parts" aria-label="Part A B C Reading"></nav>
+        <div class="study-hub-mobile-tabs hidden" id="studyHubMobileTabs" role="tablist" aria-label="手机分屏切换">
+          <button type="button" class="study-hub-mobile-tab active" data-panel="text" role="tab" aria-selected="true">课文/精讲</button>
+          <button type="button" class="study-hub-mobile-tab" data-panel="both" role="tab" aria-selected="false">分屏</button>
+          <button type="button" class="study-hub-mobile-tab" data-panel="image" role="tab" aria-selected="false">课本图</button>
+        </div>
+        <div class="study-hub-split" id="studyHubSplit">
+          <figure class="study-hub-image-pane">
+            <div class="study-hub-image-viewport" id="studyHubImageViewport">
+              <div class="study-hub-image-transform" id="studyHubImageTransform">
+                <div class="study-hub-image-wrap">
+                  <button type="button" id="studyHubImagePrev" class="study-hub-img-nav hidden" aria-label="上一页">‹</button>
+                  <img id="studyHubImage" src="" alt="课本图片" draggable="false" />
+                  <button type="button" id="studyHubImageNext" class="study-hub-img-nav hidden" aria-label="下一页">›</button>
+                </div>
+              </div>
+            </div>
+            <p id="studyHubImagePager" class="study-hub-image-pager hidden"></p>
+            <figcaption id="studyHubImageCaption" class="study-hub-image-caption"></figcaption>
+          </figure>
+          <div class="study-hub-content-pane">
+            <p id="studyHubPageLabel" class="study-hub-page-label hidden"></p>
+            <div id="studyHubStudentRecordPanel" class="study-hub-student-record-panel hidden" aria-label="课文朗读录音记录"></div>
+            <div id="studyHubAudioBar" class="study-hub-audio-bar hidden" aria-label="补充听力音频"></div>
+            <div id="studyHubPageEditor" class="study-hub-page-editor study-hub-reading-html hidden" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" data-placeholder="本页课文（支持富文本；CSV 导入会转为纯文本对）"></div>
+            <div id="studyHubContent" class="study-hub-rich" contenteditable="false"></div>
+            <div id="studyHubSnipPanel" class="study-hub-snip-panel hidden" aria-label="截图存档"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="studyHubSnipModal" class="study-hub-snip-modal hidden" role="dialog" aria-modal="true" aria-labelledby="studyHubSnipModalTitle">
+      <div class="study-hub-snip-modal-inner">
+        <header class="study-hub-snip-modal-header">
+          <h3 id="studyHubSnipModalTitle">粘贴截图</h3>
+          <button type="button" id="studyHubSnipModalClose" class="study-hub-tool-btn close-btn">关闭</button>
+        </header>
+        <p class="study-hub-snip-hint">按 <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> 截图后，点击下方区域并按 <kbd>Ctrl</kbd>+<kbd>V</kbd> 粘贴；也可选择图片文件。</p>
+        <div id="studyHubSnipPasteZone" class="study-hub-snip-paste-zone" tabindex="0">点击此处后粘贴截图（Ctrl+V）</div>
+        <div class="study-hub-snip-modal-actions">
+          <input id="studyHubSnipFileInput" type="file" accept="image/png,image/jpeg,image/webp" class="import-file-input" />
+          <button type="button" id="studyHubSnipPickFile" class="study-hub-tool-btn secondary">选择图片</button>
+          <button type="button" id="studyHubSnipSave" class="study-hub-tool-btn" disabled>保存截图</button>
+        </div>
+        <div id="studyHubSnipPreview" class="study-hub-snip-preview hidden"></div>
+      </div>
+    </div>
+    <div id="masteryPanel" class="mastery-panel hidden" role="dialog" aria-labelledby="masteryPanelTitle">
+      <div class="mastery-panel-inner">
+        <header class="mastery-panel-header">
+          <h2 id="masteryPanelTitle">冲满分一体化 · 每日复习</h2>
+          <button type="button" id="masteryCloseBtn" class="study-hub-tool-btn close-btn">关闭</button>
+        </header>
+        <div id="masteryDailyContent" class="mastery-daily-content"></div>
+        <div class="mastery-quiz-controls">
+          <label>单元
+            <select id="masteryUnitSelect">
+              <option value="1">Unit 1</option>
+              <option value="2">Unit 2</option>
+              <option value="3">Unit 3</option>
+              <option value="4">Unit 4</option>
+              <option value="5">Unit 5</option>
+              <option value="6">Unit 6</option>
+            </select>
+          </label>
+          <label>Part
+            <select id="masteryPartSelect">
+              <option value="part-a">Part A</option>
+              <option value="part-b">Part B</option>
+              <option value="part-c">Part C</option>
+              <option value="reading">Reading</option>
+            </select>
+          </label>
+        </div>
+        <p class="model">Part 通关需 ≥80% 正确率；通关后解锁下一 Part。模拟卷从 Unit 1–6 抽题并生成 HTML 成绩单。</p>
+      </div>
+    </div>
+    <div id="fxLayer" class="fx-layer"></div>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="./assets/vendor/lame.min.js"></script>
+    <script defer src="./study-hub.js?v=20260907-1"></script>
+    <script src="./app.js"></script>
+    <script defer src="./mastery.js"></script>
+  </body>
+</html>

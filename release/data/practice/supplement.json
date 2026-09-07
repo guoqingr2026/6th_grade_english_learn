@@ -1,0 +1,6766 @@
+{
+  "version": 1,
+  "note": "OR-merge at runtime; never replaces default banks wholesale",
+  "vocabularyCards": [
+    {
+      "id": "supp-vocab-u1-was",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "★was",
+      "ipa": "wəz",
+      "zh": "（be 的第一和第三人称单数过去式）",
+      "example": "Zhang Peng: Hi, Peter! How was your weekend?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-climb",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "climb",
+      "ipa": "klaɪm",
+      "zh": "攀登；爬",
+      "example": "Zhang Peng: It was great! I climbed the Great Wall.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-kilometre",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "kilometre",
+      "ipa": "'kɪləmiːtə(r)",
+      "zh": "（=km）千米；公里",
+      "example": "Zhang Peng: Yes, it is! It's 21,000 kilometres in all. What did you do, Peter?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-gingerbread-house",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "gingerbread house",
+      "ipa": "'dʒɪndʒəbred",
+      "zh": "姜饼屋",
+      "example": "Peter: I visited the \"Gingerbread House\" last Saturday.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-send",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "send",
+      "ipa": "send",
+      "zh": "邮寄；发送",
+      "example": "Zhang Peng: That sounds interesting. Please send me some pictures.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-go",
+      "unit": 1,
+      "category": "附录2 · P.6",
+      "front": "★go",
+      "ipa": "ɡəʊ",
+      "zh": "（过去式 went /went/）去；走",
+      "example": "The weather was good in Guiyang. ( )",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-thousand",
+      "unit": 1,
+      "category": "附录2 · P.6",
+      "front": "thousand",
+      "ipa": "'θaʊznd",
+      "zh": "一千",
+      "example": "Binbin: Amazing! There are over seven thousand clay warriors and one hundred horses.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-clay",
+      "unit": 1,
+      "category": "附录2 · P.6",
+      "front": "clay",
+      "ipa": "kleɪ",
+      "zh": "黏土；陶土",
+      "example": "Binbin: Amazing! There are over seven thousand clay warriors and one hundred horses.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-see",
+      "unit": 1,
+      "category": "附录2 · P.6",
+      "front": "★see",
+      "ipa": "siː",
+      "zh": "（过去式 saw /sɔː/）看见",
+      "example": "Binbin: We ate some famous Xi'an noodles. Then we went to see the Terracotta Warriors.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-village",
+      "unit": 1,
+      "category": "附录2 · P.7",
+      "front": "village",
+      "ipa": "'vɪlɪdʒ",
+      "zh": "村庄；村镇",
+      "example": "Binbin and Xinxin went to the village nearby. They saw beautiful flowers.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-eat",
+      "unit": 1,
+      "category": "附录2 · P.7",
+      "front": "★eat",
+      "ipa": "iːt",
+      "zh": "（过去式 ate /eɪt/）吃",
+      "example": "Zhang Peng: It was great! I climbed the Great Wall.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-dry",
+      "unit": 1,
+      "category": "附录2 · P.7",
+      "front": "dry",
+      "ipa": "draɪ",
+      "zh": "干的",
+      "example": "Sarah went to Wuhan. She ate hot dry noodles.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-take",
+      "unit": 1,
+      "category": "附录2 · P.7",
+      "front": "★take",
+      "ipa": "teɪk",
+      "zh": "（过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-view",
+      "unit": 1,
+      "category": "附录2 · P.7",
+      "front": "view",
+      "ipa": "vjuː",
+      "zh": "景色",
+      "example": "Amy took a trip to Shanghai. The view from the tower was great.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-inspiring",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "inspiring",
+      "ipa": "ɪn'spaɪərɪŋ",
+      "zh": "鼓舞人心的",
+      "example": "My trip to the Jinggangshan Revolution Museum was amazing! I walked around the museum for hours and saw many old books a",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-bamboo",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "bamboo",
+      "ipa": "ˌbæm'buː",
+      "zh": "竹；竹子",
+      "example": "This was a great place for a summer trip! We climbed the Jinggang Mountains and took many photos of the bamboo forest an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-pumpkin",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "pumpkin",
+      "ipa": "'pʌmpkɪn",
+      "zh": "南瓜",
+      "example": "This was a great place for a summer trip! We climbed the Jinggang Mountains and took many photos of the bamboo forest an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-restaurant",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "restaurant",
+      "ipa": "'restrɒnt",
+      "zh": "餐馆；餐厅",
+      "example": "This was a great place for a summer trip! We climbed the Jinggang Mountains and took many photos of the bamboo forest an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-airport",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "airport",
+      "ipa": "'eəpɔːt",
+      "zh": "机场",
+      "example": "This was a great place for a summer trip! We climbed the Jinggang Mountains and took many photos of the bamboo forest an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-new-zealand",
+      "unit": 1,
+      "category": "附录2 · P.4",
+      "front": "New Zealand",
+      "ipa": "ˌnjuː 'ziːlənd",
+      "zh": "新西兰",
+      "example": "Peter: Ha! Ha! No! It's a beautiful train station in New Zealand.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-hong-kong",
+      "unit": 1,
+      "category": "附录2 · P.5",
+      "front": "Hong Kong",
+      "ipa": "'hɒŋ'kɒŋ",
+      "zh": "-Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥",
+      "example": "Mike visited the Hong Kong-Zhuhai-Macao Bridge.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-paris",
+      "unit": 1,
+      "category": "附录2 · P.5",
+      "front": "Paris",
+      "ipa": "'pærɪs",
+      "zh": "巴黎",
+      "example": "Liu Jia's family travelled to Paris and visited the Eiffel Tower.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-eiffel-tower",
+      "unit": 1,
+      "category": "附录2 · P.5",
+      "front": "Eiffel Tower",
+      "ipa": "'aɪfəl",
+      "zh": "埃菲尔铁塔",
+      "example": "Liu Jia's family travelled to Paris and visited the Eiffel Tower.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-terracotta-warriors",
+      "unit": 1,
+      "category": "附录2 · P.6",
+      "front": "Terracotta Warriors",
+      "ipa": "ˌterə'kɒtə",
+      "zh": "/'wɒrɪəz/ 兵马俑",
+      "example": "Binbin: We ate some famous Xi'an noodles. Then we went to see the Terracotta Warriors.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u1-jinggangshan-revolution",
+      "unit": 1,
+      "category": "附录2 · P.8",
+      "front": "Jinggangshan Revolution",
+      "ipa": "ˌrevə'luːʃn",
+      "zh": "Museum 井冈山革命博物馆",
+      "example": "My trip to the Jinggangshan Revolution Museum was amazing! I walked around the museum for hours and saw many old books a",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-paste",
+      "unit": 2,
+      "category": "附录2 · P.16",
+      "front": "paste",
+      "ipa": "peɪst",
+      "zh": "粘贴",
+      "example": "Binbin: Sure. You can also join us for the Spring Festival. We can paste fu and eat jiaozi together.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-dress",
+      "unit": 2,
+      "category": "附录2 · P.17",
+      "front": "★dress",
+      "ipa": "dres",
+      "zh": "穿衣服",
+      "example": "We dressed in red.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-gala",
+      "unit": 2,
+      "category": "附录2 · P.17",
+      "front": "gala",
+      "ipa": "'ɡɑːlə",
+      "zh": "演出；庆典",
+      "example": "We waited for the Spring Festival Gala.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-count-down",
+      "unit": 2,
+      "category": "附录2 · P.17",
+      "front": "count down",
+      "ipa": "kaʊnt",
+      "zh": "/daʊn/ 倒计时",
+      "example": "We counted down to the new year.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-marathon",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "marathon",
+      "ipa": "'mærəθən",
+      "zh": "马拉松赛跑",
+      "example": "Amy: It was great. My mother and I went to a marathon on Sunday. She worked as a volunteer. I watched the race.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-as",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "as",
+      "ipa": "æz",
+      "zh": "作为",
+      "example": "Mike and Matt are having breakfast. Listen and write T (True) or F (False). 🎧",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-race",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "race",
+      "ipa": "reɪs",
+      "zh": "赛跑；速度竞赛",
+      "example": "Amy: It was great. My mother and I went to a marathon on Sunday. She worked as a volunteer. I watched the race.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-run",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "★run",
+      "ipa": "rʌn",
+      "zh": "（过去式 ran /ræn/）跑；奔跑",
+      "example": "Amy: I liked watching the runners. They ran very fast. I cheered for them.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-cheer",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "cheer",
+      "ipa": "tʃɪə(r)",
+      "zh": "欢呼；加油",
+      "example": "Amy: I liked watching the runners. They ran very fast. I cheered for them.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-book-fair",
+      "unit": 2,
+      "category": "附录2 · P.18",
+      "front": "book fair",
+      "ipa": "feə(r)",
+      "zh": "书市",
+      "example": "Chen Jie: I joined an online book fair. I liked it very much.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-writer",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "writer",
+      "ipa": "'raɪtə(r)",
+      "zh": "作家；作者",
+      "example": "The writer read his book to the children.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-read",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "★read",
+      "ipa": "riːd",
+      "zh": "（过去式 read /red/）阅读",
+      "example": "The writer read his book to the children.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-make",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "★make",
+      "ipa": "meɪk",
+      "zh": "（过去式 made /meɪd/）做；使出现",
+      "example": "No, I didn't. I took some photos. Did you make cards for our teachers?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-sing",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "★sing",
+      "ipa": "sɪŋ",
+      "zh": "（过去式 sang /sæŋ/）唱（歌）；演唱",
+      "example": "🟠 Play a guessing game",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-wear",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "★wear",
+      "ipa": "weə(r)",
+      "zh": "（过去式 wore /wɔː(r)/）穿；戴",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-yesterday",
+      "unit": 2,
+      "category": "附录2 · P.19",
+      "front": "★yesterday",
+      "ipa": "'jestədeɪ",
+      "zh": "昨天",
+      "example": "Zhang Peng: Did you go to the book fair yesterday?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-notice",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "notice",
+      "ipa": "'nəʊtɪs",
+      "zh": "通知",
+      "example": "The notice about the dragon boat race finally came out last Friday. I was excited because my father was on a race team!",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-wake",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "★wake",
+      "ipa": "weɪk",
+      "zh": "（过去式 woke /wəʊk/）醒；醒来",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-later",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "later",
+      "ipa": "'leɪtə(r)",
+      "zh": "随后；后来",
+      "example": "In the morning, my dad woke up early. We went to the river later and waited for the race. Then the judge counted down an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-judge",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "judge",
+      "ipa": "dʒʌdʒ",
+      "zh": "裁判",
+      "example": "In the morning, my dad woke up early. We went to the river later and waited for the race. Then the judge counted down an",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-begin",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "★begin",
+      "ipa": "bɪ'ɡɪn",
+      "zh": "（过去式 began /bɪ'ɡæn/）开始",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-win",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "★win",
+      "ipa": "wɪn",
+      "zh": "（过去式 won /wʌn/）获胜",
+      "example": "In the evening, our family made zongzi and had a big dinner for the festival, and for the winner, my dad! It was the bes",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-winner",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "winner",
+      "ipa": "'wɪnə(r)",
+      "zh": "获胜的人（或队）；成功者",
+      "example": "In the evening, our family made zongzi and had a big dinner for the festival, and for the winner, my dad! It was the bes",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-ever",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "ever",
+      "ipa": "'evə(r)",
+      "zh": "（进行比较时用于加强语气）以往任何时候",
+      "example": "In the evening, our family made zongzi and had a big dinner for the festival, and for the winner, my dad! It was the bes",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u2-exciting",
+      "unit": 2,
+      "category": "附录2 · P.20",
+      "front": "exciting",
+      "ipa": "ɪk'saɪtɪŋ",
+      "zh": "令人激动的",
+      "example": "Love boats? Like exciting races? The Dragon Boat Festival is coming. Come and join us!",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-cold",
+      "unit": 3,
+      "category": "附录2 · P.28",
+      "front": "★cold",
+      "ipa": "kəʊld",
+      "zh": "感冒",
+      "example": "📞👦 Mike: I'm afraid not, Binbin. I have a bad cold.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-ill",
+      "unit": 3,
+      "category": "附录2 · P.28",
+      "front": "★ill",
+      "ipa": "ɪl",
+      "zh": "不舒服；有病",
+      "example": "🅰️ How do we know if we are ill?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-head",
+      "unit": 3,
+      "category": "附录2 · P.28",
+      "front": "★head",
+      "ipa": "hed",
+      "zh": "头；头部",
+      "example": "📞👦 Mike: I feel ill. My head hurts and I have a runny nose.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-runny-nose",
+      "unit": 3,
+      "category": "附录2 · P.28",
+      "front": "runny nose",
+      "ipa": "'rʌnɪ",
+      "zh": "流鼻涕",
+      "example": "Mike has a runny nose. （ ）",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-soon",
+      "unit": 3,
+      "category": "附录2 · P.28",
+      "front": "soon",
+      "ipa": "suːn",
+      "zh": "很快；马上",
+      "example": "📞🧒 Binbin: That's good. Take care and get well soon!",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-fever",
+      "unit": 3,
+      "category": "附录2 · P.29",
+      "front": "fever",
+      "ipa": "'fiːvə(r)",
+      "zh": "发烧；发热",
+      "example": "🧑🤒 He has a fever.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-cough",
+      "unit": 3,
+      "category": "附录2 · P.29",
+      "front": "cough",
+      "ipa": "kɒf",
+      "zh": "咳嗽",
+      "example": "👧😷 She has a cough.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-discuss",
+      "unit": 3,
+      "category": "附录2 · P.30",
+      "front": "discuss",
+      "ipa": "dɪ'skʌs",
+      "zh": "讨论；商量",
+      "example": "👩‍🏫 Miss White: Class now we're going to discuss health.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-diet",
+      "unit": 3,
+      "category": "附录2 · P.31",
+      "front": "diet",
+      "ipa": "'daɪət",
+      "zh": "日常饮食",
+      "example": "• Have a healthy diet. 🍎",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-cry",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "★cry",
+      "ipa": "kraɪ",
+      "zh": "哭；哭泣",
+      "example": "😢 Liu Jia was crying.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-another",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "another",
+      "ipa": "ə'nʌðə(r)",
+      "zh": "另一；不同的（人或事物）",
+      "example": "My good friend Lucy moved to another city.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-call",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "★call",
+      "ipa": "kɔːl",
+      "zh": "（给……）打电话",
+      "example": "Call your friend or send her some emails.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-email",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "★email",
+      "ipa": "'iːmeɪl",
+      "zh": "电子邮件",
+      "example": "Call your friend or send her some emails.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-unhappy",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "unhappy",
+      "ipa": "ʌn'hæpɪ",
+      "zh": "不快乐的；难过的",
+      "example": "I tried that, but I still feel unhappy, said Liu Jia.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-glass",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "★glass",
+      "ipa": "ɡlɑːs",
+      "zh": "一杯（的量）；玻璃",
+      "example": "Miss White gave her a glass of water.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-may",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "★may",
+      "ipa": "meɪ",
+      "zh": "也许；可能",
+      "example": "📞🧒 Binbin: I'm sorry to hear that. Maybe you should see a doctor.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-add",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "add",
+      "ipa": "æd",
+      "zh": "补充说；增加",
+      "example": "🟢 Add more words and make up a conversation",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-video",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "video",
+      "ipa": "'vɪdɪəʊ",
+      "zh": "视频；录像",
+      "example": "I often make video calls with my friend now.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u3-better",
+      "unit": 3,
+      "category": "附录2 · P.32",
+      "front": "better",
+      "ipa": "'betə(r)",
+      "zh": "舒畅些的；（病势）好转的",
+      "example": "I feel much better.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-money",
+      "unit": 4,
+      "category": "附录2 · P.40",
+      "front": "★money",
+      "ipa": "'mʌnɪ",
+      "zh": "钱",
+      "example": "🅰️ Why do we use money?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-pocket-money",
+      "unit": 4,
+      "category": "附录2 · P.40",
+      "front": "pocket money",
+      "ipa": "'pɒkɪt",
+      "zh": "零花钱",
+      "example": "Mum is giving Matt his pocket money. Listen and write T (True) or F (False). 🎧",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-schoolbag",
+      "unit": 4,
+      "category": "附录2 · P.40",
+      "front": "★schoolbag",
+      "ipa": "'skuːlbæɡ",
+      "zh": "书包",
+      "example": "👦 Matt: I'm going to buy a schoolbag.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-goods",
+      "unit": 4,
+      "category": "附录2 · P.41",
+      "front": "goods",
+      "ipa": "ɡʊdz",
+      "zh": "商品",
+      "example": "🛒 We use money to buy goods.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-drink",
+      "unit": 4,
+      "category": "附录2 · P.41",
+      "front": "★drink",
+      "ipa": "drɪŋk",
+      "zh": "饮料",
+      "example": "🍎 We buy food and drink.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-service",
+      "unit": 4,
+      "category": "附录2 · P.41",
+      "front": "service",
+      "ipa": "'sɜːvɪs",
+      "zh": "服务",
+      "example": "💇 We use money to pay for services.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-haircut",
+      "unit": 4,
+      "category": "附录2 · P.41",
+      "front": "haircut",
+      "ipa": "'heəkʌt",
+      "zh": "理发；发型",
+      "example": "We need different services: haircuts, home deliveries, …",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-microscope",
+      "unit": 4,
+      "category": "附录2 · P.42",
+      "front": "microscope",
+      "ipa": "'maɪkrəskəʊp",
+      "zh": "显微镜",
+      "example": "a microscope",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-lucky",
+      "unit": 4,
+      "category": "附录2 · P.42",
+      "front": "lucky",
+      "ipa": "'lʌkɪ",
+      "zh": "幸运的",
+      "example": "👧 Sarah: I also have some lucky money from the Spring Festival, but I still need to save more.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-sale",
+      "unit": 4,
+      "category": "附录2 · P.43",
+      "front": "sale",
+      "ipa": "seɪl",
+      "zh": "特价销售；出售",
+      "example": "👩 Mum: Maybe we can wait for a sale!",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-ticket",
+      "unit": 4,
+      "category": "附录2 · P.43",
+      "front": "ticket",
+      "ipa": "'tɪkɪt",
+      "zh": "票",
+      "example": "🎁 Binbin is going to buy a nice gift for Grandpa. He also wants to buy a robot show ticket.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-manage",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "manage",
+      "ipa": "'mænɪdʒ",
+      "zh": "管理",
+      "example": "💰 Money Management",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-difficult",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "difficult",
+      "ipa": "'dɪfɪkəlt",
+      "zh": "困难的",
+      "example": "We all know it's difficult to manage our money well, but Chen Jie has her special ways. She writes a spending plan. Ever",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-sell",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "sell",
+      "ipa": "sel",
+      "zh": "出售；售卖",
+      "example": "We all know it's difficult to manage our money well, but Chen Jie has her special ways. She writes a spending plan. Ever",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-jar",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "jar",
+      "ipa": "dʒɑː(r)",
+      "zh": "罐子",
+      "example": "We all know it's difficult to manage our money well, but Chen Jie has her special ways. She writes a spending plan. Ever",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-half",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "★half",
+      "ipa": "hɑːf",
+      "zh": "一半",
+      "example": "We all know it's difficult to manage our money well, but Chen Jie has her special ways. She writes a spending plan. Ever",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u4-for-example",
+      "unit": 4,
+      "category": "附录2 · P.44",
+      "front": "for example",
+      "ipa": "ɪɡ'zɑːmpl",
+      "zh": "例如",
+      "example": "Matt gets 25 yuan for his piggy bank. （ ）",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-planet",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "planet",
+      "ipa": "'plænɪt",
+      "zh": "行星",
+      "example": "Mr Liu: Hi, children. Let's talk about our planet Earth today. What can you see in the sky?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-earth",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "★earth",
+      "ipa": "ɜːθ",
+      "zh": "（also Earth）地球",
+      "example": "Mr Liu: Hi, children. Let's talk about our planet Earth today. What can you see in the sky?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-sky",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "sky",
+      "ipa": "skaɪ",
+      "zh": "天；天空",
+      "example": "A What can we see in the sky?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-daytime",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "daytime",
+      "ipa": "'deɪtaɪm",
+      "zh": "白天",
+      "example": "Mike: The sky is often blue in the daytime. We can see the Sun and the clouds. We can also see birds and planes.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-cloud",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "cloud",
+      "ipa": "klaʊd",
+      "zh": "云",
+      "example": "Mike: The sky is often blue in the daytime. We can see the Sun and the clouds. We can also see birds and planes.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-moon",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "★moon",
+      "ipa": "muːn",
+      "zh": "（also the Moon）月球；月亮；卫星",
+      "example": "Amy: At night, we can see the Moon and the stars.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-star",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "★star",
+      "ipa": "stɑː(r)",
+      "zh": "恒星；星",
+      "example": "Amy: At night, we can see the Moon and the stars.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-space",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "★space",
+      "ipa": "speɪs",
+      "zh": "太空；空间",
+      "example": "Mr Liu: Very good. But what can we see from outer space? Let's look at some photos from a space station.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-outer-space",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "outer space",
+      "ipa": "'aʊtə(r)",
+      "zh": "外层空间；外太空",
+      "example": "Mr Liu: Very good. But what can we see from outer space? Let's look at some photos from a space station.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-ocean",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "ocean",
+      "ipa": "'əʊʃn",
+      "zh": "大海；海洋",
+      "example": "Binbin: Wow! We can see mountains, oceans and clouds. How wonderful!",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-marble",
+      "unit": 5,
+      "category": "附录2 · P.52",
+      "front": "marble",
+      "ipa": "'mɑːbl",
+      "zh": "（玻璃）弹子",
+      "example": "Chen Jie: There are large oceans on Earth. It looks like a big blue marble.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-satellite",
+      "unit": 5,
+      "category": "附录2 · P.53",
+      "front": "satellite",
+      "ipa": "'sætəlaɪt",
+      "zh": "人造卫星",
+      "example": "Hi, I'm Earth. I'm a planet. I travel around the Sun. Satellites travel around me.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-soil",
+      "unit": 5,
+      "category": "附录2 · P.54",
+      "front": "soil",
+      "ipa": "sɔɪl",
+      "zh": "土壤",
+      "example": "Chen Jie: Yes, there is. There is soil too.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-alien",
+      "unit": 5,
+      "category": "附录2 · P.54",
+      "front": "alien",
+      "ipa": "'eɪlɪən",
+      "zh": "外星生物",
+      "example": "Matt: Oh! Are there any aliens?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-sunrise",
+      "unit": 5,
+      "category": "附录2 · P.54",
+      "front": "sunrise",
+      "ipa": "'sʌnraɪz",
+      "zh": "日出",
+      "example": "Chen Jie: Look! This is the sunrise on Mars.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-rover",
+      "unit": 5,
+      "category": "附录2 · P.54",
+      "front": "rover",
+      "ipa": "'rəʊvə(r)",
+      "zh": "探测器",
+      "example": "Chen Jie: Maybe you can go one day. China already put a rover on Mars. We learn more about the \"red planet\" every year.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-into",
+      "unit": 5,
+      "category": "附录2 · P.55",
+      "front": "into",
+      "ipa": "'ɪntə",
+      "zh": "朝；进入",
+      "example": "We can look into space with telescopes.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-telescope",
+      "unit": 5,
+      "category": "附录2 · P.55",
+      "front": "telescope",
+      "ipa": "'telɪskəʊp",
+      "zh": "望远镜",
+      "example": "We can look into space with telescopes.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-astronaut",
+      "unit": 5,
+      "category": "附录2 · P.55",
+      "front": "★astronaut",
+      "ipa": "'æstrənɔːt",
+      "zh": "宇航员；航天员",
+      "example": "Astronauts go into space.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-spaceship",
+      "unit": 5,
+      "category": "附录2 · P.55",
+      "front": "spaceship",
+      "ipa": "'speɪsʃɪp",
+      "zh": "宇宙飞船",
+      "example": "They use a spaceship to fly there.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-month",
+      "unit": 5,
+      "category": "附录2 · P.55",
+      "front": "★month",
+      "ipa": "mʌnθ",
+      "zh": "月；月份",
+      "example": "Some astronauts live for months on a space station.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-taikonaut",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "taikonaut",
+      "ipa": "'taɪkənɔːt",
+      "zh": "中国航天员",
+      "example": "Chinese astronauts are called taikonauts. Their life in space is special.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-cloth",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "cloth",
+      "ipa": "klɒθ",
+      "zh": "（一块）布；织物",
+      "example": "The taikonauts get up early in the morning. But getting ready is different. They can't use water to wash their faces. So",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-toothpaste",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "toothpaste",
+      "ipa": "'tuːθpeɪst",
+      "zh": "牙膏",
+      "example": "The taikonauts get up early in the morning. But getting ready is different. They can't use water to wash their faces. So",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-question",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "★question",
+      "ipa": "'kwestʃən",
+      "zh": "问题",
+      "example": "Ask more questions to the rover.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-sunset",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "sunset",
+      "ipa": "'sʌnset",
+      "zh": "日落",
+      "example": "It is hard work. The taikonauts must stay healthy. Every afternoon they do exercise to keep healthy and strong. But thei",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-time",
+      "unit": 5,
+      "category": "附录2 · P.56",
+      "front": "★time",
+      "ipa": "taɪm",
+      "zh": "次；回",
+      "example": "Mike: The sky is often blue in the daytime. We can see the Sun and the clouds. We can also see birds and planes.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u5-mars",
+      "unit": 5,
+      "category": "附录2 · P.54",
+      "front": "Mars",
+      "ipa": "mɑːz",
+      "zh": "火星",
+      "example": "Chen Jie: Mars.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-power",
+      "unit": 6,
+      "category": "附录2 · P.64",
+      "front": "power",
+      "ipa": "'paʊə(r)",
+      "zh": "能；能量",
+      "example": "Mike: Maybe we can talk about water power.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-electricity",
+      "unit": 6,
+      "category": "附录2 · P.64",
+      "front": "electricity",
+      "ipa": "ɪˌlek'trɪsɪtɪ",
+      "zh": "电",
+      "example": "Binbin: Running water can make electricity. We can get power from the sea too.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-solar",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "solar",
+      "ipa": "'səʊlə(r)",
+      "zh": "太阳的",
+      "example": "Wind power, solar power and water power are types of green energy. They are clean and good for Mother Earth.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-type",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "type",
+      "ipa": "taɪp",
+      "zh": "类型；种类",
+      "example": "Wind power, solar power and water power are types of green energy. They are clean and good for Mother Earth.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-energy",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "energy",
+      "ipa": "'enədʒɪ",
+      "zh": "能源",
+      "example": "A Where do we get energy?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-source",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "source",
+      "ipa": "sɔːs",
+      "zh": "来源",
+      "example": "Mrs Green: We use energy every day. But many resources are running out. What should we do?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-light",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "★light",
+      "ipa": "laɪt",
+      "zh": "照亮",
+      "example": "We use green energy to light, heat and cool our homes and schools. We also use it to run cars, buses and trains.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-heat",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "heat",
+      "ipa": "hiːt",
+      "zh": "加热；（使）变暖；热量",
+      "example": "We use green energy to light, heat and cool our homes and schools. We also use it to run cars, buses and trains.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-cool",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "★cool",
+      "ipa": "kuːl",
+      "zh": "（使）变凉，冷却",
+      "example": "We use green energy to light, heat and cool our homes and schools. We also use it to run cars, buses and trains.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-run",
+      "unit": 6,
+      "category": "附录2 · P.65",
+      "front": "run",
+      "ipa": "rʌn",
+      "zh": "使运行",
+      "example": "Binbin: Running water can make electricity. We can get power from the sea too.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-resource",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "resource",
+      "ipa": "rɪ'sɔːs",
+      "zh": "资源",
+      "example": "Mrs Green: We use energy every day. But many resources are running out. What should we do?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-few",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "few",
+      "ipa": "fjuː",
+      "zh": "（比较级 fewer /'fjuːə(r)/）不多；很少",
+      "example": "Mike: We should save energy. Then we will use fewer resources.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-change",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "change",
+      "ipa": "tʃeɪndʒ",
+      "zh": "（使）不同；改变",
+      "example": "Do Binbin and Mike think it's too late to change? Why?",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-quick",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "quick",
+      "ipa": "kwɪk",
+      "zh": "迅速的；快的",
+      "example": "Binbin: Sure. We can take quick showers. That will save energy and water.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-shower",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "shower",
+      "ipa": "'ʃaʊə(r)",
+      "zh": "淋浴",
+      "example": "Binbin: Sure. We can take quick showers. That will save energy and water.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-unplug",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "unplug",
+      "ipa": "ʌn'plʌɡ",
+      "zh": "拔掉……的电源插头",
+      "example": "Binbin: And we should always unplug our computers and TVs.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-difference",
+      "unit": 6,
+      "category": "附录2 · P.66",
+      "front": "difference",
+      "ipa": "'dɪfrəns",
+      "zh": "差别；不同（之处）",
+      "example": "Mrs Green: Great! Small changes can make a big difference.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-reduce",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "reduce",
+      "ipa": "rɪ'djuːs",
+      "zh": "减少",
+      "example": "REDUCE + REUSE + RECYCLE = FOR A HAPPY EARTH",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-air-conditioner",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "air conditioner",
+      "ipa": "'eə kən'dɪʃənə(r)",
+      "zh": "空调机",
+      "example": "Let's follow the \"3R\" rules. We should use air conditioners less. We should ...",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-drive",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "drive",
+      "ipa": "draɪv",
+      "zh": "驾驶；开车",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-reuse",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "reuse",
+      "ipa": "ˌriː'juːz",
+      "zh": "再次使用；重复使用",
+      "example": "REDUCE + REUSE + RECYCLE = FOR A HAPPY EARTH",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-own",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "own",
+      "ipa": "əʊn",
+      "zh": "自己的",
+      "example": "Think: What are your ideas for following the \"3R\" rules? We can reuse old bottles as pencil holders. We can recycle old ",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-market",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "market",
+      "ipa": "'mɑːkɪt",
+      "zh": "集市；市场",
+      "example": "—",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-bottle",
+      "unit": 6,
+      "category": "附录2 · P.67",
+      "front": "bottle",
+      "ipa": "'bɒtl",
+      "zh": "瓶子",
+      "example": "Use old bottles again. You can put noodles or pencils in them.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-top",
+      "unit": 6,
+      "category": "附录2 · P.68",
+      "front": "★top",
+      "ipa": "tɒp",
+      "zh": "（位置、级别或程度）最高的",
+      "example": "Mother Earth is running out of resources! What should we do? Here are our top three ideas. We should all try to save ene",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-useful",
+      "unit": 6,
+      "category": "附录2 · P.68",
+      "front": "useful",
+      "ipa": "'juːsfl",
+      "zh": "有用的；有益的",
+      "example": "Electricity is useful. We use electricity to _______________, _______________, and _______________.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-dirty",
+      "unit": 6,
+      "category": "附录2 · P.68",
+      "front": "★dirty",
+      "ipa": "'dɑːtɪ",
+      "zh": "脏的",
+      "example": "Wash all your dirty clothes together, not one at a time.",
+      "exampleZh": "",
+      "image": ""
+    },
+    {
+      "id": "supp-vocab-u6-side",
+      "unit": 6,
+      "category": "附录2 · P.68",
+      "front": "side",
+      "ipa": "saɪd",
+      "zh": "一面；一边",
+      "example": "Use both sides of paper.",
+      "exampleZh": "",
+      "image": ""
+    }
+  ],
+  "phrases": [
+    {
+      "id": "supp-phrase-u1-ced345",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "climb the Great Wall",
+      "zh": "爬长城"
+    },
+    {
+      "id": "supp-phrase-u1-e04214",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "last weekend",
+      "zh": "上周末"
+    },
+    {
+      "id": "supp-phrase-u1-04961f",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "over the summer holidays",
+      "zh": "暑假期间"
+    },
+    {
+      "id": "supp-phrase-u1-afc261",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "take many photos",
+      "zh": "拍很多照片"
+    },
+    {
+      "id": "supp-phrase-u1-f9325f",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "a must-see attraction",
+      "zh": "必游景点"
+    },
+    {
+      "id": "supp-phrase-u1-260735",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "visit the Gingerbread House",
+      "zh": "参观姜饼屋"
+    },
+    {
+      "id": "supp-phrase-u1-c2b654",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "send me some pictures",
+      "zh": "给我发一些照片"
+    },
+    {
+      "id": "supp-phrase-u1-f4249c",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "walk around the Palace Museum",
+      "zh": "逛故宫博物院"
+    },
+    {
+      "id": "supp-phrase-u1-1c9498",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "go to Xi'an",
+      "zh": "去西安"
+    },
+    {
+      "id": "supp-phrase-u1-7dad23",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "eat Xi'an noodles",
+      "zh": "吃西安面条"
+    },
+    {
+      "id": "supp-phrase-u1-cd4b57",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "see the Terracotta Warriors",
+      "zh": "看兵马俑"
+    },
+    {
+      "id": "supp-phrase-u1-87f44b",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "ride bikes on the old city wall",
+      "zh": "在古城墙上骑自行车"
+    },
+    {
+      "id": "supp-phrase-u1-53c79b",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "the bamboo forest",
+      "zh": "竹林"
+    },
+    {
+      "id": "supp-phrase-u1-587a83",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "pumpkin soup",
+      "zh": "南瓜汤"
+    },
+    {
+      "id": "supp-phrase-u1-a99d08",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "red rice",
+      "zh": "红米饭"
+    },
+    {
+      "id": "supp-phrase-u1-098635",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "by high-speed train",
+      "zh": "乘高铁"
+    },
+    {
+      "id": "supp-phrase-u1-79c750",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "by cable car",
+      "zh": "乘缆车"
+    },
+    {
+      "id": "supp-expr-u1-93ae81",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "How was your weekend?",
+      "zh": "你周末过得怎么样？"
+    },
+    {
+      "id": "supp-expr-u1-e574bb",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "It was great! I climbed the Great Wall.",
+      "zh": "非常棒！我去爬长城了。"
+    },
+    {
+      "id": "supp-expr-u1-5fccfc",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What did you do, Peter?",
+      "zh": "你做什么了，彼得？"
+    },
+    {
+      "id": "supp-expr-u1-446cc0",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "I visited the \"Gingerbread House\" last Saturday.",
+      "zh": "我上个星期六去参观\"姜饼屋\"了。"
+    },
+    {
+      "id": "supp-expr-u1-8299e9",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "Where did you go over the summer holidays, Binbin?",
+      "zh": "你暑假去哪儿了，斌斌？"
+    },
+    {
+      "id": "supp-expr-u1-f661d8",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "I went to Xi'an with my family.",
+      "zh": "我和家人去西安了。"
+    },
+    {
+      "id": "supp-expr-u1-0069c3",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What did you do there?",
+      "zh": "你们在那儿做了些什么？"
+    },
+    {
+      "id": "supp-expr-u1-0689c2",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "We went to see the Terracotta Warriors.",
+      "zh": "我们去看兵马俑了。"
+    },
+    {
+      "id": "supp-expr-u1-37e385",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What else did you do?",
+      "zh": "你们还做什么了？"
+    },
+    {
+      "id": "supp-phrase-u2-d5988a",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "paste fu on the door",
+      "zh": "在门上贴福字"
+    },
+    {
+      "id": "supp-phrase-u2-ad7e66",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "dress in red",
+      "zh": "穿红色衣服"
+    },
+    {
+      "id": "supp-phrase-u2-837aab",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "wait for the Spring Festival Gala",
+      "zh": "等待春节联欢晚会"
+    },
+    {
+      "id": "supp-phrase-u2-2ca157",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "count down to the new year",
+      "zh": "倒计时迎接新年"
+    },
+    {
+      "id": "supp-phrase-u2-7c2930",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "clean the house",
+      "zh": "打扫房子"
+    },
+    {
+      "id": "supp-phrase-u2-92277a",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "have a big dinner",
+      "zh": "吃一顿大餐"
+    },
+    {
+      "id": "supp-phrase-u2-d18b9e",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "go to a marathon",
+      "zh": "参加马拉松"
+    },
+    {
+      "id": "supp-phrase-u2-549fae",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "work as a volunteer",
+      "zh": "作为志愿者工作"
+    },
+    {
+      "id": "supp-phrase-u2-1f1029",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "cheer for the runners",
+      "zh": "为跑步者加油"
+    },
+    {
+      "id": "supp-phrase-u2-1674a2",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "join an online book fair",
+      "zh": "参加线上书市"
+    },
+    {
+      "id": "supp-phrase-u2-d28989",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "share ideas",
+      "zh": "分享想法"
+    },
+    {
+      "id": "supp-phrase-u2-47f8aa",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "the dragon boat race",
+      "zh": "龙舟赛"
+    },
+    {
+      "id": "supp-phrase-u2-17e188",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "wake up early",
+      "zh": "早起"
+    },
+    {
+      "id": "supp-phrase-u2-a5e982",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "make zongzi",
+      "zh": "包粽子"
+    },
+    {
+      "id": "supp-expr-u2-abcd87",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "How was your Mid-Autumn Festival holiday, Binbin?",
+      "zh": "你中秋假期过得怎么样，斌斌？"
+    },
+    {
+      "id": "supp-expr-u2-df1792",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "It was great!",
+      "zh": "非常棒！"
+    },
+    {
+      "id": "supp-expr-u2-a7242d",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Did you take a trip?",
+      "zh": "你们去旅行了吗？"
+    },
+    {
+      "id": "supp-expr-u2-331c73",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "No, we didn't.",
+      "zh": "不，我们没有。"
+    },
+    {
+      "id": "supp-expr-u2-9d823b",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Did you eat mooncakes?",
+      "zh": "你们吃月饼了吗？"
+    },
+    {
+      "id": "supp-expr-u2-1be281",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Yes, we did.",
+      "zh": "是的，吃了。"
+    },
+    {
+      "id": "supp-expr-u2-0393fb",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "My mother and I went to a marathon on Sunday.",
+      "zh": "我和妈妈上周日参加了一场马拉松活动。"
+    },
+    {
+      "id": "supp-expr-u2-a08af0",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "What did you like about it?",
+      "zh": "你喜欢这个活动的哪个方面？"
+    },
+    {
+      "id": "supp-expr-u2-175ded",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "I liked watching the runners.",
+      "zh": "我喜欢看参赛者（跑步）。"
+    },
+    {
+      "id": "supp-expr-u2-31cf5b",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "What did you do last weekend?",
+      "zh": "你上周末做什么了？"
+    },
+    {
+      "id": "supp-phrase-u3-fc6fe6",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a bad cold",
+      "zh": "得了重感冒"
+    },
+    {
+      "id": "supp-phrase-u3-48977f",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a fever",
+      "zh": "发烧"
+    },
+    {
+      "id": "supp-phrase-u3-e3f3a9",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a cough",
+      "zh": "咳嗽"
+    },
+    {
+      "id": "supp-phrase-u3-2ca8f5",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "see a doctor",
+      "zh": "看医生"
+    },
+    {
+      "id": "supp-phrase-u3-52b61d",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "go to hospital",
+      "zh": "去医院"
+    },
+    {
+      "id": "supp-phrase-u3-56125a",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "get well soon",
+      "zh": "早日康复"
+    },
+    {
+      "id": "supp-phrase-u3-e5c51d",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a healthy diet",
+      "zh": "保持健康饮食"
+    },
+    {
+      "id": "supp-phrase-u3-9bfc14",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "exercise often",
+      "zh": "经常锻炼"
+    },
+    {
+      "id": "supp-phrase-u3-cfcc43",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "think about happy things",
+      "zh": "想开心的事情"
+    },
+    {
+      "id": "supp-phrase-u3-431193",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "join clubs and teams",
+      "zh": "加入俱乐部和团队"
+    },
+    {
+      "id": "supp-phrase-u3-aa1cf2",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "make video calls",
+      "zh": "打视频电话"
+    },
+    {
+      "id": "supp-phrase-u3-fc594f",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "cheer you up",
+      "zh": "让你振作起来"
+    },
+    {
+      "id": "supp-expr-u3-623ff3",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "How do you feel?",
+      "zh": "你感觉怎么样？"
+    },
+    {
+      "id": "supp-expr-u3-b831f0",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "I feel ill. My head hurts and I have a runny nose.",
+      "zh": "我感觉不太好。我头痛还流鼻涕。"
+    },
+    {
+      "id": "supp-expr-u3-348ff6",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "I'm sorry to hear that. Maybe you should see a doctor.",
+      "zh": "对此我感到难过。也许你应该看看医生。"
+    },
+    {
+      "id": "supp-expr-u3-7c678c",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "How can we live a healthy life?",
+      "zh": "我们怎样能过健康的生活？"
+    },
+    {
+      "id": "supp-expr-u3-b66fe2",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "We need to eat healthy food. We should exercise too.",
+      "zh": "我们需要吃健康的食物。我们还需要运动。"
+    },
+    {
+      "id": "supp-expr-u3-0f8496",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Have a healthy diet.",
+      "zh": "（保持）健康的饮食。"
+    },
+    {
+      "id": "supp-expr-u3-73e6c6",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Don't stay up late.",
+      "zh": "不要熬夜。"
+    },
+    {
+      "id": "supp-expr-u3-499b2c",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Think about happy things.",
+      "zh": "想开心的事情。"
+    },
+    {
+      "id": "supp-expr-u3-dd2952",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Join clubs and teams.",
+      "zh": "加入俱乐部和团队。"
+    },
+    {
+      "id": "supp-phrase-u4-a540c5",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "pocket money",
+      "zh": "零花钱"
+    },
+    {
+      "id": "supp-phrase-u4-660bed",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "buy goods",
+      "zh": "购买商品"
+    },
+    {
+      "id": "supp-phrase-u4-37d899",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "pay for services",
+      "zh": "支付服务费用"
+    },
+    {
+      "id": "supp-phrase-u4-b05e8d",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "a cold drink",
+      "zh": "一杯冷饮"
+    },
+    {
+      "id": "supp-phrase-u4-b19d32",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "spend pocket money",
+      "zh": "花零花钱"
+    },
+    {
+      "id": "supp-phrase-u4-a2efb5",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "save up for a computer",
+      "zh": "攒钱买电脑"
+    },
+    {
+      "id": "supp-phrase-u4-a49f6d",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "write a spending plan",
+      "zh": "写花钱计划"
+    },
+    {
+      "id": "supp-phrase-u4-e9ffd3",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "wait for a sale",
+      "zh": "等打折"
+    },
+    {
+      "id": "supp-phrase-u4-ae77cd",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "be careful with money",
+      "zh": "谨慎用钱"
+    },
+    {
+      "id": "supp-phrase-u4-fb032b",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "buy a nice gift",
+      "zh": "买一份漂亮的礼物"
+    },
+    {
+      "id": "supp-phrase-u4-7c0f71",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "use money wisely",
+      "zh": "明智地用钱"
+    },
+    {
+      "id": "supp-expr-u4-85c8d4",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "How are you going to spend it?",
+      "zh": "你打算怎么花（这些钱）？"
+    },
+    {
+      "id": "supp-expr-u4-01a9aa",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I'm going to buy a schoolbag.",
+      "zh": "我打算买一个书包。"
+    },
+    {
+      "id": "supp-expr-u4-d84101",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I also want to buy some books.",
+      "zh": "我还想买一些书。"
+    },
+    {
+      "id": "supp-expr-u4-d8af45",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "What else are you going to buy?",
+      "zh": "你还打算买什么？"
+    },
+    {
+      "id": "supp-expr-u4-ddbb25",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I'm going to buy a pair of sunglasses for Grandpa.",
+      "zh": "我打算给爷爷买一副太阳镜。"
+    },
+    {
+      "id": "supp-expr-u4-59123a",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I also want to buy a microscope.",
+      "zh": "我还想买一个显微镜。"
+    },
+    {
+      "id": "supp-phrase-u5-18f082",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "look into space",
+      "zh": "观察太空"
+    },
+    {
+      "id": "supp-phrase-u5-df6640",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "in the solar system",
+      "zh": "在太阳系中"
+    },
+    {
+      "id": "supp-phrase-u5-d6eaa1",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "use a telescope",
+      "zh": "使用望远镜"
+    },
+    {
+      "id": "supp-phrase-u5-cfc8ff",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "travel in outer space",
+      "zh": "在外太空旅行"
+    },
+    {
+      "id": "supp-phrase-u5-e123bb",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "in the science museum",
+      "zh": "在科学博物馆"
+    },
+    {
+      "id": "supp-phrase-u5-8be03c",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "explore space",
+      "zh": "探索太空"
+    },
+    {
+      "id": "supp-phrase-u5-e78185",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "live on a space station",
+      "zh": "住在空间站"
+    },
+    {
+      "id": "supp-phrase-u5-cb3304",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "the red planet",
+      "zh": "红色星球"
+    },
+    {
+      "id": "supp-phrase-u5-5edf36",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "send a rover to Mars",
+      "zh": "向火星发送探测器"
+    },
+    {
+      "id": "supp-phrase-u5-b77f12",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "go into space by spaceship",
+      "zh": "乘宇宙飞船进入太空"
+    },
+    {
+      "id": "supp-phrase-u5-713db0",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "make us proud",
+      "zh": "让我们自豪"
+    },
+    {
+      "id": "supp-expr-u5-7eac23",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "What can you see in the sky?",
+      "zh": "你能在天空中看到什么？"
+    },
+    {
+      "id": "supp-expr-u5-c2ac97",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "We can see the Sun and the clouds.",
+      "zh": "我们能看到太阳和云。"
+    },
+    {
+      "id": "supp-expr-u5-f6fae8",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "At night, we can see the Moon and the stars.",
+      "zh": "在晚上，我们能看到月亮和星星。"
+    },
+    {
+      "id": "supp-expr-u5-57767c",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Is there any water on Mars?",
+      "zh": "火星上有水吗？"
+    },
+    {
+      "id": "supp-expr-u5-c064aa",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Yes, there is. There is soil too.",
+      "zh": "是，有的。那里还有土壤。"
+    },
+    {
+      "id": "supp-expr-u5-a9d832",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Are there any aliens?",
+      "zh": "那儿有外星人吗？"
+    },
+    {
+      "id": "supp-expr-u5-f35a75",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "I don't think so. They say there aren't any living things.",
+      "zh": "我不这样认为。据说那里没有生物。"
+    },
+    {
+      "id": "supp-expr-u5-1f98cf",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "China already put a rover on Mars.",
+      "zh": "中国已经在火星上放置了探测器。"
+    },
+    {
+      "id": "supp-expr-u5-cb650b",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "The taikonauts get up early in the morning.",
+      "zh": "中国航天员早上起床早。"
+    },
+    {
+      "id": "supp-phrase-u6-8c6a57",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "come from rivers and lakes",
+      "zh": "来自江河湖泊"
+    },
+    {
+      "id": "supp-phrase-u6-d4e2bd",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "make electricity",
+      "zh": "发电"
+    },
+    {
+      "id": "supp-phrase-u6-45aed9",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "green energy",
+      "zh": "绿色能源"
+    },
+    {
+      "id": "supp-phrase-u6-4bbab6",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "turn off lights",
+      "zh": "关灯"
+    },
+    {
+      "id": "supp-phrase-u6-a43758",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "save energy",
+      "zh": "节约能源"
+    },
+    {
+      "id": "supp-phrase-u6-4b2cac",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "take quick showers",
+      "zh": "快速淋浴"
+    },
+    {
+      "id": "supp-phrase-u6-a51d46",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "the 3R rules",
+      "zh": "3R 原则"
+    },
+    {
+      "id": "supp-phrase-u6-ee2077",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "protect the Earth",
+      "zh": "保护地球"
+    },
+    {
+      "id": "supp-phrase-u6-aa1164",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "unplug the computer",
+      "zh": "拔掉电脑插头"
+    },
+    {
+      "id": "supp-phrase-u6-db57b5",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "use LED lighting",
+      "zh": "使用 LED 照明"
+    },
+    {
+      "id": "supp-phrase-u6-0e06c0",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "reduce, reuse and recycle",
+      "zh": "减少、重复使用、回收"
+    },
+    {
+      "id": "supp-expr-u6-b362e5",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What do you know about it?",
+      "zh": "关于它你知道些什么？"
+    },
+    {
+      "id": "supp-expr-u6-5f67f1",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Running water can make electricity.",
+      "zh": "流水可以发电。"
+    },
+    {
+      "id": "supp-expr-u6-eae1c6",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What else do you want to know about water?",
+      "zh": "关于水你还想了解些什么？"
+    },
+    {
+      "id": "supp-expr-u6-32e1f3",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Where does water come from?",
+      "zh": "水从哪儿来？"
+    },
+    {
+      "id": "supp-expr-u6-607e4e",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Wind power, solar power and water power are types of green energy.",
+      "zh": "风能、太阳能和水能是不同类型的绿色能源。"
+    },
+    {
+      "id": "supp-expr-u6-687019",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "But many resources are running out.",
+      "zh": "但是很多能源快要耗尽了。"
+    },
+    {
+      "id": "supp-expr-u6-522359",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What should we do?",
+      "zh": "我们该怎么办？"
+    },
+    {
+      "id": "supp-expr-u6-db7c33",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "How can we save energy?",
+      "zh": "我们怎样才能节约能源？"
+    },
+    {
+      "id": "supp-expr-u6-b45c6a",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We can take quick showers.",
+      "zh": "我们可以快速淋浴。"
+    },
+    {
+      "id": "supp-expr-u6-bfd3b7",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We can also use LED lighting.",
+      "zh": "我们还可以使用LED照明。"
+    },
+    {
+      "id": "supp-expr-u6-b006fe",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We should always unplug our computers and TVs.",
+      "zh": "我们应该每次都拔掉电脑和电视的电源插头。"
+    },
+    {
+      "id": "supp-expr-u6-f8914e",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We should use air conditioners less.",
+      "zh": "我们应该少用空调。"
+    },
+    {
+      "id": "supp-phrase-u1-ac52f2",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "climb the Great Wall",
+      "zh": "爬长城"
+    },
+    {
+      "id": "supp-phrase-u1-5669fb",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "last weekend",
+      "zh": "上周末"
+    },
+    {
+      "id": "supp-phrase-u1-919479",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "over the summer holidays",
+      "zh": "暑假期间"
+    },
+    {
+      "id": "supp-phrase-u1-38c379",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "take many photos",
+      "zh": "拍很多照片"
+    },
+    {
+      "id": "supp-phrase-u1-8a3d14",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "a must-see attraction",
+      "zh": "必游景点"
+    },
+    {
+      "id": "supp-phrase-u1-8af706",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "visit the Gingerbread House",
+      "zh": "参观姜饼屋"
+    },
+    {
+      "id": "supp-phrase-u1-2da360",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "send me some pictures",
+      "zh": "给我发一些照片"
+    },
+    {
+      "id": "supp-phrase-u1-beab8e",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "walk around the Palace Museum",
+      "zh": "逛故宫博物院"
+    },
+    {
+      "id": "supp-phrase-u1-de5f20",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "go to Xi'an",
+      "zh": "去西安"
+    },
+    {
+      "id": "supp-phrase-u1-cfbbd4",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "eat Xi'an noodles",
+      "zh": "吃西安面条"
+    },
+    {
+      "id": "supp-phrase-u1-d7e113",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "see the Terracotta Warriors",
+      "zh": "看兵马俑"
+    },
+    {
+      "id": "supp-phrase-u1-92fd5a",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "ride bikes on the old city wall",
+      "zh": "在古城墙上骑自行车"
+    },
+    {
+      "id": "supp-phrase-u1-926efc",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "the bamboo forest",
+      "zh": "竹林"
+    },
+    {
+      "id": "supp-phrase-u1-2d78a2",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "pumpkin soup",
+      "zh": "南瓜汤"
+    },
+    {
+      "id": "supp-phrase-u1-1dca1f",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "red rice",
+      "zh": "红米饭"
+    },
+    {
+      "id": "supp-phrase-u1-dd5802",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "by high-speed train",
+      "zh": "乘高铁"
+    },
+    {
+      "id": "supp-phrase-u1-e4a3c1",
+      "unit": 1,
+      "scene": "Unit 1 讲读",
+      "en": "by cable car",
+      "zh": "乘缆车"
+    },
+    {
+      "id": "supp-expr-u1-08898c",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "How was your weekend?",
+      "zh": "你周末过得怎么样？"
+    },
+    {
+      "id": "supp-expr-u1-47c5a5",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "It was great! I climbed the Great Wall.",
+      "zh": "非常棒！我去爬长城了。"
+    },
+    {
+      "id": "supp-expr-u1-b0ffe1",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What did you do, Peter?",
+      "zh": "你做什么了，彼得？"
+    },
+    {
+      "id": "supp-expr-u1-78933a",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "I visited the \"Gingerbread House\" last Saturday.",
+      "zh": "我上个星期六去参观\"姜饼屋\"了。"
+    },
+    {
+      "id": "supp-expr-u1-9e0efd",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "Where did you go over the summer holidays, Binbin?",
+      "zh": "你暑假去哪儿了，斌斌？"
+    },
+    {
+      "id": "supp-expr-u1-a04ade",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "I went to Xi'an with my family.",
+      "zh": "我和家人去西安了。"
+    },
+    {
+      "id": "supp-expr-u1-fd7677",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What did you do there?",
+      "zh": "你们在那儿做了些什么？"
+    },
+    {
+      "id": "supp-expr-u1-6f7808",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "We went to see the Terracotta Warriors.",
+      "zh": "我们去看兵马俑了。"
+    },
+    {
+      "id": "supp-expr-u1-3680a4",
+      "unit": 1,
+      "scene": "Unit 1 附录四",
+      "en": "What else did you do?",
+      "zh": "你们还做什么了？"
+    },
+    {
+      "id": "supp-phrase-u2-a3db97",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "paste fu on the door",
+      "zh": "在门上贴福字"
+    },
+    {
+      "id": "supp-phrase-u2-ef2656",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "dress in red",
+      "zh": "穿红色衣服"
+    },
+    {
+      "id": "supp-phrase-u2-d0a6ca",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "wait for the Spring Festival Gala",
+      "zh": "等待春节联欢晚会"
+    },
+    {
+      "id": "supp-phrase-u2-1a2250",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "count down to the new year",
+      "zh": "倒计时迎接新年"
+    },
+    {
+      "id": "supp-phrase-u2-d3d295",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "clean the house",
+      "zh": "打扫房子"
+    },
+    {
+      "id": "supp-phrase-u2-c222b0",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "have a big dinner",
+      "zh": "吃一顿大餐"
+    },
+    {
+      "id": "supp-phrase-u2-18dee3",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "go to a marathon",
+      "zh": "参加马拉松"
+    },
+    {
+      "id": "supp-phrase-u2-09ad5f",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "work as a volunteer",
+      "zh": "作为志愿者工作"
+    },
+    {
+      "id": "supp-phrase-u2-0b62a8",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "cheer for the runners",
+      "zh": "为跑步者加油"
+    },
+    {
+      "id": "supp-phrase-u2-cc4a1e",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "join an online book fair",
+      "zh": "参加线上书市"
+    },
+    {
+      "id": "supp-phrase-u2-e724a5",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "share ideas",
+      "zh": "分享想法"
+    },
+    {
+      "id": "supp-phrase-u2-39b1d9",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "the dragon boat race",
+      "zh": "龙舟赛"
+    },
+    {
+      "id": "supp-phrase-u2-0f880e",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "wake up early",
+      "zh": "早起"
+    },
+    {
+      "id": "supp-phrase-u2-a681ce",
+      "unit": 2,
+      "scene": "Unit 2 讲读",
+      "en": "make zongzi",
+      "zh": "包粽子"
+    },
+    {
+      "id": "supp-expr-u2-8090e7",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "How was your Mid-Autumn Festival holiday, Binbin?",
+      "zh": "你中秋假期过得怎么样，斌斌？"
+    },
+    {
+      "id": "supp-expr-u2-2ddf53",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "It was great!",
+      "zh": "非常棒！"
+    },
+    {
+      "id": "supp-expr-u2-15d43d",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Did you take a trip?",
+      "zh": "你们去旅行了吗？"
+    },
+    {
+      "id": "supp-expr-u2-3f4b5a",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "No, we didn't.",
+      "zh": "不，我们没有。"
+    },
+    {
+      "id": "supp-expr-u2-8a8c08",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Did you eat mooncakes?",
+      "zh": "你们吃月饼了吗？"
+    },
+    {
+      "id": "supp-expr-u2-4a724e",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "Yes, we did.",
+      "zh": "是的，吃了。"
+    },
+    {
+      "id": "supp-expr-u2-58cfd4",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "My mother and I went to a marathon on Sunday.",
+      "zh": "我和妈妈上周日参加了一场马拉松活动。"
+    },
+    {
+      "id": "supp-expr-u2-9aab74",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "What did you like about it?",
+      "zh": "你喜欢这个活动的哪个方面？"
+    },
+    {
+      "id": "supp-expr-u2-76a8e8",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "I liked watching the runners.",
+      "zh": "我喜欢看参赛者（跑步）。"
+    },
+    {
+      "id": "supp-expr-u2-200556",
+      "unit": 2,
+      "scene": "Unit 2 附录四",
+      "en": "What did you do last weekend?",
+      "zh": "你上周末做什么了？"
+    },
+    {
+      "id": "supp-phrase-u3-089a2c",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a bad cold",
+      "zh": "得了重感冒"
+    },
+    {
+      "id": "supp-phrase-u3-c49465",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a fever",
+      "zh": "发烧"
+    },
+    {
+      "id": "supp-phrase-u3-295cae",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a cough",
+      "zh": "咳嗽"
+    },
+    {
+      "id": "supp-phrase-u3-86bc4d",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "see a doctor",
+      "zh": "看医生"
+    },
+    {
+      "id": "supp-phrase-u3-5c5291",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "go to hospital",
+      "zh": "去医院"
+    },
+    {
+      "id": "supp-phrase-u3-2187f5",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "get well soon",
+      "zh": "早日康复"
+    },
+    {
+      "id": "supp-phrase-u3-f88ac2",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "have a healthy diet",
+      "zh": "保持健康饮食"
+    },
+    {
+      "id": "supp-phrase-u3-81519f",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "exercise often",
+      "zh": "经常锻炼"
+    },
+    {
+      "id": "supp-phrase-u3-629530",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "think about happy things",
+      "zh": "想开心的事情"
+    },
+    {
+      "id": "supp-phrase-u3-1edd49",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "join clubs and teams",
+      "zh": "加入俱乐部和团队"
+    },
+    {
+      "id": "supp-phrase-u3-7cc399",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "make video calls",
+      "zh": "打视频电话"
+    },
+    {
+      "id": "supp-phrase-u3-4ac56b",
+      "unit": 3,
+      "scene": "Unit 3 讲读",
+      "en": "cheer you up",
+      "zh": "让你振作起来"
+    },
+    {
+      "id": "supp-expr-u3-d743c9",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "How do you feel?",
+      "zh": "你感觉怎么样？"
+    },
+    {
+      "id": "supp-expr-u3-36b9c6",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "I feel ill. My head hurts and I have a runny nose.",
+      "zh": "我感觉不太好。我头痛还流鼻涕。"
+    },
+    {
+      "id": "supp-expr-u3-137679",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "I'm sorry to hear that. Maybe you should see a doctor.",
+      "zh": "对此我感到难过。也许你应该看看医生。"
+    },
+    {
+      "id": "supp-expr-u3-639f12",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "How can we live a healthy life?",
+      "zh": "我们怎样能过健康的生活？"
+    },
+    {
+      "id": "supp-expr-u3-3004a6",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "We need to eat healthy food. We should exercise too.",
+      "zh": "我们需要吃健康的食物。我们还需要运动。"
+    },
+    {
+      "id": "supp-expr-u3-d128ba",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Have a healthy diet.",
+      "zh": "（保持）健康的饮食。"
+    },
+    {
+      "id": "supp-expr-u3-9a0b3e",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Don't stay up late.",
+      "zh": "不要熬夜。"
+    },
+    {
+      "id": "supp-expr-u3-383978",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Think about happy things.",
+      "zh": "想开心的事情。"
+    },
+    {
+      "id": "supp-expr-u3-691c2d",
+      "unit": 3,
+      "scene": "Unit 3 附录四",
+      "en": "Join clubs and teams.",
+      "zh": "加入俱乐部和团队。"
+    },
+    {
+      "id": "supp-phrase-u4-b9b553",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "pocket money",
+      "zh": "零花钱"
+    },
+    {
+      "id": "supp-phrase-u4-292e88",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "buy goods",
+      "zh": "购买商品"
+    },
+    {
+      "id": "supp-phrase-u4-af8bbf",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "pay for services",
+      "zh": "支付服务费用"
+    },
+    {
+      "id": "supp-phrase-u4-2cf789",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "a cold drink",
+      "zh": "一杯冷饮"
+    },
+    {
+      "id": "supp-phrase-u4-74b054",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "spend pocket money",
+      "zh": "花零花钱"
+    },
+    {
+      "id": "supp-phrase-u4-c16599",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "save up for a computer",
+      "zh": "攒钱买电脑"
+    },
+    {
+      "id": "supp-phrase-u4-199d4d",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "write a spending plan",
+      "zh": "写花钱计划"
+    },
+    {
+      "id": "supp-phrase-u4-fcdbff",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "wait for a sale",
+      "zh": "等打折"
+    },
+    {
+      "id": "supp-phrase-u4-91388b",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "be careful with money",
+      "zh": "谨慎用钱"
+    },
+    {
+      "id": "supp-phrase-u4-51dd19",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "buy a nice gift",
+      "zh": "买一份漂亮的礼物"
+    },
+    {
+      "id": "supp-phrase-u4-2cf8c7",
+      "unit": 4,
+      "scene": "Unit 4 讲读",
+      "en": "use money wisely",
+      "zh": "明智地用钱"
+    },
+    {
+      "id": "supp-expr-u4-f988d4",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "How are you going to spend it?",
+      "zh": "你打算怎么花（这些钱）？"
+    },
+    {
+      "id": "supp-expr-u4-9e1447",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I'm going to buy a schoolbag.",
+      "zh": "我打算买一个书包。"
+    },
+    {
+      "id": "supp-expr-u4-6919f6",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I also want to buy some books.",
+      "zh": "我还想买一些书。"
+    },
+    {
+      "id": "supp-expr-u4-edc26d",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "What else are you going to buy?",
+      "zh": "你还打算买什么？"
+    },
+    {
+      "id": "supp-expr-u4-f0f4b2",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I'm going to buy a pair of sunglasses for Grandpa.",
+      "zh": "我打算给爷爷买一副太阳镜。"
+    },
+    {
+      "id": "supp-expr-u4-2fa870",
+      "unit": 4,
+      "scene": "Unit 4 附录四",
+      "en": "I also want to buy a microscope.",
+      "zh": "我还想买一个显微镜。"
+    },
+    {
+      "id": "supp-phrase-u5-81e405",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "look into space",
+      "zh": "观察太空"
+    },
+    {
+      "id": "supp-phrase-u5-ea2c4a",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "in the solar system",
+      "zh": "在太阳系中"
+    },
+    {
+      "id": "supp-phrase-u5-746ba0",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "use a telescope",
+      "zh": "使用望远镜"
+    },
+    {
+      "id": "supp-phrase-u5-31ae7c",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "travel in outer space",
+      "zh": "在外太空旅行"
+    },
+    {
+      "id": "supp-phrase-u5-f12b86",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "in the science museum",
+      "zh": "在科学博物馆"
+    },
+    {
+      "id": "supp-phrase-u5-a374f7",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "explore space",
+      "zh": "探索太空"
+    },
+    {
+      "id": "supp-phrase-u5-e04c33",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "live on a space station",
+      "zh": "住在空间站"
+    },
+    {
+      "id": "supp-phrase-u5-68e546",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "the red planet",
+      "zh": "红色星球"
+    },
+    {
+      "id": "supp-phrase-u5-065789",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "send a rover to Mars",
+      "zh": "向火星发送探测器"
+    },
+    {
+      "id": "supp-phrase-u5-ed7a08",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "go into space by spaceship",
+      "zh": "乘宇宙飞船进入太空"
+    },
+    {
+      "id": "supp-phrase-u5-3aa191",
+      "unit": 5,
+      "scene": "Unit 5 讲读",
+      "en": "make us proud",
+      "zh": "让我们自豪"
+    },
+    {
+      "id": "supp-expr-u5-9c2187",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "What can you see in the sky?",
+      "zh": "你能在天空中看到什么？"
+    },
+    {
+      "id": "supp-expr-u5-8897ed",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "We can see the Sun and the clouds.",
+      "zh": "我们能看到太阳和云。"
+    },
+    {
+      "id": "supp-expr-u5-0786b2",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "At night, we can see the Moon and the stars.",
+      "zh": "在晚上，我们能看到月亮和星星。"
+    },
+    {
+      "id": "supp-expr-u5-f5d1fa",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Is there any water on Mars?",
+      "zh": "火星上有水吗？"
+    },
+    {
+      "id": "supp-expr-u5-b99fca",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Yes, there is. There is soil too.",
+      "zh": "是，有的。那里还有土壤。"
+    },
+    {
+      "id": "supp-expr-u5-0b264a",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "Are there any aliens?",
+      "zh": "那儿有外星人吗？"
+    },
+    {
+      "id": "supp-expr-u5-e9ddd6",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "I don't think so. They say there aren't any living things.",
+      "zh": "我不这样认为。据说那里没有生物。"
+    },
+    {
+      "id": "supp-expr-u5-91cede",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "China already put a rover on Mars.",
+      "zh": "中国已经在火星上放置了探测器。"
+    },
+    {
+      "id": "supp-expr-u5-0023ab",
+      "unit": 5,
+      "scene": "Unit 5 附录四",
+      "en": "The taikonauts get up early in the morning.",
+      "zh": "中国航天员早上起床早。"
+    },
+    {
+      "id": "supp-phrase-u6-242a9f",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "come from rivers and lakes",
+      "zh": "来自江河湖泊"
+    },
+    {
+      "id": "supp-phrase-u6-fd3046",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "make electricity",
+      "zh": "发电"
+    },
+    {
+      "id": "supp-phrase-u6-dad9b7",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "green energy",
+      "zh": "绿色能源"
+    },
+    {
+      "id": "supp-phrase-u6-751a1a",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "turn off lights",
+      "zh": "关灯"
+    },
+    {
+      "id": "supp-phrase-u6-1f6f05",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "save energy",
+      "zh": "节约能源"
+    },
+    {
+      "id": "supp-phrase-u6-67861c",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "take quick showers",
+      "zh": "快速淋浴"
+    },
+    {
+      "id": "supp-phrase-u6-8245ed",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "the 3R rules",
+      "zh": "3R 原则"
+    },
+    {
+      "id": "supp-phrase-u6-97bd3b",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "protect the Earth",
+      "zh": "保护地球"
+    },
+    {
+      "id": "supp-phrase-u6-87cc2a",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "unplug the computer",
+      "zh": "拔掉电脑插头"
+    },
+    {
+      "id": "supp-phrase-u6-29ed07",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "use LED lighting",
+      "zh": "使用 LED 照明"
+    },
+    {
+      "id": "supp-phrase-u6-52d21f",
+      "unit": 6,
+      "scene": "Unit 6 讲读",
+      "en": "reduce, reuse and recycle",
+      "zh": "减少、重复使用、回收"
+    },
+    {
+      "id": "supp-expr-u6-5ea7ee",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What do you know about it?",
+      "zh": "关于它你知道些什么？"
+    },
+    {
+      "id": "supp-expr-u6-10b67e",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Running water can make electricity.",
+      "zh": "流水可以发电。"
+    },
+    {
+      "id": "supp-expr-u6-756cae",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What else do you want to know about water?",
+      "zh": "关于水你还想了解些什么？"
+    },
+    {
+      "id": "supp-expr-u6-ef72e0",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Where does water come from?",
+      "zh": "水从哪儿来？"
+    },
+    {
+      "id": "supp-expr-u6-ebc8d1",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "Wind power, solar power and water power are types of green energy.",
+      "zh": "风能、太阳能和水能是不同类型的绿色能源。"
+    },
+    {
+      "id": "supp-expr-u6-7e4295",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "But many resources are running out.",
+      "zh": "但是很多能源快要耗尽了。"
+    },
+    {
+      "id": "supp-expr-u6-bde195",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "What should we do?",
+      "zh": "我们该怎么办？"
+    },
+    {
+      "id": "supp-expr-u6-b954e1",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "How can we save energy?",
+      "zh": "我们怎样才能节约能源？"
+    },
+    {
+      "id": "supp-expr-u6-dd1ff3",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We can take quick showers.",
+      "zh": "我们可以快速淋浴。"
+    },
+    {
+      "id": "supp-expr-u6-fb5f08",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We can also use LED lighting.",
+      "zh": "我们还可以使用LED照明。"
+    },
+    {
+      "id": "supp-expr-u6-e74794",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We should always unplug our computers and TVs.",
+      "zh": "我们应该每次都拔掉电脑和电视的电源插头。"
+    },
+    {
+      "id": "supp-expr-u6-adb38f",
+      "unit": 6,
+      "scene": "Unit 6 附录四",
+      "en": "We should use air conditioners less.",
+      "zh": "我们应该少用空调。"
+    }
+  ],
+  "grammarPoints": [
+    {
+      "id": "supp-grammar-u1",
+      "unit": 1,
+      "title": "Unit 1 一般过去时 Past Simple",
+      "rule": "动词变成过去式：climb→climbed, visit→visited；否定用 didn't + 动词原形；疑问用 Did + 主语 + 动词原形?；不规则动词：go→went, see→saw, eat→ate, take→took",
+      "examples": [
+        "I climbed the Great Wall last weekend.",
+        "I didn't go to Beijing.",
+        "Did you climb the Great Wall? — Yes, I did."
+      ]
+    },
+    {
+      "id": "supp-grammar-u2",
+      "unit": 2,
+      "title": "Unit 2 一般过去时疑问句 Did you...?",
+      "rule": "Did + 主语 + 动词原形?；肯定答：Yes, 主语 + did.；否定答：No, 主语 + didn't.；助动词 did 后动词必须用原形",
+      "examples": [
+        "Did you eat mooncakes? — Yes, we did.",
+        "Did you take a trip? — No, we didn't.",
+        "clean → cleaned    paste → pasted"
+      ]
+    },
+    {
+      "id": "supp-grammar-u3",
+      "unit": 3,
+      "title": "Unit 3 should / shouldn't & be going to",
+      "rule": "should 表示建议「应该」；shouldn't = should not；be going to + 动词原形 = 打算；描述症状用一般现在时",
+      "examples": [
+        "You should exercise.",
+        "You shouldn't stay up late.",
+        "I am going to see a doctor."
+      ]
+    },
+    {
+      "id": "supp-grammar-u4",
+      "unit": 4,
+      "title": "Unit 4 be going to & want/need to do",
+      "rule": "be going to + 动词原形 = 打算；want to do = 想要做；need to do = 需要做；use...to... 表示用途",
+      "examples": [
+        "How are you going to spend it?",
+        "I am going to buy a schoolbag.",
+        "I want to buy some books."
+      ]
+    },
+    {
+      "id": "supp-grammar-u5",
+      "unit": 5,
+      "title": "Unit 5 There be & can / can't & 一般过去时",
+      "rule": "There is + 单数 / There are + 复数；can + 动词原形 表示能力；一般过去时：send→sent, use→used；Did you see...? — Yes, I did.",
+      "examples": [
+        "There is a big rocket.",
+        "There are many stars.",
+        "We can use telescopes."
+      ]
+    },
+    {
+      "id": "supp-grammar-u6",
+      "unit": 6,
+      "title": "Unit 6 Where does...come from? & should",
+      "rule": "Where does + 单数主语 + come from?；答：It comes from...；should 后接动词原形；3R = Reduce, Reuse, Recycle",
+      "examples": [
+        "Where does water come from?",
+        "It comes from rivers.",
+        "We should save energy."
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "supp-q-u1-kilometre",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「（=km）千米；公里」?",
+      "options": [
+        "kilometre",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "kilometre",
+      "explainCorrect": "附录2：kilometre = （=km）千米；公里",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-village",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「村庄；村镇」?",
+      "options": [
+        "village",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "village",
+      "explainCorrect": "附录2：village = 村庄；村镇",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-take",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「（过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）」?",
+      "options": [
+        "take",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "take",
+      "explainCorrect": "附录2：take = （过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-view",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「景色」?",
+      "options": [
+        "view",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "view",
+      "explainCorrect": "附录2：view = 景色",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-inspiring",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「鼓舞人心的」?",
+      "options": [
+        "inspiring",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "inspiring",
+      "explainCorrect": "附录2：inspiring = 鼓舞人心的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-bamboo",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「竹；竹子」?",
+      "options": [
+        "bamboo",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "bamboo",
+      "explainCorrect": "附录2：bamboo = 竹；竹子",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-pumpkin",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「南瓜」?",
+      "options": [
+        "pumpkin",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "pumpkin",
+      "explainCorrect": "附录2：pumpkin = 南瓜",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-restaurant",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「餐馆；餐厅」?",
+      "options": [
+        "restaurant",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "restaurant",
+      "explainCorrect": "附录2：restaurant = 餐馆；餐厅",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-airport",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「机场」?",
+      "options": [
+        "airport",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "airport",
+      "explainCorrect": "附录2：airport = 机场",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-hong-kong",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「-Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥」?",
+      "options": [
+        "Hong Kong",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "Hong Kong",
+      "explainCorrect": "附录2：Hong Kong = -Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-paris",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「巴黎」?",
+      "options": [
+        "Paris",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "Paris",
+      "explainCorrect": "附录2：Paris = 巴黎",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-eiffel-tower",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「埃菲尔铁塔」?",
+      "options": [
+        "Eiffel Tower",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "Eiffel Tower",
+      "explainCorrect": "附录2：Eiffel Tower = 埃菲尔铁塔",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u1-jinggangshan-revolution",
+      "unit": 1,
+      "part": "A",
+      "badge": "附录2 Unit 1",
+      "prompt": "Which word means 「Museum 井冈山革命博物馆」?",
+      "options": [
+        "Jinggangshan Revolution",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "Jinggangshan Revolution",
+      "explainCorrect": "附录2：Jinggangshan Revolution = Museum 井冈山革命博物馆",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-dress",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「穿衣服」?",
+      "options": [
+        "dress",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "dress",
+      "explainCorrect": "附录2：dress = 穿衣服",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-gala",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「演出；庆典」?",
+      "options": [
+        "gala",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "gala",
+      "explainCorrect": "附录2：gala = 演出；庆典",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-count-down",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「/daʊn/ 倒计时」?",
+      "options": [
+        "count down",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "count down",
+      "explainCorrect": "附录2：count down = /daʊn/ 倒计时",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-marathon",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「马拉松赛跑」?",
+      "options": [
+        "marathon",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "marathon",
+      "explainCorrect": "附录2：marathon = 马拉松赛跑",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-cheer",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「欢呼；加油」?",
+      "options": [
+        "cheer",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cheer",
+      "explainCorrect": "附录2：cheer = 欢呼；加油",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-book-fair",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「书市」?",
+      "options": [
+        "book fair",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "book fair",
+      "explainCorrect": "附录2：book fair = 书市",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-writer",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「作家；作者」?",
+      "options": [
+        "writer",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "writer",
+      "explainCorrect": "附录2：writer = 作家；作者",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-read",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「（过去式 read /red/）阅读」?",
+      "options": [
+        "read",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "read",
+      "explainCorrect": "附录2：read = （过去式 read /red/）阅读",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-sing",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「（过去式 sang /sæŋ/）唱（歌）；演唱」?",
+      "options": [
+        "sing",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "sing",
+      "explainCorrect": "附录2：sing = （过去式 sang /sæŋ/）唱（歌）；演唱",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-wear",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「（过去式 wore /wɔː(r)/）穿；戴」?",
+      "options": [
+        "wear",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "wear",
+      "explainCorrect": "附录2：wear = （过去式 wore /wɔː(r)/）穿；戴",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-yesterday",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「昨天」?",
+      "options": [
+        "yesterday",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "yesterday",
+      "explainCorrect": "附录2：yesterday = 昨天",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-notice",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「通知」?",
+      "options": [
+        "notice",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "notice",
+      "explainCorrect": "附录2：notice = 通知",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-later",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「随后；后来」?",
+      "options": [
+        "later",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "later",
+      "explainCorrect": "附录2：later = 随后；后来",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-judge",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「裁判」?",
+      "options": [
+        "judge",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "judge",
+      "explainCorrect": "附录2：judge = 裁判",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-begin",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「（过去式 began /bɪ'ɡæn/）开始」?",
+      "options": [
+        "begin",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "begin",
+      "explainCorrect": "附录2：begin = （过去式 began /bɪ'ɡæn/）开始",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-winner",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「获胜的人（或队）；成功者」?",
+      "options": [
+        "winner",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "winner",
+      "explainCorrect": "附录2：winner = 获胜的人（或队）；成功者",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-ever",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「（进行比较时用于加强语气）以往任何时候」?",
+      "options": [
+        "ever",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "ever",
+      "explainCorrect": "附录2：ever = （进行比较时用于加强语气）以往任何时候",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u2-exciting",
+      "unit": 2,
+      "part": "A",
+      "badge": "附录2 Unit 2",
+      "prompt": "Which word means 「令人激动的」?",
+      "options": [
+        "exciting",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "exciting",
+      "explainCorrect": "附录2：exciting = 令人激动的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-cold",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「感冒」?",
+      "options": [
+        "cold",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cold",
+      "explainCorrect": "附录2：cold = 感冒",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-soon",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「很快；马上」?",
+      "options": [
+        "soon",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "soon",
+      "explainCorrect": "附录2：soon = 很快；马上",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-cough",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「咳嗽」?",
+      "options": [
+        "cough",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cough",
+      "explainCorrect": "附录2：cough = 咳嗽",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-discuss",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「讨论；商量」?",
+      "options": [
+        "discuss",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "discuss",
+      "explainCorrect": "附录2：discuss = 讨论；商量",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-diet",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「日常饮食」?",
+      "options": [
+        "diet",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "diet",
+      "explainCorrect": "附录2：diet = 日常饮食",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-another",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「另一；不同的（人或事物）」?",
+      "options": [
+        "another",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "another",
+      "explainCorrect": "附录2：another = 另一；不同的（人或事物）",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-call",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「（给……）打电话」?",
+      "options": [
+        "call",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "call",
+      "explainCorrect": "附录2：call = （给……）打电话",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-email",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「电子邮件」?",
+      "options": [
+        "email",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "email",
+      "explainCorrect": "附录2：email = 电子邮件",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-unhappy",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「不快乐的；难过的」?",
+      "options": [
+        "unhappy",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "unhappy",
+      "explainCorrect": "附录2：unhappy = 不快乐的；难过的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-glass",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「一杯（的量）；玻璃」?",
+      "options": [
+        "glass",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "glass",
+      "explainCorrect": "附录2：glass = 一杯（的量）；玻璃",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-video",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「视频；录像」?",
+      "options": [
+        "video",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "video",
+      "explainCorrect": "附录2：video = 视频；录像",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u3-better",
+      "unit": 3,
+      "part": "A",
+      "badge": "附录2 Unit 3",
+      "prompt": "Which word means 「舒畅些的；（病势）好转的」?",
+      "options": [
+        "better",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "better",
+      "explainCorrect": "附录2：better = 舒畅些的；（病势）好转的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-service",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「服务」?",
+      "options": [
+        "service",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "service",
+      "explainCorrect": "附录2：service = 服务",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-haircut",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「理发；发型」?",
+      "options": [
+        "haircut",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "haircut",
+      "explainCorrect": "附录2：haircut = 理发；发型",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-microscope",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「显微镜」?",
+      "options": [
+        "microscope",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "microscope",
+      "explainCorrect": "附录2：microscope = 显微镜",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-lucky",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「幸运的」?",
+      "options": [
+        "lucky",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "lucky",
+      "explainCorrect": "附录2：lucky = 幸运的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-ticket",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「票」?",
+      "options": [
+        "ticket",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "ticket",
+      "explainCorrect": "附录2：ticket = 票",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-manage",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「管理」?",
+      "options": [
+        "manage",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "manage",
+      "explainCorrect": "附录2：manage = 管理",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-difficult",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「困难的」?",
+      "options": [
+        "difficult",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "difficult",
+      "explainCorrect": "附录2：difficult = 困难的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-sell",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「出售；售卖」?",
+      "options": [
+        "sell",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "sell",
+      "explainCorrect": "附录2：sell = 出售；售卖",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u4-half",
+      "unit": 4,
+      "part": "A",
+      "badge": "附录2 Unit 4",
+      "prompt": "Which word means 「一半」?",
+      "options": [
+        "half",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "half",
+      "explainCorrect": "附录2：half = 一半",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-earth",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「（also Earth）地球」?",
+      "options": [
+        "earth",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "earth",
+      "explainCorrect": "附录2：earth = （also Earth）地球",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-daytime",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「白天」?",
+      "options": [
+        "daytime",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "daytime",
+      "explainCorrect": "附录2：daytime = 白天",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-cloud",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「云」?",
+      "options": [
+        "cloud",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cloud",
+      "explainCorrect": "附录2：cloud = 云",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-moon",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「（also the Moon）月球；月亮；卫星」?",
+      "options": [
+        "moon",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "moon",
+      "explainCorrect": "附录2：moon = （also the Moon）月球；月亮；卫星",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-star",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「恒星；星」?",
+      "options": [
+        "star",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "star",
+      "explainCorrect": "附录2：star = 恒星；星",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-outer-space",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「外层空间；外太空」?",
+      "options": [
+        "outer space",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "outer space",
+      "explainCorrect": "附录2：outer space = 外层空间；外太空",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-ocean",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「大海；海洋」?",
+      "options": [
+        "ocean",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "ocean",
+      "explainCorrect": "附录2：ocean = 大海；海洋",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-marble",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「（玻璃）弹子」?",
+      "options": [
+        "marble",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "marble",
+      "explainCorrect": "附录2：marble = （玻璃）弹子",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-satellite",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「人造卫星」?",
+      "options": [
+        "satellite",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "satellite",
+      "explainCorrect": "附录2：satellite = 人造卫星",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-soil",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「土壤」?",
+      "options": [
+        "soil",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "soil",
+      "explainCorrect": "附录2：soil = 土壤",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-alien",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「外星生物」?",
+      "options": [
+        "alien",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "alien",
+      "explainCorrect": "附录2：alien = 外星生物",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-sunrise",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「日出」?",
+      "options": [
+        "sunrise",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "sunrise",
+      "explainCorrect": "附录2：sunrise = 日出",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-telescope",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「望远镜」?",
+      "options": [
+        "telescope",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "telescope",
+      "explainCorrect": "附录2：telescope = 望远镜",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-spaceship",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「宇宙飞船」?",
+      "options": [
+        "spaceship",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "spaceship",
+      "explainCorrect": "附录2：spaceship = 宇宙飞船",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-month",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「月；月份」?",
+      "options": [
+        "month",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "month",
+      "explainCorrect": "附录2：month = 月；月份",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-taikonaut",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「中国航天员」?",
+      "options": [
+        "taikonaut",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "taikonaut",
+      "explainCorrect": "附录2：taikonaut = 中国航天员",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-cloth",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「（一块）布；织物」?",
+      "options": [
+        "cloth",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cloth",
+      "explainCorrect": "附录2：cloth = （一块）布；织物",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-toothpaste",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「牙膏」?",
+      "options": [
+        "toothpaste",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "toothpaste",
+      "explainCorrect": "附录2：toothpaste = 牙膏",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-question",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「问题」?",
+      "options": [
+        "question",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "question",
+      "explainCorrect": "附录2：question = 问题",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-sunset",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「日落」?",
+      "options": [
+        "sunset",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "sunset",
+      "explainCorrect": "附录2：sunset = 日落",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u5-time",
+      "unit": 5,
+      "part": "A",
+      "badge": "附录2 Unit 5",
+      "prompt": "Which word means 「次；回」?",
+      "options": [
+        "time",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "time",
+      "explainCorrect": "附录2：time = 次；回",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-source",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「来源」?",
+      "options": [
+        "source",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "source",
+      "explainCorrect": "附录2：source = 来源",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-light",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「照亮」?",
+      "options": [
+        "light",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "light",
+      "explainCorrect": "附录2：light = 照亮",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-heat",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「加热；（使）变暖；热量」?",
+      "options": [
+        "heat",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "heat",
+      "explainCorrect": "附录2：heat = 加热；（使）变暖；热量",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-cool",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「（使）变凉，冷却」?",
+      "options": [
+        "cool",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "cool",
+      "explainCorrect": "附录2：cool = （使）变凉，冷却",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-resource",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「资源」?",
+      "options": [
+        "resource",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "resource",
+      "explainCorrect": "附录2：resource = 资源",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-change",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「（使）不同；改变」?",
+      "options": [
+        "change",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "change",
+      "explainCorrect": "附录2：change = （使）不同；改变",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-quick",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「迅速的；快的」?",
+      "options": [
+        "quick",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "quick",
+      "explainCorrect": "附录2：quick = 迅速的；快的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-shower",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「淋浴」?",
+      "options": [
+        "shower",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "shower",
+      "explainCorrect": "附录2：shower = 淋浴",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-unplug",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「拔掉……的电源插头」?",
+      "options": [
+        "unplug",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "unplug",
+      "explainCorrect": "附录2：unplug = 拔掉……的电源插头",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-difference",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「差别；不同（之处）」?",
+      "options": [
+        "difference",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "difference",
+      "explainCorrect": "附录2：difference = 差别；不同（之处）",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-drive",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「驾驶；开车」?",
+      "options": [
+        "drive",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "drive",
+      "explainCorrect": "附录2：drive = 驾驶；开车",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-market",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「集市；市场」?",
+      "options": [
+        "market",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "market",
+      "explainCorrect": "附录2：market = 集市；市场",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-bottle",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「瓶子」?",
+      "options": [
+        "bottle",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "bottle",
+      "explainCorrect": "附录2：bottle = 瓶子",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-useful",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「有用的；有益的」?",
+      "options": [
+        "useful",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "useful",
+      "explainCorrect": "附录2：useful = 有用的；有益的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-dirty",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「脏的」?",
+      "options": [
+        "dirty",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "dirty",
+      "explainCorrect": "附录2：dirty = 脏的",
+      "optionReasons": {}
+    },
+    {
+      "id": "supp-q-u6-side",
+      "unit": 6,
+      "part": "A",
+      "badge": "附录2 Unit 6",
+      "prompt": "Which word means 「一面；一边」?",
+      "options": [
+        "side",
+        "unknown",
+        "holiday",
+        "energy"
+      ],
+      "answer": "side",
+      "explainCorrect": "附录2：side = 一面；一边",
+      "optionReasons": {}
+    }
+  ],
+  "fillblank": [
+    {
+      "id": "supp-fb-u1-kilometre",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (（=km）千米；公里)",
+      "hintZh": "（=km）千米；公里",
+      "answers": [
+        "kilometre"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-village",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (村庄；村镇)",
+      "hintZh": "村庄；村镇",
+      "answers": [
+        "village"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-take",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (（过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）)",
+      "hintZh": "（过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）",
+      "answers": [
+        "take"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-view",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (景色)",
+      "hintZh": "景色",
+      "answers": [
+        "view"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-inspiring",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (鼓舞人心的)",
+      "hintZh": "鼓舞人心的",
+      "answers": [
+        "inspiring"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-bamboo",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (竹；竹子)",
+      "hintZh": "竹；竹子",
+      "answers": [
+        "bamboo"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-pumpkin",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (南瓜)",
+      "hintZh": "南瓜",
+      "answers": [
+        "pumpkin"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-restaurant",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (餐馆；餐厅)",
+      "hintZh": "餐馆；餐厅",
+      "answers": [
+        "restaurant"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-airport",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (机场)",
+      "hintZh": "机场",
+      "answers": [
+        "airport"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-hong-kong",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (-Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥)",
+      "hintZh": "-Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥",
+      "answers": [
+        "Hong Kong"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-paris",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (巴黎)",
+      "hintZh": "巴黎",
+      "answers": [
+        "Paris"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-eiffel-tower",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (埃菲尔铁塔)",
+      "hintZh": "埃菲尔铁塔",
+      "answers": [
+        "Eiffel Tower"
+      ]
+    },
+    {
+      "id": "supp-fb-u1-jinggangshan-revolution",
+      "unit": 1,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 1): ___ (Museum 井冈山革命博物馆)",
+      "hintZh": "Museum 井冈山革命博物馆",
+      "answers": [
+        "Jinggangshan Revolution"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-dress",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (穿衣服)",
+      "hintZh": "穿衣服",
+      "answers": [
+        "dress"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-gala",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (演出；庆典)",
+      "hintZh": "演出；庆典",
+      "answers": [
+        "gala"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-count-down",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (/daʊn/ 倒计时)",
+      "hintZh": "/daʊn/ 倒计时",
+      "answers": [
+        "count down"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-marathon",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (马拉松赛跑)",
+      "hintZh": "马拉松赛跑",
+      "answers": [
+        "marathon"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-cheer",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (欢呼；加油)",
+      "hintZh": "欢呼；加油",
+      "answers": [
+        "cheer"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-book-fair",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (书市)",
+      "hintZh": "书市",
+      "answers": [
+        "book fair"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-writer",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (作家；作者)",
+      "hintZh": "作家；作者",
+      "answers": [
+        "writer"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-read",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (（过去式 read /red/）阅读)",
+      "hintZh": "（过去式 read /red/）阅读",
+      "answers": [
+        "read"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-sing",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (（过去式 sang /sæŋ/）唱（歌）；演唱)",
+      "hintZh": "（过去式 sang /sæŋ/）唱（歌）；演唱",
+      "answers": [
+        "sing"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-wear",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (（过去式 wore /wɔː(r)/）穿；戴)",
+      "hintZh": "（过去式 wore /wɔː(r)/）穿；戴",
+      "answers": [
+        "wear"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-yesterday",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (昨天)",
+      "hintZh": "昨天",
+      "answers": [
+        "yesterday"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-notice",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (通知)",
+      "hintZh": "通知",
+      "answers": [
+        "notice"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-later",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (随后；后来)",
+      "hintZh": "随后；后来",
+      "answers": [
+        "later"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-judge",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (裁判)",
+      "hintZh": "裁判",
+      "answers": [
+        "judge"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-begin",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (（过去式 began /bɪ'ɡæn/）开始)",
+      "hintZh": "（过去式 began /bɪ'ɡæn/）开始",
+      "answers": [
+        "begin"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-winner",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (获胜的人（或队）；成功者)",
+      "hintZh": "获胜的人（或队）；成功者",
+      "answers": [
+        "winner"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-ever",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (（进行比较时用于加强语气）以往任何时候)",
+      "hintZh": "（进行比较时用于加强语气）以往任何时候",
+      "answers": [
+        "ever"
+      ]
+    },
+    {
+      "id": "supp-fb-u2-exciting",
+      "unit": 2,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 2): ___ (令人激动的)",
+      "hintZh": "令人激动的",
+      "answers": [
+        "exciting"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-cold",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (感冒)",
+      "hintZh": "感冒",
+      "answers": [
+        "cold"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-soon",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (很快；马上)",
+      "hintZh": "很快；马上",
+      "answers": [
+        "soon"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-cough",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (咳嗽)",
+      "hintZh": "咳嗽",
+      "answers": [
+        "cough"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-discuss",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (讨论；商量)",
+      "hintZh": "讨论；商量",
+      "answers": [
+        "discuss"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-diet",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (日常饮食)",
+      "hintZh": "日常饮食",
+      "answers": [
+        "diet"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-another",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (另一；不同的（人或事物）)",
+      "hintZh": "另一；不同的（人或事物）",
+      "answers": [
+        "another"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-call",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (（给……）打电话)",
+      "hintZh": "（给……）打电话",
+      "answers": [
+        "call"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-email",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (电子邮件)",
+      "hintZh": "电子邮件",
+      "answers": [
+        "email"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-unhappy",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (不快乐的；难过的)",
+      "hintZh": "不快乐的；难过的",
+      "answers": [
+        "unhappy"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-glass",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (一杯（的量）；玻璃)",
+      "hintZh": "一杯（的量）；玻璃",
+      "answers": [
+        "glass"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-video",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (视频；录像)",
+      "hintZh": "视频；录像",
+      "answers": [
+        "video"
+      ]
+    },
+    {
+      "id": "supp-fb-u3-better",
+      "unit": 3,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 3): ___ (舒畅些的；（病势）好转的)",
+      "hintZh": "舒畅些的；（病势）好转的",
+      "answers": [
+        "better"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-service",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (服务)",
+      "hintZh": "服务",
+      "answers": [
+        "service"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-haircut",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (理发；发型)",
+      "hintZh": "理发；发型",
+      "answers": [
+        "haircut"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-microscope",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (显微镜)",
+      "hintZh": "显微镜",
+      "answers": [
+        "microscope"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-lucky",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (幸运的)",
+      "hintZh": "幸运的",
+      "answers": [
+        "lucky"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-ticket",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (票)",
+      "hintZh": "票",
+      "answers": [
+        "ticket"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-manage",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (管理)",
+      "hintZh": "管理",
+      "answers": [
+        "manage"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-difficult",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (困难的)",
+      "hintZh": "困难的",
+      "answers": [
+        "difficult"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-sell",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (出售；售卖)",
+      "hintZh": "出售；售卖",
+      "answers": [
+        "sell"
+      ]
+    },
+    {
+      "id": "supp-fb-u4-half",
+      "unit": 4,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 4): ___ (一半)",
+      "hintZh": "一半",
+      "answers": [
+        "half"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-earth",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (（also Earth）地球)",
+      "hintZh": "（also Earth）地球",
+      "answers": [
+        "earth"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-daytime",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (白天)",
+      "hintZh": "白天",
+      "answers": [
+        "daytime"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-cloud",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (云)",
+      "hintZh": "云",
+      "answers": [
+        "cloud"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-moon",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (（also the Moon）月球；月亮；卫星)",
+      "hintZh": "（also the Moon）月球；月亮；卫星",
+      "answers": [
+        "moon"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-star",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (恒星；星)",
+      "hintZh": "恒星；星",
+      "answers": [
+        "star"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-outer-space",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (外层空间；外太空)",
+      "hintZh": "外层空间；外太空",
+      "answers": [
+        "outer space"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-ocean",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (大海；海洋)",
+      "hintZh": "大海；海洋",
+      "answers": [
+        "ocean"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-marble",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (（玻璃）弹子)",
+      "hintZh": "（玻璃）弹子",
+      "answers": [
+        "marble"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-satellite",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (人造卫星)",
+      "hintZh": "人造卫星",
+      "answers": [
+        "satellite"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-soil",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (土壤)",
+      "hintZh": "土壤",
+      "answers": [
+        "soil"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-alien",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (外星生物)",
+      "hintZh": "外星生物",
+      "answers": [
+        "alien"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-sunrise",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (日出)",
+      "hintZh": "日出",
+      "answers": [
+        "sunrise"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-telescope",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (望远镜)",
+      "hintZh": "望远镜",
+      "answers": [
+        "telescope"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-spaceship",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (宇宙飞船)",
+      "hintZh": "宇宙飞船",
+      "answers": [
+        "spaceship"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-month",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (月；月份)",
+      "hintZh": "月；月份",
+      "answers": [
+        "month"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-taikonaut",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (中国航天员)",
+      "hintZh": "中国航天员",
+      "answers": [
+        "taikonaut"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-cloth",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (（一块）布；织物)",
+      "hintZh": "（一块）布；织物",
+      "answers": [
+        "cloth"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-toothpaste",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (牙膏)",
+      "hintZh": "牙膏",
+      "answers": [
+        "toothpaste"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-question",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (问题)",
+      "hintZh": "问题",
+      "answers": [
+        "question"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-sunset",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (日落)",
+      "hintZh": "日落",
+      "answers": [
+        "sunset"
+      ]
+    },
+    {
+      "id": "supp-fb-u5-time",
+      "unit": 5,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 5): ___ (次；回)",
+      "hintZh": "次；回",
+      "answers": [
+        "time"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-source",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (来源)",
+      "hintZh": "来源",
+      "answers": [
+        "source"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-light",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (照亮)",
+      "hintZh": "照亮",
+      "answers": [
+        "light"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-heat",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (加热；（使）变暖；热量)",
+      "hintZh": "加热；（使）变暖；热量",
+      "answers": [
+        "heat"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-cool",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (（使）变凉，冷却)",
+      "hintZh": "（使）变凉，冷却",
+      "answers": [
+        "cool"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-resource",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (资源)",
+      "hintZh": "资源",
+      "answers": [
+        "resource"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-change",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (（使）不同；改变)",
+      "hintZh": "（使）不同；改变",
+      "answers": [
+        "change"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-quick",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (迅速的；快的)",
+      "hintZh": "迅速的；快的",
+      "answers": [
+        "quick"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-shower",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (淋浴)",
+      "hintZh": "淋浴",
+      "answers": [
+        "shower"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-unplug",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (拔掉……的电源插头)",
+      "hintZh": "拔掉……的电源插头",
+      "answers": [
+        "unplug"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-difference",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (差别；不同（之处）)",
+      "hintZh": "差别；不同（之处）",
+      "answers": [
+        "difference"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-drive",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (驾驶；开车)",
+      "hintZh": "驾驶；开车",
+      "answers": [
+        "drive"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-market",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (集市；市场)",
+      "hintZh": "集市；市场",
+      "answers": [
+        "market"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-bottle",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (瓶子)",
+      "hintZh": "瓶子",
+      "answers": [
+        "bottle"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-useful",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (有用的；有益的)",
+      "hintZh": "有用的；有益的",
+      "answers": [
+        "useful"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-dirty",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (脏的)",
+      "hintZh": "脏的",
+      "answers": [
+        "dirty"
+      ]
+    },
+    {
+      "id": "supp-fb-u6-side",
+      "unit": 6,
+      "part": "A",
+      "prompt": "Appendix 2 word (Unit 6): ___ (一面；一边)",
+      "hintZh": "一面；一边",
+      "answers": [
+        "side"
+      ]
+    }
+  ],
+  "verbTriples": [
+    {
+      "id": "supp-verb-u1-was",
+      "unit": 1,
+      "base": "was",
+      "past": "wased",
+      "participle": "wased",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: was → wased",
+      "fillPrompt": "Write the past tense of 「was」:",
+      "fillAnswer": "wased",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-climb",
+      "unit": 1,
+      "base": "climb",
+      "past": "climbed",
+      "participle": "climbed",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: climb → climbed",
+      "fillPrompt": "Write the past tense of 「climb」:",
+      "fillAnswer": "climbed",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-go",
+      "unit": 1,
+      "base": "go",
+      "past": "went",
+      "participle": "gone",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: go → went",
+      "fillPrompt": "Write the past tense of 「go」:",
+      "fillAnswer": "went",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-see",
+      "unit": 1,
+      "base": "see",
+      "past": "saw",
+      "participle": "seen",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: see → saw",
+      "fillPrompt": "Write the past tense of 「see」:",
+      "fillAnswer": "saw",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-eat",
+      "unit": 1,
+      "base": "eat",
+      "past": "ate",
+      "participle": "eaten",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: eat → ate",
+      "fillPrompt": "Write the past tense of 「eat」:",
+      "fillAnswer": "ate",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-take",
+      "unit": 1,
+      "base": "take",
+      "past": "took",
+      "participle": "taken",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: take → took",
+      "fillPrompt": "Write the past tense of 「take」:",
+      "fillAnswer": "took",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u1-send",
+      "unit": 1,
+      "base": "send",
+      "past": "sent",
+      "participle": "sent",
+      "usage": "附录/课文 Unit 1 Part A",
+      "sentence": "Practice: send → sent",
+      "fillPrompt": "Write the past tense of 「send」:",
+      "fillAnswer": "sent",
+      "fillClue": "Unit 1 verb"
+    },
+    {
+      "id": "supp-verb-u2-dress",
+      "unit": 2,
+      "base": "dress",
+      "past": "dressed",
+      "participle": "dressed",
+      "usage": "附录/课文 Unit 2 Part A",
+      "sentence": "Practice: dress → dressed",
+      "fillPrompt": "Write the past tense of 「dress」:",
+      "fillAnswer": "dressed",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-paste",
+      "unit": 2,
+      "base": "paste",
+      "past": "pasteed",
+      "participle": "pasteed",
+      "usage": "附录/课文 Unit 2 Part A",
+      "sentence": "Practice: paste → pasteed",
+      "fillPrompt": "Write the past tense of 「paste」:",
+      "fillAnswer": "pasteed",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-cheer",
+      "unit": 2,
+      "base": "cheer",
+      "past": "cheered",
+      "participle": "cheered",
+      "usage": "附录/课文 Unit 2 Part A",
+      "sentence": "Practice: cheer → cheered",
+      "fillPrompt": "Write the past tense of 「cheer」:",
+      "fillAnswer": "cheered",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-yesterday",
+      "unit": 2,
+      "base": "yesterday",
+      "past": "yesterdayed",
+      "participle": "yesterdayed",
+      "usage": "附录/课文 Unit 2 Part A",
+      "sentence": "Practice: yesterday → yesterdayed",
+      "fillPrompt": "Write the past tense of 「yesterday」:",
+      "fillAnswer": "yesterdayed",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-run",
+      "unit": 2,
+      "base": "run",
+      "past": "ran",
+      "participle": "run",
+      "usage": "附录/课文 Unit 2 Part B",
+      "sentence": "Practice: run → ran",
+      "fillPrompt": "Write the past tense of 「run」:",
+      "fillAnswer": "ran",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-wake",
+      "unit": 2,
+      "base": "wake",
+      "past": "woke",
+      "participle": "woken",
+      "usage": "附录/课文 Unit 2 Part B",
+      "sentence": "Practice: wake → woke",
+      "fillPrompt": "Write the past tense of 「wake」:",
+      "fillAnswer": "woke",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-begin",
+      "unit": 2,
+      "base": "begin",
+      "past": "began",
+      "participle": "begun",
+      "usage": "附录/课文 Unit 2 Part B",
+      "sentence": "Practice: begin → began",
+      "fillPrompt": "Write the past tense of 「begin」:",
+      "fillAnswer": "began",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-win",
+      "unit": 2,
+      "base": "win",
+      "past": "won",
+      "participle": "won",
+      "usage": "附录/课文 Unit 2 Part B",
+      "sentence": "Practice: win → won",
+      "fillPrompt": "Write the past tense of 「win」:",
+      "fillAnswer": "won",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u2-share",
+      "unit": 2,
+      "base": "share",
+      "past": "shareed",
+      "participle": "shareed",
+      "usage": "附录/课文 Unit 2 Part B",
+      "sentence": "Practice: share → shareed",
+      "fillPrompt": "Write the past tense of 「share」:",
+      "fillAnswer": "shareed",
+      "fillClue": "Unit 2 verb"
+    },
+    {
+      "id": "supp-verb-u3-cough",
+      "unit": 3,
+      "base": "cough",
+      "past": "coughed",
+      "participle": "coughed",
+      "usage": "附录/课文 Unit 3 Part A",
+      "sentence": "Practice: cough → coughed",
+      "fillPrompt": "Write the past tense of 「cough」:",
+      "fillAnswer": "coughed",
+      "fillClue": "Unit 3 verb"
+    },
+    {
+      "id": "supp-verb-u3-soon",
+      "unit": 3,
+      "base": "soon",
+      "past": "sooned",
+      "participle": "sooned",
+      "usage": "附录/课文 Unit 3 Part A",
+      "sentence": "Practice: soon → sooned",
+      "fillPrompt": "Write the past tense of 「soon」:",
+      "fillAnswer": "sooned",
+      "fillClue": "Unit 3 verb"
+    },
+    {
+      "id": "supp-verb-u3-exercise",
+      "unit": 3,
+      "base": "exercise",
+      "past": "exerciseed",
+      "participle": "exerciseed",
+      "usage": "附录/课文 Unit 3 Part B",
+      "sentence": "Practice: exercise → exerciseed",
+      "fillPrompt": "Write the past tense of 「exercise」:",
+      "fillAnswer": "exerciseed",
+      "fillClue": "Unit 3 verb"
+    },
+    {
+      "id": "supp-verb-u4-buy",
+      "unit": 4,
+      "base": "buy",
+      "past": "bought",
+      "participle": "bought",
+      "usage": "附录/课文 Unit 4 Part A",
+      "sentence": "Practice: buy → bought",
+      "fillPrompt": "Write the past tense of 「buy」:",
+      "fillAnswer": "bought",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-spend",
+      "unit": 4,
+      "base": "spend",
+      "past": "spent",
+      "participle": "spent",
+      "usage": "附录/课文 Unit 4 Part A",
+      "sentence": "Practice: spend → spent",
+      "fillPrompt": "Write the past tense of 「spend」:",
+      "fillAnswer": "spent",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-save",
+      "unit": 4,
+      "base": "save",
+      "past": "saveed",
+      "participle": "saveed",
+      "usage": "附录/课文 Unit 4 Part B",
+      "sentence": "Practice: save → saveed",
+      "fillPrompt": "Write the past tense of 「save」:",
+      "fillAnswer": "saveed",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-manage",
+      "unit": 4,
+      "base": "manage",
+      "past": "manageed",
+      "participle": "manageed",
+      "usage": "附录/课文 Unit 4 Part B",
+      "sentence": "Practice: manage → manageed",
+      "fillPrompt": "Write the past tense of 「manage」:",
+      "fillAnswer": "manageed",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-need",
+      "unit": 4,
+      "base": "need",
+      "past": "needed",
+      "participle": "needed",
+      "usage": "附录/课文 Unit 4 Part B",
+      "sentence": "Practice: need → needed",
+      "fillPrompt": "Write the past tense of 「need」:",
+      "fillAnswer": "needed",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-want",
+      "unit": 4,
+      "base": "want",
+      "past": "wanted",
+      "participle": "wanted",
+      "usage": "附录/课文 Unit 4 Part B",
+      "sentence": "Practice: want → wanted",
+      "fillPrompt": "Write the past tense of 「want」:",
+      "fillAnswer": "wanted",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u4-plan",
+      "unit": 4,
+      "base": "plan",
+      "past": "planed",
+      "participle": "planed",
+      "usage": "附录/课文 Unit 4 Part B",
+      "sentence": "Practice: plan → planed",
+      "fillPrompt": "Write the past tense of 「plan」:",
+      "fillAnswer": "planed",
+      "fillClue": "Unit 4 verb"
+    },
+    {
+      "id": "supp-verb-u6-reduce",
+      "unit": 6,
+      "base": "reduce",
+      "past": "reduceed",
+      "participle": "reduceed",
+      "usage": "附录/课文 Unit 6 Part B",
+      "sentence": "Practice: reduce → reduceed",
+      "fillPrompt": "Write the past tense of 「reduce」:",
+      "fillAnswer": "reduceed",
+      "fillClue": "Unit 6 verb"
+    },
+    {
+      "id": "supp-verb-u6-reuse",
+      "unit": 6,
+      "base": "reuse",
+      "past": "reuseed",
+      "participle": "reuseed",
+      "usage": "附录/课文 Unit 6 Part B",
+      "sentence": "Practice: reuse → reuseed",
+      "fillPrompt": "Write the past tense of 「reuse」:",
+      "fillAnswer": "reuseed",
+      "fillClue": "Unit 6 verb"
+    },
+    {
+      "id": "supp-verb-u6-recycle",
+      "unit": 6,
+      "base": "recycle",
+      "past": "recycleed",
+      "participle": "recycleed",
+      "usage": "附录/课文 Unit 6 Part B",
+      "sentence": "Practice: recycle → recycleed",
+      "fillPrompt": "Write the past tense of 「recycle」:",
+      "fillAnswer": "recycleed",
+      "fillClue": "Unit 6 verb"
+    },
+    {
+      "id": "supp-verb-u6-unplug",
+      "unit": 6,
+      "base": "unplug",
+      "past": "unpluged",
+      "participle": "unpluged",
+      "usage": "附录/课文 Unit 6 Part B",
+      "sentence": "Practice: unplug → unpluged",
+      "fillPrompt": "Write the past tense of 「unplug」:",
+      "fillAnswer": "unpluged",
+      "fillClue": "Unit 6 verb"
+    },
+    {
+      "id": "supp-verb-u6-shower",
+      "unit": 6,
+      "base": "shower",
+      "past": "showered",
+      "participle": "showered",
+      "usage": "附录/课文 Unit 6 Part B",
+      "sentence": "Practice: shower → showered",
+      "fillPrompt": "Write the past tense of 「shower」:",
+      "fillAnswer": "showered",
+      "fillClue": "Unit 6 verb"
+    },
+    {
+      "id": "irreg-be",
+      "unit": 0,
+      "base": "be (am/is/are)",
+      "past": "was/were",
+      "participle": "been",
+      "usage": "附录5：是",
+      "sentence": "be (am/is/are) — was/were — been",
+      "fillPrompt": "附录5：be (am/is/are) 的过去式是 ___",
+      "fillAnswer": "was",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-begin",
+      "unit": 0,
+      "base": "begin",
+      "past": "began",
+      "participle": "begun",
+      "usage": "附录5：开始",
+      "sentence": "begin — began — begun",
+      "fillPrompt": "附录5：begin 的过去式是 ___",
+      "fillAnswer": "began",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-bring",
+      "unit": 0,
+      "base": "bring",
+      "past": "brought",
+      "participle": "brought",
+      "usage": "附录5：带来",
+      "sentence": "bring — brought — brought",
+      "fillPrompt": "附录5：bring 的过去式是 ___",
+      "fillAnswer": "brought",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-buy",
+      "unit": 0,
+      "base": "buy",
+      "past": "bought",
+      "participle": "bought",
+      "usage": "附录5：买",
+      "sentence": "buy — bought — bought",
+      "fillPrompt": "附录5：buy 的过去式是 ___",
+      "fillAnswer": "bought",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-catch",
+      "unit": 0,
+      "base": "catch",
+      "past": "caught",
+      "participle": "caught",
+      "usage": "附录5：抓住",
+      "sentence": "catch — caught — caught",
+      "fillPrompt": "附录5：catch 的过去式是 ___",
+      "fillAnswer": "caught",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-come",
+      "unit": 0,
+      "base": "come",
+      "past": "came",
+      "participle": "come",
+      "usage": "附录5：来",
+      "sentence": "come — came — come",
+      "fillPrompt": "附录5：come 的过去式是 ___",
+      "fillAnswer": "came",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-cut",
+      "unit": 0,
+      "base": "cut",
+      "past": "cut",
+      "participle": "cut",
+      "usage": "附录5：切；割",
+      "sentence": "cut — cut — cut",
+      "fillPrompt": "附录5：cut 的过去式是 ___",
+      "fillAnswer": "cut",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-do",
+      "unit": 0,
+      "base": "do",
+      "past": "did",
+      "participle": "done",
+      "usage": "附录5：做",
+      "sentence": "do — did — done",
+      "fillPrompt": "附录5：do 的过去式是 ___",
+      "fillAnswer": "did",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-draw",
+      "unit": 0,
+      "base": "draw",
+      "past": "drew",
+      "participle": "drawn",
+      "usage": "附录5：画",
+      "sentence": "draw — drew — drawn",
+      "fillPrompt": "附录5：draw 的过去式是 ___",
+      "fillAnswer": "drew",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-drink",
+      "unit": 0,
+      "base": "drink",
+      "past": "drank",
+      "participle": "drunk",
+      "usage": "附录5：喝",
+      "sentence": "drink — drank — drunk",
+      "fillPrompt": "附录5：drink 的过去式是 ___",
+      "fillAnswer": "drank",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-drive",
+      "unit": 0,
+      "base": "drive",
+      "past": "drove",
+      "participle": "driven",
+      "usage": "附录5：驾驶",
+      "sentence": "drive — drove — driven",
+      "fillPrompt": "附录5：drive 的过去式是 ___",
+      "fillAnswer": "drove",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-eat",
+      "unit": 0,
+      "base": "eat",
+      "past": "ate",
+      "participle": "eaten",
+      "usage": "附录5：吃",
+      "sentence": "eat — ate — eaten",
+      "fillPrompt": "附录5：eat 的过去式是 ___",
+      "fillAnswer": "ate",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-feel",
+      "unit": 0,
+      "base": "feel",
+      "past": "felt",
+      "participle": "felt",
+      "usage": "附录5：感觉",
+      "sentence": "feel — felt — felt",
+      "fillPrompt": "附录5：feel 的过去式是 ___",
+      "fillAnswer": "felt",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-find",
+      "unit": 0,
+      "base": "find",
+      "past": "found",
+      "participle": "found",
+      "usage": "附录5：找到",
+      "sentence": "find — found — found",
+      "fillPrompt": "附录5：find 的过去式是 ___",
+      "fillAnswer": "found",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-fly",
+      "unit": 0,
+      "base": "fly",
+      "past": "flew",
+      "participle": "flown",
+      "usage": "附录5：飞",
+      "sentence": "fly — flew — flown",
+      "fillPrompt": "附录5：fly 的过去式是 ___",
+      "fillAnswer": "flew",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-get",
+      "unit": 0,
+      "base": "get",
+      "past": "got",
+      "participle": "got/gotten",
+      "usage": "附录5：得到",
+      "sentence": "get — got — got/gotten",
+      "fillPrompt": "附录5：get 的过去式是 ___",
+      "fillAnswer": "got",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-give",
+      "unit": 0,
+      "base": "give",
+      "past": "gave",
+      "participle": "given",
+      "usage": "附录5：给",
+      "sentence": "give — gave — given",
+      "fillPrompt": "附录5：give 的过去式是 ___",
+      "fillAnswer": "gave",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-go",
+      "unit": 0,
+      "base": "go",
+      "past": "went",
+      "participle": "gone",
+      "usage": "附录5：去",
+      "sentence": "go — went — gone",
+      "fillPrompt": "附录5：go 的过去式是 ___",
+      "fillAnswer": "went",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-have",
+      "unit": 0,
+      "base": "have (has)",
+      "past": "had",
+      "participle": "had",
+      "usage": "附录5：有",
+      "sentence": "have (has) — had — had",
+      "fillPrompt": "附录5：have (has) 的过去式是 ___",
+      "fillAnswer": "had",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-hear",
+      "unit": 0,
+      "base": "hear",
+      "past": "heard",
+      "participle": "heard",
+      "usage": "附录5：听见",
+      "sentence": "hear — heard — heard",
+      "fillPrompt": "附录5：hear 的过去式是 ___",
+      "fillAnswer": "heard",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-hurt",
+      "unit": 0,
+      "base": "hurt",
+      "past": "hurt",
+      "participle": "hurt",
+      "usage": "附录5：伤害",
+      "sentence": "hurt — hurt — hurt",
+      "fillPrompt": "附录5：hurt 的过去式是 ___",
+      "fillAnswer": "hurt",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-keep",
+      "unit": 0,
+      "base": "keep",
+      "past": "kept",
+      "participle": "kept",
+      "usage": "附录5：保持",
+      "sentence": "keep — kept — kept",
+      "fillPrompt": "附录5：keep 的过去式是 ___",
+      "fillAnswer": "kept",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-know",
+      "unit": 0,
+      "base": "know",
+      "past": "knew",
+      "participle": "known",
+      "usage": "附录5：知道",
+      "sentence": "know — knew — known",
+      "fillPrompt": "附录5：know 的过去式是 ___",
+      "fillAnswer": "knew",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-learn",
+      "unit": 0,
+      "base": "learn",
+      "past": "learnt/learned",
+      "participle": "learnt/learned",
+      "usage": "附录5：学习",
+      "sentence": "learn — learnt/learned — learnt/learned",
+      "fillPrompt": "附录5：learn 的过去式是 ___",
+      "fillAnswer": "learnt",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-let",
+      "unit": 0,
+      "base": "let",
+      "past": "let",
+      "participle": "let",
+      "usage": "附录5：让",
+      "sentence": "let — let — let",
+      "fillPrompt": "附录5：let 的过去式是 ___",
+      "fillAnswer": "let",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-make",
+      "unit": 0,
+      "base": "make",
+      "past": "made",
+      "participle": "made",
+      "usage": "附录5：制作",
+      "sentence": "make — made — made",
+      "fillPrompt": "附录5：make 的过去式是 ___",
+      "fillAnswer": "made",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-meet",
+      "unit": 0,
+      "base": "meet",
+      "past": "met",
+      "participle": "met",
+      "usage": "附录5：遇见",
+      "sentence": "meet — met — met",
+      "fillPrompt": "附录5：meet 的过去式是 ___",
+      "fillAnswer": "met",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-put",
+      "unit": 0,
+      "base": "put",
+      "past": "put",
+      "participle": "put",
+      "usage": "附录5：放",
+      "sentence": "put — put — put",
+      "fillPrompt": "附录5：put 的过去式是 ___",
+      "fillAnswer": "put",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-read",
+      "unit": 0,
+      "base": "read",
+      "past": "read",
+      "participle": "read",
+      "usage": "附录5：阅读",
+      "sentence": "read — read — read",
+      "fillPrompt": "附录5：read 的过去式是 ___",
+      "fillAnswer": "read",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-run",
+      "unit": 0,
+      "base": "run",
+      "past": "ran",
+      "participle": "run",
+      "usage": "附录5：跑",
+      "sentence": "run — ran — run",
+      "fillPrompt": "附录5：run 的过去式是 ___",
+      "fillAnswer": "ran",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-say",
+      "unit": 0,
+      "base": "say",
+      "past": "said",
+      "participle": "said",
+      "usage": "附录5：说",
+      "sentence": "say — said — said",
+      "fillPrompt": "附录5：say 的过去式是 ___",
+      "fillAnswer": "said",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-see",
+      "unit": 0,
+      "base": "see",
+      "past": "saw",
+      "participle": "seen",
+      "usage": "附录5：看见",
+      "sentence": "see — saw — seen",
+      "fillPrompt": "附录5：see 的过去式是 ___",
+      "fillAnswer": "saw",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-sell",
+      "unit": 0,
+      "base": "sell",
+      "past": "sold",
+      "participle": "sold",
+      "usage": "附录5：卖",
+      "sentence": "sell — sold — sold",
+      "fillPrompt": "附录5：sell 的过去式是 ___",
+      "fillAnswer": "sold",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-sing",
+      "unit": 0,
+      "base": "sing",
+      "past": "sang",
+      "participle": "sung",
+      "usage": "附录5：唱歌",
+      "sentence": "sing — sang — sung",
+      "fillPrompt": "附录5：sing 的过去式是 ___",
+      "fillAnswer": "sang",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-sit",
+      "unit": 0,
+      "base": "sit",
+      "past": "sat",
+      "participle": "sat",
+      "usage": "附录5：坐",
+      "sentence": "sit — sat — sat",
+      "fillPrompt": "附录5：sit 的过去式是 ___",
+      "fillAnswer": "sat",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-sleep",
+      "unit": 0,
+      "base": "sleep",
+      "past": "slept",
+      "participle": "slept",
+      "usage": "附录5：睡觉",
+      "sentence": "sleep — slept — slept",
+      "fillPrompt": "附录5：sleep 的过去式是 ___",
+      "fillAnswer": "slept",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-speak",
+      "unit": 0,
+      "base": "speak",
+      "past": "spoke",
+      "participle": "spoken",
+      "usage": "附录5：说话",
+      "sentence": "speak — spoke — spoken",
+      "fillPrompt": "附录5：speak 的过去式是 ___",
+      "fillAnswer": "spoke",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-stand",
+      "unit": 0,
+      "base": "stand",
+      "past": "stood",
+      "participle": "stood",
+      "usage": "附录5：站立",
+      "sentence": "stand — stood — stood",
+      "fillPrompt": "附录5：stand 的过去式是 ___",
+      "fillAnswer": "stood",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-swim",
+      "unit": 0,
+      "base": "swim",
+      "past": "swam",
+      "participle": "swum",
+      "usage": "附录5：游泳",
+      "sentence": "swim — swam — swum",
+      "fillPrompt": "附录5：swim 的过去式是 ___",
+      "fillAnswer": "swam",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-take",
+      "unit": 0,
+      "base": "take",
+      "past": "took",
+      "participle": "taken",
+      "usage": "附录5：拿；取",
+      "sentence": "take — took — taken",
+      "fillPrompt": "附录5：take 的过去式是 ___",
+      "fillAnswer": "took",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-teach",
+      "unit": 0,
+      "base": "teach",
+      "past": "taught",
+      "participle": "taught",
+      "usage": "附录5：教",
+      "sentence": "teach — taught — taught",
+      "fillPrompt": "附录5：teach 的过去式是 ___",
+      "fillAnswer": "taught",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-tell",
+      "unit": 0,
+      "base": "tell",
+      "past": "told",
+      "participle": "told",
+      "usage": "附录5：告诉",
+      "sentence": "tell — told — told",
+      "fillPrompt": "附录5：tell 的过去式是 ___",
+      "fillAnswer": "told",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-think",
+      "unit": 0,
+      "base": "think",
+      "past": "thought",
+      "participle": "thought",
+      "usage": "附录5：思考",
+      "sentence": "think — thought — thought",
+      "fillPrompt": "附录5：think 的过去式是 ___",
+      "fillAnswer": "thought",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-wake",
+      "unit": 0,
+      "base": "wake",
+      "past": "woke",
+      "participle": "woken",
+      "usage": "附录5：醒来",
+      "sentence": "wake — woke — woken",
+      "fillPrompt": "附录5：wake 的过去式是 ___",
+      "fillAnswer": "woke",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-wear",
+      "unit": 0,
+      "base": "wear",
+      "past": "wore",
+      "participle": "worn",
+      "usage": "附录5：穿；戴",
+      "sentence": "wear — wore — worn",
+      "fillPrompt": "附录5：wear 的过去式是 ___",
+      "fillAnswer": "wore",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-win",
+      "unit": 0,
+      "base": "win",
+      "past": "won",
+      "participle": "won",
+      "usage": "附录5：获胜",
+      "sentence": "win — won — won",
+      "fillPrompt": "附录5：win 的过去式是 ___",
+      "fillAnswer": "won",
+      "fillClue": "Irregular verbs"
+    },
+    {
+      "id": "irreg-write",
+      "unit": 0,
+      "base": "write",
+      "past": "wrote",
+      "participle": "written",
+      "usage": "附录5：写",
+      "sentence": "write — wrote — written",
+      "fillPrompt": "附录5：write 的过去式是 ___",
+      "fillAnswer": "wrote",
+      "fillClue": "Irregular verbs"
+    }
+  ],
+  "catalogGrammar": {
+    "u1-part-a": {
+      "focus": "你知道哪些著名地标？ | Listening & speaking: Talking about trips at the weekend 谈论周末出行 | Vocabulary: Action verbs for trips 旅行动作动词",
+      "grammar": "一般过去时：How was your weekend? It was great! / What did you do? / I visited the \"Gingerbread House\" last Saturday. / Where did you go over the summer holidays? / I went to Xi'an with my family."
+    },
+    "u1-part-b": {
+      "focus": "是什么让旅行变得特别？ | Listening & speaking: Talking about trips in the holidays 谈论假期出行 | Vocabulary: Action verbs for trips 旅行动作动词 | Reading & writing: Reading an online travel review about visiting the Jinggang Mountains 阅读关于井冈山的在线旅行评价 · Writing a short travel review 写一篇简短的旅行评价",
+      "grammar": "一般过去时：How was your weekend? It was great! / What did you do? / I visited the \"Gingerbread House\" last Saturday. / Where did you go over the summer holidays? / I went to Xi'an with my family."
+    },
+    "u1-part-c": {
+      "focus": "制作假期剪贴簿 | Extended reading: Landmarks you shouldn't miss! 不可错过的地标！",
+      "grammar": "一般过去时：How was your weekend? It was great! / What did you do? / I visited the \"Gingerbread House\" last Saturday. / Where did you go over the summer holidays? / I went to Xi'an with my family."
+    },
+    "u2-part-a": {
+      "focus": "节日如何将我们联系在一起？ | Listening & speaking: Talking about festivals 谈论节日 | Vocabulary: Action verbs for festivals 节日动作动词",
+      "grammar": "一般过去时：Did you take a trip? No, we didn't. / Did you eat mooncakes? Yes, we did. / What did you like about it? / I liked watching the runners."
+    },
+    "u2-part-b": {
+      "focus": "大型活动如何将我们联系在一起？ | Listening & speaking: Talking about big events 谈论大型活动 | Vocabulary: Action verbs for events 活动动作动词 | Reading & writing: Reading a diary entry and a notice about a dragon boat race 阅读关于龙舟赛的日记和通知 · Writing a short paragraph about a festival or a big event you enjoyed 写一篇关于你喜欢的节日或大型活动的短文",
+      "grammar": "一般过去时：Did you take a trip? No, we didn't. / Did you eat mooncakes? Yes, we did. / What did you like about it? / I liked watching the runners."
+    },
+    "u2-part-c": {
+      "focus": "展示学校活动的快照 | Extended reading: The story of Nian 年的故事",
+      "grammar": "一般过去时：Did you take a trip? No, we didn't. / Did you eat mooncakes? Yes, we did. / What did you like about it? / I liked watching the runners."
+    },
+    "u3-part-a": {
+      "focus": "我们如何知道自己生病了？ | Listening & speaking: Talking about illness and making suggestions 谈论疾病与提出建议 | Vocabulary: Illness 疾病词汇",
+      "grammar": "一般现在时：How do you feel? I feel ill. My head hurts and I have a runny nose. | Simple future 一般将来时：My mum is going to take me to hospital this afternoon. | Modals 情态动词：Maybe you should see a doctor."
+    },
+    "u3-part-b": {
+      "focus": "我们如何保持健康？ | Listening & speaking: Giving opinions about how to stay healthy 表达保持健康的看法 | Vocabulary: Healthy lifestyles 健康生活方式词汇 | Reading & writing: Reading a story about a good friend moving away 阅读一篇关于好朋友搬家的故事 · Writing suggestions for your friends 为朋友写建议",
+      "grammar": "一般现在时：How do you feel? I feel ill. My head hurts and I have a runny nose. | Simple future 一般将来时：My mum is going to take me to hospital this afternoon. | Modals 情态动词：Maybe you should see a doctor."
+    },
+    "u3-part-c": {
+      "focus": "制作健康生活方式宣传册 | Extended reading: We're helping hands! 我们是助人之手！",
+      "grammar": "一般现在时：How do you feel? I feel ill. My head hurts and I have a runny nose. | Simple future 一般将来时：My mum is going to take me to hospital this afternoon. | Modals 情态动词：Maybe you should see a doctor."
+    }
+  }
+}

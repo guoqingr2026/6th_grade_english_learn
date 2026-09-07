@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "description": "综合填空题库（人工审核版）。每题 prompt/clue/answer 一一对应。",
+  "questions": [
+    { "id": "fb-u1-01", "unit": 1, "part": "A", "type": "verb", "prompt": "I ___ the Gingerbread House.", "clue": "中文：我参观了姜饼屋。", "answer": "visited", "analysis": "描述过去参观，用 visit 的过去式 visited。" },
+    { "id": "fb-u1-02", "unit": 1, "part": "B", "type": "verb", "prompt": "I ___ to Xi'an with my family.", "clue": "中文：我和家人去了西安。", "answer": "went", "analysis": "go 的过去式 went。" },
+    { "id": "fb-u1-03", "unit": 1, "part": "A", "type": "verb", "prompt": "Please ___ me some pictures.", "clue": "中文：请发给我一些照片。", "answer": "send", "analysis": "祈使句用动词原形 send。" },
+    { "id": "fb-u1-04", "unit": 1, "part": "B", "type": "verb", "prompt": "We ___ to see the Terracotta Warriors.", "clue": "中文：我们去看了兵马俑。", "answer": "went", "analysis": "过去经历用 went。" },
+    { "id": "fb-u1-05", "unit": 1, "part": "A", "type": "adj", "prompt": "It was great / fun / ___!", "clue": "中文：非常棒！", "answer": "amazing", "analysis": "形容词 amazing 表示“极好的”。" },
+
+    { "id": "fb-u2-01", "unit": 2, "part": "A", "type": "verb", "prompt": "Did you ___ mooncakes?", "clue": "中文：你们吃月饼了吗？", "answer": "eat", "analysis": "Did 后接动词原形 eat。" },
+    { "id": "fb-u2-02", "unit": 2, "part": "B", "type": "verb", "prompt": "Finally, his team ___ the race!", "clue": "中文：最后他的队伍赢得了比赛。", "answer": "won", "analysis": "win 的过去式 won。" },
+    { "id": "fb-u2-03", "unit": 2, "part": "A", "type": "verb", "prompt": "We cleaned the house and ___ fu on the door.", "clue": "中文：我们打扫房子并在门上贴福字。", "answer": "pasted", "analysis": "paste 的过去式 pasted。" },
+    { "id": "fb-u2-04", "unit": 2, "part": "B", "type": "verb", "prompt": "We ___ up early and watched the dragon boat race.", "clue": "中文：我们早起看龙舟赛。", "answer": "woke", "analysis": "wake 的过去式 woke。" },
+    { "id": "fb-u2-05", "unit": 2, "part": "B", "type": "verb", "prompt": "My mother ___ zongzi and we cheered for the teams.", "clue": "中文：妈妈包了粽子，我们为队伍加油。", "answer": "made", "analysis": "make 的过去式 made。" },
+
+    { "id": "fb-u3-01", "unit": 3, "part": "A", "type": "verb", "prompt": "Maybe you should ___ a doctor.", "clue": "中文：也许你应该看医生。", "answer": "see", "analysis": "should 后接动词原形 see。" },
+    { "id": "fb-u3-02", "unit": 3, "part": "B", "type": "verb", "prompt": "I am ___ to see a doctor.", "clue": "中文：我打算去看医生。", "answer": "going", "analysis": "be going to 结构中的 going。" },
+    { "id": "fb-u3-03", "unit": 3, "part": "A", "type": "noun", "prompt": "I feel ill. My head hurts and I have a runny ___.", "clue": "中文：流鼻涕。", "answer": "nose", "analysis": "runny nose 流鼻涕。" },
+    { "id": "fb-u3-04", "unit": 3, "part": "B", "type": "verb", "prompt": "We should ___ too.", "clue": "中文：我们也应该锻炼。", "answer": "exercise", "analysis": "should 后接动词原形 exercise。" },
+    { "id": "fb-u3-05", "unit": 3, "part": "A", "type": "modal", "prompt": "You shouldn't ___ up late.", "clue": "中文：你不应该熬夜。", "answer": "stay", "analysis": "stay up late 熬夜。" },
+
+    { "id": "fb-u4-01", "unit": 4, "part": "A", "type": "verb", "prompt": "I am going to ___ a schoolbag.", "clue": "中文：我打算买一个书包。", "answer": "buy", "analysis": "be going to 后接动词原形 buy。" },
+    { "id": "fb-u4-02", "unit": 4, "part": "B", "type": "verb", "prompt": "I ___ to save more.", "clue": "中文：我需要多存钱。", "answer": "need", "analysis": "主语 I 用动词原形 need。" },
+    { "id": "fb-u4-03", "unit": 4, "part": "A", "type": "verb", "prompt": "We use money to ___ goods.", "clue": "中文：我们用钱买商品。", "answer": "buy", "analysis": "to 后接动词原形 buy。" },
+    { "id": "fb-u4-04", "unit": 4, "part": "B", "type": "noun", "prompt": "Maybe you can wait for a ___.", "clue": "中文：也许你可以等打折。", "answer": "sale", "analysis": "wait for a sale 等促销/打折。" },
+    { "id": "fb-u4-05", "unit": 4, "part": "A", "type": "noun", "prompt": "How are you going to spend your ___ money?", "clue": "中文：零花钱。", "answer": "pocket", "analysis": "pocket money 零花钱。" },
+
+    { "id": "fb-u5-01", "unit": 5, "part": "A", "type": "verb", "prompt": "We can use ___ to look into space.", "clue": "中文：望远镜。", "answer": "telescopes", "analysis": "复数 telescopes。" },
+    { "id": "fb-u5-02", "unit": 5, "part": "B", "type": "verb", "prompt": "China ___ a rover to Mars last year.", "clue": "中文：中国去年向火星发送了探测器。", "answer": "sent", "analysis": "send 的过去式 sent。" },
+    { "id": "fb-u5-03", "unit": 5, "part": "A", "type": "noun", "prompt": "There are eight ___ in our solar system.", "clue": "中文：行星。", "answer": "planets", "analysis": "planet 复数 planets。" },
+    { "id": "fb-u5-04", "unit": 5, "part": "B", "type": "noun", "prompt": "I want to be an ___ in the future.", "clue": "中文：宇航员。", "answer": "astronaut", "analysis": "astronaut 宇航员。" },
+    { "id": "fb-u5-05", "unit": 5, "part": "B", "type": "verb", "prompt": "I ___ a big rocket in the museum.", "clue": "中文：我在博物馆看到了大火箭。", "answer": "saw", "analysis": "see 的过去式 saw。" },
+
+    { "id": "fb-u6-01", "unit": 6, "part": "A", "type": "verb", "prompt": "It ___ from rivers and lakes.", "clue": "中文：它来自江河湖泊。", "answer": "comes", "analysis": "主语 it 用 comes。" },
+    { "id": "fb-u6-02", "unit": 6, "part": "B", "type": "verb", "prompt": "We should reduce, ___ and recycle.", "clue": "中文：重复使用。", "answer": "reuse", "analysis": "3R 原则：reduce, reuse, recycle。" },
+    { "id": "fb-u6-03", "unit": 6, "part": "A", "type": "noun", "prompt": "Where does ___ come from?", "clue": "中文：电（electricity）。", "answer": "electricity", "analysis": "electricity 电。" },
+    { "id": "fb-u6-04", "unit": 6, "part": "B", "type": "verb", "prompt": "We should ___ off lights when we leave a room.", "clue": "中文：关灯。", "answer": "turn", "analysis": "turn off lights 关灯。" },
+    { "id": "fb-u6-05", "unit": 6, "part": "A", "type": "noun", "prompt": "Solar power and wind power are ___ energy.", "clue": "中文：绿色能源。", "answer": "green", "analysis": "green energy 绿色能源。" }
+  ]
+}

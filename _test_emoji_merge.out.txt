@@ -1,0 +1,8 @@
+normalize:
+<p class="zh" style="color:#b45309;font-weight:400">👉 思考并完成表格。</p>
+
+pairs:
+[{'en': '', 'zh': '👉 思考并完成表格。'}]
+
+roundtrip:
+<p class="zh">👉 思考并完成表格。</p>

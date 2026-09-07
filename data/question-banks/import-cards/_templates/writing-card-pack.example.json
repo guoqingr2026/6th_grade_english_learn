@@ -1,0 +1,16 @@
+{
+  "cardType": "writing",
+  "action": "append",
+  "source": "示例：课堂范文 Unit 5",
+  "items": [
+    {
+      "id": "ws-u5-class-01",
+      "unit": 5,
+      "title": "Unit 5 课堂范文：My Space Dream",
+      "en": "I want to visit the space museum one day. I hope to see rockets and learn about Mars.",
+      "zh": "我希望有一天参观太空博物馆，看火箭并了解火星。",
+      "fillPrompt": "填空：I hope to see ___ and learn about Mars.",
+      "fillAnswer": "rockets"
+    }
+  ]
+}

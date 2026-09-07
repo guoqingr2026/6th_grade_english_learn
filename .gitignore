@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.cursor/
+
+# Logs & temp
+*.log
+*.tmp
+~$*
+
+# Per-device LAN sync payloads (runtime)
+lan-sync/
+
+# User-generated recordings & snips (keep README / index)
+assets/audios/student/*.mp3
+assets/audios/student/*.webm
+assets/images/snip/unit*/

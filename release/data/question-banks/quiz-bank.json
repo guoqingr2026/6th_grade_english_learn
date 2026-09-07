@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "description": "选择题题库（与页面逻辑分离，可独立增删改）。",
+  "questions": [
+    {
+      "id": "u1a-1",
+      "unit": 1,
+      "part": "A",
+      "badge": "Unit 1 Part A 旅行闯关",
+      "prompt": "选择正确句子：你上周六做了什么？",
+      "options": ["What do you do last Saturday?", "What did you do last Saturday?", "What did you did last Saturday?", "What were you do last Saturday?"],
+      "answer": "What did you do last Saturday?",
+      "explainCorrect": "过去时提问结构是 What did + 主语 + 动词原形。",
+      "optionReasons": {
+        "What do you do last Saturday?": "last Saturday 是过去时间，不能用 do。",
+        "What did you do last Saturday?": "结构正确，did 后要用原形 do。",
+        "What did you did last Saturday?": "did 后面不能再用过去式 did。",
+        "What were you do last Saturday?": "were + do 结构错误。"
+      }
+    },
+    {
+      "id": "u1b-1",
+      "unit": 1,
+      "part": "B",
+      "badge": "Unit 1 Part B 旅行闯关",
+      "prompt": "We ___ to see the Terracotta Warriors.",
+      "options": ["go", "went", "gone", "going"],
+      "answer": "went",
+      "explainCorrect": "句子描述过去经历，go 用过去式 went。",
+      "optionReasons": {
+        "go": "一般现在时原形，不符合过去语境。",
+        "went": "正确，go 的过去式。",
+        "gone": "gone 是过去分词，不能单独作谓语。",
+        "going": "现在分词不能单独作谓语。"
+      }
+    },
+    {
+      "id": "u2a-1",
+      "unit": 2,
+      "part": "A",
+      "badge": "Unit 2 Part A 节日闯关",
+      "prompt": "Did you eat mooncakes? 的否定回答是：",
+      "options": ["No, we didn't.", "No, we don't.", "No, we not.", "No, we aren't."],
+      "answer": "No, we didn't.",
+      "explainCorrect": "Did 引导的一般过去时问句，否定答语要用 didn't。",
+      "optionReasons": {
+        "No, we didn't.": "正确，时态匹配。",
+        "No, we don't.": "don't 是一般现在时。",
+        "No, we not.": "缺少助动词，句子不完整。",
+        "No, we aren't.": "be 动词答法，不适用于 eat。"
+      }
+    },
+    {
+      "id": "u2b-1",
+      "unit": 2,
+      "part": "B",
+      "badge": "Unit 2 Part B 节日闯关",
+      "prompt": "Finally, his team ___ the race!",
+      "options": ["win", "wins", "won", "winning"],
+      "answer": "won",
+      "explainCorrect": "过去发生的结果用一般过去时，win 的过去式是 won。",
+      "optionReasons": {
+        "win": "原形不符合过去时。",
+        "wins": "第三人称单数一般现在时，不符合句意。",
+        "won": "正确，win 的过去式。",
+        "winning": "现在分词不可单独作谓语。"
+      }
+    },
+    {
+      "id": "u3a-1",
+      "unit": 3,
+      "part": "A",
+      "badge": "Unit 3 Part A 健康闯关",
+      "prompt": "选择最合适建议：He has a fever.",
+      "options": ["He should see a doctor.", "He should stayed up late.", "He should to drink water.", "He should not goes home."],
+      "answer": "He should see a doctor.",
+      "explainCorrect": "should 后接动词原形，且语义上“发烧要看医生”。",
+      "optionReasons": {
+        "He should see a doctor.": "语法和语义都正确。",
+        "He should stayed up late.": "should 后不能接过去式 stayed。",
+        "He should to drink water.": "should 后不能加 to。",
+        "He should not goes home.": "should not 后应接 go 原形。"
+      }
+    },
+    {
+      "id": "u3b-1",
+      "unit": 3,
+      "part": "B",
+      "badge": "Unit 3 Part B 健康闯关",
+      "prompt": "I ___ going to see a doctor.",
+      "options": ["am", "is", "are", "be"],
+      "answer": "am",
+      "explainCorrect": "主语 I 对应 be 动词 am，构成 be going to。",
+      "optionReasons": {
+        "am": "正确：I am going to...",
+        "is": "is 搭配 he/she/it。",
+        "are": "are 不搭配 I。",
+        "be": "be 是原形，不能直接放在主语后。"
+      }
+    },
+    {
+      "id": "u4a-1",
+      "unit": 4,
+      "part": "A",
+      "badge": "Unit 4 Part A 理财闯关",
+      "prompt": "How are you going to ___ your pocket money?",
+      "options": ["spend", "spent", "spending", "spends"],
+      "answer": "spend",
+      "explainCorrect": "be going to 后接动词原形，应该用 spend。",
+      "optionReasons": {
+        "spend": "正确，动词原形。",
+        "spent": "过去式，不符合 be going to 结构。",
+        "spending": "现在分词，不符合结构。",
+        "spends": "第三人称单数形式，不符合结构。"
+      }
+    },
+    {
+      "id": "u4b-1",
+      "unit": 4,
+      "part": "B",
+      "badge": "Unit 4 Part B 理财闯关",
+      "prompt": "I ___ to save more.",
+      "options": ["need", "needs", "needed", "needing"],
+      "answer": "need",
+      "explainCorrect": "主语 I 在一般现在时中搭配动词原形 need。",
+      "optionReasons": {
+        "need": "正确，I need to ...",
+        "needs": "needs 用于第三人称单数。",
+        "needed": "过去式不符合当前语境。",
+        "needing": "分词不能单独作谓语。"
+      }
+    },
+    {
+      "id": "u5a-1",
+      "unit": 5,
+      "part": "A",
+      "badge": "Unit 5 Part A 太空闯关",
+      "prompt": "There ___ eight planets in our solar system.",
+      "options": ["is", "are", "be", "am"],
+      "answer": "are",
+      "explainCorrect": "eight planets 是复数名词，There be 句型要用 are。",
+      "optionReasons": {
+        "is": "is 搭配单数。",
+        "are": "正确，复数搭配 are。",
+        "be": "原形不能直接作谓语。",
+        "am": "am 只搭配 I，不用于 There be。"
+      }
+    },
+    {
+      "id": "u5b-1",
+      "unit": 5,
+      "part": "B",
+      "badge": "Unit 5 Part B 太空闯关",
+      "prompt": "China ___ a rover to Mars last year.",
+      "options": ["send", "sends", "sent", "sending"],
+      "answer": "sent",
+      "explainCorrect": "last year 明确过去时间，send 用过去式 sent。",
+      "optionReasons": {
+        "send": "原形不符合过去时间。",
+        "sends": "一般现在时第三人称单数，不符合语境。",
+        "sent": "正确，send 的过去式。",
+        "sending": "分词不能单独作谓语。"
+      }
+    },
+    {
+      "id": "u6a-1",
+      "unit": 6,
+      "part": "A",
+      "badge": "Unit 6 Part A 环保闯关",
+      "prompt": "Where does electricity come from? — It ___ from power stations.",
+      "options": ["come", "comes", "came", "coming"],
+      "answer": "comes",
+      "explainCorrect": "主语 it 是第三人称单数，一般现在时动词加 -s。",
+      "optionReasons": {
+        "come": "第三人称单数不能用原形。",
+        "comes": "正确：It comes from...",
+        "came": "过去式，不符合一般事实表达。",
+        "coming": "分词不能单独作谓语。"
+      }
+    },
+    {
+      "id": "u6b-1",
+      "unit": 6,
+      "part": "B",
+      "badge": "Unit 6 Part B 环保闯关",
+      "prompt": "We should ___, reuse and recycle.",
+      "options": ["reduce", "reduces", "reduced", "reducing"],
+      "answer": "reduce",
+      "explainCorrect": "should 后面必须接动词原形。",
+      "optionReasons": {
+        "reduce": "正确，动词原形。",
+        "reduces": "第三人称单数形式错误。",
+        "reduced": "过去式错误。",
+        "reducing": "分词形式错误。"
+      }
+    }
+  ]
+}

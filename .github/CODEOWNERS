@@ -1,0 +1,3 @@
+# 默认审核人 — 合入前须获得 Approve
+# 请将 @YOUR_GITHUB_USERNAME 改为实际维护者 GitHub 账号，并在仓库 Settings → Branches 开启「Require pull request reviews」
+# * @YOUR_GITHUB_USERNAME

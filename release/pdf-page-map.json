@@ -1,0 +1,77 @@
+{
+  "version": 3,
+  "description": "课本 PNG 页码映射。Word 中 Page 2 等为课本印刷页，通过 bookPageStart 换算为 png 页码",
+  "bookPageStart": 2,
+  "imageDir": "assets/images/textbook/pages",  "intro": {
+    "cover": { "pdfPages": [1], "label": "封面" },
+    "inner-cover": { "pdfPages": [2], "label": "内封" },
+    "copyright": { "pdfPages": [3], "label": "版权页" },
+    "foreword": { "pdfPages": [4], "label": "致同学" },
+    "contents-1": { "pdfPages": [5, 6], "label": "目录（一）" },
+    "contents-2": { "pdfPages": [7], "label": "目录（二）" },
+    "overview": { "pdfPages": [8], "label": "语法与拓展总览" }
+  },
+  "units": {
+    "1": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [9], "bookPages": [2], "label": "Unit 1 起始页" },
+      "unit-next": { "pdfPages": [10], "bookPages": [3], "label": "Unit 1 导入活动" },
+      "part-a": { "pdfPages": [11, 12], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [13, 14, 15, 16], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [17, 18], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [19, 20], "bookPages": [12, 13], "label": "Reading 阅读" }
+    },    "2": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [21], "bookPages": [2], "label": "Unit 2 起始页" },
+      "unit-next": { "pdfPages": [22], "bookPages": [3], "label": "Unit 2 导入活动" },
+      "part-a": { "pdfPages": [23, 24], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [25, 26, 27, 28], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [29, 30], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [31, 32], "bookPages": [12, 13], "label": "Reading 阅读" }
+    },
+    "3": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [33], "bookPages": [2], "label": "Unit 3 起始页" },
+      "unit-next": { "pdfPages": [34], "bookPages": [3], "label": "Unit 3 导入活动" },
+      "part-a": { "pdfPages": [35, 36], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [37, 38, 39, 40], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [41, 42], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [43, 44], "bookPages": [12, 13], "label": "Reading 阅读" }
+    },
+    "4": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [45], "bookPages": [2], "label": "Unit 4 起始页" },
+      "unit-next": { "pdfPages": [46], "bookPages": [3], "label": "Unit 4 导入活动" },
+      "part-a": { "pdfPages": [47, 48], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [49, 50, 51, 52], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [53, 54], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [55, 56], "bookPages": [12, 13], "label": "Reading 阅读" }
+    },
+    "5": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [57], "bookPages": [2], "label": "Unit 5 起始页" },
+      "unit-next": { "pdfPages": [58], "bookPages": [3], "label": "Unit 5 导入活动" },
+      "part-a": { "pdfPages": [59, 60], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [61, 62, 63, 64], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [65, 66], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [67, 68], "bookPages": [12, 13], "label": "Reading 阅读" }
+    },
+    "6": {
+      "bookPageStart": 2,
+      "unit-start": { "pdfPages": [69], "bookPages": [2], "label": "Unit 6 起始页" },
+      "unit-next": { "pdfPages": [70], "bookPages": [3], "label": "Unit 6 导入活动" },
+      "part-a": { "pdfPages": [71, 72], "bookPages": [4, 5], "label": "Part A" },
+      "part-b": { "pdfPages": [73, 74, 75, 76], "bookPages": [6, 7, 8, 9], "label": "Part B" },
+      "part-c": { "pdfPages": [77, 78], "bookPages": [10, 11], "label": "Part C" },
+      "reading": { "pdfPages": [79, 80], "bookPages": [12, 13], "label": "Reading 阅读" }
+    }  },
+  "appendix": {
+    "revision": { "pdfPages": [81, 82, 83, 84], "label": "Revision 复习" },
+    "songs": { "pdfPages": [85, 86, 87], "label": "Appendix 1 歌曲" },
+    "words-by-unit": { "pdfPages": [88, 89, 90, 91], "label": "Appendix 2 各单元词汇" },
+    "vocabulary": { "pdfPages": [92, 93, 94, 95], "label": "Appendix 3 词汇表" },
+    "expressions": { "pdfPages": [96, 97, 98], "label": "Appendix 4 常用表达" },
+    "irregular-verbs": { "pdfPages": [99], "label": "Appendix 5 不规则动词" },
+    "afterword": { "pdfPages": [100], "label": "后记" }
+  }
+}

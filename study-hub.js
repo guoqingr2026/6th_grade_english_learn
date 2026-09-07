@@ -174,6 +174,11 @@
     els.snipFileInput = document.getElementById("studyHubSnipFileInput");
     els.snipSave = document.getElementById("studyHubSnipSave");
     els.snipPreview = document.getElementById("studyHubSnipPreview");
+    els.snipViewer = document.getElementById("studyHubSnipViewer");
+    els.snipViewerImg = document.getElementById("studyHubSnipViewerImg");
+    els.snipViewerCaption = document.getElementById("studyHubSnipViewerCaption");
+    els.snipViewerClose = document.getElementById("studyHubSnipViewerClose");
+    els.snipViewerBackdrop = document.getElementById("studyHubSnipViewerBackdrop");
     els.bgColor = document.getElementById("studyHubBgColor");
     els.bgPickerWrap = document.getElementById("studyHubBgPickerWrap");
     els.enFontFamily = document.getElementById("studyHubEnFontFamily");
@@ -2140,10 +2145,18 @@
     });
   }
 
-  function buildSnipFilename(category) {
-    const page = getCurrentPage();
+  function getSnipPageMeta(page) {
+    const p = page || getCurrentPage();
+    const part = (p?.part || "").trim() || "page";
+    const partLabel = (p?.label || part).trim();
+    const pageId = p?.id || currentPageId || "";
+    return { pageId, part, partLabel };
+  }
+
+  function buildSnipFilename(category, page) {
+    const meta = getSnipPageMeta(page);
     const unit = currentUnit || 0;
-    const part = (page?.part || page?.label || "page").replace(/\s+/g, "-");
+    const partSlug = meta.part.replace(/\s+/g, "-");
     const cat = category === "homework" ? "homework" : "task";
     const d = new Date();
     const date = [
@@ -2156,7 +2169,7 @@
       String(d.getMinutes()).padStart(2, "0"),
       String(d.getSeconds()).padStart(2, "0"),
     ].join("-");
-    return `Unit${unit}-${part}_${cat}_${date}_${time}.png`;
+    return `Unit${unit}-${partSlug}_${cat}_${date}_${time}.png`;
   }
 
   function resetSnipModalPreview() {
@@ -2166,21 +2179,31 @@
       els.snipPreview.innerHTML = "";
     }
     if (els.snipSave) els.snipSave.disabled = true;
+    if (els.snipSave) els.snipSave.textContent = "保存截图";
   }
 
   function setSnipPendingBlob(blob) {
-    if (!blob || !blob.type?.startsWith("image/")) {
+    if (!blob) {
       showToast("请粘贴或选择图片文件", true);
       return;
     }
-    snipPendingBlob = blob;
+    const type = (blob.type || "").toLowerCase();
+    if (type && !type.startsWith("image/")) {
+      showToast("请粘贴或选择图片文件", true);
+      return;
+    }
+    snipPendingBlob = blob.type ? blob : new Blob([blob], { type: "image/png" });
     if (els.snipPreview) {
-      const url = URL.createObjectURL(blob);
+      const url = URL.createObjectURL(snipPendingBlob);
       els.snipPreview.innerHTML = `<img src="${url}" alt="截图预览" />`;
       els.snipPreview.classList.remove("hidden");
       window.setTimeout(() => URL.revokeObjectURL(url), 60000);
     }
-    if (els.snipSave) els.snipSave.disabled = false;
+    if (els.snipSave) {
+      els.snipSave.disabled = false;
+      els.snipSave.textContent = "保存截图";
+    }
+    showToast("已识别截图，请点击「保存截图」", false);
   }
 
   function openSnipModal(category) {
@@ -2188,14 +2211,33 @@
       showToast("请在知识点精讲模式下使用截图存档", true);
       return;
     }
-    snipPendingCategory = category === "homework" ? "homework" : "task";
-    resetSnipModalPreview();
-    if (els.snipModalTitle) {
-      els.snipModalTitle.textContent =
-        snipPendingCategory === "homework" ? "保存作业截图" : "保存学习任务截图";
+    const cat = category === "homework" ? "homework" : "task";
+    const meta = getSnipPageMeta(getCurrentPage());
+    if (!meta.pageId) {
+      showToast("请先选择本课 Part 后再保存截图", true);
+      return;
     }
-    if (els.snipModal) els.snipModal.classList.remove("hidden");
-    window.setTimeout(() => els.snipPasteZone?.focus(), 50);
+    countSnipCategory(cat, meta.pageId)
+      .then((n) => {
+        if (n >= SNIP_GRID_COLS) {
+          const label = cat === "task" ? "作业布置" : "作业提交";
+          showToast(`本 Part「${label}」已满 ${SNIP_GRID_COLS} 张，请先删除再添加`, true);
+          return;
+        }
+        snipPendingCategory = cat;
+        resetSnipModalPreview();
+        if (els.snipModalTitle) {
+          els.snipModalTitle.textContent =
+            snipPendingCategory === "homework" ? "保存作业提交截图" : "保存作业布置截图";
+        }
+        if (els.snipModal) els.snipModal.classList.remove("hidden");
+        window.setTimeout(() => els.snipPasteZone?.focus(), 50);
+      })
+      .catch(() => {
+        snipPendingCategory = cat;
+        resetSnipModalPreview();
+        if (els.snipModal) els.snipModal.classList.remove("hidden");
+      });
   }
 
   function closeSnipModal() {
@@ -2203,23 +2245,61 @@
     if (els.snipModal) els.snipModal.classList.add("hidden");
   }
 
+  function openSnipViewer(url, title) {
+    if (!url || !els.snipViewer || !els.snipViewerImg) return;
+    const src = url.includes("?") ? url : `${url}?t=${Date.now()}`;
+    els.snipViewerImg.src = src;
+    els.snipViewerImg.alt = title || "截图";
+    if (els.snipViewerCaption) {
+      const label = title || "";
+      els.snipViewerCaption.textContent = label;
+      els.snipViewerCaption.classList.toggle("hidden", !label);
+    }
+    els.snipViewer.classList.remove("hidden");
+    document.body.classList.add("study-hub-snip-viewer-open");
+  }
+
+  function closeSnipViewer() {
+    if (!els.snipViewer) return;
+    els.snipViewer.classList.add("hidden");
+    if (els.snipViewerImg) els.snipViewerImg.removeAttribute("src");
+    document.body.classList.remove("study-hub-snip-viewer-open");
+  }
+
   function handleSnipPasteEvent(e) {
     if (!els.snipModal || els.snipModal.classList.contains("hidden")) return;
     const items = e.clipboardData?.items;
-    if (!items) return;
-    for (const item of items) {
-      if (item.type?.startsWith("image/")) {
-        e.preventDefault();
-        const blob = item.getAsFile();
-        if (blob) setSnipPendingBlob(blob);
-        return;
+    if (items?.length) {
+      for (const item of items) {
+        if (item.kind === "file" && (item.type.startsWith("image/") || item.type === "")) {
+          e.preventDefault();
+          const blob = item.getAsFile();
+          if (blob) {
+            setSnipPendingBlob(blob);
+            return;
+          }
+        }
+      }
+    }
+    const files = e.clipboardData?.files;
+    if (files?.length) {
+      for (const file of files) {
+        if ((file.type || "").startsWith("image/") || /\.(png|jpe?g|webp|gif|bmp)$/i.test(file.name || "")) {
+          e.preventDefault();
+          setSnipPendingBlob(file);
+          return;
+        }
       }
     }
   }
 
   async function uploadSnipBlob(blob, category) {
     const page = getCurrentPage();
-    const filename = buildSnipFilename(category);
+    const meta = getSnipPageMeta(page);
+    if (!meta.pageId) {
+      throw new Error("请先选择本课 Part 后再保存截图");
+    }
+    const filename = buildSnipFilename(category, page);
     const data = await blobToBase64(blob);
     const res = await fetch("/api/study-hub/save-snip", {
       method: "POST",
@@ -2229,8 +2309,8 @@
         category,
         filename,
         data,
-        pageId: page?.id || currentPageId || "",
-        part: page?.part || page?.label || "",
+        pageId: meta.pageId,
+        part: meta.part,
       }),
     });
     const payload = await res.json();
@@ -2246,74 +2326,93 @@
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
   }
 
+  const SNIP_GRID_COLS = 4;
+  const SNIP_THUMB_PX = 20;
+  const SNIP_SLOT_LABELS = ["①", "②", "③", "④"];
+
+  function buildSnipSlots(rows) {
+    const ordered = Array.isArray(rows)
+      ? [...rows].sort((a, b) => Number(a.createdAt || 0) - Number(b.createdAt || 0)).slice(0, SNIP_GRID_COLS)
+      : [];
+    const slots = [...ordered];
+    while (slots.length < SNIP_GRID_COLS) slots.push(null);
+    return slots;
+  }
+
+  async function fetchSnipItemsForPage(pageId) {
+    const qs = new URLSearchParams({
+      unit: String(currentUnit || 1),
+      pageId: pageId || "",
+    });
+    const res = await fetch(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`);
+    const payload = await res.json();
+    if (!res.ok) throw new Error(payload.error || "list failed");
+    return payload.items || [];
+  }
+
+  async function countSnipCategory(category, pageId) {
+    const meta = getSnipPageMeta(getCurrentPage());
+    const pid = pageId || meta.pageId || currentPageId || "";
+    if (!pid) return 0;
+    const items = await fetchSnipItemsForPage(pid);
+    const cat = category === "homework" ? "homework" : "task";
+    return items.filter((r) => r.category === cat).length;
+  }
+
+  function renderSnipThumbCell(row, slotIndex) {
+    const label = SNIP_SLOT_LABELS[slotIndex] || String((slotIndex || 0) + 1);
+    if (!row) {
+      return `<article class="study-hub-snip-thumb study-hub-snip-thumb-empty" aria-label="空位 ${label}" title="空位 ${label}">
+        <span class="study-hub-snip-thumb-placeholder"></span>
+      </article>`;
+    }
+    const path = row.path || "";
+    const url = path.startsWith("/") ? path : `/${path}`;
+    const name = row.filename || "截图";
+    const when = formatSnipTime(row.createdAt);
+    const tip = when ? `${when} · ${name}` : name;
+    return `<article class="study-hub-snip-thumb" data-id="${escapeHtml(row.id || "")}" title="${escapeHtml(tip)} · ${label}">
+      <button type="button" class="study-hub-snip-thumb-view" data-url="${escapeHtml(url)}" data-title="${escapeHtml(name)}" aria-label="查看 ${label} ${escapeHtml(name)}">
+        <img src="${escapeHtml(`${url}?t=${row.createdAt || Date.now()}`)}" alt="${escapeHtml(name)}" loading="lazy" />
+      </button>
+      <button type="button" class="study-hub-snip-thumb-del" data-id="${escapeHtml(row.id || "")}" aria-label="删除" title="删除">×</button>
+    </article>`;
+  }
+
   function renderSnipSection(title, rows) {
-    if (!rows.length) return "";
+    const slots = buildSnipSlots(rows);
+    const filled = Math.min(rows.length, SNIP_GRID_COLS);
     return `
       <section class="study-hub-snip-section">
-        <h4>${escapeHtml(title)}（${rows.length}）</h4>
-        <div class="study-hub-snip-grid">
-          ${rows
-            .map((row) => {
-              const path = row.path || "";
-              const url = path.startsWith("/") ? path : `/${path}`;
-              const name = row.filename || "截图";
-              const when = formatSnipTime(row.createdAt);
-              return `<article class="study-hub-snip-card" data-id="${escapeHtml(row.id || "")}">
-                <img src="${escapeHtml(`${url}?t=${row.createdAt || Date.now()}`)}" alt="${escapeHtml(name)}" loading="lazy" />
-                <span class="study-hub-snip-card-name" title="${escapeHtml(name)}">${escapeHtml(when || name)}</span>
-                <div class="study-hub-snip-card-actions">
-                  <button type="button" class="study-hub-snip-open" data-url="${escapeHtml(url)}">查看</button>
-                  <button type="button" class="study-hub-snip-del" data-id="${escapeHtml(row.id || "")}">删除</button>
-                </div>
-              </article>`;
-            })
-            .join("")}
+        <h4 class="study-hub-snip-section-title">${escapeHtml(title)} <span class="study-hub-snip-count">${filled}/${SNIP_GRID_COLS}</span></h4>
+        <div class="study-hub-snip-grid" style="--snip-cols:${SNIP_GRID_COLS};--snip-size:${SNIP_THUMB_PX}px">
+          ${slots.map((row, idx) => renderSnipThumbCell(row, idx)).join("")}
         </div>
       </section>
     `;
   }
 
-  async function refreshSnipPanel(pageId) {
-    const panel = els.snipPanel;
-    if (!panel) return;
-    if (mode !== "knowledge") {
-      panel.classList.add("hidden");
-      panel.innerHTML = "";
-      return;
-    }
-    let items = [];
-    try {
-      const qs = new URLSearchParams({
-        unit: String(currentUnit || 1),
-        pageId: pageId || currentPageId || "",
-      });
-      const res = await fetch(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`);
-      const payload = await res.json();
-      if (res.ok) items = payload.items || [];
-    } catch {
-      items = [];
-    }
-    if (!items.length) {
-      panel.classList.add("hidden");
-      panel.innerHTML = "";
-      return;
-    }
-    const tasks = items.filter((r) => r.category === "task");
-    const homework = items.filter((r) => r.category === "homework");
-    panel.classList.remove("hidden");
-    panel.innerHTML = `
-      <p class="study-hub-snip-panel-title">截图存档 · 学习任务与作业（assets/images/snip/）</p>
-      ${renderSnipSection("老师分配的学习任务", tasks)}
-      ${renderSnipSection("学生作业记录", homework)}
+  function renderSnipPanelContent(tasks, homework, pageMeta) {
+    const label = pageMeta?.partLabel || "本 Part";
+    return `
+      <p class="study-hub-snip-panel-title">作业截图存档 · Unit ${currentUnit || 1} · ${escapeHtml(label)}</p>
+      <p class="study-hub-snip-panel-hint">每个 Part 独立保存：<strong>作业布置</strong> 与 <strong>作业提交</strong> 各 4 格（①–④）。切换 Part 会显示对应记录。</p>
+      ${renderSnipSection("作业布置", tasks)}
+      ${renderSnipSection("作业提交", homework)}
     `;
-    panel.querySelectorAll(".study-hub-snip-open").forEach((btn) => {
+  }
+
+  function bindSnipPanelActions(panel, pageId) {
+    panel.querySelectorAll(".study-hub-snip-thumb-view").forEach((btn) => {
       btn.addEventListener("click", () => {
         const url = btn.dataset.url;
-        if (url) window.open(url, "_blank", "noopener");
+        const title = btn.dataset.title || "";
+        if (url) openSnipViewer(url, title);
       });
     });
-    panel.querySelectorAll(".study-hub-snip-del").forEach((btn) => {
-      btn.addEventListener("click", async () => {
+    panel.querySelectorAll(".study-hub-snip-thumb-del").forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        e.stopPropagation();
         const id = btn.dataset.id;
         if (!id) return;
         try {
@@ -2331,12 +2430,45 @@
         }
       });
     });
-    panel.querySelectorAll(".study-hub-snip-card img").forEach((img) => {
-      img.addEventListener("click", () => {
-        const src = img.getAttribute("src");
-        if (src) window.open(src.split("?")[0], "_blank", "noopener");
+  }
+
+  async function refreshSnipPanel(pageId) {
+    const panel = els.snipPanel;
+    if (!panel) return;
+    if (mode !== "knowledge") {
+      panel.classList.add("hidden");
+      panel.innerHTML = "";
+      return;
+    }
+    const meta = getSnipPageMeta(getCurrentPage());
+    const activePageId = pageId || meta.pageId || currentPageId || "";
+    let items = [];
+    let apiOk = false;
+    try {
+      const qs = new URLSearchParams({
+        unit: String(currentUnit || 1),
+        pageId: activePageId,
       });
-    });
+      const res = await fetch(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`);
+      const payload = await res.json();
+      apiOk = res.ok;
+      if (res.ok) items = payload.items || [];
+    } catch {
+      apiOk = false;
+      items = [];
+    }
+    panel.classList.remove("hidden");
+    if (!apiOk) {
+      panel.innerHTML = `
+        <p class="study-hub-snip-panel-title">截图存档</p>
+        <p class="study-hub-snip-empty-hint">无法连接本地保存服务。请双击项目根目录的 <strong>启动.bat</strong>，用浏览器打开 <strong>http://localhost:8080</strong> 后再保存截图（不能直接双击 index.html）。</p>
+      `;
+      return;
+    }
+    const tasks = items.filter((r) => r.category === "task");
+    const homework = items.filter((r) => r.category === "homework");
+    panel.innerHTML = renderSnipPanelContent(tasks, homework, meta);
+    bindSnipPanelActions(panel, activePageId);
   }
 
   async function saveSnipFromModal() {
@@ -2345,13 +2477,29 @@
       return;
     }
     try {
+      const meta = getSnipPageMeta(getCurrentPage());
+      const n = await countSnipCategory(snipPendingCategory, meta.pageId);
+      if (n >= SNIP_GRID_COLS) {
+        const label = snipPendingCategory === "task" ? "作业布置" : "作业提交";
+        showToast(`本 Part「${label}」已满 ${SNIP_GRID_COLS} 张`, true);
+        return;
+      }
       const item = await uploadSnipBlob(snipPendingBlob, snipPendingCategory);
       closeSnipModal();
       await refreshSnipPanel(currentPageId);
-      const name = item?.filename || buildSnipFilename(snipPendingCategory);
+      const name = item?.filename || buildSnipFilename(snipPendingCategory, getCurrentPage());
       showToast(`截图已保存：${name}`, false);
+      if (els.snipPanel) {
+        els.snipPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
     } catch (err) {
-      showToast(err?.message || "保存失败；请通过启动.bat 运行本地服务", true);
+      const msg = String(err?.message || "");
+      showToast(
+        msg.includes("Failed to fetch") || msg.includes("NetworkError")
+          ? "保存失败：请用 启动.bat 打开 http://localhost:8080，不要直接打开 html 文件"
+          : msg || "保存失败；请通过启动.bat 运行本地服务",
+        true,
+      );
     }
   }
 
@@ -3195,6 +3343,13 @@
       });
     }
     if (els.snipSave) els.snipSave.addEventListener("click", saveSnipFromModal);
+    if (els.snipViewerClose) els.snipViewerClose.addEventListener("click", closeSnipViewer);
+    if (els.snipViewerBackdrop) els.snipViewerBackdrop.addEventListener("click", closeSnipViewer);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && els.snipViewer && !els.snipViewer.classList.contains("hidden")) {
+        closeSnipViewer();
+      }
+    });
     if (els.imagePrev) {
       els.imagePrev.addEventListener("click", () => showImageAt(imagePageIndex - 1));
     }

@@ -446,9 +446,22 @@ def save_snip_index(data: dict) -> None:
     SNIP_INDEX_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def snip_category_dir(unit: int, category: str) -> Path:
+def snip_part_slug(part: str = "", page_id: str = "") -> str:
+    raw = (part or "").strip()
+    if not raw and page_id:
+        m = re.search(r"part-[abc]|reading", page_id, re.I)
+        if m:
+            raw = m.group(0).lower()
+        else:
+            raw = page_id
+    safe = re.sub(r"[^\w.\-]", "_", raw or "page").strip("_")
+    return safe or "page"
+
+
+def snip_category_dir(unit: int, category: str, part: str = "", page_id: str = "") -> Path:
     cat = "task" if category == "task" else "homework"
-    path = ROOT / "assets" / "images" / "snip" / f"unit{int(unit)}" / cat
+    slug = snip_part_slug(part, page_id)
+    path = ROOT / "assets" / "images" / "snip" / f"unit{int(unit)}" / slug / cat
     path.mkdir(parents=True, exist_ok=True)
     return path
 
@@ -465,14 +478,15 @@ def save_snip_image(
     safe = re.sub(r"[^\w.\-]", "_", filename or "snip.png")
     if not safe.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
         safe = f"{safe}.png"
-    dest = snip_category_dir(unit, category) / safe
+    dest = snip_category_dir(unit, category, part, page_id) / safe
     dest.write_bytes(raw)
     rel = str(dest.relative_to(ROOT)).replace("\\", "/")
+    pid = page_id or ""
     entry = {
-        "id": f"snip_{unit}_{category}_{int(__import__('time').time() * 1000)}",
+        "id": f"snip_{unit}_{snip_part_slug(part, page_id)}_{category}_{int(__import__('time').time() * 1000)}",
         "unit": int(unit),
-        "pageId": page_id or "",
-        "part": part or "",
+        "pageId": pid,
+        "part": part or snip_part_slug(part, page_id),
         "category": "task" if category == "task" else "homework",
         "filename": safe,
         "path": rel,
@@ -487,16 +501,27 @@ def save_snip_image(
 def list_snips(unit: int | None = None, page_id: str | None = None) -> list:
     items = load_snip_index().get("items") or []
     out = []
+    page_key = str(page_id or "").strip()
     for row in items:
         if unit is not None and int(row.get("unit", 0)) != int(unit):
             continue
-        if page_id and row.get("pageId") and row.get("pageId") != page_id:
-            continue
+        if page_key:
+            if str(row.get("pageId", "")).strip() != page_key:
+                continue
         path = ROOT / str(row.get("path", "")).replace("/", "\\")
         if path.exists():
             out.append(row)
     out.sort(key=lambda r: r.get("createdAt", 0), reverse=True)
     return out
+
+
+def count_snips(unit: int, page_id: str, category: str) -> int:
+    cat = "task" if category == "task" else "homework"
+    return sum(
+        1
+        for row in list_snips(unit=unit, page_id=page_id)
+        if row.get("category") == cat
+    )
 
 
 def delete_snip(snip_id: str) -> bool:

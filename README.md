@@ -14,7 +14,7 @@
 | 2 | 浏览器打开 **`http://localhost:8080`** |
 | 3 | 右侧保存昵称 → 多设备时点 **「同步数据」** |
 
-**手机同 WiFi**：`http://{电脑IPv4}:8080`（`ipconfig` 查看地址，勿用 localhost）。
+**手机同 WiFi**：侧栏或手机顶栏 **自动显示并复制** `http://{电脑IPv4}:8080`（勿用 localhost）。
 
 **分发包**：运行 `sync-release.bat` 后压缩 `release/` 文件夹为 ZIP。
 
@@ -31,7 +31,8 @@
 | 选择题 / 综合填空 / 优秀作文 | 闯关练习，**不自动跳题、不自动朗读** |
 | 不规则动词专项 | **附录5 共 47 个**（`data/practice/irregular-verbs.json`） |
 | 课文中英文讲读 | 左图右文；仅点 **「朗读」** 本页逐句 TTS |
-| 知识点精讲 | 10 步结构；U1–U6 各 Part 含填空问答 + 写作范文 |
+| 知识点精讲 | 10 步结构；U1–U6 各 Part 含填空问答 + 写作范文；**作业布置/提交截图**（每 Part 4+4） |
+| 每日感恩 | 中英记录、感恩墙、风景背景、家长鼓励语；可同步 |
 | 错题本 / 学习日志 | 自动收录 + 单元筛选 |
 | 积分 / 家长密码 | 做题积分自动；行为积分与兑换需家长密码 |
 
@@ -64,9 +65,10 @@ englishi learn/                    # 项目根（开发 + 运行）
 ├── 启动.bat                       # 一键启动（推荐入口）
 ├── sync-release.bat               # 同步到 release/ 分发包
 ├── index.html                     # 主页面
-├── app.js                         # 练习、积分、同步、筛选（~3.3k 行）
-├── study-hub.js                   # 讲读/精讲弹窗、TTS（~2.1k 行）
-├── styles.css                     # 样式（~2.2k 行）
+├── app.js                         # 练习、积分、同步、局域网地址（~3.7k 行）
+├── study-hub.js                   # 讲读/精讲弹窗、TTS、作业截图（~3.4k 行）
+├── gratitude.js                   # 每日感恩模块
+├── styles.css                     # 样式（~3.9k 行）
 ├── mastery.js                     # 掌握度统计
 ├── textbook_catalog.py            # U1–U6 课本元数据
 ├── FINAL_PRODUCT_MANUAL.md        # 产品说明书
@@ -202,7 +204,7 @@ sync-release.bat
 
 ## 十、版本与许可
 
-- **当前版本**：1.0.0（见 [CHANGELOG.md](./CHANGELOG.md)）
+- **当前版本**：**1.2.0**（见 [CHANGELOG.md](./CHANGELOG.md) 与根目录 `VERSION`）
 - **教材**：2026 秋 PEP 人教版六年级英语上册（修订版）
 - **文档**：随功能更新，以仓库内最新 Markdown 为准
 - **团队**：旭日长空光照人生（Sunshine Life Team）

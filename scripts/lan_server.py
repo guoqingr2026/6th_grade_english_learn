@@ -7,6 +7,7 @@ from __future__ import annotations
 import base64
 import json
 import re
+import socket
 import subprocess
 import sys
 import urllib.request
@@ -29,6 +30,51 @@ try:
     import study_hub_admin as admin_lib
 except ImportError:
     admin_lib = None
+
+
+def _is_private_ipv4(ip: str) -> bool:
+    if not ip or ip.startswith("127."):
+        return False
+    if ip.startswith("192.168.") or ip.startswith("10."):
+        return True
+    if ip.startswith("172."):
+        try:
+            second = int(ip.split(".")[1])
+            return 16 <= second <= 31
+        except (ValueError, IndexError):
+            return False
+    return False
+
+
+def get_lan_ipv4_addresses() -> list[str]:
+    found: set[str] = set()
+    try:
+        for info in socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET):
+            ip = info[4][0]
+            if ip and not ip.startswith("127."):
+                found.add(ip)
+    except OSError:
+        pass
+    try:
+        probe = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        probe.connect(("8.8.8.8", 80))
+        ip = probe.getsockname()[0]
+        probe.close()
+        if ip and not ip.startswith("127."):
+            found.add(ip)
+    except OSError:
+        pass
+    private = sorted(ip for ip in found if _is_private_ipv4(ip))
+    if private:
+        return private
+    return sorted(ip for ip in found if not ip.startswith("127."))
+
+
+def primary_mobile_url(port: int = PORT) -> tuple[str, list[str]]:
+    ips = get_lan_ipv4_addresses()
+    if not ips:
+        return "", []
+    return f"http://{ips[0]}:{int(port)}", ips
 
 
 def run_study_hub_refresh() -> None:
@@ -513,12 +559,16 @@ class LanHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed = urlparse(self.path)
         if parsed.path == "/api/ping":
+            mobile_url, lan_ips = primary_mobile_url(PORT)
             self.send_json(
                 200,
                 {
                     "ok": True,
                     "service": "lan-sync",
                     "studyHubApi": 3,
+                    "port": PORT,
+                    "lanIps": lan_ips,
+                    "mobileUrl": mobile_url,
                     "features": [
                         "save-page",
                         "save-page-raw",
@@ -917,6 +967,9 @@ class LanHandler(SimpleHTTPRequestHandler):
             b64 = str(body.get("data") or "")
             page_id = str(body.get("pageId") or "").strip()
             part = str(body.get("part") or "").strip()
+            if not page_id:
+                self.send_json(400, {"error": "pageId required"})
+                return
             if not b64:
                 self.send_json(400, {"error": "no data"})
                 return
@@ -927,6 +980,10 @@ class LanHandler(SimpleHTTPRequestHandler):
                 return
             if len(raw) > 12 * 1024 * 1024:
                 self.send_json(400, {"error": "file too large (max 12MB)"})
+                return
+            if hub_lib.count_snips(unit, page_id, category) >= 4:
+                label = "作业布置" if category == "task" else "作业提交"
+                self.send_json(400, {"error": f"本 Part 的{label}已满（最多 4 张）"})
                 return
             try:
                 entry = hub_lib.save_snip_image(unit, category, name, raw, page_id, part)

@@ -5,6 +5,23 @@
 
 ---
 
+## v1.2.0 — 2026-09-07 21:35
+
+- 上一版本：v1.1.0
+- 主要变更：局域网地址自动复制、精讲作业截图（Part 4+4）、每日感恩、界面布局优化
+- 文档：`FINAL_PRODUCT_MANUAL.md`、`README.md`、`CHANGELOG.md` 已同步
+
+### 重点新增/变更文件
+- `VERSION` → 1.2.0
+- `app.js` — `refreshLanAccessBox`、局域网复制
+- `study-hub.js` — 作业布置/提交截图面板
+- `gratitude.js` — 每日感恩模块
+- `index.html`、`styles.css`
+- `data/study-hub/snip-index.json`
+- `assets/images/snip/README.md`
+
+---
+
 ## v1.1.0 — 2026-09-07 11:15
 
 - 上一版本：（首次建档）

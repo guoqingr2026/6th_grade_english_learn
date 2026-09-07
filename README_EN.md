@@ -16,7 +16,7 @@ An **offline-first web learning system** for the 2024/2026 revised PEP Grade 6 E
 | 2 | Open **`http://localhost:8080`** |
 | 3 | Save nickname on the right → tap **「同步数据」** on other devices |
 
-**Phone (same Wi‑Fi)**: `http://{PC-IPv4}:8080` — use `ipconfig`, not `localhost`.
+**Phone (same Wi‑Fi)**: copy the LAN URL from the sidebar or mobile quick bar (`/api/ping` auto-detects IPs). Do not use `localhost` on the phone.
 
 **Distribution**: run `sync-release.bat`, then ZIP the `release/` folder.
 
@@ -31,7 +31,8 @@ An **offline-first web learning system** for the 2024/2026 revised PEP Grade 6 E
 | Quiz / Fill-in / Writing | Practice — **no auto TTS, no auto next question** |
 | Irregular verbs | **47** verbs from Appendix 5 (`data/practice/irregular-verbs.json`) |
 | Bilingual reading | Text + image; TTS only via **「朗读」** (chains within current page) |
-| Knowledge lectures | 10-step structure; fill Q&A + writing models per U1–U6 Part |
+| Knowledge lectures | 10-step structure; homework task/submit screenshots (4+4 per Part) |
+| Daily gratitude | Bilingual journal, wall, scenic background, parent notes |
 | Wrong-answer book / Journal | Auto capture; unit filter |
 | Points / Parent PIN | Auto scoring for drills; behavior points & redemption need PIN |
 

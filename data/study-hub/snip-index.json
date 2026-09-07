@@ -1,4 +1,25 @@
 {
   "version": 1,
-  "items": []
+  "items": [
+    {
+      "id": "snip_1_task_1788781402188",
+      "unit": 1,
+      "pageId": "u1-k-part-a",
+      "part": "part-a",
+      "category": "task",
+      "filename": "Unit1-part-a_task_2026-09-07_19-43-22.png",
+      "path": "assets/images/snip/unit1/task/Unit1-part-a_task_2026-09-07_19-43-22.png",
+      "createdAt": 1788781402188
+    },
+    {
+      "id": "snip_1_homework_1788783031299",
+      "unit": 1,
+      "pageId": "u1-k-part-a",
+      "part": "part-a",
+      "category": "homework",
+      "filename": "Unit1-part-a_homework_2026-09-07_20-10-30.png",
+      "path": "assets/images/snip/unit1/homework/Unit1-part-a_homework_2026-09-07_20-10-30.png",
+      "createdAt": 1788783031299
+    }
+  ]
 }

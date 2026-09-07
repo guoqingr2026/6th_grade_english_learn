@@ -18,28 +18,30 @@
 
 ## [Unreleased]
 
+---
+
+## [1.2.0] - 2026-09-07
+
 ### Added
 
-- 精讲版块 **截图存档**：工具栏「截图·任务 / 截图·作业」，Win+Shift+S 后 Ctrl+V 粘贴，自动命名保存至 `assets/images/snip/unit{N}/{task|homework}/`，精讲下方画廊展示，支持查看与删除。
-- `data/study-hub/snip-index.json`：截图索引；API `save-snip` / `list-snips` / `delete-snip`。
-- **版本管控**：`VERSION`（1.1.0）、`scripts/release_pack.py`、`发布打包.bat`、`manifests/` 文件清单与 `docs/VERSION_HISTORY.md` 差异记录。
-- `docs/学生学习辅导手册.docx` / `.pdf`：学生书面辅导资料（软件使用 + U1–U6 全册学习资料 + 附录5）。
-- `scripts/generate_student_handbook.py`、`生成学生辅导手册.bat`：一键生成上述手册。
-- `README_EN.md`：英文版项目总览。
-- `CONTRIBUTING.md`：贡献流程、Changelog 要求、合入审核清单。
-- `.github/pull_request_template.md`：PR 模板（含 Changelog 与审核勾选项）。
+- **局域网地址自动获取与复制**：侧边栏与手机顶栏显示本机所有局域网 IP 访问地址，一键复制（`/api/ping` 返回 `lanIps`）；localhost 访问时提示手机勿用 localhost。
+- **精讲作业截图存档（按 Part）**：知识点精讲工具栏 **「作业布置」** / **「作业提交」**；每个 Part 独立 **4+4** 格（①–④），20×20 小图标展示，点击查看大图；索引 `data/study-hub/snip-index.json`，API `save-snip` / `list-snips` / `delete-snip`。
+- **每日感恩** 模块（`gratitude.js`）：中英双语记录、感恩墙、风景背景、每日提醒与家长鼓励语；纳入局域网同步。
+- 精讲版块 **截图存档**（v1.1 延续）：Win+Shift+S 后 Ctrl+V 粘贴，保存至 `assets/images/snip/unit{N}/{part}/{task|homework}/`。
+- **版本管控**：`VERSION`、`scripts/release_pack.py`、`发布打包.bat`、`manifests/`、`docs/VERSION_HISTORY.md`。
+- `docs/学生学习辅导手册.docx` / `.pdf`；`scripts/generate_student_handbook.py`、`生成学生辅导手册.bat`。
+- `README_EN.md`、`CONTRIBUTING.md`、`.github/pull_request_template.md`。
 
 ### Changed
 
-- 学生学习辅导手册增加 **第三篇：112 页课文双语全文**（与 `library/reading/*.html` 一致）。
-- 学生学习辅导手册增加 **第四篇：知识点精讲全文**（31 页，与 `library/knowledge/*.html` 及 `knowledge-bank.json` 一致）。
-- 局域网自动同步间隔改为 **10 秒**；同步后保留当前练习题与连连看进度。
-- 不规则动词专项移除 Unit 1–6 单元筛选，固定练习附录5 全部 47 词。
-- 讲读/精讲朗读：过滤填空下划线与装饰符号；精讲 `pre` 树状图等富文本按行提取并识别中英文。
-- TTS 声色拆分为 **中文声 / 英文声** 独立选择；默认中文 Xiaoxiao Online、英文 Ava Online。
-- TTS 过滤增强：支持全角下划线 `＿` 等填空符号，中英文朗读统一走 `ttsSanitize`。
-- 讲读/精讲词汇高亮：改为 **附录2 完整单词**，按当前课本 **P.x** 页码匹配；整词边界匹配，避免 `was`/`ill` 误嵌在 `washed`/`illness` 中。
-- `启动.bat` / `生成学生辅导手册.bat`：改用 `python --version` 检测 Python（不依赖 `where.exe`）；支持 Python 3.12。
+- 主界面 **工作区布局**：积分台账、学习报告导出与挑战记录移至单词卡片下方；侧边栏聚焦同步、勋章与错题快览。
+- 统计卡片紧凑化；`workspace-shell` 统一主区与侧栏边框。
+- 学生学习辅导手册增加 **第三篇：112 页课文双语全文**、**第四篇：31 页知识点精讲全文**。
+- 局域网自动同步间隔 **10 秒**；同步后保留当前练习题与连连看进度。
+- 不规则动词专项固定附录5 **47** 词，移除 Unit 筛选。
+- 讲读/精讲 TTS：过滤填空下划线与装饰符号；**中文声 / 英文声** 独立选择。
+- 词汇高亮：附录2 完整单词，按课本 **P.x** 页码匹配，整词边界。
+- `启动.bat`：改用 `python --version` 检测 Python。
 
 ### Fixed
 
@@ -47,8 +49,14 @@
 
 ### Docs
 
-- `docs/学生学习辅导手册`：学生书面辅导资料生成说明。
-- `README.md`：增加变更日志、贡献指南、英文 README 链接。
+- 更新 `FINAL_PRODUCT_MANUAL.md`、`README.md`、`PARENT_GUIDE.md`、`data/study-hub/README.md`（局域网复制、作业截图、每日感恩）。
+- `docs/学生学习辅导手册` 生成说明；`README.md` 变更日志与手册索引。
+
+---
+
+## [1.1.0] - 2026-09-07
+
+内部建档版本（manifest 首版、精讲截图 API 初版）。功能说明已合并入 **1.2.0** 文档。
 
 ---
 
@@ -111,9 +119,13 @@
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| **1.2.0** | 2026-09-07 | 局域网地址一键复制、精讲作业截图（Part 4+4）、每日感恩、界面布局优化 |
+| 1.1.0 | 2026-09-07 | 内部 manifest 建档 |
 | 1.0.0 | 2026-08-01 | 首个对外可交付版本 |
 | 0.9.0 | 2026-07-28 | U3–U6 精讲与补充包内部里程碑 |
 
-[Unreleased]: https://github.com/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/releases/tag/v1.2.0
+[1.1.0]: https://github.com/releases/tag/v1.1.0
 [1.0.0]: https://github.com/releases/tag/v1.0.0
 [0.9.0]: https://github.com/releases/tag/v0.9.0

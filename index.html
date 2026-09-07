@@ -23,6 +23,11 @@
           <button type="button" id="mobileSyncBtn" class="primary-btn mobile-sync-pill">同步</button>
         </div>
         <p id="mobileLanSyncFeedback" class="mobile-quick-feedback" aria-live="polite"></p>
+        <div class="lan-access-box lan-access-mobile" id="lanAccessBoxMobile" aria-label="手机局域网访问">
+          <p class="lan-access-label">本机局域网地址（手机/iPad/Mac 同 WiFi 访问）</p>
+          <div id="lanAccessUrlListMobile" class="lan-access-url-list"></div>
+          <p id="lanAccessCopyFeedbackMobile" class="lan-access-copy-feedback" aria-live="polite"></p>
+        </div>
       </section>
 
       <section class="dashboard">
@@ -56,103 +61,28 @@
         </div>
       </section>
 
-      <p id="pointsBreakdown" class="model points-breakdown">累积 = 做题 0 + 行为 0 - 兑换 0</p>
+      <div class="workspace-shell" id="workspaceShell">
+        <div class="workspace-primary">
+          <p id="pointsBreakdown" class="model points-breakdown">累积 = 做题 0 + 行为 0 - 兑换 0</p>
 
-      <section class="dashboard-actions parent-gated-section">
-        <p class="model">以下操作需家长密码：手动判题、行为记分、积分兑换。系统自动答题计分无需密码。</p>
-        <p id="parentModeStatus" class="model parent-mode-status">家长模式：未解锁（敏感操作每次需输入密码）</p>
-        <button id="exitParentMode" class="secondary-btn hidden">退出家长模式</button>
-        <div class="hub-feature-grid">
-          <button id="openTextbookReading" type="button" class="primary-btn textbook-reading-btn hub-feature-btn">课文中英文讲读</button>
-          <button id="openKnowledgeLecture" type="button" class="primary-btn knowledge-lecture-btn hub-feature-btn">知识点精讲</button>
-        </div>
-        <div class="mastery-action-grid">
-          <button id="masteryDailyBtn" type="button" class="primary-btn mastery-btn">每日复习清单</button>
-          <button id="masteryPartQuizBtn" type="button" class="secondary-btn mastery-btn">Part 通关测验</button>
-          <button id="masteryMockExamBtn" type="button" class="secondary-btn mastery-btn">考前模拟卷</button>
-        </div>
-        <div class="manual-judge-grid">
-          <button id="markAnswerCorrect" class="primary-btn success-action-btn">回答正确</button>
-          <button id="markAnswerWrong" class="secondary-btn wrong-action-btn">回答错误</button>
-        </div>
-      </section>
-
-      <button type="button" id="toggleStudentSidebar" class="mobile-sidebar-toggle" aria-expanded="false">▼ 学生档案 / 局域网同步 / 导入题库</button>
-
-      <section class="knowledge-box student-box collapsed-on-mobile" id="studentSidebar">
-        <div class="student-header-row">
-          <p class="topic-title student-title-inline">学生档案与挑战记录</p>
-          <div class="nickname-inline">
-            <input id="nicknameInput" type="text" placeholder="学生昵称" />
-            <button id="saveNickname" class="primary-btn nickname-save-btn">保存昵称</button>
-          </div>
-        </div>
-        <div class="lan-sync-box sync-bar-sidebar" aria-label="数据同步">
-          <button id="syncDataBtn" type="button" class="primary-btn sync-data-btn">同步数据（多端刷新）</button>
-          <p class="model sync-bar-hint">电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。</p>
-          <p id="lanSyncFeedback" class="model sync-feedback"></p>
-          <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
-        </div>
-        <div class="host-admin-box" id="hostAdminBox" aria-label="主机管理员审核">
-          <p class="topic-title small-title">主机管理员（课文改写审核）</p>
-          <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
-          <div class="actions host-admin-actions">
-            <input id="adminPinInput" type="password" placeholder="管理员密码" autocomplete="off" />
-            <button id="saveAdminPin" type="button" class="primary-btn">保存管理员密码</button>
-            <label class="host-admin-toggle"><input id="requireRemoteApproval" type="checkbox" checked /> 远程改写需审核</label>
-          </div>
-          <div id="pendingEditsList" class="pending-edits-list" aria-live="polite"></div>
-        </div>
-        <div class="actions profile-main-actions">
-          <button id="resetAllStats" class="secondary-btn danger-btn">一键重置练习统计（需家长密码）</button>
-          <button id="resetParentPin" class="secondary-btn">重置家长密码</button>
-          <button id="exportReport" class="primary-btn">导出学习报告TXT</button>
-          <button id="exportReportHtml" class="primary-btn">导出HTML总报告</button>
-          <button id="exportPointsHtml" class="primary-btn">导出积分台账HTML</button>
-        </div>
-        <div class="import-bank-box">
-          <p class="topic-title small-title">题库导入（CSV / TXT）</p>
-          <p class="model">首次自动加载默认题库；用 Excel 填好模板后一键导入加题，无需改代码。</p>
-          <div class="actions">
-            <button id="downloadImportTemplate" type="button" class="secondary-btn">1. 下载模板 CSV</button>
-            <input id="importBankFile" type="file" accept=".csv,.txt" class="import-file-input" />
-            <button id="importBankBtn" type="button" class="primary-btn">2. 选择文件并导入</button>
-            <button id="clearCustomBanks" type="button" class="secondary-btn">清除导入加题</button>
-          </div>
-          <p id="importBankFeedback" class="model"></p>
-        </div>
-        <p id="nicknameDisplay" class="model"></p>
-        <p id="lastPracticeTime" class="model"></p>
-        <div class="actions">
-          <input id="redeemName" type="text" placeholder="兑换项目，如：文具礼物" />
-          <input id="redeemCost" type="number" min="1" placeholder="兑换积分" />
-          <button id="redeemPoints" class="primary-btn">积分兑换</button>
-        </div>
-        <div>
-          <p class="topic-title small-title">兑换记录</p>
-          <div id="redeemList" class="record-list"></div>
-        </div>
-        <div>
-          <p class="topic-title small-title">排行榜模式（Top 3）</p>
-          <div class="actions">
-            <label for="leaderboardSort" class="filter-label">排序维度：</label>
-            <select id="leaderboardSort" class="unit-select">
-              <option value="points">最高积分</option>
-              <option value="accuracy">最高正确率</option>
-              <option value="streak">连续打卡天数</option>
-            </select>
-          </div>
-          <div id="leaderboardList" class="record-list"></div>
-        </div>
-        <div>
-          <p class="topic-title small-title">行为积分引擎（20+项）</p>
-          <p class="model">行为积分计入累积积分，不影响答对/答错统计；需家长密码操作。</p>
-          <div class="actions">
-            <select id="behaviorActionSelect" class="unit-select"></select>
-            <button id="applyBehaviorAction" class="primary-btn">记录行为并计分</button>
-          </div>
-        </div>
-      </section>
+          <section class="dashboard-actions parent-gated-section">
+            <p class="model">以下操作需家长密码：手动判题、行为记分、积分兑换。系统自动答题计分无需密码。</p>
+            <p id="parentModeStatus" class="model parent-mode-status">家长模式：未解锁（敏感操作每次需输入密码）</p>
+            <button id="exitParentMode" class="secondary-btn hidden">退出家长模式</button>
+            <div class="hub-feature-grid">
+              <button id="openTextbookReading" type="button" class="primary-btn textbook-reading-btn hub-feature-btn">课文中英文讲读</button>
+              <button id="openKnowledgeLecture" type="button" class="primary-btn knowledge-lecture-btn hub-feature-btn">知识点精讲</button>
+            </div>
+            <div class="mastery-action-grid">
+              <button id="masteryDailyBtn" type="button" class="primary-btn mastery-btn">每日复习清单</button>
+              <button id="masteryPartQuizBtn" type="button" class="secondary-btn mastery-btn">Part 通关测验</button>
+              <button id="masteryMockExamBtn" type="button" class="secondary-btn mastery-btn">考前模拟卷</button>
+            </div>
+            <div class="manual-judge-grid">
+              <button id="markAnswerCorrect" class="primary-btn success-action-btn">回答正确</button>
+              <button id="markAnswerWrong" class="secondary-btn wrong-action-btn">回答错误</button>
+            </div>
+          </section>
 
       <nav class="tabs" aria-label="Practice sections">
         <button class="tab active" data-tab="flashcards">单词卡片<span class="tab-count">0</span></button>
@@ -164,6 +94,7 @@
         <button class="tab" data-tab="writing">优秀作文<span class="tab-count">0</span></button>
         <button class="tab" data-tab="appendix">附录校验<span class="tab-count">0</span></button>
         <button class="tab" data-tab="journal">学习日志<span class="tab-count">0</span></button>
+        <button class="tab tab-gratitude" data-tab="gratitude">每日感恩<span class="tab-count">0</span></button>
         <button class="tab tab-wrongbook" data-tab="wrongbook">错题本<span class="tab-count tab-count-wrong">0</span></button>
       </nav>
 
@@ -196,6 +127,58 @@
           </article>
           <button id="nextCard" class="secondary-btn">下一张</button>
         </div>
+
+        <section class="points-ledger-dock" id="pointsLedgerDock" aria-label="积分台账">
+          <h2 class="points-ledger-title">积分台账 · 兑换与排行榜</h2>
+          <div class="points-ledger-grid">
+            <article class="points-ledger-card points-ledger-profile">
+              <p class="topic-title small-title">学生档案</p>
+              <p id="nicknameDisplay" class="ledger-highlight"></p>
+              <p id="lastPracticeTime" class="model ledger-meta"></p>
+            </article>
+            <article class="points-ledger-card points-ledger-redeem">
+              <p class="topic-title small-title">积分兑换</p>
+              <div class="points-ledger-redeem-form actions">
+                <input id="redeemName" type="text" placeholder="兑换项目，如：文具礼物" />
+                <input id="redeemCost" type="number" min="1" placeholder="兑换积分" />
+                <button id="redeemPoints" class="primary-btn">积分兑换</button>
+              </div>
+              <p class="topic-title small-title">兑换记录</p>
+              <div id="redeemList" class="record-list points-ledger-list"></div>
+            </article>
+            <article class="points-ledger-card points-ledger-leaderboard">
+              <p class="topic-title small-title">排行榜模式（Top 3）</p>
+              <div class="actions points-ledger-sort-row">
+                <label for="leaderboardSort" class="filter-label">排序维度：</label>
+                <select id="leaderboardSort" class="unit-select">
+                  <option value="points">最高积分</option>
+                  <option value="accuracy">最高正确率</option>
+                  <option value="streak">连续打卡天数</option>
+                </select>
+              </div>
+              <div id="leaderboardList" class="record-list points-ledger-list"></div>
+            </article>
+            <article class="points-ledger-card points-ledger-behavior">
+              <p class="topic-title small-title">行为积分引擎（20+项）</p>
+              <p class="model points-ledger-hint">行为积分计入累积积分，不影响答对/答错统计；需家长密码操作。</p>
+              <div class="actions points-ledger-behavior-row">
+                <select id="behaviorActionSelect" class="unit-select"></select>
+                <button id="applyBehaviorAction" class="primary-btn">记录行为并计分</button>
+              </div>
+            </article>
+          </div>
+          <div class="points-ledger-foot">
+            <article class="points-ledger-card points-ledger-export">
+              <p class="topic-title small-title">学习报告导出反馈</p>
+              <p id="exportFeedback" class="model ledger-export-feedback"></p>
+              <p class="model ledger-export-hint">可通过侧边栏上方按钮导出 TXT / HTML 报告。</p>
+            </article>
+            <article class="points-ledger-card points-ledger-challenge">
+              <p class="topic-title small-title">挑战记录（时间/日期）</p>
+              <div id="challengeList" class="record-list points-ledger-list points-ledger-challenge-list"></div>
+            </article>
+          </div>
+        </section>
       </section>
 
       <section id="grammar" class="panel">
@@ -455,25 +438,167 @@
         </article>
       </section>
 
-      <section class="knowledge-box records-board">
-        <details class="record-card fold-card" open>
-          <summary class="topic-title small-title">荣誉勋章</summary>
-          <div id="badgeList" class="badge-list"></div>
-        </details>
-        <details class="record-card fold-card" open>
-          <summary class="topic-title small-title">错题本快览（完整复习请打开「错题本」标签）</summary>
-          <div id="wrongItemList" class="record-list"></div>
-        </details>
-        <details class="record-card fold-card" open>
-          <summary class="topic-title small-title">学习报告导出反馈</summary>
-          <p id="exportFeedback" class="model"></p>
-          <p class="model">可通过右侧按钮导出 TXT / HTML 报告。</p>
-        </details>
-        <details class="record-card fold-card" open>
-          <summary class="topic-title small-title">挑战记录（时间/日期）</summary>
-          <div id="challengeList" class="record-list"></div>
-        </details>
+      <section id="gratitude" class="panel gratitude-panel" aria-label="每日感恩">
+        <div class="gratitude-scene">
+          <header class="gratitude-hero">
+            <p class="gratitude-eyebrow">Daily Gratitude · 每日感恩</p>
+            <h2 class="gratitude-main-title">今天，我想感谢……</h2>
+            <p class="gratitude-subtitle-en">Today, I'm grateful for ___</p>
+            <blockquote id="gratitudeDailyQuote" class="gratitude-quote" cite=""></blockquote>
+          </header>
+
+          <div class="gratitude-compose card-soft">
+            <p id="gratitudeTodayLabel" class="gratitude-date-label"></p>
+            <label class="gratitude-input-label" for="gratitudeInput">写下今天感恩的一件事</label>
+            <textarea
+              id="gratitudeInput"
+              class="gratitude-input"
+              rows="4"
+              maxlength="500"
+              placeholder="写下你今天最想感谢的事情吧…&#10;Write what you're grateful for today."
+            ></textarea>
+            <div class="gratitude-compose-actions">
+              <button id="saveGratitude" type="button" class="gratitude-save-btn">保存今天的感恩 💛</button>
+            </div>
+            <p id="gratitudeFeedback" class="gratitude-feedback" aria-live="polite"></p>
+          </div>
+
+          <details class="gratitude-about card-soft" open>
+            <summary class="gratitude-details-summary">🌼 为什么要练习感恩？</summary>
+            <div class="gratitude-about-body">
+              <ul class="gratitude-about-list">
+                <li><strong>对孩子：</strong>每天记录一件好事，能帮助孩子看见生活中的温暖，增强自信和幸福感。</li>
+                <li><strong>对家庭：</strong>一起写感恩，会让对话更温柔，家里多一些“谢谢你”和微笑。</li>
+                <li><strong>我们的约定：</strong>这里可以写真实感受，<em>不做批评、不做比较</em>——只要诚实表达就好。</li>
+              </ul>
+              <p class="gratitude-about-en">Gratitude helps children notice the good, builds confidence, and makes family time warmer. Share honestly — no judging, just listening.</p>
+            </div>
+          </details>
+
+          <details class="gratitude-settings card-soft">
+            <summary class="gratitude-details-summary">🖼️ 个性化设置（风景背景 / 每日提醒）</summary>
+            <div class="gratitude-settings-body">
+              <p class="model">选择一张你喜欢的风景高清图作背景；未设置时使用默认柔和配色。</p>
+              <div class="gratitude-settings-row">
+                <input id="gratitudeBgFile" type="file" accept="image/*" class="gratitude-file-input" />
+                <button type="button" id="clearGratitudeBg" class="secondary-btn gratitude-settings-btn">恢复默认配色</button>
+              </div>
+              <label class="gratitude-check-row">
+                <input id="gratitudeApplyGlobalBg" type="checkbox" checked />
+                将风景图作为全站背景（进入本页时更沉浸）
+              </label>
+              <div class="gratitude-reminder-block">
+                <p class="topic-title small-title">每日提醒</p>
+                <label class="gratitude-check-row">
+                  <input id="gratitudeReminderEnabled" type="checkbox" />
+                  开启提醒（若今天还没写感恩会 gentle 提醒一次）
+                </label>
+                <div class="gratitude-settings-row">
+                  <label for="gratitudeReminderTime">提醒时间</label>
+                  <input id="gratitudeReminderTime" type="time" value="20:00" class="gratitude-time-input" />
+                  <button type="button" id="saveGratitudeReminder" class="secondary-btn gratitude-settings-btn">保存提醒</button>
+                  <button type="button" id="requestGratitudeNotify" class="secondary-btn gratitude-settings-btn">允许浏览器通知</button>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <section class="gratitude-wall" aria-label="感恩记录墙">
+            <h3 class="gratitude-wall-title">感恩记录墙 🌈</h3>
+            <p class="gratitude-wall-hint">按日期保存，回顾一路走来的小幸福</p>
+            <div id="gratitudeWall" class="gratitude-wall-grid"></div>
+          </section>
+
+          <details class="gratitude-parent card-soft">
+            <summary class="gratitude-details-summary">💌 家长模式 · 添加鼓励语</summary>
+            <div class="gratitude-parent-body">
+              <p class="model">家长验证后可给今天的感恩记录附上一句鼓励（会显示在记录卡片上）。</p>
+              <textarea id="gratitudeParentNoteInput" class="gratitude-input" rows="2" placeholder="例如：看到你愿意表达感谢，爸爸妈妈很骄傲！"></textarea>
+              <button type="button" id="saveGratitudeParentNote" class="primary-btn gratitude-parent-save">保存鼓励语（需家长密码）</button>
+            </div>
+          </details>
+        </div>
       </section>
+        </div>
+
+        <button type="button" id="toggleStudentSidebar" class="mobile-sidebar-toggle workspace-sidebar-toggle" aria-expanded="false">▼ 同步 / 记录 / 导入导出</button>
+
+        <section class="knowledge-box student-box workspace-sidebar collapsed-on-mobile" id="studentSidebar">
+          <div class="student-header-row">
+            <p class="topic-title student-title-inline">同步 · 记录 · 导入</p>
+            <div class="nickname-inline">
+              <input id="nicknameInput" type="text" placeholder="学生昵称" />
+              <button id="saveNickname" class="primary-btn nickname-save-btn">保存昵称</button>
+            </div>
+          </div>
+          <div class="lan-sync-box sync-bar-sidebar" aria-label="数据同步">
+            <button id="syncDataBtn" type="button" class="primary-btn sync-data-btn">同步数据（多端刷新）</button>
+            <p class="model sync-bar-hint">电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。</p>
+            <div class="lan-access-box" id="lanAccessBox" aria-label="局域网访问地址">
+              <p class="lan-access-label">手机 / iPad / Mac 访问地址（自动获取）</p>
+              <div id="lanAccessUrlList" class="lan-access-url-list"></div>
+              <p id="lanAccessAlt" class="model lan-access-alt hidden"></p>
+              <p id="lanAccessCopyFeedback" class="model lan-access-copy-feedback" aria-live="polite"></p>
+            </div>
+            <p id="lanSyncFeedback" class="model sync-feedback"></p>
+            <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
+          </div>
+          <div class="host-admin-box" id="hostAdminBox" aria-label="主机管理员审核">
+            <p class="topic-title small-title">主机管理员（课文改写审核）</p>
+            <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
+            <div class="actions host-admin-actions">
+              <input id="adminPinInput" type="password" placeholder="管理员密码" autocomplete="off" />
+              <button id="saveAdminPin" type="button" class="primary-btn">保存管理员密码</button>
+              <label class="host-admin-toggle"><input id="requireRemoteApproval" type="checkbox" checked /> 远程改写需审核</label>
+            </div>
+            <div id="pendingEditsList" class="pending-edits-list" aria-live="polite"></div>
+          </div>
+          <div class="actions profile-main-actions">
+            <button id="resetAllStats" class="secondary-btn danger-btn">一键重置练习统计（需家长密码）</button>
+            <button id="resetParentPin" class="secondary-btn">重置家长密码</button>
+            <button id="exportReport" class="primary-btn">导出学习报告TXT</button>
+            <button id="exportReportHtml" class="primary-btn">导出HTML总报告</button>
+            <button id="exportPointsHtml" class="primary-btn">导出积分台账HTML</button>
+          </div>
+          <div class="import-bank-box">
+            <p class="topic-title small-title">题库导入（CSV / TXT）</p>
+            <p class="model">首次自动加载默认题库；用 Excel 填好模板后一键导入加题，无需改代码。</p>
+            <div class="actions">
+              <button id="downloadImportTemplate" type="button" class="secondary-btn">1. 下载模板 CSV</button>
+              <input id="importBankFile" type="file" accept=".csv,.txt" class="import-file-input" />
+              <button id="importBankBtn" type="button" class="primary-btn">2. 选择文件并导入</button>
+              <button id="clearCustomBanks" type="button" class="secondary-btn">清除导入加题</button>
+            </div>
+            <p id="importBankFeedback" class="model"></p>
+          </div>
+          <div class="records-board sidebar-records" aria-label="学习记录">
+            <details class="record-card fold-card" open>
+              <summary class="topic-title small-title">荣誉勋章</summary>
+              <div id="badgeList" class="badge-list"></div>
+            </details>
+            <details class="record-card fold-card" open>
+              <summary class="topic-title small-title">错题本快览（完整复习请打开「错题本」标签）</summary>
+              <div id="wrongItemList" class="record-list sidebar-record-list"></div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer" aria-label="页脚联系与版权">
+        <div class="site-footer-inner">
+          <div class="site-footer-block">
+            <p class="site-footer-heading">联系与反馈</p>
+            <p>旭日长空光照人生（Sunshine Life Team）出品</p>
+            <p>PEP 六年级英语上册综合知识记忆训练营 · 局域网学习版</p>
+            <p>技术支持：通过 <code>启动.bat</code> 在本机运行，手机与电脑同一 WiFi 访问同步。</p>
+          </div>
+          <div class="site-footer-block site-footer-legal">
+            <p class="site-footer-heading">版权说明</p>
+            <p>© 2026 Sunshine Life Team. 仅供个人与班级学习使用，不得用于商业传播。</p>
+            <p>教材内容版权归人民教育出版社所有；本系统为配套练习与精讲辅助工具。</p>
+          </div>
+        </div>
+      </footer>
     </main>
     <div id="studyHubModal" class="study-hub-modal hidden" role="dialog" aria-modal="true" aria-labelledby="studyHubTitle">
       <div id="studyHubStage" class="study-hub-stage">
@@ -500,8 +625,8 @@
                   <input id="studyHubInsertAudioFile" type="file" accept="audio/*" class="import-file-input" />
                 </div>
                 <button type="button" id="studyHubSaveKnowledge" class="study-hub-tool-btn hidden">保存精讲</button>
-                <button type="button" id="studyHubSnipTask" class="study-hub-tool-btn secondary hidden" title="Win+Shift+S 截图后粘贴，保存老师分配的学习任务">截图·任务</button>
-                <button type="button" id="studyHubSnipHomework" class="study-hub-tool-btn secondary hidden" title="Win+Shift+S 截图后粘贴，保存学生作业记录">截图·作业</button>
+                <button type="button" id="studyHubSnipTask" class="study-hub-tool-btn secondary hidden" title="保存作业布置截图（本 Part 最多 4 张）">作业布置</button>
+                <button type="button" id="studyHubSnipHomework" class="study-hub-tool-btn secondary hidden" title="保存作业提交截图（本 Part 最多 4 张）">作业提交</button>
                 <button type="button" id="studyHubZoomIn" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="放大课本图片">放大</button>
                 <button type="button" id="studyHubZoomOut" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="缩小课本图片">缩小</button>
                 <button type="button" id="studyHubZoomReset" class="study-hub-tool-btn secondary study-hub-zoom-tool hidden" title="重置图片大小与位置">重置</button>
@@ -601,6 +726,14 @@
         </div>
       </div>
     </div>
+    <div id="studyHubSnipViewer" class="study-hub-snip-viewer hidden" role="dialog" aria-modal="true" aria-label="截图预览">
+      <button type="button" id="studyHubSnipViewerBackdrop" class="study-hub-snip-viewer-backdrop" aria-label="关闭预览"></button>
+      <div class="study-hub-snip-viewer-inner">
+        <button type="button" id="studyHubSnipViewerClose" class="study-hub-snip-viewer-close" aria-label="关闭">×</button>
+        <img id="studyHubSnipViewerImg" src="" alt="截图预览" />
+        <p id="studyHubSnipViewerCaption" class="study-hub-snip-viewer-caption hidden"></p>
+      </div>
+    </div>
     <div id="studyHubSnipModal" class="study-hub-snip-modal hidden" role="dialog" aria-modal="true" aria-labelledby="studyHubSnipModalTitle">
       <div class="study-hub-snip-modal-inner">
         <header class="study-hub-snip-modal-header">
@@ -650,7 +783,8 @@
     <div id="fxLayer" class="fx-layer"></div>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="./assets/vendor/lame.min.js"></script>
-    <script defer src="./study-hub.js?v=20260907-1"></script>
+    <script defer src="./study-hub.js?v=20260907-3"></script>
+    <script src="./gratitude.js"></script>
     <script src="./app.js"></script>
     <script defer src="./mastery.js"></script>
   </body>

@@ -566,6 +566,13 @@ const elements = {
   mobileSaveNickname: document.getElementById("mobileSaveNickname"),
   mobileSyncBtn: document.getElementById("mobileSyncBtn"),
   mobileLanSyncFeedback: document.getElementById("mobileLanSyncFeedback"),
+  lanAccessBox: document.getElementById("lanAccessBox"),
+  lanAccessUrlList: document.getElementById("lanAccessUrlList"),
+  lanAccessAlt: document.getElementById("lanAccessAlt"),
+  lanAccessCopyFeedback: document.getElementById("lanAccessCopyFeedback"),
+  lanAccessBoxMobile: document.getElementById("lanAccessBoxMobile"),
+  lanAccessUrlListMobile: document.getElementById("lanAccessUrlListMobile"),
+  lanAccessCopyFeedbackMobile: document.getElementById("lanAccessCopyFeedbackMobile"),
   resetParentPin: document.getElementById("resetParentPin"),
   adminPinInput: document.getElementById("adminPinInput"),
   saveAdminPin: document.getElementById("saveAdminPin"),
@@ -1697,6 +1704,7 @@ function setActiveTab(tabName) {
     panel.classList.toggle("active", panel.id === tabName);
   });
   if (tabName === "wrongbook") renderWrongBookPanel();
+  if (tabName === "gratitude" && window.GratitudeHub) window.GratitudeHub.onTabActivate();
 }
 
 function renderCard() {
@@ -1758,7 +1766,7 @@ function renderChallengeLogs() {
     return;
   }
   elements.challengeList.innerHTML = challengeLogs
-    .slice(0, 40)
+    .slice(0, 4)
     .map((log) => `<div>${log.time} | ${log.item} | ${log.result} | 积分变化 ${log.pointDelta > 0 ? "+" : ""}${log.pointDelta}</div>`)
     .join("");
 }
@@ -2015,6 +2023,7 @@ function updateTabCounts() {
     writing: writingSamples.length,
     appendix: getAppendixItemCount(),
     journal: journalEntries.length,
+    gratitude: window.GratitudeHub ? window.GratitudeHub.getEntryCount() : 0,
     wrongbook: wrongBookItems.length,
   };
   elements.tabs.forEach((tab) => {
@@ -3035,6 +3044,7 @@ function collectSyncPayload() {
     studyHubState,
     studyHubKnowledgeCustom,
     masteryProgress,
+    ...(window.GratitudeHub ? window.GratitudeHub.getSyncPayload() : {}),
   };
 }
 
@@ -3132,6 +3142,9 @@ function applySyncPayload(payload) {
         window.MasteryHub.applyMasteryImport({ progress: payload.masteryProgress });
       }
     }
+    if (window.GratitudeHub && typeof window.GratitudeHub.applySyncPayload === "function") {
+      window.GratitudeHub.applySyncPayload(payload);
+    }
     setDataUpdatedAt(payload.updatedAt || getDataUpdatedAt());
     if (elements.nicknameInput) {
       elements.nicknameInput.value = studentProfile.nickname === "同学" ? "" : studentProfile.nickname;
@@ -3151,6 +3164,121 @@ function applySyncPayload(payload) {
 async function pingLanServer() {
   const res = await fetch("/api/ping", { cache: "no-store" });
   return res.ok;
+}
+
+async function fetchLanPingInfo() {
+  try {
+    const res = await fetch("/api/ping", { cache: "no-store" });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+function buildLanAccessUrls(ping) {
+  if (!ping) return [];
+  const port = Number(ping.port) || 8080;
+  const ips = Array.isArray(ping.lanIps) ? ping.lanIps.filter(Boolean) : [];
+  if (ips.length) {
+    return ips.map((ip) => ({ ip, url: `http://${ip}:${port}` }));
+  }
+  if (ping.mobileUrl) {
+    try {
+      const u = new URL(ping.mobileUrl);
+      return [{ ip: u.hostname, url: ping.mobileUrl }];
+    } catch {
+      return [{ ip: "", url: ping.mobileUrl }];
+    }
+  }
+  return [];
+}
+
+function renderLanAccessUrlList(container, urls, feedbackEl) {
+  if (!container) return;
+  if (!urls.length) {
+    container.innerHTML =
+      '<p class="lan-access-empty">未检测到局域网 IP。请用 <strong>启动.bat</strong> 运行，并确保电脑与手机在同一 WiFi。</p>';
+    return;
+  }
+  container.innerHTML = urls
+    .map((row, idx) => {
+      const safeUrl = String(row.url).replace(/"/g, "&quot;");
+      const target = feedbackEl?.id || "";
+      return `<div class="lan-access-row">
+        <input type="text" class="lan-access-url" readonly value="${safeUrl}" aria-label="局域网地址 ${idx + 1}" />
+        <button type="button" class="secondary-btn lan-access-copy-btn" data-copy-url="${safeUrl}" data-feedback-target="${target}">复制</button>
+      </div>${row.ip ? `<p class="lan-access-ip-hint">IP：${row.ip}</p>` : ""}`;
+    })
+    .join("");
+  container.querySelectorAll(".lan-access-copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const url = btn.getAttribute("data-copy-url") || "";
+      const targetId = btn.getAttribute("data-feedback-target");
+      const target = targetId ? document.getElementById(targetId) : feedbackEl;
+      copyLanAccessUrl(url, target);
+    });
+  });
+  container.querySelectorAll(".lan-access-url").forEach((input) => {
+    input.addEventListener("click", () => {
+      input.select();
+      const row = input.closest(".lan-access-row");
+      const btn = row?.querySelector(".lan-access-copy-btn");
+      const url = btn?.getAttribute("data-copy-url") || input.value || "";
+      const targetId = btn?.getAttribute("data-feedback-target");
+      const target = targetId ? document.getElementById(targetId) : feedbackEl;
+      copyLanAccessUrl(url, target);
+    });
+  });
+}
+
+async function copyLanAccessUrl(url, feedbackEl) {
+  const text = (url || "").trim();
+  if (!text) return false;
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    if (feedbackEl) {
+      feedbackEl.textContent = `已复制：${text}`;
+      feedbackEl.dataset.tone = "ok";
+    }
+    return true;
+  } catch {
+    if (feedbackEl) {
+      feedbackEl.textContent = "复制失败，请手动长按选择地址复制";
+      feedbackEl.dataset.tone = "error";
+    }
+    return false;
+  }
+}
+
+async function refreshLanAccessBox() {
+  const ping = await fetchLanPingInfo();
+  const urls = buildLanAccessUrls(ping);
+  renderLanAccessUrlList(elements.lanAccessUrlList, urls, elements.lanAccessCopyFeedback);
+  renderLanAccessUrlList(elements.lanAccessUrlListMobile, urls, elements.lanAccessCopyFeedbackMobile);
+  if (elements.lanAccessAlt) {
+    const onLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)/i.test(window.location.href);
+    if (onLocalhost && urls.length) {
+      elements.lanAccessAlt.textContent = "提示：手机请用上方局域网地址打开，不要用 localhost。";
+      elements.lanAccessAlt.classList.remove("hidden");
+    } else {
+      elements.lanAccessAlt.classList.add("hidden");
+      elements.lanAccessAlt.textContent = "";
+    }
+  }
+  if (elements.lanAccessBox) elements.lanAccessBox.classList.toggle("lan-access-unavailable", !ping);
+  if (elements.lanAccessBoxMobile) elements.lanAccessBoxMobile.classList.toggle("lan-access-unavailable", !ping);
 }
 
 async function fetchServerSyncLogs(syncId) {
@@ -3548,9 +3676,16 @@ async function init() {
   renderPhrase();
   renderAppendixPanel();
   renderJournal();
+  if (window.GratitudeHub && typeof window.GratitudeHub.onTabActivate === "function") {
+    window.GratitudeHub.onTabActivate();
+  }
   renderQuiz();
   renderVerb();
   bindEvents();
+  window.requireParentAuth = requireParentAuth;
+  window.updateTabCounts = updateTabCounts;
+  window.touchDataUpdatedAt = touchDataUpdatedAt;
+  if (window.GratitudeHub) window.GratitudeHub.init();
   syncNicknameInputs();
   if (isMobileDevice() && elements.studentSidebar && !getLanSyncId()) {
     elements.studentSidebar.classList.remove("collapsed-on-mobile");
@@ -3572,6 +3707,8 @@ async function init() {
       );
       startLanSyncPolling();
       initHostAdminPanel();
+      await refreshLanAccessBox();
+      window.setInterval(() => refreshLanAccessBox(), 60000);
       if (getLanSyncId()) {
         await syncDataNow({ silent: true, reason: "init" });
       }

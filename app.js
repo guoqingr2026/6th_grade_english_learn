@@ -437,6 +437,8 @@ const elements = {
   exportReport: document.getElementById("exportReport"),
   exportReportHtml: document.getElementById("exportReportHtml"),
   exportPointsHtml: document.getElementById("exportPointsHtml"),
+  markAnswerCorrect: document.getElementById("markAnswerCorrect"),
+  markAnswerWrong: document.getElementById("markAnswerWrong"),
   nicknameDisplay: document.getElementById("nicknameDisplay"),
   lastPracticeTime: document.getElementById("lastPracticeTime"),
   redeemName: document.getElementById("redeemName"),
@@ -1121,6 +1123,36 @@ function populateWrongBookModuleFilter() {
   }
 }
 
+function getCurrentManualWrongContext() {
+  const activePanel = document.querySelector(".panel.active");
+  if (!activePanel) return null;
+  if (activePanel.id === "flashcards" && filteredCards.length > 0) {
+    const card = filteredCards[cardIndex];
+    return {
+      module: "单词卡片",
+      prompt: card.front,
+      answer: `${card.zh || ""}${card.example ? ` | 例句: ${card.example}` : ""}`.trim(),
+      unit: card.unit,
+    };
+  }
+  if (activePanel.id === "phrases" && filteredPhrases.length > 0) {
+    const phrase = filteredPhrases[phraseIndex];
+    return { module: "常用语", prompt: phrase.en, answer: phrase.zh, unit: phrase.unit };
+  }
+  if (activePanel.id === "quiz" && currentQuiz) {
+    return { module: "选择题", prompt: currentQuiz.prompt, answer: currentQuiz.answer, unit: currentQuiz.unit };
+  }
+  if (activePanel.id === "verbs" && filteredVerbTriples.length > 0) {
+    const verb = filteredVerbTriples[verbIndex];
+    return { module: "动词专项", prompt: verb.fillPrompt, answer: verb.fillAnswer, unit: verb.unit };
+  }
+  if (activePanel.id === "writing" && filteredWritingSamples.length > 0) {
+    const sample = filteredWritingSamples[writingIndex];
+    return { module: "作文填空", prompt: sample.fillPrompt, answer: sample.fillAnswer };
+  }
+  return { module: "手动记录", prompt: "手动标记为答错（未定位到具体题目）", answer: "-" };
+}
+
 function startWrongVocabReview() {
   const fronts = new Set(
     wrongBookItems.filter((item) => item.module === "单词卡片").map((item) => item.prompt),
@@ -1746,6 +1778,36 @@ function resetAllData() {
   );
   if (!ok) return;
   performResetDashboardStats();
+}
+
+function markManualAnswerCorrect() {
+  stats.attempts += 1;
+  stats.correct += 1;
+  adjustPracticePoints(POINT_REWARD);
+  markPractice();
+  addChallengeLog("手动记录", "回答正确", POINT_REWARD);
+  saveStats();
+  updateDashboard();
+  renderChallengeLogs();
+  showSuccessFx();
+}
+
+function markManualAnswerWrong() {
+  const ctx = getCurrentManualWrongContext();
+  if (ctx) addWrongBookItem(ctx.module, ctx.prompt, ctx.answer, ctx.unit);
+  if (ctx?.module === "选择题" && currentQuiz && !wrongQuizIds.includes(currentQuiz.id)) {
+    wrongQuizIds.push(currentQuiz.id);
+    saveWrongQuizIds();
+    updateWrongBookStatus();
+  }
+  stats.attempts += 1;
+  stats.wrong += 1;
+  markPractice();
+  addChallengeLog("手动记录", ctx ? `${ctx.module}答错` : "回答错误", 0);
+  saveStats();
+  updateDashboard();
+  renderChallengeLogs();
+  showFailFx();
 }
 
 function clearFxLayerLater() {
@@ -2535,6 +2597,8 @@ function bindEvents() {
   elements.exportReport.addEventListener("click", exportLearningReport);
   elements.exportReportHtml.addEventListener("click", exportPrintableHtmlReport);
   elements.exportPointsHtml.addEventListener("click", exportPointsLedgerHtml);
+  elements.markAnswerCorrect.addEventListener("click", markManualAnswerCorrect);
+  elements.markAnswerWrong.addEventListener("click", markManualAnswerWrong);
   elements.applyBehaviorAction.addEventListener("click", applyBehaviorAction);
   elements.leaderboardSort.addEventListener("change", renderLeaderboard);
   if (elements.wrongBookModuleFilter) {

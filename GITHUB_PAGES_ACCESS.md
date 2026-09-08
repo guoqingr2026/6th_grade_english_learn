@@ -48,9 +48,10 @@
 2. **Build and deployment**
    - **Source**：**Deploy from a branch**（从分支部署）
    - **Branch**：`gh-pages` → **/ (root)** → **Save**
-3. **不要**选「GitHub Actions」——本项目用的是自动推送到 `gh-pages` 分支的方式（#3、#4 已成功）。
-4. 若刚改过设置，到 **Actions** → **新人教PEP六年上英语学习训练营V1.0 · Pages 部署** → **Run workflow** 手动跑一次。
-5. 等绿色 ✓ 后，刷新 Pages 页面，复制站点 URL。
+3. **不要**选「GitHub Actions」——本项目用的是自动推送到 `gh-pages` 分支的方式。
+4. **切勿**在 GitHub 网页点「Create workflow / static.yml」或 Jekyll 模板——会生成 `Deploy static content to Pages` 工作流并导致 `configure-pages` 报错；若已生成，删除 `.github/workflows/static.yml` 即可。
+5. 若刚改过设置，到 **Actions** → **新人教PEP六年上英语学习训练营V1.0 · Pages 部署** → **Run workflow** 手动跑一次。
+6. 等绿色 ✓ 后，刷新 Pages 页面，复制站点 URL。
 
 ### 第 4 步：限制网页仅协作者可访问（方案 B 核心）
 

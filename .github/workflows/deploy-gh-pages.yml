@@ -23,14 +23,13 @@ jobs:
 
       - name: Build release folder
         run: |
-          mkdir -p release/assets/images release/data/question-banks/import-cards/_templates release/scripts
-          cp index.html app.js styles.css study-hub.js FINAL_PRODUCT_MANUAL.md PARENT_GUIDE.md DEPLOY.md release/
-          cp 启动.bat sync-release.bat release/ 2>/dev/null || true
-          cp -r assets/* release/assets/
-          cp -r data/* release/data/
-          cp -r scripts/* release/scripts/
+          mkdir -p release
+          cp index.html app.js styles.css study-hub.js gratitude.js mastery.js release/
+          cp VERSION CHANGELOG.md FINAL_PRODUCT_MANUAL.md DEPLOY.md release/ 2>/dev/null || true
+          cp -r assets data scripts release/
+          if [ -d docs ]; then cp -r docs release/; fi
           touch release/.nojekyll
-          if [ -f release/使用说明.txt ]; then :; else echo "See FINAL_PRODUCT_MANUAL.md" > release/使用说明.txt; fi
+          if [ ! -f release/使用说明.txt ]; then echo "See FINAL_PRODUCT_MANUAL.md" > release/使用说明.txt; fi
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

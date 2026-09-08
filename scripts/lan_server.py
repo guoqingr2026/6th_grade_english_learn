@@ -183,6 +183,23 @@ def merge_stats(a: dict | None, b: dict | None) -> dict:
     return out
 
 
+def dashboard_reset_at(payload: dict | None) -> str:
+    return str((payload or {}).get("dashboardResetAt") or "")
+
+
+def apply_dashboard_reset_slice(merged: dict, source: dict, reset_at: str) -> None:
+    merged["dashboardResetAt"] = reset_at
+    merged["stats"] = dict(source.get("stats") or {})
+    merged["wrongQuizIds"] = list(source.get("wrongQuizIds") or [])
+    merged["wrongBookItems"] = list(source.get("wrongBookItems") or [])
+    merged["rewarded"] = dict(source.get("rewarded") or {})
+    merged["challengeLogs"] = list(source.get("challengeLogs") or [])
+    merged["behaviorLogs"] = list(source.get("behaviorLogs") or [])
+    merged["redeemLogs"] = list(source.get("redeemLogs") or [])
+    merged["badges"] = list(source.get("badges") or [])
+    merged["leaderboard"] = list(source.get("leaderboard") or [])
+
+
 def merge_unique_strings(items_a, items_b) -> list:
     seen: set[str] = set()
     out: list = []
@@ -321,9 +338,14 @@ def payloads_equal(left: dict | None, right: dict | None) -> bool:
 
 def merge_sync_payload(client_payload: dict, server_payload: dict | None) -> dict:
     if not server_payload:
-        return dict(client_payload)
+        out = dict(client_payload)
+        if dashboard_reset_at(out):
+            apply_dashboard_reset_slice(out, out, dashboard_reset_at(out))
+        return out
     server = server_payload
     client = client_payload
+    client_reset = dashboard_reset_at(client)
+    server_reset = dashboard_reset_at(server)
     merged = {
         "version": max(_as_int(client.get("version")), _as_int(server.get("version"))),
         "updatedAt": str(server.get("updatedAt") or client.get("updatedAt") or now_iso()),
@@ -346,7 +368,12 @@ def merge_sync_payload(client_payload: dict, server_payload: dict | None) -> dic
             server.get("studyHubKnowledgeCustom"),
         ),
         "masteryProgress": merge_mastery_progress(client.get("masteryProgress"), server.get("masteryProgress")),
+        "dashboardResetAt": max(client_reset, server_reset) if client_reset or server_reset else "",
     }
+    if client_reset and client_reset > server_reset:
+        apply_dashboard_reset_slice(merged, client, client_reset)
+    elif server_reset and server_reset > client_reset:
+        apply_dashboard_reset_slice(merged, server, server_reset)
     return merged
 
 

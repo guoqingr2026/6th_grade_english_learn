@@ -12,6 +12,7 @@ copy /Y index.html release\
 copy /Y app.js release\
 copy /Y styles.css release\
 copy /Y study-hub.js release\
+copy /Y gratitude.js release\
 copy /Y mastery.js release\
 copy /Y VERSION release\
 copy /Y CHANGELOG.md release\

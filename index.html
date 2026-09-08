@@ -68,21 +68,12 @@
           <p id="pointsBreakdown" class="model points-breakdown">累积 = 做题 0 + 行为 0 - 兑换 0</p>
 
           <section class="dashboard-actions parent-gated-section">
-            <p class="model">以下操作需家长密码：手动判题、行为记分、积分兑换。系统自动答题计分无需密码。</p>
+            <p class="model dashboard-actions-hint">以下操作需家长密码：行为记分、积分兑换；「回答正确/错误」见单词卡片上方。</p>
             <p id="parentModeStatus" class="model parent-mode-status">家长模式：未解锁（敏感操作每次需输入密码）</p>
             <button id="exitParentMode" class="secondary-btn hidden">退出家长模式</button>
             <div class="hub-feature-grid">
               <button id="openTextbookReading" type="button" class="primary-btn textbook-reading-btn hub-feature-btn">课文中英文讲读</button>
               <button id="openKnowledgeLecture" type="button" class="primary-btn knowledge-lecture-btn hub-feature-btn">知识点精讲</button>
-            </div>
-            <div class="mastery-action-grid">
-              <button id="masteryDailyBtn" type="button" class="primary-btn mastery-btn">每日复习清单</button>
-              <button id="masteryPartQuizBtn" type="button" class="secondary-btn mastery-btn">Part 通关测验</button>
-              <button id="masteryMockExamBtn" type="button" class="secondary-btn mastery-btn">考前模拟卷</button>
-            </div>
-            <div class="manual-judge-grid">
-              <button id="markAnswerCorrect" class="primary-btn success-action-btn">回答正确</button>
-              <button id="markAnswerWrong" class="secondary-btn wrong-action-btn">回答错误</button>
             </div>
           </section>
 
@@ -98,7 +89,18 @@
         <button class="tab" data-tab="journal">学习日志<span class="tab-count">0</span></button>
         <button class="tab tab-gratitude" data-tab="gratitude">每日感恩<span class="tab-count">0</span></button>
         <button class="tab tab-wrongbook" data-tab="wrongbook">错题本<span class="tab-count tab-count-wrong">0</span></button>
+        <button id="masteryDailyBtn" type="button" class="tab tab-tool tab-mastery-daily">每日复习清单</button>
+        <button id="masteryPartQuizBtn" type="button" class="tab tab-tool tab-mastery-part">Part 通关测验</button>
+        <button id="masteryMockExamBtn" type="button" class="tab tab-tool tab-mastery-mock">考前模拟卷</button>
       </nav>
+
+      <div class="manual-judge-bar" aria-label="家长手动判题">
+        <p class="manual-judge-label">家长手动判题 <span class="manual-judge-sub">（单词卡片等模块，需家长密码）</span></p>
+        <div class="manual-judge-actions">
+          <button id="markAnswerCorrect" type="button" class="manual-judge-btn manual-judge-correct">回答正确</button>
+          <button id="markAnswerWrong" type="button" class="manual-judge-btn manual-judge-wrong">回答错误</button>
+        </div>
+      </div>
 
       <section id="flashcards" class="panel active">
         <h2>单词卡片 (Vocabulary)</h2>
@@ -545,11 +547,26 @@
             <p id="lanSyncFeedback" class="model sync-feedback"></p>
             <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
           </div>
-          <div class="host-admin-box" id="hostAdminBox" aria-label="主机管理员审核">
+          <div class="parent-pin-box hidden" id="parentPinBox" aria-label="家长密码说明" aria-hidden="true">
+            <p class="topic-title small-title">家长密码说明</p>
+            <p id="parentPinStatus" class="parent-pin-status" aria-live="polite">正在检查…</p>
+            <ul class="parent-pin-info">
+              <li>密码由家长设置，<strong>系统不保存明文</strong>，忘记后无法查回，只能重设。</li>
+              <li>加密后保存在<strong>本机浏览器</strong>（localStorage），存储键名：<code>english_grade6_profile_v1</code>，字段：<code>parentPinHash</code>。</li>
+              <li>点「同步数据」后，会随学生昵称档案同步到局域网内<strong>相同昵称</strong>的设备。</li>
+              <li>与下方「主机管理员密码」不是同一套（管理员只审课文/精讲改写）。</li>
+            </ul>
+            <div class="parent-pin-actions actions">
+              <button id="resetParentPin" type="button" class="secondary-btn">修改密码（需旧密码）</button>
+              <button id="forgotParentPin" type="button" class="secondary-btn">忘记密码 · 本机重设</button>
+            </div>
+            <p id="parentPinRecoverHint" class="model parent-pin-hint" aria-live="polite"></p>
+          </div>
+          <div class="host-admin-box hidden" id="hostAdminBox" aria-label="主机管理员审核" aria-hidden="true">
             <p class="topic-title small-title">主机管理员（课文改写审核）</p>
             <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
             <div class="actions host-admin-actions">
-              <input id="adminPinInput" type="password" placeholder="管理员密码" autocomplete="off" />
+              <input id="adminPinInput" type="password" placeholder="管理员密码" autocomplete="new-password" />
               <button id="saveAdminPin" type="button" class="primary-btn">保存管理员密码</button>
               <label class="host-admin-toggle"><input id="requireRemoteApproval" type="checkbox" checked /> 远程改写需审核</label>
             </div>
@@ -557,7 +574,6 @@
           </div>
           <div class="actions profile-main-actions">
             <button id="resetAllStats" class="secondary-btn danger-btn">一键重置练习统计（需家长密码）</button>
-            <button id="resetParentPin" class="secondary-btn">重置家长密码</button>
             <button id="exportReport" class="primary-btn">导出学习报告TXT</button>
             <button id="exportReportHtml" class="primary-btn">导出HTML总报告</button>
             <button id="exportPointsHtml" class="primary-btn">导出积分台账HTML</button>
@@ -783,6 +799,25 @@
       </div>
     </div>
     <div id="fxLayer" class="fx-layer"></div>
+    <div id="passwordPromptModal" class="password-prompt-modal hidden" role="dialog" aria-modal="true" aria-labelledby="passwordPromptTitle">
+      <div class="password-prompt-backdrop" data-password-dismiss aria-hidden="true"></div>
+      <div class="password-prompt-card">
+        <h3 id="passwordPromptTitle" class="password-prompt-title">请输入家长密码</h3>
+        <p id="passwordPromptMessage" class="password-prompt-message"></p>
+        <input
+          id="passwordPromptInput"
+          class="password-prompt-input"
+          type="password"
+          autocomplete="off"
+          inputmode="text"
+          aria-label="密码输入"
+        />
+        <div class="password-prompt-actions">
+          <button type="button" id="passwordPromptCancel" class="secondary-btn">取消</button>
+          <button type="button" id="passwordPromptOk" class="primary-btn">确定</button>
+        </div>
+      </div>
+    </div>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="./assets/vendor/lame.min.js"></script>
     <script defer src="./study-hub.js?v=20260907-3"></script>

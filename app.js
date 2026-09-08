@@ -341,6 +341,8 @@ const LAN_SYNC_KEY = "english_grade6_lan_sync_id_v1";
 const DATA_UPDATED_AT_KEY = "english_grade6_data_updated_at_v1";
 const SYNC_LOG_KEY = "english_grade6_sync_logs_v1";
 const ADMIN_PIN_KEY = "english_grade6_admin_pin_v1";
+const DASHBOARD_RESET_AT_KEY = "english_grade6_dashboard_reset_at_v1";
+const PARENT_MODE_PASSPHRASE = "旭日长空光照人生";
 let suppressDataTouch = false;
 let suppressLanSync = false;
 let lanSyncTimer = null;
@@ -456,7 +458,7 @@ const elements = {
   exportFeedback: document.getElementById("exportFeedback"),
   challengeList: document.getElementById("challengeList"),
   fxLayer: document.getElementById("fxLayer"),
-  tabs: document.querySelectorAll(".tab"),
+  tabs: document.querySelectorAll(".tab[data-tab]"),
   panels: document.querySelectorAll(".panel"),
   unitFilter: document.getElementById("unitFilter"),
   grammarUnitFilter: document.getElementById("grammarUnitFilter"),
@@ -574,11 +576,15 @@ const elements = {
   lanAccessUrlListMobile: document.getElementById("lanAccessUrlListMobile"),
   lanAccessCopyFeedbackMobile: document.getElementById("lanAccessCopyFeedbackMobile"),
   resetParentPin: document.getElementById("resetParentPin"),
+  forgotParentPin: document.getElementById("forgotParentPin"),
+  parentPinStatus: document.getElementById("parentPinStatus"),
+  parentPinRecoverHint: document.getElementById("parentPinRecoverHint"),
   adminPinInput: document.getElementById("adminPinInput"),
   saveAdminPin: document.getElementById("saveAdminPin"),
   requireRemoteApproval: document.getElementById("requireRemoteApproval"),
   pendingEditsList: document.getElementById("pendingEditsList"),
   hostAdminBox: document.getElementById("hostAdminBox"),
+  parentPinBox: document.getElementById("parentPinBox"),
 };
 
 function loadStats() {
@@ -827,17 +833,87 @@ function verifyParentPin(pin) {
   return hashParentPin(pin) === studentProfile.parentPinHash;
 }
 
-function requireParentAuth(action) {
+let passwordPromptResolver = null;
+
+function closePasswordPrompt(value) {
+  const modal = document.getElementById("passwordPromptModal");
+  const input = document.getElementById("passwordPromptInput");
+  if (modal) modal.classList.add("hidden");
+  if (input) input.value = "";
+  const resolve = passwordPromptResolver;
+  passwordPromptResolver = null;
+  if (resolve) resolve(value);
+}
+
+function promptPassword(message, title = "请输入家长密码", options = {}) {
+  return new Promise((resolve) => {
+    const modal = document.getElementById("passwordPromptModal");
+    const input = document.getElementById("passwordPromptInput");
+    const titleEl = document.getElementById("passwordPromptTitle");
+    const msgEl = document.getElementById("passwordPromptMessage");
+    if (!modal || !input) {
+      resolve(null);
+      return;
+    }
+    passwordPromptResolver = resolve;
+    if (titleEl) titleEl.textContent = title;
+    if (msgEl) msgEl.textContent = message || "";
+    input.autocomplete = options.newPassword ? "new-password" : "current-password";
+    input.value = "";
+    modal.classList.remove("hidden");
+    window.requestAnimationFrame(() => input.focus());
+  });
+}
+
+async function promptPasswordTwice(firstMessage, secondMessage, title = "设置家长密码") {
+  const pin1 = await promptPassword(firstMessage, title, { newPassword: true });
+  if (!pin1) return null;
+  const pin2 = await promptPassword(secondMessage, "请再次输入密码确认", { newPassword: true });
+  if (!pin2) return null;
+  if (pin1 !== pin2) {
+    window.alert("两次密码不一致，请重试。");
+    return null;
+  }
+  return pin1;
+}
+
+function initPasswordPromptModal() {
+  const modal = document.getElementById("passwordPromptModal");
+  const input = document.getElementById("passwordPromptInput");
+  const okBtn = document.getElementById("passwordPromptOk");
+  const cancelBtn = document.getElementById("passwordPromptCancel");
+  const backdrop = modal?.querySelector("[data-password-dismiss]");
+  if (!modal || !input || !okBtn || !cancelBtn) return;
+
+  const submit = () => closePasswordPrompt(input.value);
+  okBtn.addEventListener("click", submit);
+  cancelBtn.addEventListener("click", () => closePasswordPrompt(null));
+  backdrop?.addEventListener("click", () => closePasswordPrompt(null));
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      submit();
+    } else if (event.key === "Escape") {
+      event.preventDefault();
+      closePasswordPrompt(null);
+    }
+  });
+  modal.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closePasswordPrompt(null);
+  });
+}
+
+async function requireParentAuth(action) {
   if (!studentProfile.parentPinHash) {
     window.alert("尚未设置家长密码。请先保存学生昵称并按提示设置家长密码。");
-    promptParentPinSetup();
+    await promptParentPinSetup();
     return;
   }
   if (parentUnlocked) {
     action();
     return;
   }
-  const pin = window.prompt("请输入家长密码（用于积分兑换、行为记分、手动判题）：");
+  const pin = await promptPassword("用于积分兑换、行为记分、手动判题等家长操作。");
   if (!pin) return;
   if (!verifyParentPin(pin)) {
     window.alert("家长密码错误，操作已取消。");
@@ -845,15 +921,17 @@ function requireParentAuth(action) {
   }
   parentUnlocked = true;
   updateParentModeUI();
+  updateParentPinPanel();
+  revealParentSettingsSidebar();
   action();
 }
 
-function requireParentPasswordAlways(action, message) {
+async function requireParentPasswordAlways(action, message) {
   if (!studentProfile.parentPinHash) {
     window.alert("尚未设置家长密码。");
     return;
   }
-  const pin = window.prompt(message || "请输入家长密码：");
+  const pin = await promptPassword(message || "请输入家长密码以继续。");
   if (!pin) return;
   if (!verifyParentPin(pin)) {
     window.alert("家长密码错误，操作已取消。");
@@ -868,6 +946,39 @@ function exitParentMode() {
   window.alert("已退出家长模式。回答正确/错误、积分兑换、行为记分等操作将重新要求输入密码。");
 }
 
+function isParentModeActive() {
+  return Boolean(parentUnlocked);
+}
+
+function guardParentModePanel() {
+  if (!parentUnlocked) return false;
+  return true;
+}
+
+function revealParentSettingsSidebar() {
+  if (elements.studentSidebar?.classList.contains("collapsed-on-mobile")) {
+    elements.studentSidebar.classList.remove("collapsed-on-mobile");
+    if (elements.toggleStudentSidebar) {
+      elements.toggleStudentSidebar.setAttribute("aria-expanded", "true");
+      elements.toggleStudentSidebar.textContent = "▲ 收起档案与设置";
+    }
+  }
+}
+
+function tryParentModePassphrase(text) {
+  if ((text || "").trim() !== PARENT_MODE_PASSPHRASE) return false;
+  if (!parentUnlocked) {
+    parentUnlocked = true;
+    updateParentModeUI();
+    updateParentPinPanel();
+    revealParentSettingsSidebar();
+    window.requestAnimationFrame(() => {
+      elements.parentPinBox?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  }
+  return true;
+}
+
 function updateParentModeUI() {
   if (elements.parentModeStatus) {
     elements.parentModeStatus.textContent = parentUnlocked
@@ -877,15 +988,32 @@ function updateParentModeUI() {
   if (elements.exitParentMode) {
     elements.exitParentMode.classList.toggle("hidden", !parentUnlocked);
   }
+  const showParentPanels = parentUnlocked;
+  if (elements.parentPinBox) {
+    elements.parentPinBox.classList.toggle("hidden", !showParentPanels);
+    elements.parentPinBox.setAttribute("aria-hidden", showParentPanels ? "false" : "true");
+  }
+  if (elements.hostAdminBox) {
+    elements.hostAdminBox.classList.toggle("hidden", !showParentPanels);
+    elements.hostAdminBox.setAttribute("aria-hidden", showParentPanels ? "false" : "true");
+  }
 }
 
-function promptParentPinSetup() {
-  const pin1 = window.prompt("【家长设置】请设置家长密码（用于积分兑换、行为记分、手动判题）：");
+async function promptParentPinSetup() {
+  const pin1 = await promptPassword(
+    "用于积分兑换、行为记分、手动判题等家长操作。",
+    "【家长设置】设置家长密码",
+    { newPassword: true },
+  );
   if (!pin1) {
     if (window.confirm("未设置家长密码，学生将无法使用手动记分与兑换。是否清零练习统计？")) performResetDashboardStats();
     return;
   }
-  const pin2 = window.prompt("请再次输入家长密码确认：");
+  const pin2 = await promptPassword("请再次输入相同密码以确认。", "确认家长密码", { newPassword: true });
+  if (!pin2) {
+    if (window.confirm("未设置家长密码，学生将无法使用手动记分与兑换。是否清零练习统计？")) performResetDashboardStats();
+    return;
+  }
   if (pin1 !== pin2) {
     window.alert("两次密码不一致，设置失败。");
     if (window.confirm("设定出错，是否清零练习统计？")) performResetDashboardStats();
@@ -895,29 +1023,31 @@ function promptParentPinSetup() {
   saveStudentProfile();
   parentUnlocked = true;
   updateParentModeUI();
-  window.alert("家长密码已设置成功。");
+  window.alert(parentPinSetupSuccessMessage());
+  updateParentPinPanel();
 }
 
 function resetParentPin() {
+  if (!guardParentModePanel()) return;
   if (!studentProfile.parentPinHash) {
     window.alert("尚未设置家长密码，请先保存昵称并完成首次设置。");
     return;
   }
-  requireParentPasswordAlways(() => {
+  requireParentPasswordAlways(async () => {
     const ok = window.confirm("将设置新的家长密码，旧密码立即失效。是否继续？");
     if (!ok) return;
-    const pin1 = window.prompt("请输入新家长密码：");
+    const pin1 = await promptPasswordTwice(
+      "请输入新家长密码。",
+      "请再次输入新家长密码确认。",
+      "设置新家长密码",
+    );
     if (!pin1) return;
-    const pin2 = window.prompt("请再次输入新家长密码确认：");
-    if (pin1 !== pin2) {
-      window.alert("两次密码不一致，重置失败。");
-      return;
-    }
     studentProfile.parentPinHash = hashParentPin(pin1);
     saveStudentProfile();
     parentUnlocked = true;
     updateParentModeUI();
-    window.alert("家长密码已重置。");
+    window.alert(parentPinUpdatedMessage());
+    updateParentPinPanel();
   }, "请输入当前家长密码以开始重置：");
 }
 
@@ -927,6 +1057,48 @@ function getAdminPin() {
 
 function saveAdminPinLocal(pin) {
   if (pin) window.localStorage.setItem(ADMIN_PIN_KEY, pin);
+}
+
+let serverReportsLocalClient = false;
+
+function canRecoverParentPinWithoutOld() {
+  return isLocalHostClient() || serverReportsLocalClient;
+}
+
+function updateParentPinPanel() {
+  const hasPin = Boolean(studentProfile.parentPinHash);
+  if (elements.parentPinStatus) {
+    elements.parentPinStatus.textContent = hasPin
+      ? "当前状态：已设置家长密码（仅存加密摘要，无法显示原密码）"
+      : "当前状态：尚未设置家长密码（保存昵称时会提示设置）";
+    elements.parentPinStatus.dataset.state = hasPin ? "set" : "unset";
+  }
+  if (elements.forgotParentPin) {
+    elements.forgotParentPin.disabled = !canRecoverParentPinWithoutOld();
+  }
+  if (elements.parentPinRecoverHint) {
+    if (canRecoverParentPinWithoutOld()) {
+      elements.parentPinRecoverHint.textContent =
+        "本机可直接点「忘记密码 · 本机重设」，无需旧密码；练习与积分数据不会删除。";
+    } else {
+      elements.parentPinRecoverHint.textContent =
+        "手机/其他设备无法免旧密码重设。请在运行 启动.bat 的电脑上打开 http://localhost:8080，在侧栏本区域重设。";
+    }
+  }
+}
+
+function parentPinSetupSuccessMessage() {
+  return (
+    "家长密码已设置。\n\n" +
+    "存放位置：本机浏览器 localStorage\n" +
+    `键名：${PROFILE_KEY}\n` +
+    "字段：parentPinHash（加密，无法查看明文）\n\n" +
+    "请牢记密码，或记下侧栏「家长密码说明」中的存放位置。同步后同昵称设备会使用同一套密码。"
+  );
+}
+
+function parentPinUpdatedMessage() {
+  return `家长密码已更新。新密码仍保存在本机 ${PROFILE_KEY}（parentPinHash），请牢记。`;
 }
 
 function isLocalHostClient() {
@@ -945,6 +1117,7 @@ async function fetchAdminConfig() {
 }
 
 async function saveAdminPinToServer() {
+  if (!guardParentModePanel()) return;
   const pin = elements.adminPinInput?.value?.trim() || "";
   if (pin.length < 4) {
     window.alert("管理员密码至少 4 位。");
@@ -973,6 +1146,10 @@ async function saveAdminPinToServer() {
 
 async function refreshPendingEdits() {
   if (!elements.pendingEditsList) return;
+  if (!parentUnlocked) {
+    elements.pendingEditsList.innerHTML = "";
+    return;
+  }
   const pin = getAdminPin();
   if (!pin && !isLocalHostClient()) {
     elements.pendingEditsList.innerHTML = "<p class=\"model\">输入管理员密码后可查看待审核项。</p>";
@@ -1020,6 +1197,7 @@ function renderPendingEdits(items) {
 }
 
 async function resolvePendingEdit(id, approve) {
+  if (!guardParentModePanel()) return;
   const pin = getAdminPin();
   if (!pin) {
     window.alert("请先输入并保存管理员密码。");
@@ -1047,7 +1225,7 @@ async function initHostAdminPanel() {
   if (cfg && elements.requireRemoteApproval) {
     elements.requireRemoteApproval.checked = Boolean(cfg.requireRemoteApproval);
   }
-  if (elements.hostAdminBox && cfg && !cfg.hasAdminPin && isLocalHostClient()) {
+  if (elements.hostAdminBox && cfg && !cfg.hasAdminPin && isLocalHostClient() && parentUnlocked) {
     elements.hostAdminBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
   await refreshPendingEdits();
@@ -1057,25 +1235,38 @@ async function initHostAdminPanel() {
   }, 20000);
 }
 
-function promptParentPinChange() {
-  const pin1 = window.prompt("【家长专用】请输入新密码（将覆盖原密码）：");
+async function promptParentPinChange() {
+  const pin1 = await promptPasswordTwice(
+    "将覆盖原家长密码。",
+    "请再次输入新密码确认。",
+    "【家长专用】设置新密码",
+  );
   if (!pin1) return;
-  const pin2 = window.prompt("请再次输入新密码确认：");
-  if (pin1 !== pin2) {
-    window.alert("两次新密码不一致，修改失败。");
-    return;
-  }
   studentProfile.parentPinHash = hashParentPin(pin1);
   saveStudentProfile();
   parentUnlocked = true;
   updateParentModeUI();
-  window.alert("家长密码已更新。");
+  window.alert(parentPinUpdatedMessage());
+  updateParentPinPanel();
+}
+
+function forgotParentPinRecovery() {
+  if (!guardParentModePanel()) return;
+  if (!canRecoverParentPinWithoutOld()) {
+    window.alert(
+      "忘记密码恢复需在运行 启动.bat 的电脑上进行。\n请打开 http://localhost:8080，在侧栏「家长密码说明」中点「忘记密码 · 本机重设」。",
+    );
+    return;
+  }
+  const ok = window.confirm(
+    "将直接设置新的家长密码（无需旧密码）。\n仅建议在忘记密码时使用，练习与积分数据不会删除。\n\n是否继续？",
+  );
+  if (!ok) return;
+  promptParentPinChange();
 }
 
 function bindParentPinHiddenPath() {
-  const titleEl = document.getElementById("cumulativePointTitle");
-  if (!titleEl) return;
-  titleEl.addEventListener("click", (event) => {
+  const onAltClick = (event) => {
     if (!event.altKey) return;
     cumulativeTitleClicks += 1;
     window.clearTimeout(cumulativeTitleClickTimer);
@@ -1086,11 +1277,15 @@ function bindParentPinHiddenPath() {
       cumulativeTitleClicks = 0;
       promptParentPinChange();
     }
-  });
+  };
+  const titleEl = document.getElementById("cumulativePointTitle");
+  const countEl = document.getElementById("cumulativePointCount");
+  if (titleEl) titleEl.addEventListener("click", onAltClick);
+  if (countEl) countEl.addEventListener("click", onAltClick);
 }
 
 function migrateStatsOnLoad() {
-  if (!stats.redeemedTotal && redeemLogs.length > 0) {
+  if ((stats.redeemedTotal === undefined || stats.redeemedTotal === null) && redeemLogs.length > 0) {
     stats.redeemedTotal = redeemLogs.reduce((sum, row) => sum + (Number(row.cost) || 0), 0);
   }
   syncAccumulatedPoints();
@@ -1850,9 +2045,18 @@ function saveNickname() {
   saveNicknameFromInput(nickname);
 }
 
+function getDashboardResetAt() {
+  return window.localStorage.getItem(DASHBOARD_RESET_AT_KEY) || "";
+}
+
+function setDashboardResetAt(iso) {
+  if (iso) window.localStorage.setItem(DASHBOARD_RESET_AT_KEY, iso);
+  else window.localStorage.removeItem(DASHBOARD_RESET_AT_KEY);
+}
+
 function performResetDashboardStats() {
+  const resetAt = new Date().toISOString();
   stats = {
-    ...stats,
     correct: 0,
     wrong: 0,
     attempts: 0,
@@ -1863,20 +2067,48 @@ function performResetDashboardStats() {
     behaviorPointsTotal: 0,
     redeemedTotal: 0,
     lastPracticeAt: "",
+    lastCompoundDate: "",
+    lastSpendDate: "",
   };
   wrongQuizIds = [];
   wrongBookItems = [];
   wrongBookMode = false;
   rewarded = { quiz: [], writing: [], fillblank: [], svo: [], verb: [] };
+  challengeLogs = [];
+  behaviorLogs = [];
+  redeemLogs = [];
+  badges = [];
+  const nick = studentProfile.nickname;
+  leaderboard = leaderboard.map((row) => {
+    if (row.nickname !== nick) return row;
+    return {
+      ...row,
+      bestPoints: 0,
+      bestAccuracy: 0,
+      bestStreakDays: 0,
+      updatedAt: nowText(),
+    };
+  });
+  setDashboardResetAt(resetAt);
+  syncAccumulatedPoints();
   saveStats();
   saveWrongQuizIds();
   saveWrongBookItems();
   saveRewarded();
+  saveChallengeLogs();
+  saveBehaviorLogs();
+  saveRedeemLogs();
+  saveBadges();
+  saveLeaderboard();
+  touchDataUpdatedAt();
   refreshQuizWithFilters();
   updateDashboard();
   renderWrongBookItems();
   renderWrongBookPanel();
   updateWrongBookStatus();
+  renderChallengeLogs();
+  renderRedeemLogs();
+  renderBadgeList();
   renderCharts();
   if (typeof scheduleLanSync === "function") scheduleLanSync(true);
 }
@@ -1893,7 +2125,7 @@ function resetAllData() {
   }
   requireParentPasswordAlways(() => {
     const ok = window.confirm(
-      "此操作仅清零首页练习统计（答对/答错/总作答/做题积分/累积积分/错题本），不会删除课文讲读、知识点精讲及题库内容。是否继续？",
+      "此操作将清零首页全部练习统计（答对/答错/总作答/正确率/做题积分/累积积分/错题本及相关积分流水），不会删除课文讲读、知识点精讲及题库内容。是否继续？",
     );
     if (!ok) return;
     requireParentPasswordAlways(() => {
@@ -2719,6 +2951,7 @@ function saveJournalToday() {
 }
 
 function bindEvents() {
+  initPasswordPromptModal();
   elements.saveNickname.addEventListener("click", saveNickname);
   elements.resetAllStats.addEventListener("click", resetAllData);
   elements.redeemPoints.addEventListener("click", () => requireParentAuth(redeemPointsRecord));
@@ -2818,6 +3051,7 @@ function bindEvents() {
     elements.clearCustomBanks.addEventListener("click", clearCustomImportedBanks);
   }
   if (elements.resetParentPin) elements.resetParentPin.addEventListener("click", resetParentPin);
+  if (elements.forgotParentPin) elements.forgotParentPin.addEventListener("click", forgotParentPinRecovery);
   if (elements.saveAdminPin) elements.saveAdminPin.addEventListener("click", () => saveAdminPinToServer());
   if (elements.adminPinInput) {
     elements.adminPinInput.addEventListener("change", () => saveAdminPinLocal(elements.adminPinInput.value.trim()));
@@ -3031,6 +3265,7 @@ function collectSyncPayload() {
   return {
     version: 1,
     updatedAt: getDataUpdatedAt(),
+    dashboardResetAt: getDashboardResetAt(),
     stats,
     studentProfile,
     wrongQuizIds,
@@ -3094,6 +3329,7 @@ function refreshUiAfterSync(options = {}) {
   }
   renderAppendixPanel();
   renderJournal();
+  updateParentPinPanel();
   if (window.StudyHub && typeof window.StudyHub.applyLanSync === "function") {
     window.StudyHub.applyLanSync();
   }
@@ -3101,6 +3337,7 @@ function refreshUiAfterSync(options = {}) {
 
 function applySyncPayload(payload) {
   if (!payload || typeof payload !== "object") throw new Error("无效同步数据");
+  const keepParentUnlock = parentUnlocked;
   suppressDataTouch = true;
   suppressLanSync = true;
   try {
@@ -3115,7 +3352,7 @@ function applySyncPayload(payload) {
     behaviorLogs = Array.isArray(payload.behaviorLogs) ? payload.behaviorLogs : [];
     badges = Array.isArray(payload.badges) ? payload.badges : [];
     rewarded = payload.rewarded || loadRewarded();
-    parentUnlocked = false;
+    parentUnlocked = keepParentUnlock;
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
     window.localStorage.setItem(WRONG_BOOK_KEY, JSON.stringify(wrongQuizIds));
     window.localStorage.setItem(PROFILE_KEY, JSON.stringify(studentProfile));
@@ -3155,6 +3392,12 @@ function applySyncPayload(payload) {
     syncNicknameInputs();
     if (studentProfile.nickname && studentProfile.nickname !== "同学") {
       window.localStorage.setItem(LAN_SYNC_KEY, studentProfile.nickname);
+    }
+    if (payload.dashboardResetAt !== undefined) {
+      const incoming = String(payload.dashboardResetAt || "");
+      const local = getDashboardResetAt();
+      if (!incoming) setDashboardResetAt("");
+      else if (!local || incoming >= local) setDashboardResetAt(incoming);
     }
   } finally {
     suppressDataTouch = false;
@@ -3267,6 +3510,8 @@ async function copyLanAccessUrl(url, feedbackEl) {
 
 async function refreshLanAccessBox() {
   const ping = await fetchLanPingInfo();
+  serverReportsLocalClient = Boolean(ping?.isLocalClient);
+  updateParentPinPanel();
   const urls = buildLanAccessUrls(ping);
   renderLanAccessUrlList(elements.lanAccessUrlList, urls, elements.lanAccessCopyFeedback);
   renderLanAccessUrlList(elements.lanAccessUrlListMobile, urls, elements.lanAccessCopyFeedbackMobile);
@@ -3685,6 +3930,10 @@ async function init() {
   renderQuiz();
   renderVerb();
   bindEvents();
+  updateParentPinPanel();
+  window.pep6ForgotParentPin = forgotParentPinRecovery;
+  window.tryParentModePassphrase = tryParentModePassphrase;
+  window.isParentModeActive = isParentModeActive;
   window.requireParentAuth = requireParentAuth;
   window.updateTabCounts = updateTabCounts;
   window.touchDataUpdatedAt = touchDataUpdatedAt;

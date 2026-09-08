@@ -145,3 +145,6 @@ A：自动部署**不包含**该文件，请私下发给家长。
 | Pages 设置 | https://github.com/guoqingr2026/6th_grade_english_learn/settings/pages |
 | 协作者 | https://github.com/guoqingr2026/6th_grade_english_learn/settings/access |
 | 升级 Pro | https://github.com/settings/billing/plans |
+
+## 部署记录
+- 2026-09-08: 仓库改为 Public 后重新触发部署

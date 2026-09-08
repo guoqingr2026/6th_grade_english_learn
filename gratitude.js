@@ -184,11 +184,6 @@
       setFeedback("请先写下今天感恩的一件事哦。", false);
       return;
     }
-    if (typeof window.tryParentModePassphrase === "function" && window.tryParentModePassphrase(text)) {
-      if (input) input.value = "";
-      setFeedback("已进入家长模式，可进行家长操作。", true);
-      return;
-    }
     if (text.length > 500) {
       setFeedback("内容太长啦，请控制在 500 字以内。", false);
       return;
@@ -241,11 +236,7 @@
       renderWall();
       if (typeof window.scheduleLanSync === "function") window.scheduleLanSync(true);
     };
-    if (typeof window.requireParentAuth === "function") {
-      window.requireParentAuth(run);
-    } else {
-      run();
-    }
+    run();
   }
 
   async function onBackgroundSelected(file) {

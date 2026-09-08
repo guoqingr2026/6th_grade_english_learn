@@ -26,12 +26,12 @@
 ### 第 1 步：确认已部署
 
 1. 打开 https://github.com/guoqingr2026/6th_grade_english_learn/actions  
-2. 找到 **新人教PEP六年上英语学习训练营 · Pages 部署**，状态为绿色 ✓  
+2. 找到 **新人教PEP六年上英语学习训练营V1.0 · Pages 部署**，状态为绿色 ✓  
 3. 若失败（红色）：点进去看日志。常见原因：
    - **Pages 来源选错**：应选 **Deploy from a branch** → `gh-pages`，不要选 GitHub Actions（否则会 404）
    - **私有仓库未开 Pro**：无法发布私有 Pages
    - **Actions 权限**：Settings → Actions → General → Workflow permissions 选 **Read and write**
-4. 可手动重跑：Actions → 新人教PEP六年上英语学习训练营 · Pages 部署 → **Run workflow**
+4. 可手动重跑：Actions → 新人教PEP六年上英语学习训练营V1.0 · Pages 部署 → **Run workflow**
 
 ### 第 2 步：仓库改为私有
 
@@ -49,7 +49,7 @@
    - **Source**：**Deploy from a branch**（从分支部署）
    - **Branch**：`gh-pages` → **/ (root)** → **Save**
 3. **不要**选「GitHub Actions」——本项目用的是自动推送到 `gh-pages` 分支的方式（#3、#4 已成功）。
-4. 若刚改过设置，到 **Actions** → **新人教PEP六年上英语学习训练营 · Pages 部署** → **Run workflow** 手动跑一次。
+4. 若刚改过设置，到 **Actions** → **新人教PEP六年上英语学习训练营V1.0 · Pages 部署** → **Run workflow** 手动跑一次。
 5. 等绿色 ✓ 后，刷新 Pages 页面，复制站点 URL。
 
 ### 第 4 步：限制网页仅协作者可访问（方案 B 核心）
@@ -78,7 +78,7 @@
 发送内容示例：
 
 ```
-新人教PEP六年上英语学习训练营（需登录 GitHub）：
+新人教PEP六年上英语学习训练营V1.0（需登录 GitHub）：
 https://guoqingr2026.github.io/6th_grade_english_learn/
 
 请先接受我发的 GitHub 协作邀请，用浏览器登录 GitHub 后再打开。

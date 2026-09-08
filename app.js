@@ -1718,7 +1718,7 @@ function exportPrintableHtmlReport() {
   </style>
 </head>
 <body>
-  <h1>2026新人教版PEP六年级英语上册综合知识记忆训练营 - 学习总报告</h1>
+  <h1>新人教PEP六年上英语学习训练营 - 学习总报告</h1>
   <p class="muted">学生：${studentProfile.nickname} | 导出时间：${nowText()}</p>
 
   <section class="card">

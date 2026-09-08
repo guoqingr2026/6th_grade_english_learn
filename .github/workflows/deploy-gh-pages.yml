@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: 新人教PEP六年上英语学习训练营 · Pages 部署
 
 on:
   push:
@@ -40,3 +40,4 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./release
           force_orphan: true
+          commit_message: "deploy: 新人教PEP六年上英语学习训练营"

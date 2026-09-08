@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (gh-pages)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,33 +8,45 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: gh-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build release folder
+      - name: Build static site
         run: |
-          mkdir -p release
-          cp index.html app.js styles.css study-hub.js gratitude.js mastery.js release/
-          cp VERSION CHANGELOG.md FINAL_PRODUCT_MANUAL.md DEPLOY.md release/ 2>/dev/null || true
-          cp -r assets data scripts release/
-          if [ -d docs ]; then cp -r docs release/; fi
-          touch release/.nojekyll
-          if [ ! -f release/使用说明.txt ]; then echo "See FINAL_PRODUCT_MANUAL.md" > release/使用说明.txt; fi
+          mkdir -p _site
+          cp index.html app.js styles.css study-hub.js gratitude.js mastery.js _site/
+          cp VERSION CHANGELOG.md FINAL_PRODUCT_MANUAL.md DEPLOY.md _site/ 2>/dev/null || true
+          cp -r assets data scripts _site/
+          if [ -d docs ]; then cp -r docs _site/; fi
+          touch _site/.nojekyll
+          echo "Built files:"
+          ls -la _site/
+          wc -c _site/app.js _site/styles.css _site/index.html
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./release
-          force_orphan: true
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -320,6 +320,19 @@ sudo bash deploy/ecs/deploy.sh
 
 脚本会：安装 Python/nginx → 拉取代码到 `/opt/pep6-english` → 启用 `PEP6_AUTH_REQUIRED=1` → 启动 systemd 服务。
 
+### 默认管理员账号
+
+首次运行 `deploy/ecs/deploy.sh` 会自动创建：
+
+| 项目 | 默认值 |
+|------|--------|
+| 用户名 | `admin` |
+| 密码 | `admin@123` |
+
+用于网页登录、生成授权码、课文改写审核。**部署后请尽快修改密码**（改 `/etc/pep6-english/env` 中的 `PEP6_ADMIN_PIN` 后重新运行 `bootstrap_ecs.py`）。
+
+> **说明：** `deploy.sh` 本身**不会**要求输入用户名密码。若 `git clone` 时提示输入，那是 **GitHub 私有仓库**需要你的 GitHub 账号和 Personal Access Token，与应用管理员账号无关。
+
 ### 生成授权码
 
 在 ECS 上执行：

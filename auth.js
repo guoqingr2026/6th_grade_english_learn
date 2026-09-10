@@ -104,6 +104,27 @@
     }
   }
 
+  async function loginWithPassword(username, password) {
+    const user = String(username || "").trim();
+    const pwd = String(password || "");
+    if (!user || !pwd) throw new Error("请输入用户名和密码");
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: user, password: pwd }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "登录失败");
+    setToken(data.token || "");
+    loggedIn = true;
+    licenseLabel = data.licenseLabel || "";
+    licenseExpiresAt = data.expiresAt || "";
+    authRequired = true;
+    hideGate();
+    updateStatusBar();
+    return data;
+  }
+
   async function login(code) {
     const license = formatLicenseInput(code);
     if (!license || license.length < 10) {
@@ -144,6 +165,8 @@
 
   function bindUi() {
     els.gate = document.getElementById("authGate");
+    els.username = document.getElementById("authUsernameInput");
+    els.password = document.getElementById("authPasswordInput");
     els.input = document.getElementById("authLicenseInput");
     els.submit = document.getElementById("authLoginBtn");
     els.logout = document.getElementById("authLogoutBtn");
@@ -163,7 +186,12 @@
       els.submit.addEventListener("click", async () => {
         els.submit.disabled = true;
         try {
-          await login(els.input?.value || "");
+          const license = (els.input?.value || "").trim();
+          if (license) {
+            await login(license);
+          } else {
+            await loginWithPassword(els.username?.value, els.password?.value);
+          }
           if (els.feedback) {
             els.feedback.textContent = "登录成功，可以开始学习与同步。";
             els.feedback.dataset.tone = "ok";
@@ -194,6 +222,7 @@
     getToken,
     authHeaders,
     login,
+    loginWithPassword,
     logout,
     ensureAuth,
     refreshStatus,

@@ -804,12 +804,17 @@ class LanHandler(SimpleHTTPRequestHandler):
             except json.JSONDecodeError:
                 self.send_json(400, {"error": "invalid json"})
                 return
+            username = str(body.get("username") or "").strip()
+            password = str(body.get("password") or "").strip()
             code = str(body.get("license") or body.get("code") or "").strip()
-            if not code:
-                self.send_json(400, {"error": "请输入授权码"})
-                return
             try:
-                result = license_auth.login_with_license(code)
+                if username and password:
+                    result = license_auth.login_with_password(username, password)
+                elif code:
+                    result = license_auth.login_with_license(code)
+                else:
+                    self.send_json(400, {"error": "请输入用户名密码或授权码"})
+                    return
                 self.send_json(200, result)
             except ValueError as e:
                 self.send_json(403, {"error": str(e)})

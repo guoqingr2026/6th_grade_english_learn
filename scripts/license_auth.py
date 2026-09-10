@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 AUTH_DIR = ROOT / "data" / "auth"
 LICENSES_FILE = AUTH_DIR / "licenses.json"
+ADMIN_USERS_FILE = AUTH_DIR / "admin-users.json"
 MASTER_KEY_FILE = AUTH_DIR / ".master_key"
 JWT_SECRET_FILE = AUTH_DIR / ".jwt_secret"
 
@@ -31,6 +32,14 @@ def auth_enabled() -> bool:
 
 def allow_local_without_auth() -> bool:
     return os.environ.get("PEP6_AUTH_ALLOW_LOCAL", "1").strip() in ("1", "true", "yes", "on")
+
+
+def default_admin_user() -> str:
+    return os.environ.get("PEP6_ADMIN_USER", "admin").strip() or "admin"
+
+
+def default_admin_password() -> str:
+    return os.environ.get("PEP6_ADMIN_PIN", "admin@123")
 
 
 def _ensure_auth_dir() -> None:
@@ -61,6 +70,55 @@ def jwt_secret() -> bytes:
 def hash_license(code: str) -> str:
     normalized = normalize_license_code(code)
     return hashlib.sha256(f"pep6-lic-{normalized}".encode("utf-8")).hexdigest()
+
+
+def hash_password(password: str) -> str:
+    return hashlib.sha256(f"pep6-pw-{password}".encode("utf-8")).hexdigest()
+
+
+def load_admin_users() -> list[dict]:
+    if not ADMIN_USERS_FILE.exists():
+        return []
+    try:
+        data = json.loads(ADMIN_USERS_FILE.read_text(encoding="utf-8"))
+        return data.get("users", []) if isinstance(data, dict) else []
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def save_admin_users(users: list[dict]) -> None:
+    _ensure_auth_dir()
+    ADMIN_USERS_FILE.write_text(
+        json.dumps({"users": users}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def find_admin_user(username: str) -> dict | None:
+    name = str(username or "").strip().lower()
+    if not name:
+        return None
+    for item in load_admin_users():
+        if str(item.get("username") or "").lower() == name and item.get("active", True):
+            return item
+    return None
+
+
+def bootstrap_admin_user() -> dict:
+    users = load_admin_users()
+    if users:
+        return users[0]
+    user = default_admin_user()
+    pwd = default_admin_password()
+    entry = {
+        "username": user,
+        "hash": hash_password(pwd),
+        "role": "admin",
+        "active": True,
+        "createdAt": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
+    }
+    save_admin_users([entry])
+    return entry
 
 
 def normalize_license_code(code: str) -> str:
@@ -176,6 +234,9 @@ def verify_token(token: str) -> dict | None:
     exp = int(payload.get("exp") or 0)
     if exp and time.time() > exp:
         return None
+    if str(payload.get("role") or "") == "admin":
+        user = find_admin_user(str(payload.get("user") or ""))
+        return payload if user else None
     lic_id = str(payload.get("lic") or "")
     lic = next((x for x in load_licenses() if x.get("id") == lic_id), None)
     if not lic or not license_is_valid(lic):
@@ -198,6 +259,33 @@ def issue_session(license_item: dict) -> dict:
         "licenseLabel": license_item.get("label", ""),
         "licenseExpiresAt": license_item.get("expiresAt", ""),
     }
+
+
+def issue_admin_session(username: str) -> dict:
+    now = int(time.time())
+    payload = {
+        "role": "admin",
+        "user": username,
+        "label": f"管理员 {username}",
+        "iat": now,
+        "exp": now + TOKEN_TTL_SECONDS,
+    }
+    token = sign_token(payload)
+    return {
+        "token": token,
+        "expiresAt": datetime.fromtimestamp(payload["exp"], tz=timezone.utc).astimezone().isoformat(timespec="seconds"),
+        "licenseLabel": payload["label"],
+        "role": "admin",
+    }
+
+
+def login_with_password(username: str, password: str) -> dict:
+    bootstrap_admin_user()
+    item = find_admin_user(username)
+    if not item or item.get("hash") != hash_password(password):
+        raise ValueError("用户名或密码错误")
+    session = issue_admin_session(str(item.get("username") or username))
+    return {"ok": True, **session}
 
 
 def login_with_license(code: str) -> dict:

@@ -361,7 +361,17 @@ sudo bash deploy/ecs/deploy.sh
 | 用户名 | `admin` |
 | 密码 | `admin@123` |
 
-用于网页登录、生成授权码、课文改写审核。**部署后请尽快修改密码**（改 `/etc/pep6-english/env` 中的 `PEP6_ADMIN_PIN` 后重新运行 `bootstrap_ecs.py`）。
+用于网页登录、生成授权码、课文改写审核。**部署后请尽快修改密码**：
+
+```bash
+sudo nano /etc/pep6-english/env          # 修改 PEP6_ADMIN_PIN=你的新密码
+source /etc/pep6-english/env
+cd /opt/pep6-english
+python3 scripts/change_admin_password.py --from-env
+sudo systemctl restart pep6-english
+```
+
+或直接指定新密码：`python3 scripts/change_admin_password.py '你的新密码'`
 
 > **说明：** `deploy.sh` 本身**不会**要求输入用户名密码。若 `git clone` 时提示输入，那是 **GitHub 私有仓库**需要你的 GitHub 账号和 Personal Access Token，与应用管理员账号无关。
 

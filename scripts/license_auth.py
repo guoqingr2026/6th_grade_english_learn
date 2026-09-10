@@ -110,15 +110,39 @@ def bootstrap_admin_user() -> dict:
         return users[0]
     user = default_admin_user()
     pwd = default_admin_password()
-    entry = {
-        "username": user,
-        "hash": hash_password(pwd),
+    entry = create_admin_user_entry(user, pwd)
+    save_admin_users([entry])
+    return entry
+
+
+def create_admin_user_entry(username: str, password: str) -> dict:
+    return {
+        "username": (username or default_admin_user()).strip(),
+        "hash": hash_password(password),
         "role": "admin",
         "active": True,
         "createdAt": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
     }
-    save_admin_users([entry])
-    return entry
+
+
+def update_admin_password(password: str, username: str = "") -> dict:
+    pwd = str(password or "").strip()
+    if len(pwd) < 6:
+        raise ValueError("管理员密码至少 6 位")
+    user = (username or default_admin_user()).strip()
+    users = load_admin_users()
+    updated = None
+    for item in users:
+        if str(item.get("username") or "").lower() == user.lower():
+            item["hash"] = hash_password(pwd)
+            item["active"] = True
+            updated = item
+            break
+    if not updated:
+        updated = create_admin_user_entry(user, pwd)
+        users.append(updated)
+    save_admin_users(users)
+    return updated
 
 
 def normalize_license_code(code: str) -> str:

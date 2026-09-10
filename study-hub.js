@@ -419,7 +419,7 @@
 
   async function ensureSaveApiReady() {
     try {
-      const res = await fetch("/api/ping");
+      const res = await fetch(pep6Url("/api/ping"));
       const data = await parseApiResponse(res);
       if (!data.data?.studyHubApi || data.data.studyHubApi < 3) {
         throw new Error(
@@ -827,7 +827,7 @@
 
   async function fetchReadingLibrary(unit, png) {
     const scope = readingLibraryScope();
-    const apiUrl = `/api/study-hub/library-page?kind=reading&scope=${scope}&unit=${unit}&png=${png}`;
+    const apiUrl = pep6Url(/api/study-hub/library-page?kind=reading&scope=${scope}&unit=${unit}&png=${png});
     const bust = `t=${Date.now()}`;
     try {
       const res = await fetch(`${apiUrl}&${bust}`, { cache: "no-store" });
@@ -971,7 +971,7 @@
       (typeof getAdminPin === "function" ? getAdminPin() : "") ||
       window.localStorage.getItem("english_grade6_admin_pin_v1") ||
       "";
-    const res = await fetch("/api/study-hub/import-csv", {
+    const res = await fetch(pep6Url("/api/study-hub/import-csv"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1645,7 +1645,7 @@
       binary += String.fromCharCode(b);
     });
     const data = btoa(binary);
-    const res = await fetch("/api/study-hub/upload-media", {
+    const res = await fetch(pep6Url("/api/study-hub/upload-media"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ filename: file.name, data }),
@@ -2008,7 +2008,7 @@
 
   async function uploadStudentAudioBlob(blob, filename) {
     const data = await blobToBase64(blob);
-    const res = await fetch("/api/study-hub/save-student-audio", {
+    const res = await fetch(pep6Url("/api/study-hub/save-student-audio"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ filename, data }),
@@ -2301,7 +2301,7 @@
     }
     const filename = buildSnipFilename(category, page);
     const data = await blobToBase64(blob);
-    const res = await fetch("/api/study-hub/save-snip", {
+    const res = await fetch(pep6Url("/api/study-hub/save-snip"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -2344,7 +2344,7 @@
       unit: String(currentUnit || 1),
       pageId: pageId || "",
     });
-    const res = await fetch(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`);
+    const res = await fetch(pep6Url(/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}));
     const payload = await res.json();
     if (!res.ok) throw new Error(payload.error || "list failed");
     return payload.items || [];
@@ -2416,7 +2416,7 @@
         const id = btn.dataset.id;
         if (!id) return;
         try {
-          const res = await fetch("/api/study-hub/delete-snip", {
+          const res = await fetch(pep6Url("/api/study-hub/delete-snip"), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id }),
@@ -2449,7 +2449,7 @@
         unit: String(currentUnit || 1),
         pageId: activePageId,
       });
-      const res = await fetch(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`);
+      const res = await fetch(pep6Url(/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}));
       const payload = await res.json();
       apiOk = res.ok;
       if (res.ok) items = payload.items || [];

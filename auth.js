@@ -81,7 +81,7 @@
 
   async function refreshStatus() {
     try {
-      const res = await fetch("/api/auth/status", {
+      const res = await fetch(pep6Url("/api/auth/status"), {
         cache: "no-store",
         headers: authHeaders(),
       });
@@ -108,7 +108,7 @@
     const user = String(username || "").trim();
     const pwd = String(password || "");
     if (!user || !pwd) throw new Error("请输入用户名和密码");
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch(pep6Url("/api/auth/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: user, password: pwd }),
@@ -130,7 +130,7 @@
     if (!license || license.length < 10) {
       throw new Error("请输入完整授权码（格式 PEP6-XXXX-XXXX-XXXX）");
     }
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch(pep6Url("/api/auth/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ license }),

@@ -312,6 +312,38 @@ sync-release.bat
 | 数据加密 | `lan-sync/*.json` 在服务器上以 Fernet 加密存储 |
 | 多用户 | 每位学生用昵称作为 `syncId`，数据独立合并 |
 
+### 与已有网站共存（子目录部署）
+
+若 ECS 上 **已有其他网站**（占用了根路径 `/`），可把本训练营放到子文件夹，例如：
+
+**http://47.99.184.249/english/**
+
+1. 编辑 `/etc/pep6-english/env`：
+
+```bash
+PEP6_WEB_PATH=/english
+PEP6_NGINX_MODE=subpath
+```
+
+2. 重新部署或执行：
+
+```bash
+cd /opt/pep6-english && git pull
+source /etc/pep6-english/env
+python3 scripts/set_web_path.py "$PEP6_WEB_PATH"
+sed "s|__WEB_PATH__|${PEP6_WEB_PATH}|g" deploy/ecs/nginx-subpath.snippet > /etc/nginx/snippets/pep6-english-location.conf
+```
+
+3. 在你 **原有 nginx 站点配置** 的 `server { }` 内加入一行：
+
+```nginx
+include /etc/nginx/snippets/pep6-english-location.conf;
+```
+
+4. 重载 nginx：`nginx -t && systemctl reload nginx`
+
+> 根路径 `http://47.99.184.249/` 仍是你原来的网站；英语学习营只在 `/english/` 下。
+
 ### 一键部署（Ubuntu ECS）
 
 ```bash

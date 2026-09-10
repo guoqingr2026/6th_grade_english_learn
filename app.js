@@ -830,7 +830,7 @@ let serverReportsLocalClient = false;
 
 async function fetchAdminConfig() {
   try {
-    const res = await fetch("/api/study-hub/admin/config", { cache: "no-store" });
+    const res = await fetch(pep6Url("/api/study-hub/admin/config"), { cache: "no-store" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -850,7 +850,7 @@ async function saveAdminPinToServer() {
     requireRemoteApproval: Boolean(elements.requireRemoteApproval?.checked),
   };
   if (current) body.currentAdminPin = current;
-  const res = await fetch("/api/study-hub/admin/setup", {
+  const res = await fetch(pep6Url("/api/study-hub/admin/setup"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -873,7 +873,7 @@ async function refreshPendingEdits() {
     return;
   }
   try {
-    const url = `/api/study-hub/admin/pending?adminPin=${encodeURIComponent(pin)}`;
+    const url = pep6Url(`/api/study-hub/admin/pending?adminPin=${encodeURIComponent(pin)}`);
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) {
       elements.pendingEditsList.innerHTML = "<p class=\"model\">无法加载待审核列表。</p>";
@@ -920,7 +920,7 @@ async function resolvePendingEdit(id, approve) {
     return;
   }
   const path = approve ? "/api/study-hub/admin/approve" : "/api/study-hub/admin/reject";
-  const res = await fetch(path, {
+  const res = await fetch(pep6Url(path), {
     method: "POST",
     headers: { "Content-Type": "application/json", "X-Admin-Pin": pin },
     body: JSON.stringify({ id, adminPin: pin }),
@@ -949,7 +949,7 @@ async function refreshLicenseList() {
     return;
   }
   try {
-    const url = `/api/admin/licenses?adminPin=${encodeURIComponent(pin)}`;
+    const url = pep6Url(`/api/admin/licenses?adminPin=${encodeURIComponent(pin)}`);
     const res = await fetch(url, { cache: "no-store", headers: syncApiHeaders() });
     if (!res.ok) {
       elements.licenseList.innerHTML = "<p class=\"model\">无法加载授权列表。</p>";
@@ -980,7 +980,7 @@ async function generateLicenseCode() {
   }
   const label = elements.licenseLabelInput?.value?.trim() || "班级授权";
   const days = Number(elements.licenseDaysInput?.value) || 365;
-  const res = await fetch("/api/admin/licenses/generate", {
+  const res = await fetch(pep6Url("/api/admin/licenses/generate"), {
     method: "POST",
     headers: syncApiHeaders({ "Content-Type": "application/json", "X-Admin-Pin": pin }),
     body: JSON.stringify({ adminPin: pin, label, days, maxUsers: 0 }),
@@ -3121,13 +3121,13 @@ function applySyncPayload(payload) {
 }
 
 async function pingLanServer() {
-  const res = await fetch("/api/ping", { cache: "no-store" });
+  const res = await fetch(pep6Url("/api/ping"), { cache: "no-store" });
   return res.ok;
 }
 
 async function fetchLanPingInfo() {
   try {
-    const res = await fetch("/api/ping", { cache: "no-store" });
+    const res = await fetch(pep6Url("/api/ping"), { cache: "no-store" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -3242,7 +3242,7 @@ async function refreshLanAccessBox() {
 }
 
 async function fetchServerSyncLogs(syncId) {
-  const res = await fetch(`/api/sync/logs?syncId=${encodeURIComponent(syncId)}`, {
+  const res = await fetch(pep6Url(`/api/sync/logs?syncId=${encodeURIComponent(syncId)}`), {
     cache: "no-store",
     headers: syncApiHeaders(),
   });
@@ -3280,7 +3280,7 @@ async function syncDataNow(options = {}) {
       if (!silent) setLanSyncFeedback("请先输入有效授权码登录后再同步。", "warn");
       return false;
     }
-    const res = await fetch("/api/sync/merge", {
+    const res = await fetch(pep6Url("/api/sync/merge"), {
       method: "POST",
       headers: syncApiHeaders({ "Content-Type": "application/json" }),
       body: JSON.stringify({

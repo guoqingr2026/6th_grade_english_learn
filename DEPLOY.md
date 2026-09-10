@@ -374,11 +374,11 @@ cd /opt/pep6-english
 python3 scripts/gen_license.py --days 30 --label "月卡-001"
 ```
 
-批量（100 个月卡 + 10 个年卡，导出 CSV）：
+批量（周卡 / 月卡 / 季卡 / 年卡，导出 CSV）：
 
 ```bash
 cd /opt/pep6-english
-python3 scripts/bulk_gen_licenses.py --monthly 100 --yearly 10
+python3 scripts/bulk_gen_licenses.py --weekly 100 --monthly 100 --quarterly 100 --yearly 10
 # CSV 在 data/auth/licenses-export-*.csv
 ```
 

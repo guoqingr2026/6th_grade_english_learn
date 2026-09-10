@@ -442,7 +442,7 @@
       "";
     const deviceQ = `&device=${encodeURIComponent(/Mobile/i.test(navigator.userAgent) ? "手机" : "电脑")}`;
     const pinQ = adminPin ? `&adminPin=${encodeURIComponent(adminPin)}` : "";
-    const res = await fetch(`/api/study-hub/save-page-raw?${rawQuery}${pinQ}${deviceQ}`, {
+    const res = await fetch(pep6Url(`/api/study-hub/save-page-raw?${rawQuery}${pinQ}${deviceQ}`), {
       method: "POST",
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
@@ -827,7 +827,7 @@
 
   async function fetchReadingLibrary(unit, png) {
     const scope = readingLibraryScope();
-    const apiUrl = pep6Url(/api/study-hub/library-page?kind=reading&scope=${scope}&unit=${unit}&png=${png});
+    const apiUrl = pep6Url(`/api/study-hub/library-page?kind=reading&scope=${scope}&unit=${unit}&png=${png}`);
     const bust = `t=${Date.now()}`;
     try {
       const res = await fetch(`${apiUrl}&${bust}`, { cache: "no-store" });
@@ -847,7 +847,7 @@
 
   async function fetchKnowledgeLibrary(pageId) {
     try {
-      const res = await fetch(`/api/study-hub/library-page?kind=knowledge&pageId=${encodeURIComponent(pageId)}&t=${Date.now()}`, {
+      const res = await fetch(pep6Url(`/api/study-hub/library-page?kind=knowledge&pageId=${encodeURIComponent(pageId)}&t=${Date.now()}`), {
         cache: "no-store",
       });
       if (res.ok) {
@@ -2344,7 +2344,7 @@
       unit: String(currentUnit || 1),
       pageId: pageId || "",
     });
-    const res = await fetch(pep6Url(/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}));
+    const res = await fetch(pep6Url(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`));
     const payload = await res.json();
     if (!res.ok) throw new Error(payload.error || "list failed");
     return payload.items || [];
@@ -2449,7 +2449,7 @@
         unit: String(currentUnit || 1),
         pageId: activePageId,
       });
-      const res = await fetch(pep6Url(/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}));
+      const res = await fetch(pep6Url(`/api/study-hub/list-snips?${qs.toString()}&t=${Date.now()}`));
       const payload = await res.json();
       apiOk = res.ok;
       if (res.ok) items = payload.items || [];

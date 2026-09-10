@@ -1,0 +1,4 @@
+type,id,unit,part,itemType,prompt,answer,clue,options,badge,explain,title,en,zh,fillPrompt
+quiz,u3-demo-01,3,A,,What should he do when he has a fever?,He should see a doctor.,,"He should see a doctor.|He should play games.|He should stay up late.|He should eat candy.",Unit3课堂加题,发烧要看医生,,,,
+fillblank,fb-demo-01,3,A,verb,I ___ a doctor yesterday.,saw,中文：我昨天看了医生。,,,see的过去式saw,,,,
+writing,ws-demo-01,3,,,,,,,课堂范文,My Healthy Day,I drink water every day.,我应该每天喝水。,填空：I should ___ water every day.

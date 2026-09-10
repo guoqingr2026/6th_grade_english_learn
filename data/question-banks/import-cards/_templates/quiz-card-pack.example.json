@@ -1,0 +1,28 @@
+{
+  "cardType": "quiz",
+  "action": "append",
+  "source": "示例：课堂小测 Unit 3",
+  "items": [
+    {
+      "id": "u3-class-01",
+      "unit": 3,
+      "part": "A",
+      "badge": "Unit 3 课堂加题",
+      "prompt": "He has a fever. What should he do?",
+      "options": [
+        "He should see a doctor.",
+        "He should play games.",
+        "He should eat candy.",
+        "He should stay up late."
+      ],
+      "answer": "He should see a doctor.",
+      "explainCorrect": "发烧应该看医生。",
+      "optionReasons": {
+        "He should see a doctor.": "语义和语法均正确。",
+        "He should play games.": "发烧时不适合玩游戏。",
+        "He should eat candy.": "与病情无关。",
+        "He should stay up late.": "熬夜不利于康复。"
+      }
+    }
+  ]
+}

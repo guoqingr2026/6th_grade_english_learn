@@ -1,0 +1,1204 @@
+{
+  "version": 1,
+  "description": "附录2 词汇（按课本 P.x 页码）",
+  "words": [
+    {
+      "word": "was",
+      "page": 4,
+      "unit": 1,
+      "gloss": "（be 的第一和第三人称单数过去式）",
+      "level2": true
+    },
+    {
+      "word": "climb",
+      "page": 4,
+      "unit": 1,
+      "gloss": "攀登；爬",
+      "level2": false
+    },
+    {
+      "word": "kilometre",
+      "page": 4,
+      "unit": 1,
+      "gloss": "（=km）千米；公里",
+      "level2": false
+    },
+    {
+      "word": "gingerbread house",
+      "page": 4,
+      "unit": 1,
+      "gloss": "姜饼屋",
+      "level2": false
+    },
+    {
+      "word": "send",
+      "page": 4,
+      "unit": 1,
+      "gloss": "邮寄；发送",
+      "level2": false
+    },
+    {
+      "word": "go",
+      "page": 6,
+      "unit": 1,
+      "gloss": "（过去式 went /went/）去；走",
+      "level2": true
+    },
+    {
+      "word": "thousand",
+      "page": 6,
+      "unit": 1,
+      "gloss": "一千",
+      "level2": false
+    },
+    {
+      "word": "clay",
+      "page": 6,
+      "unit": 1,
+      "gloss": "黏土；陶土",
+      "level2": false
+    },
+    {
+      "word": "see",
+      "page": 6,
+      "unit": 1,
+      "gloss": "（过去式 saw /sɔː/）看见",
+      "level2": true
+    },
+    {
+      "word": "village",
+      "page": 7,
+      "unit": 1,
+      "gloss": "村庄；村镇",
+      "level2": false
+    },
+    {
+      "word": "eat",
+      "page": 7,
+      "unit": 1,
+      "gloss": "（过去式 ate /eɪt/）吃",
+      "level2": true
+    },
+    {
+      "word": "dry",
+      "page": 7,
+      "unit": 1,
+      "gloss": "干的",
+      "level2": false
+    },
+    {
+      "word": "take",
+      "page": 7,
+      "unit": 1,
+      "gloss": "（过去式 took /tʊk/）做（某个动作；和名词连用代替某个动词）",
+      "level2": true
+    },
+    {
+      "word": "view",
+      "page": 7,
+      "unit": 1,
+      "gloss": "景色",
+      "level2": false
+    },
+    {
+      "word": "inspiring",
+      "page": 8,
+      "unit": 1,
+      "gloss": "鼓舞人心的",
+      "level2": false
+    },
+    {
+      "word": "bamboo",
+      "page": 8,
+      "unit": 1,
+      "gloss": "竹；竹子",
+      "level2": false
+    },
+    {
+      "word": "pumpkin",
+      "page": 8,
+      "unit": 1,
+      "gloss": "南瓜",
+      "level2": false
+    },
+    {
+      "word": "restaurant",
+      "page": 8,
+      "unit": 1,
+      "gloss": "餐馆；餐厅",
+      "level2": false
+    },
+    {
+      "word": "airport",
+      "page": 8,
+      "unit": 1,
+      "gloss": "机场",
+      "level2": false
+    },
+    {
+      "word": "New Zealand",
+      "page": 4,
+      "unit": 1,
+      "gloss": "新西兰",
+      "level2": false
+    },
+    {
+      "word": "Hong Kong",
+      "page": 5,
+      "unit": 1,
+      "gloss": "-Zhuhai-Macao /mə'kaʊ/ Bridge /brɪdʒ/ 港珠澳大桥",
+      "level2": false
+    },
+    {
+      "word": "Paris",
+      "page": 5,
+      "unit": 1,
+      "gloss": "巴黎",
+      "level2": false
+    },
+    {
+      "word": "Eiffel Tower",
+      "page": 5,
+      "unit": 1,
+      "gloss": "埃菲尔铁塔",
+      "level2": false
+    },
+    {
+      "word": "Terracotta Warriors",
+      "page": 6,
+      "unit": 1,
+      "gloss": "/'wɒrɪəz/ 兵马俑",
+      "level2": false
+    },
+    {
+      "word": "Jinggangshan Revolution",
+      "page": 8,
+      "unit": 1,
+      "gloss": "Museum 井冈山革命博物馆",
+      "level2": false
+    },
+    {
+      "word": "paste",
+      "page": 16,
+      "unit": 2,
+      "gloss": "粘贴",
+      "level2": false
+    },
+    {
+      "word": "dress",
+      "page": 17,
+      "unit": 2,
+      "gloss": "穿衣服",
+      "level2": true
+    },
+    {
+      "word": "gala",
+      "page": 17,
+      "unit": 2,
+      "gloss": "演出；庆典",
+      "level2": false
+    },
+    {
+      "word": "count down",
+      "page": 17,
+      "unit": 2,
+      "gloss": "/daʊn/ 倒计时",
+      "level2": false
+    },
+    {
+      "word": "marathon",
+      "page": 18,
+      "unit": 2,
+      "gloss": "马拉松赛跑",
+      "level2": false
+    },
+    {
+      "word": "as",
+      "page": 18,
+      "unit": 2,
+      "gloss": "作为",
+      "level2": false
+    },
+    {
+      "word": "race",
+      "page": 18,
+      "unit": 2,
+      "gloss": "赛跑；速度竞赛",
+      "level2": false
+    },
+    {
+      "word": "run",
+      "page": 18,
+      "unit": 2,
+      "gloss": "（过去式 ran /ræn/）跑；奔跑",
+      "level2": true
+    },
+    {
+      "word": "cheer",
+      "page": 18,
+      "unit": 2,
+      "gloss": "欢呼；加油",
+      "level2": false
+    },
+    {
+      "word": "book fair",
+      "page": 18,
+      "unit": 2,
+      "gloss": "书市",
+      "level2": false
+    },
+    {
+      "word": "writer",
+      "page": 19,
+      "unit": 2,
+      "gloss": "作家；作者",
+      "level2": false
+    },
+    {
+      "word": "read",
+      "page": 19,
+      "unit": 2,
+      "gloss": "（过去式 read /red/）阅读",
+      "level2": true
+    },
+    {
+      "word": "make",
+      "page": 19,
+      "unit": 2,
+      "gloss": "（过去式 made /meɪd/）做；使出现",
+      "level2": true
+    },
+    {
+      "word": "sing",
+      "page": 19,
+      "unit": 2,
+      "gloss": "（过去式 sang /sæŋ/）唱（歌）；演唱",
+      "level2": true
+    },
+    {
+      "word": "wear",
+      "page": 19,
+      "unit": 2,
+      "gloss": "（过去式 wore /wɔː(r)/）穿；戴",
+      "level2": true
+    },
+    {
+      "word": "yesterday",
+      "page": 19,
+      "unit": 2,
+      "gloss": "昨天",
+      "level2": true
+    },
+    {
+      "word": "notice",
+      "page": 20,
+      "unit": 2,
+      "gloss": "通知",
+      "level2": false
+    },
+    {
+      "word": "wake",
+      "page": 20,
+      "unit": 2,
+      "gloss": "（过去式 woke /wəʊk/）醒；醒来",
+      "level2": true
+    },
+    {
+      "word": "later",
+      "page": 20,
+      "unit": 2,
+      "gloss": "随后；后来",
+      "level2": false
+    },
+    {
+      "word": "judge",
+      "page": 20,
+      "unit": 2,
+      "gloss": "裁判",
+      "level2": false
+    },
+    {
+      "word": "begin",
+      "page": 20,
+      "unit": 2,
+      "gloss": "（过去式 began /bɪ'ɡæn/）开始",
+      "level2": true
+    },
+    {
+      "word": "win",
+      "page": 20,
+      "unit": 2,
+      "gloss": "（过去式 won /wʌn/）获胜",
+      "level2": true
+    },
+    {
+      "word": "winner",
+      "page": 20,
+      "unit": 2,
+      "gloss": "获胜的人（或队）；成功者",
+      "level2": false
+    },
+    {
+      "word": "ever",
+      "page": 20,
+      "unit": 2,
+      "gloss": "（进行比较时用于加强语气）以往任何时候",
+      "level2": false
+    },
+    {
+      "word": "exciting",
+      "page": 20,
+      "unit": 2,
+      "gloss": "令人激动的",
+      "level2": false
+    },
+    {
+      "word": "cold",
+      "page": 28,
+      "unit": 3,
+      "gloss": "感冒",
+      "level2": true
+    },
+    {
+      "word": "ill",
+      "page": 28,
+      "unit": 3,
+      "gloss": "不舒服；有病",
+      "level2": true
+    },
+    {
+      "word": "head",
+      "page": 28,
+      "unit": 3,
+      "gloss": "头；头部",
+      "level2": true
+    },
+    {
+      "word": "runny nose",
+      "page": 28,
+      "unit": 3,
+      "gloss": "流鼻涕",
+      "level2": false
+    },
+    {
+      "word": "soon",
+      "page": 28,
+      "unit": 3,
+      "gloss": "很快；马上",
+      "level2": false
+    },
+    {
+      "word": "fever",
+      "page": 29,
+      "unit": 3,
+      "gloss": "发烧；发热",
+      "level2": false
+    },
+    {
+      "word": "cough",
+      "page": 29,
+      "unit": 3,
+      "gloss": "咳嗽",
+      "level2": false
+    },
+    {
+      "word": "discuss",
+      "page": 30,
+      "unit": 3,
+      "gloss": "讨论；商量",
+      "level2": false
+    },
+    {
+      "word": "diet",
+      "page": 31,
+      "unit": 3,
+      "gloss": "日常饮食",
+      "level2": false
+    },
+    {
+      "word": "cry",
+      "page": 32,
+      "unit": 3,
+      "gloss": "哭；哭泣",
+      "level2": true
+    },
+    {
+      "word": "another",
+      "page": 32,
+      "unit": 3,
+      "gloss": "另一；不同的（人或事物）",
+      "level2": false
+    },
+    {
+      "word": "call",
+      "page": 32,
+      "unit": 3,
+      "gloss": "（给……）打电话",
+      "level2": true
+    },
+    {
+      "word": "email",
+      "page": 32,
+      "unit": 3,
+      "gloss": "电子邮件",
+      "level2": true
+    },
+    {
+      "word": "unhappy",
+      "page": 32,
+      "unit": 3,
+      "gloss": "不快乐的；难过的",
+      "level2": false
+    },
+    {
+      "word": "glass",
+      "page": 32,
+      "unit": 3,
+      "gloss": "一杯（的量）；玻璃",
+      "level2": true
+    },
+    {
+      "word": "may",
+      "page": 32,
+      "unit": 3,
+      "gloss": "也许；可能",
+      "level2": true
+    },
+    {
+      "word": "add",
+      "page": 32,
+      "unit": 3,
+      "gloss": "补充说；增加",
+      "level2": false
+    },
+    {
+      "word": "video",
+      "page": 32,
+      "unit": 3,
+      "gloss": "视频；录像",
+      "level2": false
+    },
+    {
+      "word": "better",
+      "page": 32,
+      "unit": 3,
+      "gloss": "舒畅些的；（病势）好转的",
+      "level2": false
+    },
+    {
+      "word": "money",
+      "page": 40,
+      "unit": 4,
+      "gloss": "钱",
+      "level2": true
+    },
+    {
+      "word": "pocket money",
+      "page": 40,
+      "unit": 4,
+      "gloss": "零花钱",
+      "level2": false
+    },
+    {
+      "word": "schoolbag",
+      "page": 40,
+      "unit": 4,
+      "gloss": "书包",
+      "level2": true
+    },
+    {
+      "word": "goods",
+      "page": 41,
+      "unit": 4,
+      "gloss": "商品",
+      "level2": false
+    },
+    {
+      "word": "drink",
+      "page": 41,
+      "unit": 4,
+      "gloss": "饮料",
+      "level2": true
+    },
+    {
+      "word": "service",
+      "page": 41,
+      "unit": 4,
+      "gloss": "服务",
+      "level2": false
+    },
+    {
+      "word": "haircut",
+      "page": 41,
+      "unit": 4,
+      "gloss": "理发；发型",
+      "level2": false
+    },
+    {
+      "word": "microscope",
+      "page": 42,
+      "unit": 4,
+      "gloss": "显微镜",
+      "level2": false
+    },
+    {
+      "word": "lucky",
+      "page": 42,
+      "unit": 4,
+      "gloss": "幸运的",
+      "level2": false
+    },
+    {
+      "word": "sale",
+      "page": 43,
+      "unit": 4,
+      "gloss": "特价销售；出售",
+      "level2": false
+    },
+    {
+      "word": "ticket",
+      "page": 43,
+      "unit": 4,
+      "gloss": "票",
+      "level2": false
+    },
+    {
+      "word": "manage",
+      "page": 44,
+      "unit": 4,
+      "gloss": "管理",
+      "level2": false
+    },
+    {
+      "word": "difficult",
+      "page": 44,
+      "unit": 4,
+      "gloss": "困难的",
+      "level2": false
+    },
+    {
+      "word": "sell",
+      "page": 44,
+      "unit": 4,
+      "gloss": "出售；售卖",
+      "level2": false
+    },
+    {
+      "word": "jar",
+      "page": 44,
+      "unit": 4,
+      "gloss": "罐子",
+      "level2": false
+    },
+    {
+      "word": "half",
+      "page": 44,
+      "unit": 4,
+      "gloss": "一半",
+      "level2": true
+    },
+    {
+      "word": "for example",
+      "page": 44,
+      "unit": 4,
+      "gloss": "例如",
+      "level2": false
+    },
+    {
+      "word": "planet",
+      "page": 52,
+      "unit": 5,
+      "gloss": "行星",
+      "level2": false
+    },
+    {
+      "word": "earth",
+      "page": 52,
+      "unit": 5,
+      "gloss": "（also Earth）地球",
+      "level2": true
+    },
+    {
+      "word": "sky",
+      "page": 52,
+      "unit": 5,
+      "gloss": "天；天空",
+      "level2": false
+    },
+    {
+      "word": "daytime",
+      "page": 52,
+      "unit": 5,
+      "gloss": "白天",
+      "level2": false
+    },
+    {
+      "word": "cloud",
+      "page": 52,
+      "unit": 5,
+      "gloss": "云",
+      "level2": false
+    },
+    {
+      "word": "moon",
+      "page": 52,
+      "unit": 5,
+      "gloss": "（also the Moon）月球；月亮；卫星",
+      "level2": true
+    },
+    {
+      "word": "star",
+      "page": 52,
+      "unit": 5,
+      "gloss": "恒星；星",
+      "level2": true
+    },
+    {
+      "word": "space",
+      "page": 52,
+      "unit": 5,
+      "gloss": "太空；空间",
+      "level2": true
+    },
+    {
+      "word": "outer space",
+      "page": 52,
+      "unit": 5,
+      "gloss": "外层空间；外太空",
+      "level2": false
+    },
+    {
+      "word": "ocean",
+      "page": 52,
+      "unit": 5,
+      "gloss": "大海；海洋",
+      "level2": false
+    },
+    {
+      "word": "marble",
+      "page": 52,
+      "unit": 5,
+      "gloss": "（玻璃）弹子",
+      "level2": false
+    },
+    {
+      "word": "satellite",
+      "page": 53,
+      "unit": 5,
+      "gloss": "人造卫星",
+      "level2": false
+    },
+    {
+      "word": "soil",
+      "page": 54,
+      "unit": 5,
+      "gloss": "土壤",
+      "level2": false
+    },
+    {
+      "word": "alien",
+      "page": 54,
+      "unit": 5,
+      "gloss": "外星生物",
+      "level2": false
+    },
+    {
+      "word": "sunrise",
+      "page": 54,
+      "unit": 5,
+      "gloss": "日出",
+      "level2": false
+    },
+    {
+      "word": "rover",
+      "page": 54,
+      "unit": 5,
+      "gloss": "探测器",
+      "level2": false
+    },
+    {
+      "word": "into",
+      "page": 55,
+      "unit": 5,
+      "gloss": "朝；进入",
+      "level2": false
+    },
+    {
+      "word": "telescope",
+      "page": 55,
+      "unit": 5,
+      "gloss": "望远镜",
+      "level2": false
+    },
+    {
+      "word": "astronaut",
+      "page": 55,
+      "unit": 5,
+      "gloss": "宇航员；航天员",
+      "level2": true
+    },
+    {
+      "word": "spaceship",
+      "page": 55,
+      "unit": 5,
+      "gloss": "宇宙飞船",
+      "level2": false
+    },
+    {
+      "word": "month",
+      "page": 55,
+      "unit": 5,
+      "gloss": "月；月份",
+      "level2": true
+    },
+    {
+      "word": "taikonaut",
+      "page": 56,
+      "unit": 5,
+      "gloss": "中国航天员",
+      "level2": false
+    },
+    {
+      "word": "cloth",
+      "page": 56,
+      "unit": 5,
+      "gloss": "（一块）布；织物",
+      "level2": false
+    },
+    {
+      "word": "toothpaste",
+      "page": 56,
+      "unit": 5,
+      "gloss": "牙膏",
+      "level2": false
+    },
+    {
+      "word": "question",
+      "page": 56,
+      "unit": 5,
+      "gloss": "问题",
+      "level2": true
+    },
+    {
+      "word": "sunset",
+      "page": 56,
+      "unit": 5,
+      "gloss": "日落",
+      "level2": false
+    },
+    {
+      "word": "time",
+      "page": 56,
+      "unit": 5,
+      "gloss": "次；回",
+      "level2": true
+    },
+    {
+      "word": "Mars",
+      "page": 54,
+      "unit": 5,
+      "gloss": "火星",
+      "level2": false
+    },
+    {
+      "word": "power",
+      "page": 64,
+      "unit": 6,
+      "gloss": "能；能量",
+      "level2": false
+    },
+    {
+      "word": "electricity",
+      "page": 64,
+      "unit": 6,
+      "gloss": "电",
+      "level2": false
+    },
+    {
+      "word": "solar",
+      "page": 65,
+      "unit": 6,
+      "gloss": "太阳的",
+      "level2": false
+    },
+    {
+      "word": "type",
+      "page": 65,
+      "unit": 6,
+      "gloss": "类型；种类",
+      "level2": false
+    },
+    {
+      "word": "energy",
+      "page": 65,
+      "unit": 6,
+      "gloss": "能源",
+      "level2": false
+    },
+    {
+      "word": "source",
+      "page": 65,
+      "unit": 6,
+      "gloss": "来源",
+      "level2": false
+    },
+    {
+      "word": "light",
+      "page": 65,
+      "unit": 6,
+      "gloss": "照亮",
+      "level2": true
+    },
+    {
+      "word": "heat",
+      "page": 65,
+      "unit": 6,
+      "gloss": "加热；（使）变暖；热量",
+      "level2": false
+    },
+    {
+      "word": "cool",
+      "page": 65,
+      "unit": 6,
+      "gloss": "（使）变凉，冷却",
+      "level2": true
+    },
+    {
+      "word": "run",
+      "page": 65,
+      "unit": 6,
+      "gloss": "使运行",
+      "level2": false
+    },
+    {
+      "word": "resource",
+      "page": 66,
+      "unit": 6,
+      "gloss": "资源",
+      "level2": false
+    },
+    {
+      "word": "few",
+      "page": 66,
+      "unit": 6,
+      "gloss": "（比较级 fewer /'fjuːə(r)/）不多；很少",
+      "level2": false
+    },
+    {
+      "word": "change",
+      "page": 66,
+      "unit": 6,
+      "gloss": "（使）不同；改变",
+      "level2": false
+    },
+    {
+      "word": "quick",
+      "page": 66,
+      "unit": 6,
+      "gloss": "迅速的；快的",
+      "level2": false
+    },
+    {
+      "word": "shower",
+      "page": 66,
+      "unit": 6,
+      "gloss": "淋浴",
+      "level2": false
+    },
+    {
+      "word": "unplug",
+      "page": 66,
+      "unit": 6,
+      "gloss": "拔掉……的电源插头",
+      "level2": false
+    },
+    {
+      "word": "difference",
+      "page": 66,
+      "unit": 6,
+      "gloss": "差别；不同（之处）",
+      "level2": false
+    },
+    {
+      "word": "reduce",
+      "page": 67,
+      "unit": 6,
+      "gloss": "减少",
+      "level2": false
+    },
+    {
+      "word": "air conditioner",
+      "page": 67,
+      "unit": 6,
+      "gloss": "空调机",
+      "level2": false
+    },
+    {
+      "word": "drive",
+      "page": 67,
+      "unit": 6,
+      "gloss": "驾驶；开车",
+      "level2": false
+    },
+    {
+      "word": "reuse",
+      "page": 67,
+      "unit": 6,
+      "gloss": "再次使用；重复使用",
+      "level2": false
+    },
+    {
+      "word": "own",
+      "page": 67,
+      "unit": 6,
+      "gloss": "自己的",
+      "level2": false
+    },
+    {
+      "word": "market",
+      "page": 67,
+      "unit": 6,
+      "gloss": "集市；市场",
+      "level2": false
+    },
+    {
+      "word": "bottle",
+      "page": 67,
+      "unit": 6,
+      "gloss": "瓶子",
+      "level2": false
+    },
+    {
+      "word": "top",
+      "page": 68,
+      "unit": 6,
+      "gloss": "（位置、级别或程度）最高的",
+      "level2": true
+    },
+    {
+      "word": "useful",
+      "page": 68,
+      "unit": 6,
+      "gloss": "有用的；有益的",
+      "level2": false
+    },
+    {
+      "word": "dirty",
+      "page": 68,
+      "unit": 6,
+      "gloss": "脏的",
+      "level2": true
+    },
+    {
+      "word": "side",
+      "page": 68,
+      "unit": 6,
+      "gloss": "一面；一边",
+      "level2": false
+    }
+  ],
+  "byPage": {
+    "4": [
+      "gingerbread house",
+      "New Zealand",
+      "kilometre",
+      "climb",
+      "send",
+      "was"
+    ],
+    "6": [
+      "Terracotta Warriors",
+      "thousand",
+      "clay",
+      "see",
+      "go"
+    ],
+    "7": [
+      "village",
+      "take",
+      "view",
+      "dry",
+      "eat"
+    ],
+    "8": [
+      "Jinggangshan Revolution",
+      "restaurant",
+      "inspiring",
+      "airport",
+      "pumpkin",
+      "bamboo"
+    ],
+    "5": [
+      "Eiffel Tower",
+      "Hong Kong",
+      "Paris"
+    ],
+    "16": [
+      "paste"
+    ],
+    "17": [
+      "count down",
+      "dress",
+      "gala"
+    ],
+    "18": [
+      "book fair",
+      "marathon",
+      "cheer",
+      "race",
+      "run",
+      "as"
+    ],
+    "19": [
+      "yesterday",
+      "writer",
+      "make",
+      "read",
+      "sing",
+      "wear"
+    ],
+    "20": [
+      "exciting",
+      "notice",
+      "winner",
+      "begin",
+      "judge",
+      "later",
+      "ever",
+      "wake",
+      "win"
+    ],
+    "28": [
+      "runny nose",
+      "cold",
+      "head",
+      "soon",
+      "ill"
+    ],
+    "29": [
+      "cough",
+      "fever"
+    ],
+    "30": [
+      "discuss"
+    ],
+    "31": [
+      "diet"
+    ],
+    "32": [
+      "another",
+      "unhappy",
+      "better",
+      "email",
+      "glass",
+      "video",
+      "call",
+      "add",
+      "cry",
+      "may"
+    ],
+    "40": [
+      "pocket money",
+      "schoolbag",
+      "money"
+    ],
+    "41": [
+      "haircut",
+      "service",
+      "drink",
+      "goods"
+    ],
+    "42": [
+      "microscope",
+      "lucky"
+    ],
+    "43": [
+      "ticket",
+      "sale"
+    ],
+    "44": [
+      "for example",
+      "difficult",
+      "manage",
+      "half",
+      "sell",
+      "jar"
+    ],
+    "52": [
+      "outer space",
+      "daytime",
+      "marble",
+      "planet",
+      "cloud",
+      "earth",
+      "ocean",
+      "space",
+      "moon",
+      "star",
+      "sky"
+    ],
+    "53": [
+      "satellite"
+    ],
+    "54": [
+      "sunrise",
+      "alien",
+      "rover",
+      "Mars",
+      "soil"
+    ],
+    "55": [
+      "astronaut",
+      "spaceship",
+      "telescope",
+      "month",
+      "into"
+    ],
+    "56": [
+      "toothpaste",
+      "taikonaut",
+      "question",
+      "sunset",
+      "cloth",
+      "time"
+    ],
+    "64": [
+      "electricity",
+      "power"
+    ],
+    "65": [
+      "energy",
+      "source",
+      "light",
+      "solar",
+      "cool",
+      "heat",
+      "type",
+      "run"
+    ],
+    "66": [
+      "difference",
+      "resource",
+      "change",
+      "shower",
+      "unplug",
+      "quick",
+      "few"
+    ],
+    "67": [
+      "air conditioner",
+      "bottle",
+      "market",
+      "reduce",
+      "drive",
+      "reuse",
+      "own"
+    ],
+    "68": [
+      "useful",
+      "dirty",
+      "side",
+      "top"
+    ]
+  }
+}

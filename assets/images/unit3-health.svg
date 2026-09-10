@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ce6c2"/>
+      <stop offset="100%" stop-color="#11a9a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg3)"/>
+  <circle cx="620" cy="120" r="66" fill="#c9fff3"/>
+  <rect x="120" y="250" width="180" height="180" rx="16" fill="#ffffff" opacity="0.9"/>
+  <rect x="200" y="280" width="20" height="120" fill="#ff5f5f"/>
+  <rect x="150" y="330" width="120" height="20" fill="#ff5f5f"/>
+  <text x="56" y="88" font-size="48" font-family="Arial" fill="#ffffff" font-weight="700">Unit 3 Healthy life</text>
+  <text x="56" y="144" font-size="30" font-family="Arial" fill="#effff9">Health, advice and habits</text>
+</svg>

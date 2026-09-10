@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2a66"/>
+      <stop offset="100%" stop-color="#05091e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg5)"/>
+  <circle cx="610" cy="140" r="70" fill="#ff9f5f"/>
+  <circle cx="610" cy="140" r="52" fill="#ff6b4b"/>
+  <circle cx="180" cy="120" r="5" fill="#ffffff"/>
+  <circle cx="230" cy="180" r="4" fill="#ffffff"/>
+  <circle cx="280" cy="100" r="3" fill="#ffffff"/>
+  <circle cx="320" cy="200" r="4" fill="#ffffff"/>
+  <circle cx="100" cy="230" r="3" fill="#ffffff"/>
+  <text x="56" y="88" font-size="48" font-family="Arial" fill="#c8d8ff" font-weight="700">Unit 5 Space</text>
+  <text x="56" y="144" font-size="30" font-family="Arial" fill="#dbe4ff">Planets, rockets and Mars</text>
+</svg>

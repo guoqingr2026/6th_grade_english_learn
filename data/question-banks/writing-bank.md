@@ -1,0 +1,224 @@
+# 作文范文题库（审核稿）
+
+> 上方表格便于阅读；**实际同步以文末 bank-json 代码块为准**。
+
+## 目录（每单元 3 篇）
+
+### Unit 1
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u1-01 | Unit 1 范文1：My Amazing Trip | 填空：We ___ the Great Wall and took many photos. | climbed |
+| ws-u1-02 | Unit 1 范文2：A Visit to Xi'an | 填空：We visited the Terracotta Warriors and ___ Xi'an noodles. | ate |
+| ws-u1-03 | Unit 1 范文3：Postcard to My Friend | 填空：I will ___ you more pictures. | send |
+
+### Unit 2
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u2-01 | Unit 2 范文1：My Spring Festival | 填空：We cleaned the house and ___ fu on the door. | pasted |
+| ws-u2-02 | Unit 2 范文2：A Happy Mid-Autumn Festival | 填空：We ___ mooncakes and watched the moon. | ate |
+| ws-u2-03 | Unit 2 范文3：Dragon Boat Day | 填空：My mother ___ zongzi and we cheered for the teams. | made |
+
+### Unit 3
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u3-01 | Unit 3 范文1：How to Keep Healthy | 填空：If we feel ill, we should ___ a doctor. | see |
+| ws-u3-02 | Unit 3 范文2：My Healthy Plan | 填空：I am going to ___ for twenty minutes every day. | run |
+| ws-u3-03 | Unit 3 范文3：A Visit to the Doctor | 填空：The doctor said I should ___ warm water. | drink |
+
+### Unit 4
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u4-01 | Unit 4 范文1：My Pocket Money Plan | 填空：I ___ half of my pocket money first. | save |
+| ws-u4-02 | Unit 4 范文2：Smart Shopping | 填空：I will wait for a ___. | sale |
+| ws-u4-03 | Unit 4 范文3：Need and Want | 填空：I ___ a dictionary for school. | need |
+
+### Unit 5
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u5-01 | Unit 5 范文1：My Dream of Space | 填空：I want to be an ___ in the future. | astronaut |
+| ws-u5-02 | Unit 5 范文2：A Visit to a Space Museum | 填空：I ___ a big rocket in the museum. | saw |
+| ws-u5-03 | Unit 5 范文3：Exploring Mars | 填空：China ___ a rover to Mars. | sent |
+
+### Unit 6
+| ID | 标题 | 仿写填空 | 答案 |
+|----|------|----------|------|
+| ws-u6-01 | Unit 6 范文1：Save Energy Every Day | 填空：We should ___ off lights when we leave. | turn |
+| ws-u6-02 | Unit 6 范文2：Green Energy | 填空：Solar power and wind power are ___ energy. | green |
+| ws-u6-03 | Unit 6 范文3：3R Rules | 填空：We should reduce, ___ and recycle. | reuse |
+
+## 待审核区（课堂新范文暂放此处，审核后写入 bank-json）
+
+---
+
+## 机器同步区（修改此处后运行 启动.bat）
+
+```bank-json
+{
+  "version": 1,
+  "description": "作文范文与仿写填空题库（人工审核版）。",
+  "samples": [
+    {
+      "id": "ws-u1-01",
+      "unit": 1,
+      "title": "Unit 1 范文1：My Amazing Trip",
+      "en": "Last holiday, I went to Beijing with my parents. We climbed the Great Wall and took many photos. The view was amazing and we had a great time there.",
+      "zh": "上个假期，我和父母去了北京。我们爬了长城并拍了很多照片。风景很棒，我们玩得很开心。",
+      "fillPrompt": "填空：We ___ the Great Wall and took many photos.",
+      "fillAnswer": "climbed"
+    },
+    {
+      "id": "ws-u1-02",
+      "unit": 1,
+      "title": "Unit 1 范文2：A Visit to Xi'an",
+      "en": "Over the summer holidays, my family went to Xi'an. We visited the Terracotta Warriors and ate Xi'an noodles. It was an inspiring trip for me.",
+      "zh": "暑假期间，我家去了西安。我们参观了兵马俑，还吃了西安面。这趟旅行很鼓舞我。",
+      "fillPrompt": "填空：We visited the Terracotta Warriors and ___ Xi'an noodles.",
+      "fillAnswer": "ate"
+    },
+    {
+      "id": "ws-u1-03",
+      "unit": 1,
+      "title": "Unit 1 范文3：Postcard to My Friend",
+      "en": "Hi Amy, I am in New Zealand now. Yesterday I visited the Gingerbread House. Please come here one day. I will send you more pictures.",
+      "zh": "嗨，Amy，我现在在新西兰。昨天我参观了姜饼屋。希望你有一天也来。我会发给你更多照片。",
+      "fillPrompt": "填空：I will ___ you more pictures.",
+      "fillAnswer": "send"
+    },
+    {
+      "id": "ws-u2-01",
+      "unit": 2,
+      "title": "Unit 2 范文1：My Spring Festival",
+      "en": "The Spring Festival is my favourite festival. We cleaned the house, pasted fu on the door and had a big dinner. We also counted down to the new year.",
+      "zh": "春节是我最喜欢的节日。我们打扫房子、贴福字、吃年夜饭，还倒计时迎接新年。",
+      "fillPrompt": "填空：We cleaned the house and ___ fu on the door.",
+      "fillAnswer": "pasted"
+    },
+    {
+      "id": "ws-u2-02",
+      "unit": 2,
+      "title": "Unit 2 范文2：A Happy Mid-Autumn Festival",
+      "en": "On Mid-Autumn Festival, my family got together. We ate mooncakes and watched the moon. I talked with my grandparents and felt very happy.",
+      "zh": "中秋节时，我们全家团聚。我们吃月饼、赏月。我和爷爷奶奶聊天，感到非常开心。",
+      "fillPrompt": "填空：We ___ mooncakes and watched the moon.",
+      "fillAnswer": "ate"
+    },
+    {
+      "id": "ws-u2-03",
+      "unit": 2,
+      "title": "Unit 2 范文3：Dragon Boat Day",
+      "en": "Last Dragon Boat Festival, we woke up early and watched the dragon boat race. My mother made zongzi and we cheered for the teams.",
+      "zh": "上个端午节，我们早起看龙舟赛。妈妈包了粽子，我们为队伍加油。",
+      "fillPrompt": "填空：My mother ___ zongzi and we cheered for the teams.",
+      "fillAnswer": "made"
+    },
+    {
+      "id": "ws-u3-01",
+      "unit": 3,
+      "title": "Unit 3 范文1：How to Keep Healthy",
+      "en": "We should have a healthy diet and exercise often. We shouldn't stay up late. If we feel ill, we should see a doctor in time.",
+      "zh": "我们应该健康饮食并经常锻炼，不应熬夜。如果不舒服，应及时看医生。",
+      "fillPrompt": "填空：If we feel ill, we should ___ a doctor.",
+      "fillAnswer": "see"
+    },
+    {
+      "id": "ws-u3-02",
+      "unit": 3,
+      "title": "Unit 3 范文2：My Healthy Plan",
+      "en": "I am going to run for twenty minutes every day. I will eat more vegetables and fruit. I am not going to drink too much cola.",
+      "zh": "我打算每天跑步二十分钟。我会多吃蔬菜水果，不会喝太多可乐。",
+      "fillPrompt": "填空：I am going to ___ for twenty minutes every day.",
+      "fillAnswer": "run"
+    },
+    {
+      "id": "ws-u3-03",
+      "unit": 3,
+      "title": "Unit 3 范文3：A Visit to the Doctor",
+      "en": "Yesterday I had a fever and a cough. My mum took me to hospital. The doctor said I should drink warm water and get enough sleep.",
+      "zh": "昨天我发烧并咳嗽。妈妈带我去了医院。医生说我应该喝温水并保证睡眠。",
+      "fillPrompt": "填空：The doctor said I should ___ warm water.",
+      "fillAnswer": "drink"
+    },
+    {
+      "id": "ws-u4-01",
+      "unit": 4,
+      "title": "Unit 4 范文1：My Pocket Money Plan",
+      "en": "I get pocket money every month. I save half of it first. Then I buy books and school things. I don't buy things I don't need.",
+      "zh": "我每个月有零花钱。我先存下一半，然后买书和学习用品，不买不需要的东西。",
+      "fillPrompt": "填空：I ___ half of my pocket money first.",
+      "fillAnswer": "save"
+    },
+    {
+      "id": "ws-u4-02",
+      "unit": 4,
+      "title": "Unit 4 范文2：Smart Shopping",
+      "en": "I want a new schoolbag, but I will wait for a sale. I make a spending plan before shopping. It helps me use money wisely.",
+      "zh": "我想要一个新书包，但我会等打折再买。购物前我会做花钱计划，这样能更合理用钱。",
+      "fillPrompt": "填空：I will wait for a ___.",
+      "fillAnswer": "sale"
+    },
+    {
+      "id": "ws-u4-03",
+      "unit": 4,
+      "title": "Unit 4 范文3：Need and Want",
+      "en": "I need a dictionary for school, but I only want a toy car. I decide to buy the dictionary first. This is a better money plan.",
+      "zh": "我需要一本词典上学用，但我只是想要玩具车。我决定先买词典，这是更好的用钱计划。",
+      "fillPrompt": "填空：I ___ a dictionary for school.",
+      "fillAnswer": "need"
+    },
+    {
+      "id": "ws-u5-01",
+      "unit": 5,
+      "title": "Unit 5 范文1：My Dream of Space",
+      "en": "I am interested in space. There are many planets in the solar system. I want to be an astronaut in the future.",
+      "zh": "我对太空感兴趣。太阳系有很多行星。未来我想成为宇航员。",
+      "fillPrompt": "填空：I want to be an ___ in the future.",
+      "fillAnswer": "astronaut"
+    },
+    {
+      "id": "ws-u5-02",
+      "unit": 5,
+      "title": "Unit 5 范文2：A Visit to a Space Museum",
+      "en": "Last weekend, I visited a space museum. I saw a big rocket and learned about Mars rovers. The trip was exciting.",
+      "zh": "上周末我参观了太空博物馆。我看到了大火箭，还了解了火星探测器。这次旅行非常刺激。",
+      "fillPrompt": "填空：I ___ a big rocket in the museum.",
+      "fillAnswer": "saw"
+    },
+    {
+      "id": "ws-u5-03",
+      "unit": 5,
+      "title": "Unit 5 范文3：Exploring Mars",
+      "en": "China sent a rover to Mars. It can take pictures and study the soil. I am proud of our space science.",
+      "zh": "中国向火星发射了探测器。它可以拍照并研究土壤。我为我们的航天科技感到自豪。",
+      "fillPrompt": "填空：China ___ a rover to Mars.",
+      "fillAnswer": "sent"
+    },
+    {
+      "id": "ws-u6-01",
+      "unit": 6,
+      "title": "Unit 6 范文1：Save Energy Every Day",
+      "en": "We should save energy every day. We should turn off lights when we leave a room and unplug computers.",
+      "zh": "我们应该每天节约能源。离开房间时要关灯，并拔掉电脑插头。",
+      "fillPrompt": "填空：We should ___ off lights when we leave.",
+      "fillAnswer": "turn"
+    },
+    {
+      "id": "ws-u6-02",
+      "unit": 6,
+      "title": "Unit 6 范文2：Green Energy",
+      "en": "Solar power and wind power are green energy. They are clean and helpful for our Earth. We should use more green energy.",
+      "zh": "太阳能和风能是绿色能源。它们清洁环保，对地球有帮助。我们应该多用绿色能源。",
+      "fillPrompt": "填空：Solar power and wind power are ___ energy.",
+      "fillAnswer": "green"
+    },
+    {
+      "id": "ws-u6-03",
+      "unit": 6,
+      "title": "Unit 6 范文3：3R Rules",
+      "en": "To protect the Earth, we should reduce, reuse and recycle. I reuse my school bags and recycle paper bottles at school.",
+      "zh": "为了保护地球，我们应减少、重复使用和回收。我会重复使用书包，并在学校回收纸和瓶子。",
+      "fillPrompt": "填空：We should reduce, ___ and recycle.",
+      "fillAnswer": "reuse"
+    }
+  ]
+}
+```

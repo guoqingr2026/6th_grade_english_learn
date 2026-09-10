@@ -3624,10 +3624,20 @@ window.onPep6AuthLogin = () => {
   if (getLanSyncId()) syncDataNow({ silent: true, reason: "auth" });
 };
 
-async function init() {
-  if (window.Pep6Auth && typeof window.Pep6Auth.init === "function") {
-    await window.Pep6Auth.init();
+async function initAuthNonBlocking() {
+  if (!window.Pep6Auth || typeof window.Pep6Auth.init !== "function") return;
+  try {
+    await Promise.race([
+      window.Pep6Auth.init(),
+      new Promise((_, reject) => window.setTimeout(() => reject(new Error("auth init timeout")), 8000)),
+    ]);
+  } catch {
+    document.body.classList.remove("auth-locked");
   }
+}
+
+async function init() {
+  const authTask = initAuthNonBlocking();
   await loadQuestionBanks();
   verbTriples = await loadIrregularVerbs();
   filteredVerbTriples = [...verbTriples];
@@ -3674,6 +3684,7 @@ async function init() {
     setLanSyncFeedback("手机端：请先保存昵称，再点绿色「同步」按钮。", "warn");
   }
   if (!getDataUpdatedAt()) touchDataUpdatedAt();
+  await authTask;
   await loadSyncLogsFromServer();
   try {
     if (await pingLanServer()) {

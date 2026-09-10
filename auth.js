@@ -11,6 +11,23 @@
   let isAdmin = false;
 
   const els = {};
+  const AUTH_FETCH_MS = 8000;
+
+  function apiUrl(path) {
+    if (typeof window.pep6Url === "function") return window.pep6Url(path);
+    return path;
+  }
+
+  function fetchAuth(url, options = {}) {
+    const ctrl = new AbortController();
+    const timer = window.setTimeout(() => ctrl.abort(), AUTH_FETCH_MS);
+    return fetch(url, { ...options, signal: ctrl.signal }).finally(() => window.clearTimeout(timer));
+  }
+
+  function unlockPage() {
+    document.body.classList.remove("auth-locked");
+    hideGate();
+  }
 
   function getToken() {
     return window.localStorage.getItem(TOKEN_KEY) || "";
@@ -94,11 +111,14 @@
 
   async function refreshStatus() {
     try {
-      const res = await fetch(pep6Url("/api/auth/status"), {
+      const res = await fetchAuth(apiUrl("/api/auth/status"), {
         cache: "no-store",
         headers: authHeaders(),
       });
-      if (!res.ok) return false;
+      if (!res.ok) {
+        unlockPage();
+        return false;
+      }
       const data = await res.json();
       authRequired = Boolean(data.authRequired);
       loggedIn = Boolean(data.loggedIn);
@@ -113,7 +133,7 @@
     } catch {
       authRequired = false;
       loggedIn = false;
-      hideGate();
+      unlockPage();
       updateStatusBar();
       return true;
     }
@@ -122,7 +142,7 @@
   async function loginWithAdminPassword(password) {
     const pwd = String(password || "");
     if (!pwd) throw new Error("请输入管理员密码");
-    const res = await fetch(pep6Url("/api/auth/login"), {
+    const res = await fetchAuth(apiUrl("/api/auth/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: pwd }),
@@ -145,7 +165,7 @@
     if (!license || license.length < 10) {
       throw new Error("请输入完整授权码（格式 PEP6-XXXX-XXXX-XXXX）");
     }
-    const res = await fetch(pep6Url("/api/auth/login"), {
+    const res = await fetchAuth(apiUrl("/api/auth/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ license }),
@@ -233,7 +253,11 @@
 
   async function init() {
     bindUi();
-    await refreshStatus();
+    try {
+      await refreshStatus();
+    } catch {
+      unlockPage();
+    }
   }
 
   window.Pep6Auth = {

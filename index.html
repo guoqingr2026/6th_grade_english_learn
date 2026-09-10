@@ -801,13 +801,12 @@
     <div id="authGate" class="auth-gate hidden" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
       <div class="auth-gate-card">
         <h2 id="authGateTitle">登录学习平台</h2>
-        <p class="model">管理员默认：<strong>admin</strong> / <strong>admin@123</strong>（永久有效）。学生请输入 PEP6 授权码；登录一次后自动记住，到期前无需重复登录。</p>
-        <label class="auth-label" for="authUsernameInput">用户名（管理员）</label>
-        <input id="authUsernameInput" type="text" class="auth-license-input" value="admin" autocomplete="username" />
-        <label class="auth-label" for="authPasswordInput">密码</label>
-        <input id="authPasswordInput" type="password" class="auth-license-input" value="admin@123" autocomplete="current-password" />
-        <label class="auth-label" for="authLicenseInput">或：学生授权码 License</label>
+        <p class="model">学生请输入老师发放的 PEP6 授权码；管理员请输入管理员密码。登录一次后自动记住，到期前无需重复登录。</p>
+        <label class="auth-label" for="authLicenseInput">学生授权码 License</label>
         <input id="authLicenseInput" type="text" class="auth-license-input" placeholder="PEP6-XXXX-XXXX-XXXX" autocomplete="off" />
+        <label class="auth-label" for="authPasswordInput">管理员密码</label>
+        <input id="authPasswordInput" type="password" class="auth-license-input" placeholder="请输入管理员密码" autocomplete="current-password" />
+        <p class="model auth-admin-hint">填写授权码或管理员密码其中一项即可登录。</p>
         <button id="authLoginBtn" type="button" class="primary-btn auth-login-btn">登录并进入</button>
         <p id="authFeedback" class="auth-feedback" aria-live="polite"></p>
       </div>

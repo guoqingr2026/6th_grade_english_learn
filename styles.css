@@ -4578,6 +4578,12 @@ body.auth-locked .app {
   color: #b00020;
 }
 
+.auth-admin-hint {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
 .license-admin-box {
   margin-top: 14px;
   padding-top: 12px;

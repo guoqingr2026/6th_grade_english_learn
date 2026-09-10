@@ -819,10 +819,12 @@ class LanHandler(SimpleHTTPRequestHandler):
                 self.send_json(400, {"error": "invalid json"})
                 return
             username = str(body.get("username") or "").strip()
-            password = str(body.get("password") or "").strip()
+            password = str(body.get("password") or body.get("adminPassword") or "").strip()
             code = str(body.get("license") or body.get("code") or "").strip()
             try:
-                if username and password:
+                if password and not code:
+                    if not username:
+                        username = license_auth.default_admin_user()
                     result = license_auth.login_with_password(username, password)
                 elif code:
                     result = license_auth.login_with_license(code)

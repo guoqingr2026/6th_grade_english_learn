@@ -283,7 +283,7 @@ def issue_admin_session(username: str) -> dict:
     payload = {
         "role": "admin",
         "user": username,
-        "label": f"管理员 {username}",
+        "label": "管理员",
         "iat": now,
         "exp": 0,
     }
@@ -301,7 +301,7 @@ def login_with_password(username: str, password: str) -> dict:
     bootstrap_admin_user()
     item = find_admin_user(username)
     if not item or item.get("hash") != hash_password(password):
-        raise ValueError("用户名或密码错误")
+        raise ValueError("管理员密码错误")
     session = issue_admin_session(str(item.get("username") or username))
     return {"ok": True, **session}
 

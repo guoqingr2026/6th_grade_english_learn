@@ -119,14 +119,13 @@
     }
   }
 
-  async function loginWithPassword(username, password) {
-    const user = String(username || "").trim();
+  async function loginWithAdminPassword(password) {
     const pwd = String(password || "");
-    if (!user || !pwd) throw new Error("请输入用户名和密码");
+    if (!pwd) throw new Error("请输入管理员密码");
     const res = await fetch(pep6Url("/api/auth/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: user, password: pwd }),
+      body: JSON.stringify({ password: pwd }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "登录失败");
@@ -183,7 +182,6 @@
 
   function bindUi() {
     els.gate = document.getElementById("authGate");
-    els.username = document.getElementById("authUsernameInput");
     els.password = document.getElementById("authPasswordInput");
     els.input = document.getElementById("authLicenseInput");
     els.submit = document.getElementById("authLoginBtn");
@@ -205,10 +203,13 @@
         els.submit.disabled = true;
         try {
           const license = (els.input?.value || "").trim();
+          const adminPwd = (els.password?.value || "").trim();
           if (license) {
             await login(license);
+          } else if (adminPwd) {
+            await loginWithAdminPassword(adminPwd);
           } else {
-            await loginWithPassword(els.username?.value, els.password?.value);
+            throw new Error("请输入学生授权码或管理员密码");
           }
           if (els.feedback) {
             els.feedback.textContent = "登录成功，可以开始学习与同步。";
@@ -240,7 +241,7 @@
     getToken,
     authHeaders,
     login,
-    loginWithPassword,
+    loginWithAdminPassword,
     logout,
     ensureAuth,
     refreshStatus,

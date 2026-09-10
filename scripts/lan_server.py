@@ -669,18 +669,32 @@ class LanHandler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/auth/status":
             token = self.bearer_token()
             claims = license_auth.verify_token(token) if token and license_auth else None
+            expires_at = ""
+            role = ""
+            if claims:
+                role = str(claims.get("role") or "")
+                if role == "admin":
+                    expires_at = ""
+                elif claims.get("exp"):
+                    lic_id = str(claims.get("lic") or "")
+                    lic = next((x for x in license_auth.load_licenses() if x.get("id") == lic_id), None)
+                    expires_at = str(lic.get("expiresAt") or "") if lic else ""
+                    if not expires_at:
+                        expires_at = (
+                            datetime.fromtimestamp(int(claims["exp"]), tz=timezone.utc)
+                            .astimezone()
+                            .isoformat(timespec="seconds")
+                        )
             self.send_json(
                 200,
                 {
                     "ok": True,
                     "authRequired": self.auth_required() and not self.local_auth_bypass(),
                     "loggedIn": bool(claims),
+                    "role": role,
                     "licenseLabel": claims.get("label", "") if claims else "",
-                    "expiresAt": datetime.fromtimestamp(int(claims.get("exp") or 0), tz=timezone.utc)
-                    .astimezone()
-                    .isoformat(timespec="seconds")
-                    if claims and claims.get("exp")
-                    else "",
+                    "expiresAt": expires_at,
+                    "permanent": role == "admin",
                 },
             )
             return

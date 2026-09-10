@@ -1,5 +1,5 @@
 /**
- * License auth for ECS / LAN server — session token in sessionStorage.
+ * License auth for ECS / LAN server — persistent token until license expiry.
  */
 (function authModule() {
   const TOKEN_KEY = "pep6_auth_token_v1";
@@ -8,17 +8,26 @@
   let loggedIn = false;
   let licenseLabel = "";
   let licenseExpiresAt = "";
+  let isAdmin = false;
 
   const els = {};
 
   function getToken() {
-    return window.sessionStorage.getItem(TOKEN_KEY) || "";
+    return window.localStorage.getItem(TOKEN_KEY) || "";
   }
 
   function setToken(token) {
-    if (token) window.sessionStorage.setItem(TOKEN_KEY, token);
-    else window.sessionStorage.removeItem(TOKEN_KEY);
+    if (token) window.localStorage.setItem(TOKEN_KEY, token);
+    else window.localStorage.removeItem(TOKEN_KEY);
   }
+
+  (function migrateSessionToken() {
+    const legacy = window.sessionStorage.getItem(TOKEN_KEY);
+    if (legacy && !window.localStorage.getItem(TOKEN_KEY)) {
+      window.localStorage.setItem(TOKEN_KEY, legacy);
+      window.sessionStorage.removeItem(TOKEN_KEY);
+    }
+  })();
 
   function authHeaders(extra = {}) {
     const headers = { ...extra };
@@ -70,7 +79,11 @@
     }
     els.statusBar.classList.remove("hidden");
     if (loggedIn) {
-      const exp = licenseExpiresAt ? ` · 会话至 ${licenseExpiresAt}` : "";
+      const exp = isAdmin
+        ? " · 永久有效"
+        : licenseExpiresAt
+          ? ` · 有效期至 ${licenseExpiresAt}`
+          : "";
       els.statusBar.textContent = `已授权：${licenseLabel || "学习许可"}${exp}`;
       els.statusBar.dataset.tone = "ok";
     } else {
@@ -89,8 +102,10 @@
       const data = await res.json();
       authRequired = Boolean(data.authRequired);
       loggedIn = Boolean(data.loggedIn);
+      isAdmin = Boolean(data.permanent) || data.role === "admin";
       licenseLabel = data.licenseLabel || "";
       licenseExpiresAt = data.expiresAt || "";
+      if (!loggedIn && getToken()) setToken("");
       if (authRequired && !loggedIn) showGate();
       else hideGate();
       updateStatusBar();
@@ -117,8 +132,9 @@
     if (!res.ok) throw new Error(data.error || "登录失败");
     setToken(data.token || "");
     loggedIn = true;
+    isAdmin = data.role === "admin";
     licenseLabel = data.licenseLabel || "";
-    licenseExpiresAt = data.expiresAt || "";
+    licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
     hideGate();
     updateStatusBar();
@@ -139,8 +155,9 @@
     if (!res.ok) throw new Error(data.error || "登录失败");
     setToken(data.token || "");
     loggedIn = true;
+    isAdmin = false;
     licenseLabel = data.licenseLabel || "";
-    licenseExpiresAt = data.expiresAt || "";
+    licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
     hideGate();
     updateStatusBar();
@@ -150,6 +167,7 @@
   function logout() {
     setToken("");
     loggedIn = false;
+    isAdmin = false;
     if (authRequired) showGate("已退出，请重新输入授权码。");
     updateStatusBar();
   }

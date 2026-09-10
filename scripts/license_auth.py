@@ -159,6 +159,19 @@ def find_license_by_code(code: str) -> dict | None:
     return None
 
 
+def license_exp_timestamp(item: dict) -> int:
+    expires = str(item.get("expiresAt") or "").strip()
+    if not expires:
+        return int(time.time()) + TOKEN_TTL_SECONDS
+    try:
+        exp_dt = datetime.fromisoformat(expires.replace("Z", "+00:00"))
+        if exp_dt.tzinfo is None:
+            exp_dt = exp_dt.replace(tzinfo=timezone.utc)
+        return int(exp_dt.timestamp())
+    except ValueError:
+        return int(time.time()) + TOKEN_TTL_SECONDS
+
+
 def license_is_valid(item: dict) -> bool:
     if not item or not item.get("active", True):
         return False
@@ -246,18 +259,22 @@ def verify_token(token: str) -> dict | None:
 
 def issue_session(license_item: dict) -> dict:
     now = int(time.time())
+    exp = license_exp_timestamp(license_item)
     payload = {
+        "role": "license",
         "lic": license_item.get("id"),
         "label": license_item.get("label", ""),
         "iat": now,
-        "exp": now + TOKEN_TTL_SECONDS,
+        "exp": exp,
     }
     token = sign_token(payload)
+    lic_exp = str(license_item.get("expiresAt") or "")
     return {
         "token": token,
-        "expiresAt": datetime.fromtimestamp(payload["exp"], tz=timezone.utc).astimezone().isoformat(timespec="seconds"),
+        "expiresAt": lic_exp,
         "licenseLabel": license_item.get("label", ""),
-        "licenseExpiresAt": license_item.get("expiresAt", ""),
+        "licenseExpiresAt": lic_exp,
+        "role": "license",
     }
 
 
@@ -268,13 +285,14 @@ def issue_admin_session(username: str) -> dict:
         "user": username,
         "label": f"管理员 {username}",
         "iat": now,
-        "exp": now + TOKEN_TTL_SECONDS,
+        "exp": 0,
     }
     token = sign_token(payload)
     return {
         "token": token,
-        "expiresAt": datetime.fromtimestamp(payload["exp"], tz=timezone.utc).astimezone().isoformat(timespec="seconds"),
+        "expiresAt": "",
         "licenseLabel": payload["label"],
+        "licenseExpiresAt": "",
         "role": "admin",
     }
 

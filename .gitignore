@@ -19,6 +19,13 @@ desktop.ini
 # Per-device LAN sync payloads (runtime)
 lan-sync/
 
+# Auth secrets & license exports (server-only)
+data/auth/licenses.json
+data/auth/admin-users.json
+data/auth/.master_key
+data/auth/.jwt_secret
+data/auth/licenses-export*.csv
+
 # User-generated recordings & snips (keep README / index)
 assets/audios/student/*.mp3
 assets/audios/student/*.webm

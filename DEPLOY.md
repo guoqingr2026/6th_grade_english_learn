@@ -367,12 +367,22 @@ sudo bash deploy/ecs/deploy.sh
 
 ### 生成授权码
 
-在 ECS 上执行：
+单个：
 
 ```bash
 cd /opt/pep6-english
-python3 scripts/gen_license.py --days 365 --label "六(1)班"
+python3 scripts/gen_license.py --days 30 --label "月卡-001"
 ```
+
+批量（100 个月卡 + 10 个年卡，导出 CSV）：
+
+```bash
+cd /opt/pep6-english
+python3 scripts/bulk_gen_licenses.py --monthly 100 --yearly 10
+# CSV 在 data/auth/licenses-export-*.csv
+```
+
+登录说明：学生/授权码登录后 **自动记住**（存浏览器 localStorage），**授权到期前无需重复登录**；管理员 **admin 永久有效**。
 
 或在网页 **远程密码控制 → 学习授权码** 面板生成（需管理员密码）。
 

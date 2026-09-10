@@ -579,6 +579,8 @@ const elements = {
   generateLicenseBtn: document.getElementById("generateLicenseBtn"),
   licenseList: document.getElementById("licenseList"),
   licenseGenFeedback: document.getElementById("licenseGenFeedback"),
+  toggleStudentLoginBtn: document.getElementById("toggleStudentLoginBtn"),
+  studentLoginStatus: document.getElementById("studentLoginStatus"),
 };
 
 function loadStats() {
@@ -865,8 +867,16 @@ async function saveAdminPinToServer() {
   await refreshPendingEdits();
 }
 
+function isPep6Admin() {
+  return Boolean(window.Pep6Auth?.isAdmin?.());
+}
+
 async function refreshPendingEdits() {
   if (!elements.pendingEditsList) return;
+  if (!isPep6Admin()) {
+    elements.pendingEditsList.innerHTML = "";
+    return;
+  }
   const pin = getAdminPin();
   if (!pin && !isLocalHostClient()) {
     elements.pendingEditsList.innerHTML = "<p class=\"model\">输入管理员密码后可查看待审核项。</p>";
@@ -941,8 +951,46 @@ function syncApiHeaders(extra = {}) {
   return extra;
 }
 
+function updateStudentLoginToggleUi() {
+  if (!elements.toggleStudentLoginBtn || !elements.studentLoginStatus) return;
+  const enabled = Boolean(window.Pep6Auth?.isStudentLoginEnabled?.());
+  elements.toggleStudentLoginBtn.textContent = enabled ? "关闭学生授权码登录" : "开放学生授权码登录";
+  elements.studentLoginStatus.textContent = enabled
+    ? "当前：学生可在登录页使用授权码"
+    : "当前：登录页仅显示管理员密码";
+  elements.studentLoginStatus.style.color = enabled ? "#0f9d58" : "#55627a";
+}
+
+async function toggleStudentLoginSetting() {
+  if (!isPep6Admin()) {
+    window.alert("请先以管理员身份登录。");
+    return;
+  }
+  const enabled = !window.Pep6Auth.isStudentLoginEnabled();
+  try {
+    const res = await fetch(pep6Url("/api/admin/student-login"), {
+      method: "POST",
+      headers: syncApiHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ enabled }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      window.alert(data.error || "设置失败");
+      return;
+    }
+    await window.Pep6Auth.refreshStatus();
+    updateStudentLoginToggleUi();
+  } catch {
+    window.alert("无法连接服务器，请稍后重试。");
+  }
+}
+
 async function refreshLicenseList() {
   if (!elements.licenseList) return;
+  if (!isPep6Admin()) {
+    elements.licenseList.innerHTML = "";
+    return;
+  }
   const pin = getAdminPin();
   if (!pin && !isLocalHostClient() && !serverReportsLocalClient) {
     elements.licenseList.innerHTML = "<p class=\"model\">输入管理员密码后可管理授权码。</p>";
@@ -973,6 +1021,10 @@ async function refreshLicenseList() {
 }
 
 async function generateLicenseCode() {
+  if (!isPep6Admin()) {
+    window.alert("请先以管理员身份登录。");
+    return;
+  }
   const pin = getAdminPin();
   if (!pin && !isLocalHostClient() && !serverReportsLocalClient) {
     window.alert("请先输入并保存管理员密码。");
@@ -1013,10 +1065,16 @@ async function initHostAdminPanel() {
   if (elements.generateLicenseBtn) {
     elements.generateLicenseBtn.addEventListener("click", () => generateLicenseCode());
   }
-  await refreshPendingEdits();
-  await refreshLicenseList();
+  if (elements.toggleStudentLoginBtn) {
+    elements.toggleStudentLoginBtn.addEventListener("click", () => toggleStudentLoginSetting());
+  }
+  updateStudentLoginToggleUi();
+  if (isPep6Admin()) {
+    await refreshPendingEdits();
+    await refreshLicenseList();
+  }
   window.setInterval(() => {
-    if (document.hidden) return;
+    if (document.hidden || !isPep6Admin()) return;
     refreshPendingEdits();
     refreshLicenseList();
   }, 20000);
@@ -3621,7 +3679,24 @@ async function loadQuestionBanks() {
 }
 
 window.onPep6AuthLogin = () => {
+  updateStudentLoginToggleUi();
+  if (isPep6Admin()) {
+    refreshPendingEdits();
+    refreshLicenseList();
+  }
   if (getLanSyncId()) syncDataNow({ silent: true, reason: "auth" });
+};
+
+window.onPep6AdminChange = (admin) => {
+  if (admin) {
+    updateStudentLoginToggleUi();
+    refreshPendingEdits();
+    refreshLicenseList();
+  } else {
+    if (elements.licenseList) elements.licenseList.innerHTML = "";
+    if (elements.pendingEditsList) elements.pendingEditsList.innerHTML = "";
+    if (elements.licenseGenFeedback) elements.licenseGenFeedback.textContent = "";
+  }
 };
 
 async function initAuthNonBlocking() {

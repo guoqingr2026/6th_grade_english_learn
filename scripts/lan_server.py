@@ -536,6 +536,16 @@ class LanHandler(SimpleHTTPRequestHandler):
             return None
         return claims
 
+    def ensure_admin_auth(self) -> dict | None:
+        claims = self.ensure_license_auth()
+        if claims is None:
+            return None
+        if self.auth_required() and not self.local_auth_bypass():
+            if str(claims.get("role") or "") != "admin":
+                self.send_json(403, {"error": "需要管理员权限"})
+                return None
+        return claims
+
     def queue_or_apply_save(
         self,
         kind: str,
@@ -685,6 +695,7 @@ class LanHandler(SimpleHTTPRequestHandler):
                             .astimezone()
                             .isoformat(timespec="seconds")
                         )
+            student_login = license_auth.student_login_enabled() if license_auth else False
             self.send_json(
                 200,
                 {
@@ -695,12 +706,15 @@ class LanHandler(SimpleHTTPRequestHandler):
                     "licenseLabel": claims.get("label", "") if claims else "",
                     "expiresAt": expires_at,
                     "permanent": role == "admin",
+                    "studentLoginEnabled": student_login,
                 },
             )
             return
         if parsed.path == "/api/admin/licenses":
             if not admin_lib:
                 self.send_json(500, {"error": "admin module missing"})
+                return
+            if self.ensure_admin_auth() is None:
                 return
             qs = parse_qs(parsed.query)
             pin = self.admin_pin_from_request(qs)
@@ -827,17 +841,37 @@ class LanHandler(SimpleHTTPRequestHandler):
                         username = license_auth.default_admin_user()
                     result = license_auth.login_with_password(username, password)
                 elif code:
+                    if not license_auth.student_login_enabled():
+                        self.send_json(403, {"error": "学生授权码登录未开放，请联系管理员"})
+                        return
                     result = license_auth.login_with_license(code)
                 else:
-                    self.send_json(400, {"error": "请输入用户名密码或授权码"})
+                    self.send_json(400, {"error": "请输入管理员密码或授权码"})
                     return
                 self.send_json(200, result)
             except ValueError as e:
                 self.send_json(403, {"error": str(e)})
             return
+        if parsed.path == "/api/admin/student-login":
+            if not license_auth:
+                self.send_json(500, {"error": "license module missing"})
+                return
+            if self.ensure_admin_auth() is None:
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            enabled = bool(body.get("enabled"))
+            cfg = license_auth.set_student_login_enabled(enabled)
+            self.send_json(200, {"ok": True, "studentLoginEnabled": cfg.get("studentLoginEnabled", False)})
+            return
         if parsed.path == "/api/admin/licenses/generate":
             if not license_auth or not admin_lib:
                 self.send_json(500, {"error": "module missing"})
+                return
+            if self.ensure_admin_auth() is None:
                 return
             try:
                 body = self.read_json_body()

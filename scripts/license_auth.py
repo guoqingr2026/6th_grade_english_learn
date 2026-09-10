@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 AUTH_DIR = ROOT / "data" / "auth"
 LICENSES_FILE = AUTH_DIR / "licenses.json"
 ADMIN_USERS_FILE = AUTH_DIR / "admin-users.json"
+SITE_CONFIG_FILE = AUTH_DIR / "site-config.json"
 MASTER_KEY_FILE = AUTH_DIR / ".master_key"
 JWT_SECRET_FILE = AUTH_DIR / ".jwt_secret"
 
@@ -102,6 +103,38 @@ def find_admin_user(username: str) -> dict | None:
         if str(item.get("username") or "").lower() == name and item.get("active", True):
             return item
     return None
+
+
+def load_site_config() -> dict:
+    if not SITE_CONFIG_FILE.exists():
+        return {"studentLoginEnabled": False}
+    try:
+        data = json.loads(SITE_CONFIG_FILE.read_text(encoding="utf-8"))
+        return {
+            "studentLoginEnabled": bool(data.get("studentLoginEnabled", False)),
+        }
+    except (json.JSONDecodeError, OSError):
+        return {"studentLoginEnabled": False}
+
+
+def save_site_config(config: dict) -> dict:
+    _ensure_auth_dir()
+    payload = {
+        "studentLoginEnabled": bool(config.get("studentLoginEnabled", False)),
+        "updatedAt": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
+    }
+    SITE_CONFIG_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return payload
+
+
+def student_login_enabled() -> bool:
+    return bool(load_site_config().get("studentLoginEnabled"))
+
+
+def set_student_login_enabled(enabled: bool) -> dict:
+    cfg = load_site_config()
+    cfg["studentLoginEnabled"] = bool(enabled)
+    return save_site_config(cfg)
 
 
 def bootstrap_admin_user() -> dict:

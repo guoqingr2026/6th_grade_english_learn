@@ -9,6 +9,7 @@
   let licenseLabel = "";
   let licenseExpiresAt = "";
   let isAdmin = false;
+  let studentLoginEnabled = false;
 
   const els = {};
   const AUTH_FETCH_MS = 8000;
@@ -64,6 +65,14 @@
     return !authRequired || loggedIn;
   }
 
+  function isAdminUser() {
+    return isAdmin;
+  }
+
+  function isStudentLoginEnabled() {
+    return studentLoginEnabled;
+  }
+
   function formatLicenseInput(value) {
     const raw = String(value || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
     if (!raw) return "";
@@ -72,10 +81,30 @@
     return "PEP6-" + chunks.join("-");
   }
 
+  function applyAdminUi() {
+    document.body.classList.toggle("pep6-admin", isAdmin);
+    if (typeof window.onPep6AdminChange === "function") {
+      window.onPep6AdminChange(isAdmin);
+    }
+  }
+
+  function applyStudentLoginUi() {
+    const showStudent = studentLoginEnabled && !isAdmin;
+    if (els.studentBlock) {
+      els.studentBlock.classList.toggle("hidden", !showStudent);
+    }
+    if (els.gateIntro) {
+      els.gateIntro.textContent = showStudent
+        ? "请输入管理员密码，或使用老师发放的 PEP6 授权码登录。"
+        : "请输入管理员密码登录。学生授权码入口由管理员开放后显示。";
+    }
+  }
+
   function showGate(message) {
     if (!els.gate) return;
     els.gate.classList.remove("hidden");
     document.body.classList.add("auth-locked");
+    applyStudentLoginUi();
     if (els.feedback && message) {
       els.feedback.textContent = message;
       els.feedback.dataset.tone = "warn";
@@ -96,16 +125,19 @@
     }
     els.statusBar.classList.remove("hidden");
     if (loggedIn) {
-      const exp = isAdmin
-        ? " · 永久有效"
-        : licenseExpiresAt
-          ? ` · 有效期至 ${licenseExpiresAt}`
-          : "";
-      els.statusBar.textContent = `已授权：${licenseLabel || "学习许可"}${exp}`;
+      if (isAdmin) {
+        els.statusBar.textContent = "管理员已登录 · 永久有效";
+        els.statusBar.dataset.tone = "ok";
+        return;
+      }
+      const exp = licenseExpiresAt ? ` · 有效期至 ${licenseExpiresAt}` : "";
+      els.statusBar.textContent = `已登录：${licenseLabel || "学习许可"}${exp}`;
       els.statusBar.dataset.tone = "ok";
-    } else {
+    } else if (studentLoginEnabled) {
       els.statusBar.textContent = "需要授权码登录后才能同步学习数据";
       els.statusBar.dataset.tone = "warn";
+    } else {
+      els.statusBar.classList.add("hidden");
     }
   }
 
@@ -123,9 +155,12 @@
       authRequired = Boolean(data.authRequired);
       loggedIn = Boolean(data.loggedIn);
       isAdmin = Boolean(data.permanent) || data.role === "admin";
+      studentLoginEnabled = Boolean(data.studentLoginEnabled);
       licenseLabel = data.licenseLabel || "";
       licenseExpiresAt = data.expiresAt || "";
       if (!loggedIn && getToken()) setToken("");
+      applyAdminUi();
+      applyStudentLoginUi();
       if (authRequired && !loggedIn) showGate();
       else hideGate();
       updateStatusBar();
@@ -133,7 +168,9 @@
     } catch {
       authRequired = false;
       loggedIn = false;
+      isAdmin = false;
       unlockPage();
+      applyAdminUi();
       updateStatusBar();
       return true;
     }
@@ -155,12 +192,17 @@
     licenseLabel = data.licenseLabel || "";
     licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
+    applyAdminUi();
+    applyStudentLoginUi();
     hideGate();
     updateStatusBar();
     return data;
   }
 
   async function login(code) {
+    if (!studentLoginEnabled) {
+      throw new Error("学生授权码登录未开放，请联系管理员");
+    }
     const license = formatLicenseInput(code);
     if (!license || license.length < 10) {
       throw new Error("请输入完整授权码（格式 PEP6-XXXX-XXXX-XXXX）");
@@ -178,6 +220,8 @@
     licenseLabel = data.licenseLabel || "";
     licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
+    applyAdminUi();
+    applyStudentLoginUi();
     hideGate();
     updateStatusBar();
     return data;
@@ -187,7 +231,9 @@
     setToken("");
     loggedIn = false;
     isAdmin = false;
-    if (authRequired) showGate("已退出，请重新输入授权码。");
+    applyAdminUi();
+    applyStudentLoginUi();
+    if (authRequired) showGate("已退出，请重新登录。");
     updateStatusBar();
   }
 
@@ -208,13 +254,23 @@
     els.logout = document.getElementById("authLogoutBtn");
     els.feedback = document.getElementById("authFeedback");
     els.statusBar = document.getElementById("authStatusBar");
+    els.studentBlock = document.getElementById("authStudentLoginBlock");
+    els.gateIntro = document.getElementById("authGateIntro");
 
     if (els.input) {
       els.input.addEventListener("input", () => {
         const pos = els.input.selectionStart;
         els.input.value = formatLicenseInput(els.input.value);
+        try {
+          els.input.setSelectionRange(pos, pos);
+        } catch { /* ignore */ }
       });
       els.input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") els.submit?.click();
+      });
+    }
+    if (els.password) {
+      els.password.addEventListener("keydown", (e) => {
         if (e.key === "Enter") els.submit?.click();
       });
     }
@@ -224,12 +280,14 @@
         try {
           const license = (els.input?.value || "").trim();
           const adminPwd = (els.password?.value || "").trim();
-          if (license) {
+          if (license && studentLoginEnabled) {
             await login(license);
           } else if (adminPwd) {
             await loginWithAdminPassword(adminPwd);
+          } else if (license && !studentLoginEnabled) {
+            throw new Error("学生授权码登录未开放，请联系管理员");
           } else {
-            throw new Error("请输入学生授权码或管理员密码");
+            throw new Error("请输入管理员密码");
           }
           if (els.feedback) {
             els.feedback.textContent = "登录成功，可以开始学习与同步。";
@@ -271,6 +329,8 @@
     refreshStatus,
     isAuthRequired,
     isLoggedIn,
+    isAdmin: isAdminUser,
+    isStudentLoginEnabled,
     formatLicenseInput,
   };
 })();

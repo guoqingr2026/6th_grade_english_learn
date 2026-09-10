@@ -4608,3 +4608,28 @@ body.auth-locked .app {
   border-bottom: 1px solid #e8eeff;
   font-size: 0.95rem;
 }
+
+.admin-only {
+  display: none !important;
+}
+
+body.pep6-admin .admin-only {
+  display: block !important;
+}
+
+.student-login-block.hidden {
+  display: none;
+}
+
+.license-student-login-row {
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.auth-student-hint {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}

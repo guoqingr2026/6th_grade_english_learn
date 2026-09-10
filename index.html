@@ -547,7 +547,7 @@
             <p id="lanSyncFeedback" class="model sync-feedback"></p>
             <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
           </div>
-          <div class="host-admin-box" id="hostAdminBox" aria-label="远程密码控制">
+          <div class="host-admin-box admin-only" id="hostAdminBox" aria-label="远程密码控制">
             <p class="topic-title small-title">远程密码控制（课文改写审核）</p>
             <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
             <div class="actions host-admin-actions">
@@ -558,7 +558,11 @@
             <div id="pendingEditsList" class="pending-edits-list" aria-live="polite"></div>
             <div class="license-admin-box" id="licenseAdminBox" aria-label="授权码管理">
               <p class="topic-title small-title">学习授权码（License）</p>
-              <p class="model">ECS 云端部署后，学生需输入授权码才能同步学习数据。授权码带有效期，由管理员生成。</p>
+              <p class="model">学生需输入授权码才能同步学习数据。下方可开放/关闭学生登录入口，并生成带有效期的授权码。</p>
+              <div class="actions license-student-login-row">
+                <button type="button" id="toggleStudentLoginBtn" class="secondary-btn">开放学生授权码登录</button>
+                <span id="studentLoginStatus" class="model"></span>
+              </div>
               <div class="actions license-admin-actions">
                 <input id="licenseLabelInput" type="text" placeholder="标签，如 六(1)班" />
                 <input id="licenseDaysInput" type="number" min="1" max="3650" value="365" placeholder="有效天数" />
@@ -801,23 +805,25 @@
     <div id="authGate" class="auth-gate hidden" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
       <div class="auth-gate-card">
         <h2 id="authGateTitle">登录学习平台</h2>
-        <p class="model">学生请输入老师发放的 PEP6 授权码；管理员请输入管理员密码。登录一次后自动记住，到期前无需重复登录。</p>
-        <label class="auth-label" for="authLicenseInput">学生授权码 License</label>
-        <input id="authLicenseInput" type="text" class="auth-license-input" placeholder="PEP6-XXXX-XXXX-XXXX" autocomplete="off" />
+        <p class="model" id="authGateIntro">请输入管理员密码登录。学生授权码入口由管理员开放后显示。</p>
+        <div id="authStudentLoginBlock" class="student-login-block hidden">
+          <label class="auth-label" for="authLicenseInput">学生授权码</label>
+          <input id="authLicenseInput" type="text" class="auth-license-input" placeholder="PEP6-XXXX-XXXX-XXXX" autocomplete="off" />
+          <p class="model auth-student-hint">也可使用老师发放的 PEP6 授权码登录。</p>
+        </div>
         <label class="auth-label" for="authPasswordInput">管理员密码</label>
         <input id="authPasswordInput" type="password" class="auth-license-input" placeholder="请输入管理员密码" autocomplete="current-password" />
-        <p class="model auth-admin-hint">填写授权码或管理员密码其中一项即可登录。</p>
         <button id="authLoginBtn" type="button" class="primary-btn auth-login-btn">登录并进入</button>
         <p id="authFeedback" class="auth-feedback" aria-live="polite"></p>
       </div>
     </div>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="./assets/vendor/lame.min.js"></script>
-    <script src="./pep6-base.js?v=20260910-2"></script>
-    <script defer src="./study-hub.js?v=20260910-2"></script>
-    <script src="./auth.js?v=20260910-2"></script>
+    <script src="./pep6-base.js?v=20260910-3"></script>
+    <script defer src="./study-hub.js?v=20260910-3"></script>
+    <script src="./auth.js?v=20260910-3"></script>
     <script src="./gratitude.js"></script>
-    <script src="./app.js?v=20260910-2"></script>
+    <script src="./app.js?v=20260910-3"></script>
     <script defer src="./mastery.js"></script>
   </body>
 </html>

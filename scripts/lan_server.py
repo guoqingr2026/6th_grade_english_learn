@@ -30,6 +30,10 @@ try:
     import study_hub_admin as admin_lib
 except ImportError:
     admin_lib = None
+try:
+    import license_auth
+except ImportError:
+    license_auth = None
 
 
 def _is_private_ipv4(ip: str) -> bool:
@@ -120,6 +124,28 @@ def parse_ts(value: str) -> float:
 
 def data_path(sync_id: str) -> Path:
     return SYNC_DIR / f"{sync_id}.json"
+
+
+def load_sync_payload(sync_id: str) -> dict | None:
+    path = data_path(sync_id)
+    if license_auth:
+        return license_auth.read_encrypted_json(path)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else None
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def save_sync_payload(sync_id: str, payload: dict) -> None:
+    path = data_path(sync_id)
+    if license_auth:
+        license_auth.write_encrypted_json(path, payload)
+        return
+    SYNC_DIR.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def log_path(sync_id: str) -> Path:
@@ -395,7 +421,7 @@ def merge_payload(sync_id: str, client_payload: dict, device: str) -> dict:
     if not file_path.exists():
         payload = dict(client_payload)
         payload["updatedAt"] = payload.get("updatedAt") or now_iso()
-        file_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        save_sync_payload(sync_id, payload)
         entry = make_log(
             "initialized",
             client_device,
@@ -405,7 +431,7 @@ def merge_payload(sync_id: str, client_payload: dict, device: str) -> dict:
         recent = append_log(sync_id, entry)
         return {"action": "initialized", "payload": payload, "log": entry, "logs": recent}
 
-    server_payload = json.loads(file_path.read_text(encoding="utf-8"))
+    server_payload = load_sync_payload(sync_id) or {}
     merged = merge_sync_payload(client_payload, server_payload)
     if payloads_equal(merged, server_payload):
         action = "same"
@@ -418,7 +444,7 @@ def merge_payload(sync_id: str, client_payload: dict, device: str) -> dict:
         recent = append_log(sync_id, entry)
         return {"action": action, "payload": server_payload, "log": entry, "logs": recent}
     merged["updatedAt"] = now_iso()
-    file_path.write_text(json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
+    save_sync_payload(sync_id, merged)
     entry = make_log(
         "merged",
         client_device,
@@ -482,6 +508,33 @@ class LanHandler(SimpleHTTPRequestHandler):
         if qs:
             return str(qs.get("adminPin", [""])[0]).strip()
         return ""
+
+    def bearer_token(self) -> str:
+        auth = (self.headers.get("Authorization") or "").strip()
+        if auth.lower().startswith("bearer "):
+            return auth[7:].strip()
+        return (self.headers.get("X-Auth-Token") or "").strip()
+
+    def auth_required(self) -> bool:
+        return bool(license_auth and license_auth.auth_enabled())
+
+    def local_auth_bypass(self) -> bool:
+        return bool(
+            license_auth
+            and license_auth.allow_local_without_auth()
+            and admin_lib
+            and admin_lib.is_local_client_ip(self.client_ip())
+        )
+
+    def ensure_license_auth(self) -> dict | None:
+        if not self.auth_required() or self.local_auth_bypass():
+            return {}
+        token = self.bearer_token()
+        claims = license_auth.verify_token(token) if token and license_auth else None
+        if not claims:
+            self.send_json(401, {"error": "需要有效授权码登录", "authRequired": True})
+            return None
+        return claims
 
     def queue_or_apply_save(
         self,
@@ -580,7 +633,7 @@ class LanHandler(SimpleHTTPRequestHandler):
         self.send_response(204)
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Admin-Pin")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Admin-Pin, Authorization, X-Auth-Token")
         self.end_headers()
 
     def do_GET(self):
@@ -606,10 +659,42 @@ class LanHandler(SimpleHTTPRequestHandler):
                         "save-snip",
                         "list-snips",
                         "admin-approval",
+                        "license-auth",
                     ],
+                    "authRequired": self.auth_required() and not self.local_auth_bypass(),
                     "isLocalClient": admin_lib.is_local_client_ip(self.client_ip()) if admin_lib else False,
                 },
             )
+            return
+        if parsed.path == "/api/auth/status":
+            token = self.bearer_token()
+            claims = license_auth.verify_token(token) if token and license_auth else None
+            self.send_json(
+                200,
+                {
+                    "ok": True,
+                    "authRequired": self.auth_required() and not self.local_auth_bypass(),
+                    "loggedIn": bool(claims),
+                    "licenseLabel": claims.get("label", "") if claims else "",
+                    "expiresAt": datetime.fromtimestamp(int(claims.get("exp") or 0), tz=timezone.utc)
+                    .astimezone()
+                    .isoformat(timespec="seconds")
+                    if claims and claims.get("exp")
+                    else "",
+                },
+            )
+            return
+        if parsed.path == "/api/admin/licenses":
+            if not admin_lib:
+                self.send_json(500, {"error": "admin module missing"})
+                return
+            qs = parse_qs(parsed.query)
+            pin = self.admin_pin_from_request(qs)
+            if not admin_lib.is_local_client_ip(self.client_ip()) and not admin_lib.verify_admin_pin(pin):
+                self.send_json(403, {"error": "需要主机管理员密码"})
+                return
+            rows = license_auth.public_license_rows() if license_auth else []
+            self.send_json(200, {"ok": True, "items": rows})
             return
         if parsed.path == "/api/study-hub/admin/config":
             if not admin_lib:
@@ -638,6 +723,8 @@ class LanHandler(SimpleHTTPRequestHandler):
             self.send_json(200, {"ok": True, "items": admin_lib.list_pending_edits()})
             return
         if parsed.path == "/api/sync/logs":
+            if self.ensure_license_auth() is None:
+                return
             sync_id = safe_sync_id(parse_qs(parsed.query).get("syncId", [""])[0])
             if not sync_id:
                 self.send_json(400, {"error": "missing syncId"})
@@ -646,15 +733,16 @@ class LanHandler(SimpleHTTPRequestHandler):
             self.send_json(200, {"logs": logs[-20:]})
             return
         if parsed.path == "/api/sync":
+            if self.ensure_license_auth() is None:
+                return
             sync_id = safe_sync_id(parse_qs(parsed.query).get("syncId", [""])[0])
             if not sync_id:
                 self.send_json(400, {"error": "missing syncId"})
                 return
-            file_path = data_path(sync_id)
-            if not file_path.exists():
+            data = load_sync_payload(sync_id)
+            if not data:
                 self.send_json(404, {"error": "not found"})
                 return
-            data = json.loads(file_path.read_text(encoding="utf-8"))
             self.send_json(200, data)
             return
         if parsed.path == "/api/study-hub/refresh":
@@ -707,7 +795,47 @@ class LanHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parsed = urlparse(self.path)
+        if parsed.path == "/api/auth/login":
+            if not license_auth:
+                self.send_json(500, {"error": "license module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            code = str(body.get("license") or body.get("code") or "").strip()
+            if not code:
+                self.send_json(400, {"error": "请输入授权码"})
+                return
+            try:
+                result = license_auth.login_with_license(code)
+                self.send_json(200, result)
+            except ValueError as e:
+                self.send_json(403, {"error": str(e)})
+            return
+        if parsed.path == "/api/admin/licenses/generate":
+            if not license_auth or not admin_lib:
+                self.send_json(500, {"error": "module missing"})
+                return
+            try:
+                body = self.read_json_body()
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "invalid json"})
+                return
+            pin = str(body.get("adminPin") or self.headers.get("X-Admin-Pin") or "").strip()
+            if not admin_lib.is_local_client_ip(self.client_ip()) and not admin_lib.verify_admin_pin(pin):
+                self.send_json(403, {"error": "需要主机管理员密码"})
+                return
+            days = int(body.get("days") or 365)
+            label = str(body.get("label") or "").strip()
+            max_users = int(body.get("maxUsers") or 0)
+            created = license_auth.create_license(days, label, max_users)
+            self.send_json(200, {"ok": True, "license": created})
+            return
         if parsed.path == "/api/sync/merge":
+            if self.ensure_license_auth() is None:
+                return
             try:
                 body = self.read_json_body()
             except json.JSONDecodeError:
@@ -723,6 +851,8 @@ class LanHandler(SimpleHTTPRequestHandler):
             self.send_json(200, result)
             return
         if parsed.path == "/api/sync":
+            if self.ensure_license_auth() is None:
+                return
             try:
                 body = self.read_json_body()
             except json.JSONDecodeError:
@@ -733,10 +863,7 @@ class LanHandler(SimpleHTTPRequestHandler):
             if not sync_id or not isinstance(payload, dict):
                 self.send_json(400, {"error": "syncId and payload required"})
                 return
-            SYNC_DIR.mkdir(parents=True, exist_ok=True)
-            data_path(sync_id).write_text(
-                json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
-            )
+            save_sync_payload(sync_id, payload)
             self.send_json(200, {"ok": True, "syncId": sync_id, "updatedAt": payload.get("updatedAt", "")})
             return
         if parsed.path == "/api/study-hub/refresh":
@@ -1113,6 +1240,10 @@ def main() -> None:
     print(f"[LAN] Static + sync server: http://0.0.0.0:{PORT}")
     print(f"[LAN] Study Hub API v3 (save-page / import-csv / library / upload-media)")
     print(f"[LAN] Sync folder: {SYNC_DIR}")
+    if license_auth and license_auth.auth_enabled():
+        print("[LAN] License auth: ENABLED (encrypted sync storage)")
+    else:
+        print("[LAN] License auth: disabled (set PEP6_AUTH_REQUIRED=1 on ECS)")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

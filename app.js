@@ -574,6 +574,11 @@ const elements = {
   requireRemoteApproval: document.getElementById("requireRemoteApproval"),
   pendingEditsList: document.getElementById("pendingEditsList"),
   hostAdminBox: document.getElementById("hostAdminBox"),
+  licenseLabelInput: document.getElementById("licenseLabelInput"),
+  licenseDaysInput: document.getElementById("licenseDaysInput"),
+  generateLicenseBtn: document.getElementById("generateLicenseBtn"),
+  licenseList: document.getElementById("licenseList"),
+  licenseGenFeedback: document.getElementById("licenseGenFeedback"),
 };
 
 function loadStats() {
@@ -929,6 +934,75 @@ async function resolvePendingEdit(id, approve) {
   if (window.StudyHub?.applyLanSync) window.StudyHub.applyLanSync();
 }
 
+function syncApiHeaders(extra = {}) {
+  if (window.Pep6Auth && typeof window.Pep6Auth.authHeaders === "function") {
+    return window.Pep6Auth.authHeaders(extra);
+  }
+  return extra;
+}
+
+async function refreshLicenseList() {
+  if (!elements.licenseList) return;
+  const pin = getAdminPin();
+  if (!pin && !isLocalHostClient() && !serverReportsLocalClient) {
+    elements.licenseList.innerHTML = "<p class=\"model\">输入管理员密码后可管理授权码。</p>";
+    return;
+  }
+  try {
+    const url = `/api/admin/licenses?adminPin=${encodeURIComponent(pin)}`;
+    const res = await fetch(url, { cache: "no-store", headers: syncApiHeaders() });
+    if (!res.ok) {
+      elements.licenseList.innerHTML = "<p class=\"model\">无法加载授权列表。</p>";
+      return;
+    }
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+    if (!items.length) {
+      elements.licenseList.innerHTML = "<p class=\"model\">暂无授权码，可点击下方生成。</p>";
+      return;
+    }
+    elements.licenseList.innerHTML = items
+      .map((item) => {
+        const status = item.valid && item.active ? "有效" : "无效";
+        return `<div class="license-row"><strong>${item.label || "未命名"}</strong> · 到期 ${item.expiresAt || "-"} · ${status}<br><span class="model">ID: ${item.id}</span></div>`;
+      })
+      .join("");
+  } catch {
+    elements.licenseList.innerHTML = "";
+  }
+}
+
+async function generateLicenseCode() {
+  const pin = getAdminPin();
+  if (!pin && !isLocalHostClient() && !serverReportsLocalClient) {
+    window.alert("请先输入并保存管理员密码。");
+    return;
+  }
+  const label = elements.licenseLabelInput?.value?.trim() || "班级授权";
+  const days = Number(elements.licenseDaysInput?.value) || 365;
+  const res = await fetch("/api/admin/licenses/generate", {
+    method: "POST",
+    headers: syncApiHeaders({ "Content-Type": "application/json", "X-Admin-Pin": pin }),
+    body: JSON.stringify({ adminPin: pin, label, days, maxUsers: 0 }),
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    if (elements.licenseGenFeedback) {
+      elements.licenseGenFeedback.textContent = data.error || "生成失败";
+      elements.licenseGenFeedback.style.color = "#b00020";
+    }
+    return;
+  }
+  const code = data.license?.code || "";
+  if (elements.licenseGenFeedback) {
+    elements.licenseGenFeedback.textContent = code
+      ? `新授权码（请妥善保存，仅显示一次）：${code}`
+      : "授权码已生成";
+    elements.licenseGenFeedback.style.color = "#0f9d58";
+  }
+  await refreshLicenseList();
+}
+
 async function initHostAdminPanel() {
   const savedPin = window.localStorage.getItem(ADMIN_PIN_KEY) || "";
   if (elements.adminPinInput && savedPin) elements.adminPinInput.value = savedPin;
@@ -936,10 +1010,15 @@ async function initHostAdminPanel() {
   if (cfg && elements.requireRemoteApproval) {
     elements.requireRemoteApproval.checked = Boolean(cfg.requireRemoteApproval);
   }
+  if (elements.generateLicenseBtn) {
+    elements.generateLicenseBtn.addEventListener("click", () => generateLicenseCode());
+  }
   await refreshPendingEdits();
+  await refreshLicenseList();
   window.setInterval(() => {
     if (document.hidden) return;
     refreshPendingEdits();
+    refreshLicenseList();
   }, 20000);
 }
 
@@ -3163,7 +3242,14 @@ async function refreshLanAccessBox() {
 }
 
 async function fetchServerSyncLogs(syncId) {
-  const res = await fetch(`/api/sync/logs?syncId=${encodeURIComponent(syncId)}`, { cache: "no-store" });
+  const res = await fetch(`/api/sync/logs?syncId=${encodeURIComponent(syncId)}`, {
+    cache: "no-store",
+    headers: syncApiHeaders(),
+  });
+  if (res.status === 401) {
+    window.Pep6Auth?.logout?.();
+    return null;
+  }
   if (!res.ok) return null;
   const data = await res.json();
   return Array.isArray(data.logs) ? data.logs : null;
@@ -3190,15 +3276,24 @@ async function syncDataNow(options = {}) {
     if (!(await pingLanServer())) {
       throw new Error("no_server");
     }
+    if (window.Pep6Auth && !(await window.Pep6Auth.ensureAuth())) {
+      if (!silent) setLanSyncFeedback("请先输入有效授权码登录后再同步。", "warn");
+      return false;
+    }
     const res = await fetch("/api/sync/merge", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: syncApiHeaders({ "Content-Type": "application/json" }),
       body: JSON.stringify({
         syncId,
         payload: collectSyncPayload(),
         device: getDeviceLabel(),
       }),
     });
+    if (res.status === 401) {
+      window.Pep6Auth?.logout?.();
+      if (!silent) setLanSyncFeedback("授权已失效，请重新登录。", "warn");
+      return false;
+    }
     if (!res.ok) throw new Error("merge_failed");
     const result = await res.json();
     if (result.action === "same" && options.silent) {
@@ -3525,7 +3620,14 @@ async function loadQuestionBanks() {
   applyMergedQuestionBanks(loadCustomBanks());
 }
 
+window.onPep6AuthLogin = () => {
+  if (getLanSyncId()) syncDataNow({ silent: true, reason: "auth" });
+};
+
 async function init() {
+  if (window.Pep6Auth && typeof window.Pep6Auth.init === "function") {
+    await window.Pep6Auth.init();
+  }
   await loadQuestionBanks();
   verbTriples = await loadIrregularVerbs();
   filteredVerbTriples = [...verbTriples];

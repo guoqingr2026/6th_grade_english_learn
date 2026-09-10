@@ -1,0 +1,16 @@
+[Unit]
+Description=PEP6 English Trainer LAN Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/pep6-english
+EnvironmentFile=/etc/pep6-english/env
+ExecStart=/usr/bin/python3 /opt/pep6-english/scripts/lan_server.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

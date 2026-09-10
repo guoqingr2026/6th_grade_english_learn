@@ -14,6 +14,7 @@
         <h1>新人教PEP六年上英语学习训练营V1.0</h1>
         <p class="hero-subtitle">旭日长空光照人生 （Sunshine Life Team) 出品</p>
         <p>覆盖语法、句型、单词、常用语和动词过去式专项练习。</p>
+        <p id="authStatusBar" class="auth-status-bar hidden" aria-live="polite"></p>
       </header>
 
       <section class="mobile-quick-bar" id="mobileQuickBar" aria-label="手机快捷同步">
@@ -554,8 +555,20 @@
               <label class="host-admin-toggle"><input id="requireRemoteApproval" type="checkbox" checked /> 远程改写需审核</label>
             </div>
             <div id="pendingEditsList" class="pending-edits-list" aria-live="polite"></div>
+            <div class="license-admin-box" id="licenseAdminBox" aria-label="授权码管理">
+              <p class="topic-title small-title">学习授权码（License）</p>
+              <p class="model">ECS 云端部署后，学生需输入授权码才能同步学习数据。授权码带有效期，由管理员生成。</p>
+              <div class="actions license-admin-actions">
+                <input id="licenseLabelInput" type="text" placeholder="标签，如 六(1)班" />
+                <input id="licenseDaysInput" type="number" min="1" max="3650" value="365" placeholder="有效天数" />
+                <button id="generateLicenseBtn" type="button" class="primary-btn">生成授权码</button>
+              </div>
+              <p id="licenseGenFeedback" class="model"></p>
+              <div id="licenseList" class="license-list" aria-live="polite"></div>
+            </div>
             <div class="actions host-admin-reset-row">
               <button id="resetAllStats" type="button" class="secondary-btn danger-btn">一键重置练习统计</button>
+              <button id="authLogoutBtn" type="button" class="secondary-btn">退出授权登录</button>
             </div>
           </div>
           <div class="actions profile-main-actions">
@@ -784,9 +797,20 @@
       </div>
     </div>
     <div id="fxLayer" class="fx-layer"></div>
+    <div id="authGate" class="auth-gate hidden" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
+      <div class="auth-gate-card">
+        <h2 id="authGateTitle">输入学习授权码</h2>
+        <p class="model">本站点已启用授权保护。请输入老师发放的授权码（格式 PEP6-XXXX-XXXX-XXXX）后开始学习与同步。</p>
+        <label class="auth-label" for="authLicenseInput">授权码 License</label>
+        <input id="authLicenseInput" type="text" class="auth-license-input" placeholder="PEP6-XXXX-XXXX-XXXX" autocomplete="off" />
+        <button id="authLoginBtn" type="button" class="primary-btn auth-login-btn">验证并进入</button>
+        <p id="authFeedback" class="auth-feedback" aria-live="polite"></p>
+      </div>
+    </div>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="./assets/vendor/lame.min.js"></script>
     <script defer src="./study-hub.js?v=20260907-3"></script>
+    <script src="./auth.js"></script>
     <script src="./gratitude.js"></script>
     <script src="./app.js"></script>
     <script defer src="./mastery.js"></script>

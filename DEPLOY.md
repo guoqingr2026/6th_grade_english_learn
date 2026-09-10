@@ -299,7 +299,59 @@ sync-release.bat
 
 ---
 
-## 六、注意事项
+## 六、阿里云 ECS（多用户 + 授权码 + 加密同步）
+
+若需要 **多设备云端同步**、**授权码登录**、**服务器端加密存储**，请使用 ECS（而非纯 OSS 静态托管）。
+
+### 功能说明
+
+| 功能 | 说明 |
+|------|------|
+| License 授权码 | 格式 `PEP6-XXXX-XXXX-XXXX`，带到期时间 |
+| 登录鉴权 | 同步 API 需 Bearer Token；网页弹出授权框 |
+| 数据加密 | `lan-sync/*.json` 在服务器上以 Fernet 加密存储 |
+| 多用户 | 每位学生用昵称作为 `syncId`，数据独立合并 |
+
+### 一键部署（Ubuntu ECS）
+
+```bash
+sudo bash deploy/ecs/deploy.sh
+```
+
+脚本会：安装 Python/nginx → 拉取代码到 `/opt/pep6-english` → 启用 `PEP6_AUTH_REQUIRED=1` → 启动 systemd 服务。
+
+### 生成授权码
+
+在 ECS 上执行：
+
+```bash
+cd /opt/pep6-english
+python3 scripts/gen_license.py --days 365 --label "六(1)班"
+```
+
+或在网页 **远程密码控制 → 学习授权码** 面板生成（需管理员密码）。
+
+### 环境变量（`/etc/pep6-english/env`）
+
+| 变量 | 说明 |
+|------|------|
+| `PEP6_AUTH_REQUIRED=1` | 开启授权（ECS 建议开启） |
+| `PEP6_AUTH_ALLOW_LOCAL=0` | 云端建议关闭本机绕过 |
+| `PEP6_TOKEN_TTL` | 会话有效期（秒），默认 7 天 |
+
+### 安全组
+
+阿里云控制台 → ECS → 安全组 → 入方向放行 **TCP 80**（及 443 若配置 HTTPS）。
+
+### 更新代码
+
+```bash
+cd /opt/pep6-english && git pull && sudo systemctl restart pep6-english
+```
+
+---
+
+## 七、注意事项
 
 - 学习数据保存在浏览器 `localStorage`，不会随文件夹自动迁移
 - 建议使用 Chrome / Edge 浏览器

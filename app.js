@@ -569,6 +569,8 @@ const elements = {
   lanAccessBoxMobile: document.getElementById("lanAccessBoxMobile"),
   lanAccessUrlListMobile: document.getElementById("lanAccessUrlListMobile"),
   lanAccessCopyFeedbackMobile: document.getElementById("lanAccessCopyFeedbackMobile"),
+  mobileLanFold: document.getElementById("mobileLanFold"),
+  syncBarHint: document.getElementById("syncBarHint"),
   adminPinInput: document.getElementById("adminPinInput"),
   saveAdminPin: document.getElementById("saveAdminPin"),
   requireRemoteApproval: document.getElementById("requireRemoteApproval"),
@@ -818,6 +820,36 @@ function markRewarded(category, id) {
 function isLocalHostClient() {
   const host = window.location.hostname;
   return host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+}
+
+function isPrivateLanHost(hostname) {
+  const host = String(hostname || window.location.hostname || "").trim().toLowerCase();
+  if (!host || host === "localhost" || host === "[::1]" || host === "127.0.0.1") return true;
+  if (/^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(host)) return true;
+  if (/^192\.168\.\d{1,3}\.\d{1,3}$/.test(host)) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}$/.test(host)) return true;
+  return false;
+}
+
+function shouldExposeLanAccess(ping) {
+  if (!isPrivateLanHost(window.location.hostname)) return false;
+  if (ping && ping.exposeLanUrls === false) return false;
+  if (ping && ping.exposeLanUrls === true) return true;
+  return isLocalHostClient() || isPrivateLanHost(window.location.hostname);
+}
+
+function updateLanAccessVisibility(ping) {
+  const show = shouldExposeLanAccess(ping);
+  [elements.lanAccessBox, elements.lanAccessBoxMobile, elements.mobileLanFold].forEach((el) => {
+    if (!el) return;
+    el.classList.toggle("lan-local-visible", show);
+    el.classList.toggle("hidden", !show);
+  });
+  if (elements.syncBarHint) {
+    elements.syncBarHint.textContent = show
+      ? "电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。"
+      : "保存相同昵称后点「同步数据」，积分/错题/精讲会在云端自动同步（约15秒）。";
+  }
 }
 
 function getAdminPin() {
@@ -3194,18 +3226,21 @@ async function fetchLanPingInfo() {
 }
 
 function buildLanAccessUrls(ping) {
-  if (!ping) return [];
+  if (!ping || !shouldExposeLanAccess(ping)) return [];
   const port = Number(ping.port) || 8080;
-  const ips = Array.isArray(ping.lanIps) ? ping.lanIps.filter(Boolean) : [];
+  const ips = Array.isArray(ping.lanIps)
+    ? ping.lanIps.filter((ip) => ip && isPrivateLanHost(ip))
+    : [];
   if (ips.length) {
     return ips.map((ip) => ({ ip, url: `http://${ip}:${port}` }));
   }
   if (ping.mobileUrl) {
     try {
       const u = new URL(ping.mobileUrl);
+      if (!isPrivateLanHost(u.hostname)) return [];
       return [{ ip: u.hostname, url: ping.mobileUrl }];
     } catch {
-      return [{ ip: "", url: ping.mobileUrl }];
+      return [];
     }
   }
   return [];
@@ -3282,6 +3317,7 @@ async function copyLanAccessUrl(url, feedbackEl) {
 async function refreshLanAccessBox() {
   const ping = await fetchLanPingInfo();
   serverReportsLocalClient = Boolean(ping?.isLocalClient);
+  updateLanAccessVisibility(ping);
   const urls = buildLanAccessUrls(ping);
   renderLanAccessUrlList(elements.lanAccessUrlList, urls, elements.lanAccessCopyFeedback);
   renderLanAccessUrlList(elements.lanAccessUrlListMobile, urls, elements.lanAccessCopyFeedbackMobile);
@@ -3295,8 +3331,13 @@ async function refreshLanAccessBox() {
       elements.lanAccessAlt.textContent = "";
     }
   }
-  if (elements.lanAccessBox) elements.lanAccessBox.classList.toggle("lan-access-unavailable", !ping);
-  if (elements.lanAccessBoxMobile) elements.lanAccessBoxMobile.classList.toggle("lan-access-unavailable", !ping);
+  const showLan = shouldExposeLanAccess(ping);
+  if (elements.lanAccessBox) {
+    elements.lanAccessBox.classList.toggle("lan-access-unavailable", showLan && !ping);
+  }
+  if (elements.lanAccessBoxMobile) {
+    elements.lanAccessBoxMobile.classList.toggle("lan-access-unavailable", showLan && !ping);
+  }
 }
 
 async function fetchServerSyncLogs(syncId) {
@@ -3712,6 +3753,7 @@ async function initAuthNonBlocking() {
 }
 
 async function init() {
+  updateLanAccessVisibility(null);
   const authTask = initAuthNonBlocking();
   await loadQuestionBanks();
   verbTriples = await loadIrregularVerbs();

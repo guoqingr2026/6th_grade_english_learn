@@ -26,7 +26,7 @@
           <button type="button" id="mobileSyncBtn" class="primary-btn mobile-sync-pill">同步</button>
         </div>
         <p id="mobileLanSyncFeedback" class="mobile-quick-feedback" aria-live="polite"></p>
-        <details class="mobile-lan-fold">
+        <details class="mobile-lan-fold lan-local-only hidden" id="mobileLanFold">
           <summary class="mobile-lan-fold-summary">局域网地址 · 点此展开复制</summary>
           <div class="lan-access-box lan-access-mobile" id="lanAccessBoxMobile" aria-label="手机局域网访问">
             <div id="lanAccessUrlListMobile" class="lan-access-url-list"></div>
@@ -94,13 +94,16 @@
         <button id="masteryMockExamBtn" type="button" class="tab tab-tool tab-mastery-mock">考前模拟卷</button>
       </nav>
 
-      <div class="manual-judge-bar" aria-label="手动判题">
-        <p class="manual-judge-label">手动判题 <span class="manual-judge-sub">（单词卡片、常用语、选择题等当前题目）</span></p>
-        <div class="manual-judge-actions">
-          <button id="markAnswerCorrect" type="button" class="manual-judge-btn manual-judge-correct">回答正确</button>
-          <button id="markAnswerWrong" type="button" class="manual-judge-btn manual-judge-wrong">回答错误</button>
-        </div>
-      </div>
+      <section class="manual-judge-dashboard" aria-label="手动判题">
+        <button id="markAnswerCorrect" type="button" class="stat-card manual-judge-stat manual-judge-stat-correct">
+          <h2>回答正确</h2>
+          <p>✓</p>
+        </button>
+        <button id="markAnswerWrong" type="button" class="stat-card manual-judge-stat manual-judge-stat-wrong">
+          <h2>回答错误</h2>
+          <p>✗</p>
+        </button>
+      </section>
 
       <section id="flashcards" class="panel active">
         <h2>单词卡片 (Vocabulary)</h2>
@@ -537,8 +540,8 @@
           </div>
           <div class="lan-sync-box sync-bar-sidebar" aria-label="数据同步">
             <button id="syncDataBtn" type="button" class="primary-btn sync-data-btn">同步数据（多端刷新）</button>
-            <p class="model sync-bar-hint">电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。</p>
-            <div class="lan-access-box" id="lanAccessBox" aria-label="局域网访问地址">
+            <p class="model sync-bar-hint" id="syncBarHint">电脑与手机打开同一局域网地址、保存相同昵称后，积分/错题/精讲会自动同步（约15秒）；也可手动点「同步数据」。</p>
+            <div class="lan-access-box lan-local-only hidden" id="lanAccessBox" aria-label="局域网访问地址">
               <p class="lan-access-label">手机 / iPad / Mac 访问地址（自动获取）</p>
               <div id="lanAccessUrlList" class="lan-access-url-list"></div>
               <p id="lanAccessAlt" class="model lan-access-alt hidden"></p>
@@ -547,7 +550,7 @@
             <p id="lanSyncFeedback" class="model sync-feedback"></p>
             <div id="syncLogList" class="sync-log-list" aria-live="polite"></div>
           </div>
-          <div class="host-admin-box admin-only" id="hostAdminBox" aria-label="远程密码控制">
+          <div class="host-admin-box admin-only hidden" id="hostAdminBox" aria-label="远程密码控制">
             <p class="topic-title small-title">远程密码控制（课文改写审核）</p>
             <p class="model">非本机（手机等）保存讲读/精讲时，需主机管理员批准后才会写入数据库。本机访问 localhost 可直接保存。</p>
             <div class="actions host-admin-actions">
@@ -573,8 +576,10 @@
             </div>
             <div class="actions host-admin-reset-row">
               <button id="resetAllStats" type="button" class="secondary-btn danger-btn">一键重置练习统计</button>
-              <button id="authLogoutBtn" type="button" class="secondary-btn">退出授权登录</button>
             </div>
+          </div>
+          <div id="authUserBar" class="auth-user-bar hidden">
+            <button id="authLogoutBtn" type="button" class="secondary-btn auth-logout-btn">退出授权登录</button>
           </div>
           <div class="actions profile-main-actions">
             <button id="exportReport" class="primary-btn">导出学习报告TXT</button>
@@ -819,11 +824,11 @@
     </div>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="./assets/vendor/lame.min.js"></script>
-    <script src="./pep6-base.js?v=20260910-3"></script>
-    <script defer src="./study-hub.js?v=20260910-3"></script>
-    <script src="./auth.js?v=20260910-3"></script>
+    <script src="./pep6-base.js?v=20260910-4"></script>
+    <script defer src="./study-hub.js?v=20260910-4"></script>
+    <script src="./auth.js?v=20260910-4"></script>
     <script src="./gratitude.js"></script>
-    <script src="./app.js?v=20260910-3"></script>
+    <script src="./app.js?v=20260910-4"></script>
     <script defer src="./mastery.js"></script>
   </body>
 </html>

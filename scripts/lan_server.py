@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import base64
 import json
+import os
 import re
 import socket
 import subprocess
@@ -526,6 +527,14 @@ class LanHandler(SimpleHTTPRequestHandler):
             and admin_lib.is_local_client_ip(self.client_ip())
         )
 
+    def expose_lan_urls(self) -> bool:
+        flag = os.environ.get("PEP6_EXPOSE_LAN_URLS", "").strip().lower()
+        if flag in ("0", "false", "no", "off"):
+            return False
+        if flag in ("1", "true", "yes", "on"):
+            return True
+        return not self.auth_required()
+
     def ensure_license_auth(self) -> dict | None:
         if not self.auth_required() or self.local_auth_bypass():
             return {}
@@ -649,7 +658,12 @@ class LanHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed = urlparse(self.path)
         if parsed.path == "/api/ping":
-            mobile_url, lan_ips = primary_mobile_url(PORT)
+            expose_lan = self.expose_lan_urls()
+            mobile_url, lan_ips = primary_mobile_url(PORT) if expose_lan else ("", [])
+            if expose_lan:
+                lan_ips = [ip for ip in lan_ips if _is_private_ipv4(ip)]
+                if not lan_ips:
+                    mobile_url = ""
             self.send_json(
                 200,
                 {
@@ -657,8 +671,9 @@ class LanHandler(SimpleHTTPRequestHandler):
                     "service": "lan-sync",
                     "studyHubApi": 3,
                     "port": PORT,
-                    "lanIps": lan_ips,
-                    "mobileUrl": mobile_url,
+                    "exposeLanUrls": expose_lan,
+                    "lanIps": lan_ips if expose_lan else [],
+                    "mobileUrl": mobile_url if expose_lan else "",
                     "features": [
                         "save-page",
                         "save-page-raw",

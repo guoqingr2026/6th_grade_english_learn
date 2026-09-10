@@ -83,9 +83,19 @@
 
   function applyAdminUi() {
     document.body.classList.toggle("pep6-admin", isAdmin);
+    const hostBox = document.getElementById("hostAdminBox");
+    if (hostBox) {
+      hostBox.classList.toggle("hidden", !isAdmin);
+    }
     if (typeof window.onPep6AdminChange === "function") {
       window.onPep6AdminChange(isAdmin);
     }
+  }
+
+  function applyAuthUserBar() {
+    const bar = document.getElementById("authUserBar");
+    if (!bar) return;
+    bar.classList.toggle("hidden", !(authRequired && loggedIn));
   }
 
   function applyStudentLoginUi() {
@@ -160,6 +170,7 @@
       licenseExpiresAt = data.expiresAt || "";
       if (!loggedIn && getToken()) setToken("");
       applyAdminUi();
+      applyAuthUserBar();
       applyStudentLoginUi();
       if (authRequired && !loggedIn) showGate();
       else hideGate();
@@ -193,6 +204,7 @@
     licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
     applyAdminUi();
+    applyAuthUserBar();
     applyStudentLoginUi();
     hideGate();
     updateStatusBar();
@@ -221,6 +233,7 @@
     licenseExpiresAt = data.licenseExpiresAt || data.expiresAt || "";
     authRequired = true;
     applyAdminUi();
+    applyAuthUserBar();
     applyStudentLoginUi();
     hideGate();
     updateStatusBar();
@@ -232,6 +245,7 @@
     loggedIn = false;
     isAdmin = false;
     applyAdminUi();
+    applyAuthUserBar();
     applyStudentLoginUi();
     if (authRequired) showGate("已退出，请重新登录。");
     updateStatusBar();
